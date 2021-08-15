@@ -4,3 +4,6 @@ vendor/
 node_modules
 
 assets/dist
+
+
+yarn-error.log
