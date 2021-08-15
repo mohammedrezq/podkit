@@ -111,7 +111,10 @@ function podkit_register_blocks() {
 
 	// Array of block created in this plugin.
 	$blocks = [
-		'podkit/static'
+		'podkit/static',
+		'podkit/editable',
+		'podkit/media',
+		'podkit/extended'
 	];
 	
 	// Loop through $blocks and register each block with the same script and styles.
@@ -123,6 +126,13 @@ function podkit_register_blocks() {
 		) );	  
 	}
 
+	register_block_type( 'podkit/dynamic', array(
+		'editor_script' => 'podkit-editor-script',					// Calls registered script above
+		'editor_style' => 'podkit-editor-styles',					// Calls registered stylesheet above
+		'style' => 'podkit-front-end-styles',						// Calls registered stylesheet above
+		'render_callback' => 'podkit_dynamic_render_callback',
+		) );	
+
 	if ( function_exists( 'wp_set_script_translations' ) ) {
 	/**
 	 * Adds internationalization support. 
@@ -133,4 +143,121 @@ function podkit_register_blocks() {
 	wp_set_script_translations( 'podkit-editor-script', 'podkit', plugin_dir_path( __FILE__ ) . '/languages' );
 	}
 
+}
+
+add_filter("rest_prepare_post", "podkit_feature_image_josn", 10, 3);
+
+function podkit_feature_image_josn($data, $post, $context) {
+	// Get the featured image ID from the REST API response
+	$featured_image_id = $data->data['featured_media'];
+
+	// Get the URL for a specific image size based on the image ID 
+	$featured_image_url = wp_get_attachment_image_src($featured_image_id, 'podkitFeatImg'); // get the url of podkitFaetImg
+
+
+	// If we have a URL, add it to the REST API response
+	if ($featured_image_url) {
+		$data->data['featured_image_podkitFeatImg_url'] = $featured_image_url[0];
+	}
+
+	return $data;
+}
+
+/**
+ * Build classes based on block attributes.
+ * Returns string of classes.
+ * 
+ * $attributes - array - Block attributes.
+ */
+function podkit_block_classes( $attributes ) {
+	$classes = null;
+	if ( $attributes['align'] ) {
+		$classes = 'align' . $attributes['align'] . ' ';
+	}
+
+	if ( $attributes['className'] ) {
+		$classes .= $attributes['className']; 
+	}
+
+	return $classes;
+}
+
+
+/**
+ * Serve up featured image is available, otherwise serve up logo.
+ * Returns <img> element.
+ * 
+ * $post - object - The post object.
+ */ 
+function podkit_post_img( $post ) {
+	$podkit_img = get_the_post_thumbnail( $post, 'podkitFeatImg' );
+	if ( empty( $podkit_img ) ) {
+		$url = plugins_url( "src/bv-logo-white.svg", __FILE__ );
+		$podkit_img = '<img src="' . $url . '" alt="Binaryville Podcast Logo" />';
+	}
+	return $podkit_img;
+}
+
+/**
+ * Render the saved output from the dynamic block.
+ * 
+ * $attributes - array - Block attributes.
+ * $content - Block inner content.
+ */
+function podkit_dynamic_render_callback( $attributes, $content ) {
+
+	global $post;
+
+	// Get the latest posts using wp_get_recent_posts().
+	$recent_posts = wp_get_recent_posts ( array(
+		'category' => 5,
+		'numberposts' => 1,
+		'post_status' => 'publish',
+	) );
+	
+	// Check if any posts were returned, if not, say so.
+	if ( 0 === count( $recent_posts ) ) {
+		return 'No posts.';
+	}
+
+	// Get the post ID for the first post returned.
+	$post_id = $recent_posts[0]['ID'];
+	
+	// Get the post object based on post ID.
+	$post = get_post( $post_id );
+
+	// Setup postdata so regular template functions work.
+	setup_postdata($post);
+
+	return sprintf(
+		'<div class="podkit-block podkit-dynamic %1$s">
+			<figure class="podkit-logo">
+				%2$s
+			</figure>
+			<div class="podkit-info">
+				<div class="podkit-nameplate">
+					The Binaryville Podcast
+				</div>
+				<h3 class="podkit-title">
+					%3$s
+				</h3>
+			</div>
+			<div class="podkit-description">
+				%4$s
+			</div>
+			<div class="podkit-cta">
+				<a href="%5$s">%6$s</a>
+			</div>
+		</div>',
+		podkit_block_classes( $attributes ),
+		podkit_post_img( $post ),
+		esc_html( get_the_title($post) ),
+		esc_html( get_the_excerpt($post) ),
+		esc_url( get_the_permalink($post) ),
+		__("Listen now!", "podkit")
+	);
+
+	// Reset postdata to avoid conflicts.
+	wp_reset_postdata();
+	
 }
