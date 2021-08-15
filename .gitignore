@@ -1,0 +1,6 @@
+# Folders to be ignored
+vendor/
+
+node_modules
+
+assets/dist

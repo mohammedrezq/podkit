@@ -1,0 +1,16 @@
+{
+  "name": "mo/mo-survey",
+  "autoload": {
+    "psr-4": {
+      "Includes\\": "./includes"
+    },
+    "classmap": ["includes/"]
+  },
+  "authors": [
+    {
+      "name": "mohammedrezq",
+      "email": "mohammedrezq2000@gmail.com"
+    }
+  ],
+  "require": {}
+}
