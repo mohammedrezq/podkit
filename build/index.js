@@ -238,6 +238,100 @@ function SvgBvLogo(props) {
 
 /***/ }),
 
+/***/ "./src/dynamic/index.js":
+/*!******************************!*\
+  !*** ./src/dynamic/index.js ***!
+  \******************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _bv_logo_svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../bv-logo.svg */ "./src/bv-logo.svg");
+/* harmony import */ var _bv_logo_white_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../bv-logo-white.svg */ "./src/bv-logo-white.svg");
+var __ = wp.i18n.__;
+var registerBlockType = wp.blocks.registerBlockType;
+var RichText = wp.editor.RichText;
+var withSelect = wp.data.withSelect;
+
+
+registerBlockType("podkit/dynamic", {
+  title: __("Latest episode promo", "podkit"),
+  icon: {
+    src: _bv_logo_svg__WEBPACK_IMPORTED_MODULE_0__["ReactComponent"]
+  },
+  category: "podkit",
+  supports: {
+    align: ['wide', 'full']
+  },
+  styles: [{
+    name: 'default',
+    label: __('Red (default)', "podkit"),
+    isDefault: true
+  }, {
+    name: 'blue',
+    label: __('Blue', "podkit")
+  }, {
+    name: 'yellow',
+    label: __('Yellow', "podkit")
+  }],
+  edit: withSelect(function (select) {
+    return {
+      // Send a GET query to the REST API.
+      posts: select("core").getEntityRecords("postType", "post", {
+        categories: 5,
+        per_page: 1
+      })
+    };
+  })(function (_ref) {
+    var posts = _ref.posts,
+        className = _ref.className;
+
+    // Wait for posts to be returned.
+    if (!posts) {
+      return "Loading...";
+    } // If no posts are returned.
+
+
+    if (posts && posts.length === 0) {
+      return "No posts";
+    } // Grab the first post.
+
+
+    var post = posts[0];
+    console.info(post);
+    return /*#__PURE__*/React.createElement("div", {
+      className: "".concat(className, " podkit-block podkit-dynamic")
+    }, /*#__PURE__*/React.createElement("figure", {
+      className: "podkit-logo"
+    }, /*#__PURE__*/React.createElement("img", {
+      src: post.featured_image_podkitFeatImg_url ? post.featured_image_podkitFeatImg_url : _bv_logo_white_svg__WEBPACK_IMPORTED_MODULE_1__["default"],
+      alt: "logo"
+    })), /*#__PURE__*/React.createElement("div", {
+      className: "podkit-info"
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "podkit-nameplate"
+    }, __("The Binaryville Podcast", "podkit")), /*#__PURE__*/React.createElement("h3", {
+      className: "podkit-title"
+    }, /*#__PURE__*/React.createElement(RichText.Content, {
+      value: post.title.rendered
+    }))), /*#__PURE__*/React.createElement("div", {
+      className: "podkit-description"
+    }, /*#__PURE__*/React.createElement(RichText.Content, {
+      value: post.excerpt.rendered
+    })), /*#__PURE__*/React.createElement("div", {
+      className: "podkit-cta"
+    }, /*#__PURE__*/React.createElement("a", {
+      href: post.link
+    }, __("Listen now!", "podkit"))));
+  }),
+  save: function save(props) {
+    return null;
+  }
+});
+
+/***/ }),
+
 /***/ "./src/editable/index.js":
 /*!*******************************!*\
   !*** ./src/editable/index.js ***!
@@ -599,11 +693,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _editable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./editable */ "./src/editable/index.js");
 /* harmony import */ var _media__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./media */ "./src/media/index.js");
 /* harmony import */ var _extendable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./extendable */ "./src/extendable/index.js");
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./editor.scss */ "./src/editor.scss");
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./style.scss */ "./src/style.scss");
+/* harmony import */ var _dynamic__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./dynamic */ "./src/dynamic/index.js");
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./editor.scss */ "./src/editor.scss");
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./style.scss */ "./src/style.scss");
 /**
  * Import blocks as components.
  */
+
 
 
 
