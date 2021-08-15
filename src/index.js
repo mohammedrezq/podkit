@@ -1,6 +1,8 @@
 /**
  * Import blocks as components.
  */
-import "./01-static";
-import "./01-static/test.scss";
-import "./01-static/style.scss";
+import "./static";
+import "./editable";
+import "./media";
+import "./editor.scss";
+import "./style.scss";
