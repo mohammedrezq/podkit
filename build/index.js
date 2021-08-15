@@ -343,6 +343,249 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/extendable/index.js":
+/*!*********************************!*\
+  !*** ./src/extendable/index.js ***!
+  \*********************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _bv_logo_svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../bv-logo.svg */ "./src/bv-logo.svg");
+/* harmony import */ var _bv_logo_white_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../bv-logo-white.svg */ "./src/bv-logo-white.svg");
+var __ = wp.i18n.__;
+var registerBlockType = wp.blocks.registerBlockType;
+var _wp$editor = wp.editor,
+    AlignmentToolbar = _wp$editor.AlignmentToolbar,
+    BlockControls = _wp$editor.BlockControls,
+    ColorPalette = _wp$editor.ColorPalette,
+    InspectorControls = _wp$editor.InspectorControls,
+    MediaUpload = _wp$editor.MediaUpload,
+    RichText = _wp$editor.RichText,
+    URLInputButton = _wp$editor.URLInputButton;
+var _wp$components = wp.components,
+    IconButton = _wp$components.IconButton,
+    PanelBody = _wp$components.PanelBody;
+
+
+registerBlockType("podkit/extended", {
+  title: __("Extended episode promo", "podkit"),
+  icon: {
+    src: _bv_logo_svg__WEBPACK_IMPORTED_MODULE_0__["ReactComponent"]
+  },
+  category: "podkit",
+  attributes: {
+    epsiodeTitle: {
+      type: "string",
+      source: "html",
+      selector: ".podkit-title"
+    },
+    episodeImage: {
+      type: "string",
+      source: "attribute",
+      selector: ".podkit-logo img",
+      attribute: "src",
+      default: _bv_logo_white_svg__WEBPACK_IMPORTED_MODULE_1__["default"]
+    },
+    episodeDescription: {
+      type: "array",
+      source: "children",
+      multiline: "p",
+      selector: ".podkit-description"
+    },
+    episodeURL: {
+      type: "string",
+      source: "attribute",
+      selector: ".podkit-cta a",
+      attribute: "href"
+    },
+    descriptionAlignment: {
+      type: "string",
+      default: "left"
+    },
+    backgroundColor: {
+      type: "string"
+    }
+  },
+  supports: {
+    align: ["wide", "full"]
+  },
+  styles: [{
+    name: "default",
+    label: __("Red (Default)", "podkit"),
+    isDefault: true
+  }, {
+    name: "blue",
+    label: __("Blue", "podkit")
+  }, {
+    name: "yellow",
+    label: __("Yellow", "podkit")
+  }],
+  edit: function edit(props) {
+    // Lift info from props and populate various constants.
+    var _props$attributes = props.attributes,
+        epsiodeTitle = _props$attributes.epsiodeTitle,
+        episodeImage = _props$attributes.episodeImage,
+        episodeDescription = _props$attributes.episodeDescription,
+        episodeURL = _props$attributes.episodeURL,
+        descriptionAlignment = _props$attributes.descriptionAlignment,
+        backgroundColor = _props$attributes.backgroundColor,
+        className = props.className,
+        setAttributes = props.setAttributes; // Grab newEpisodeTitle, set the value of episodeTitle to newEpisodeTitle.
+
+    var onChangeEpisodeTitle = function onChangeEpisodeTitle(newEpisodeTitle) {
+      setAttributes({
+        epsiodeTitle: newEpisodeTitle
+      });
+    }; // Grab imageObject, set the value of episodeImage to imageObject.sizes.podkitFeatImg.url.
+
+
+    var onImageSelect = function onImageSelect(imageObject) {
+      setAttributes({
+        episodeImage: imageObject.sizes.podkitFeatImg.url
+      });
+    }; // Grab newEpisodeDescription, set the value of episodeDescription to newEpisodeDescription.
+
+
+    var onChangeEpisodeDescription = function onChangeEpisodeDescription(newEpisodeDescription) {
+      setAttributes({
+        episodeDescription: newEpisodeDescription
+      });
+    }; // Grab newEpisodeURL, set the value of episodeURL to newEpisodeURL.
+
+
+    var onChangeEpisodeURL = function onChangeEpisodeURL(newEpisodeURL) {
+      setAttributes({
+        episodeURL: newEpisodeURL
+      });
+    }; // Grab newDescriptionAlignment, set the value of descriptionAlignment to newDescriptionAlignment.
+
+
+    var onChangeDescriptionAlignment = function onChangeDescriptionAlignment(newDescriptionAlignment) {
+      setAttributes({
+        descriptionAlignment: newDescriptionAlignment
+      });
+    }; // Grab newBackgroundColor, set the value of backgroundColor to newBackgroundColor.
+
+
+    var onChangeBackgroundColor = function onChangeBackgroundColor(newBackgroundColor) {
+      setAttributes({
+        backgroundColor: newBackgroundColor
+      });
+    };
+
+    return [/*#__PURE__*/React.createElement(InspectorControls, null, /*#__PURE__*/React.createElement(PanelBody, {
+      title: __("Color settings", "podkit")
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "components-base-control"
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "components-base-control__field"
+    }, /*#__PURE__*/React.createElement("label", {
+      className: "components-base-control__label"
+    }, __("Background color", "podkit")), /*#__PURE__*/React.createElement(ColorPalette, {
+      value: backgroundColor,
+      onChange: onChangeBackgroundColor
+    }))))), /*#__PURE__*/React.createElement("div", {
+      className: "".concat(className, " podkit-block podkit-expanded"),
+      style: {
+        background: backgroundColor
+      }
+    }, /*#__PURE__*/React.createElement(BlockControls, null, /*#__PURE__*/React.createElement(AlignmentToolbar, {
+      value: descriptionAlignment,
+      onChange: onChangeDescriptionAlignment
+    })), /*#__PURE__*/React.createElement("figure", {
+      className: "podkit-logo"
+    }, /*#__PURE__*/React.createElement("img", {
+      src: episodeImage,
+      alt: "logo"
+    }), /*#__PURE__*/React.createElement(MediaUpload, {
+      onSelect: onImageSelect,
+      type: "image",
+      value: episodeImage,
+      render: function render(_ref) {
+        var open = _ref.open;
+        return /*#__PURE__*/React.createElement(IconButton, {
+          className: "podkit-logo__button",
+          onClick: open,
+          icon: "format-image",
+          showTooltip: "true",
+          label: __("Change image.", "podkit")
+        });
+      }
+    })), /*#__PURE__*/React.createElement("div", {
+      className: "podkit-info"
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "podkit-nameplate"
+    }, __("The Binaryville Podcast", "podkit")), /*#__PURE__*/React.createElement("h3", {
+      className: "podkit-title"
+    }, /*#__PURE__*/React.createElement(RichText, {
+      placeholder: __("Podcast episode title", "podkit"),
+      value: epsiodeTitle,
+      onChange: onChangeEpisodeTitle
+    }))), /*#__PURE__*/React.createElement("div", {
+      className: "podkit-description"
+    }, /*#__PURE__*/React.createElement(RichText, {
+      style: {
+        textAlign: descriptionAlignment
+      },
+      multiline: "p",
+      placeholder: __("Episode description", "podkit"),
+      onChange: onChangeEpisodeDescription,
+      value: episodeDescription
+    })), /*#__PURE__*/React.createElement("div", {
+      className: "podkit-cta"
+    }, /*#__PURE__*/React.createElement("a", {
+      href: "#"
+    }, __("Listen now!", "podkit")), /*#__PURE__*/React.createElement(URLInputButton, {
+      className: "podkit-dropdown__input",
+      label: __("Episode URL", "podkit"),
+      onChange: onChangeEpisodeURL,
+      url: episodeURL
+    })))];
+  },
+  save: function save(props) {
+    var _props$attributes2 = props.attributes,
+        epsiodeTitle = _props$attributes2.epsiodeTitle,
+        episodeImage = _props$attributes2.episodeImage,
+        episodeDescription = _props$attributes2.episodeDescription,
+        episodeURL = _props$attributes2.episodeURL,
+        descriptionAlignment = _props$attributes2.descriptionAlignment,
+        backgroundColor = _props$attributes2.backgroundColor;
+    return /*#__PURE__*/React.createElement("div", {
+      className: "podkit-block podkit-expanded",
+      style: {
+        background: backgroundColor
+      }
+    }, /*#__PURE__*/React.createElement("figure", {
+      className: "podkit-logo"
+    }, /*#__PURE__*/React.createElement("img", {
+      src: episodeImage,
+      alt: "logo"
+    })), /*#__PURE__*/React.createElement("div", {
+      className: "podkit-info"
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "podkit-nameplate"
+    }, __("The Binaryville Podcast", "podkit")), /*#__PURE__*/React.createElement("h3", {
+      className: "podkit-title"
+    }, /*#__PURE__*/React.createElement(RichText.Content, {
+      value: epsiodeTitle
+    }))), /*#__PURE__*/React.createElement("div", {
+      className: "podkit-description",
+      style: "text-align:".concat(descriptionAlignment)
+    }, /*#__PURE__*/React.createElement(RichText.Content, {
+      multiline: "p",
+      value: episodeDescription
+    })), /*#__PURE__*/React.createElement("div", {
+      className: "podkit-cta"
+    }, /*#__PURE__*/React.createElement("a", {
+      href: episodeURL
+    }, __("Listen now!", "podkit"))));
+  }
+});
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -355,11 +598,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _static__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./static */ "./src/static/index.js");
 /* harmony import */ var _editable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./editable */ "./src/editable/index.js");
 /* harmony import */ var _media__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./media */ "./src/media/index.js");
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editor.scss */ "./src/editor.scss");
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./style.scss */ "./src/style.scss");
+/* harmony import */ var _extendable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./extendable */ "./src/extendable/index.js");
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./editor.scss */ "./src/editor.scss");
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./style.scss */ "./src/style.scss");
 /**
  * Import blocks as components.
  */
+
 
 
 
@@ -384,7 +629,9 @@ var registerBlockType = wp.blocks.registerBlockType;
 var _wp$editor = wp.editor,
     MediaUpload = _wp$editor.MediaUpload,
     RichText = _wp$editor.RichText;
-var Button = wp.components.Button;
+var _wp$components = wp.components,
+    Button = _wp$components.Button,
+    IconButton = _wp$components.IconButton;
 
 
 registerBlockType("podkit/media", {
@@ -441,9 +688,17 @@ registerBlockType("podkit/media", {
       value: episodeImage,
       render: function render(_ref) {
         var open = _ref.open;
-        return /*#__PURE__*/React.createElement(Button, {
-          onClick: open
-        }, "Open Media Library");
+        return (
+          /*#__PURE__*/
+          // <Button onClick={open}>Open Media Library</Button>
+          React.createElement(IconButton, {
+            className: "podkit-logo__button",
+            onClick: open,
+            icon: "format-image",
+            showTooltip: "true",
+            label: __("Change image", "podkit")
+          })
+        );
       }
     })), /*#__PURE__*/React.createElement("div", {
       className: "podkit-info"
