@@ -204,7 +204,7 @@ body {
   border-radius: 0.25rem;
 }
 
-.card-front {
+.card-front, .card-back {
   font-size: 1.5rem;
 }
 

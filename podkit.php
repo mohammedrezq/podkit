@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Plugin Name: Podkit
+ * Plugin Name: Podkit Mohammed
  * Plugin URI: https://github.com/LinkedInLearning/WPContentBlocks-Adv-5034179
  * Description: Custom block plugin from the LinkedIn Learning course "WordPress Content Blocks: Advanced".
  * Version: 1.0.0
- * Author: Morten Rand-Hendriksen
+ * Author: Mohammed Rezq
  *
  * @package podkit
  */
