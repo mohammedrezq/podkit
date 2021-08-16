@@ -76,3 +76,89 @@ figure {
   padding: 3em;
   box-shadow: none;
 }
+:root {
+  --time: 0.707s;
+}
+
+.cards {
+  display: grid;
+}
+
+.card {
+  perspective: 40rem;
+}
+
+.card-body {
+  transform-style: preserve-3d;
+  transition: var(--time) transform;
+
+  .card:hover & {
+    transform: rotateX(-180deg);
+  }
+}
+
+.card-front,
+.card-back {
+  backface-visibility: hidden;
+}
+
+.card-back {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: rotateX(-180deg);
+}
+
+/* Make it Pretty */
+
+body {
+  line-height: 1.3;
+  font-family: sans-serif;
+}
+
+.cards {
+  grid-gap: 1.5rem;
+  padding: 3rem;
+  // background: whitesmoke;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+}
+
+.card {
+  display: flex;
+  transition: transform calc(var(--time) / 4);
+  text-decoration: none;
+  color: inherit;
+  border: none;
+
+  &:active {
+    transform: scale(0.975);
+  }
+}
+
+.card-body {
+  border-radius: 0.25rem;
+  flex: 1;
+}
+
+.card-front,
+.card-back {
+  @extend .shadow;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  box-sizing: border-box;
+  padding: 1.5rem;
+  border-radius: 0.25rem;
+}
+
+.card-front {
+  font-size: 1.5rem;
+}
+
+.shadow {
+  box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.04), 0 2px 2px rgba(0, 0, 0, 0.04),
+    0 4px 4px rgba(0, 0, 0, 0.04), 0 8px 8px rgba(0, 0, 0, 0.04),
+    0 16px 16px rgba(0, 0, 0, 0.04);
+}

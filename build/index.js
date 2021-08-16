@@ -680,6 +680,176 @@ registerBlockType("podkit/extended", {
 
 /***/ }),
 
+/***/ "./src/flip/index.js":
+/*!***************************!*\
+  !*** ./src/flip/index.js ***!
+  \***************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _bv_logo_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../bv-logo.svg */ "./src/bv-logo.svg");
+var __ = wp.i18n.__;
+
+
+
+
+
+Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__["registerBlockType"])("podkit/flip", {
+  title: __("Flip Box", "podkit"),
+  icon: {
+    src: _bv_logo_svg__WEBPACK_IMPORTED_MODULE_4__["ReactComponent"]
+  },
+  category: "podkit",
+  attributes: {
+    cardFront: {
+      type: "string",
+      source: "html",
+      selector: ".card-front"
+    },
+    cardBack: {
+      type: "string",
+      source: "html",
+      selector: ".card-back"
+    },
+    frontCardBackground: {
+      type: "string"
+    },
+    backCardBackground: {
+      type: "string"
+    }
+  },
+  supports: {
+    align: true
+  },
+  edit: function edit(props) {
+    var _props$attributes = props.attributes,
+        cardFront = _props$attributes.cardFront,
+        cardBack = _props$attributes.cardBack,
+        frontCardBackground = _props$attributes.frontCardBackground,
+        backCardBackground = _props$attributes.backCardBackground,
+        setAttributes = props.setAttributes;
+
+    var onChangeCardFront = function onChangeCardFront(newCardFront) {
+      setAttributes({
+        cardFront: newCardFront
+      });
+    };
+
+    var onChangeCardBack = function onChangeCardBack(newCardBack) {
+      setAttributes({
+        cardBack: newCardBack
+      });
+    };
+
+    var onChangeFrontBackground = function onChangeFrontBackground(newfrontCardBackground) {
+      setAttributes({
+        frontCardBackground: newfrontCardBackground
+      });
+    };
+
+    var onChangeBackBackground = function onChangeBackBackground(newbackCardBackground) {
+      setAttributes({
+        backCardBackground: newbackCardBackground
+      });
+    };
+
+    return [/*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["InspectorControls"], null, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["PanelBody"], {
+      title: __("Flip Card", "podkit")
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "components-base-control"
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "components-base-control__field"
+    }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["TextControl"], {
+      label: __("Card Front", "podkit"),
+      className: "components-base-control__label",
+      value: cardFront,
+      onChange: onChangeCardFront
+    }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["TextControl"], {
+      label: __("Card Back", "podkit"),
+      className: "components-base-control__label",
+      value: cardBack,
+      onChange: onChangeCardBack
+    }), /*#__PURE__*/React.createElement("label", {
+      className: "components-base-control__label"
+    }, __("Front Card Background color", "podkit")), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["ColorPalette"], {
+      value: frontCardBackground,
+      onChange: onChangeFrontBackground
+    }), /*#__PURE__*/React.createElement("label", {
+      className: "components-base-control__label"
+    }, __("Back Card Background color", "podkit")), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["ColorPalette"], {
+      value: backCardBackground,
+      onChange: onChangeBackBackground
+    }))))), /*#__PURE__*/React.createElement("div", {
+      class: "cards"
+    }, /*#__PURE__*/React.createElement("a", {
+      class: "card",
+      href: "#"
+    }, /*#__PURE__*/React.createElement("div", {
+      class: "card-body"
+    }, /*#__PURE__*/React.createElement("h2", {
+      class: "card-front",
+      style: {
+        background: frontCardBackground
+      }
+    }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"], {
+      placeholder: __("First Card", "podkit"),
+      value: cardFront,
+      onChange: onChangeCardFront
+    })), /*#__PURE__*/React.createElement("p", {
+      class: "card-back",
+      style: {
+        background: backCardBackground
+      }
+    }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"], {
+      placeholder: __("Card Back", "podkit"),
+      value: cardBack,
+      onChange: onChangeCardBack
+    })))))];
+  },
+  save: function save(props) {
+    var _props$attributes2 = props.attributes,
+        cardFront = _props$attributes2.cardFront,
+        cardBack = _props$attributes2.cardBack,
+        frontCardBackground = _props$attributes2.frontCardBackground,
+        backCardBackground = _props$attributes2.backCardBackground;
+    console.log(props);
+    return /*#__PURE__*/React.createElement("div", {
+      class: "cards"
+    }, /*#__PURE__*/React.createElement("a", {
+      class: "card",
+      href: "#"
+    }, /*#__PURE__*/React.createElement("div", {
+      class: "card-body"
+    }, /*#__PURE__*/React.createElement("h2", {
+      class: "card-front",
+      style: {
+        background: frontCardBackground
+      }
+    }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"].Content, {
+      value: cardFront
+    })), /*#__PURE__*/React.createElement("p", {
+      class: "card-back",
+      style: {
+        background: backCardBackground
+      }
+    }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"].Content, {
+      value: cardBack
+    })))));
+  }
+});
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -694,11 +864,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _media__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./media */ "./src/media/index.js");
 /* harmony import */ var _extendable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./extendable */ "./src/extendable/index.js");
 /* harmony import */ var _dynamic__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./dynamic */ "./src/dynamic/index.js");
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./editor.scss */ "./src/editor.scss");
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./style.scss */ "./src/style.scss");
+/* harmony import */ var _flip__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./flip */ "./src/flip/index.js");
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./editor.scss */ "./src/editor.scss");
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./style.scss */ "./src/style.scss");
 /**
  * Import blocks as components.
  */
+
 
 
 
@@ -905,6 +1077,50 @@ registerBlockType("podkit/static", {
     }, __("Like & Subscribe!", "podkit")))));
   }
 });
+
+/***/ }),
+
+/***/ "@wordpress/block-editor":
+/*!*************************************!*\
+  !*** external ["wp","blockEditor"] ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function() { module.exports = window["wp"]["blockEditor"]; }());
+
+/***/ }),
+
+/***/ "@wordpress/blocks":
+/*!********************************!*\
+  !*** external ["wp","blocks"] ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function() { module.exports = window["wp"]["blocks"]; }());
+
+/***/ }),
+
+/***/ "@wordpress/components":
+/*!************************************!*\
+  !*** external ["wp","components"] ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function() { module.exports = window["wp"]["components"]; }());
+
+/***/ }),
+
+/***/ "@wordpress/element":
+/*!*********************************!*\
+  !*** external ["wp","element"] ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function() { module.exports = window["wp"]["element"]; }());
 
 /***/ }),
 
