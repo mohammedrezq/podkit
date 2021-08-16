@@ -726,6 +726,10 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__["registerBlockType"])("pod
     },
     backCardBackground: {
       type: "string"
+    },
+    cardAlignment: {
+      type: "string",
+      default: "center"
     }
   },
   supports: {
@@ -737,6 +741,7 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__["registerBlockType"])("pod
         cardBack = _props$attributes.cardBack,
         frontCardBackground = _props$attributes.frontCardBackground,
         backCardBackground = _props$attributes.backCardBackground,
+        cardAlignment = _props$attributes.cardAlignment,
         setAttributes = props.setAttributes;
 
     var onChangeCardFront = function onChangeCardFront(newCardFront) {
@@ -760,6 +765,12 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__["registerBlockType"])("pod
     var onChangeBackBackground = function onChangeBackBackground(newbackCardBackground) {
       setAttributes({
         backCardBackground: newbackCardBackground
+      });
+    };
+
+    var onChangeCardAlignment = function onChangeCardAlignment(newCardAlignment) {
+      setAttributes({
+        cardAlignment: newCardAlignment
       });
     };
 
@@ -791,24 +802,30 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__["registerBlockType"])("pod
       onChange: onChangeBackBackground
     }))))), /*#__PURE__*/React.createElement("div", {
       class: "cards"
-    }, /*#__PURE__*/React.createElement("a", {
-      class: "card",
-      href: "#"
+    }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["BlockControls"], null, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["AlignmentToolbar"], {
+      value: cardAlignment,
+      onChange: onChangeCardAlignment
+    })), /*#__PURE__*/React.createElement("div", {
+      class: "card"
     }, /*#__PURE__*/React.createElement("div", {
       class: "card-body"
-    }, /*#__PURE__*/React.createElement("h2", {
+    }, /*#__PURE__*/React.createElement("div", {
       class: "card-front",
       style: {
-        background: frontCardBackground
+        display: "block",
+        background: frontCardBackground,
+        textAlign: cardAlignment
       }
     }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"], {
       placeholder: __("First Card", "podkit"),
       value: cardFront,
       onChange: onChangeCardFront
-    })), /*#__PURE__*/React.createElement("p", {
+    })), /*#__PURE__*/React.createElement("div", {
       class: "card-back",
       style: {
-        background: backCardBackground
+        display: "block",
+        background: backCardBackground,
+        textAlign: cardAlignment
       }
     }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"], {
       placeholder: __("Card Back", "podkit"),
@@ -821,26 +838,32 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__["registerBlockType"])("pod
         cardFront = _props$attributes2.cardFront,
         cardBack = _props$attributes2.cardBack,
         frontCardBackground = _props$attributes2.frontCardBackground,
-        backCardBackground = _props$attributes2.backCardBackground;
-    console.log(props);
+        backCardBackground = _props$attributes2.backCardBackground,
+        cardAlignment = _props$attributes2.cardAlignment;
     return /*#__PURE__*/React.createElement("div", {
       class: "cards"
-    }, /*#__PURE__*/React.createElement("a", {
-      class: "card",
-      href: "#"
+    }, /*#__PURE__*/React.createElement("div", {
+      class: "card"
     }, /*#__PURE__*/React.createElement("div", {
       class: "card-body"
-    }, /*#__PURE__*/React.createElement("h2", {
+    }, /*#__PURE__*/React.createElement("div", {
       class: "card-front",
       style: {
-        background: frontCardBackground
+        display: "block",
+        background: frontCardBackground,
+        textAlign: cardAlignment
       }
     }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"].Content, {
-      value: cardFront
-    })), /*#__PURE__*/React.createElement("p", {
-      class: "card-back",
+      value: cardFront,
       style: {
         background: backCardBackground
+      }
+    })), /*#__PURE__*/React.createElement("div", {
+      class: "card-back",
+      style: {
+        display: "block",
+        background: backCardBackground,
+        textAlign: cardAlignment
       }
     }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"].Content, {
       value: cardBack

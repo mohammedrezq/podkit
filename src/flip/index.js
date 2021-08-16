@@ -5,6 +5,8 @@ import {
   RichText,
   InspectorControls,
   ColorPalette,
+  BlockControls,
+  AlignmentToolbar,
 } from "@wordpress/block-editor";
 import { useState } from "@wordpress/element";
 
@@ -31,6 +33,10 @@ registerBlockType("podkit/flip", {
     backCardBackground: {
       type: "string",
     },
+    cardAlignment: {
+      type: "string",
+      default: "center",
+    },
   },
   supports: {
     align: true,
@@ -42,6 +48,7 @@ registerBlockType("podkit/flip", {
         cardBack,
         frontCardBackground,
         backCardBackground,
+        cardAlignment,
       },
       setAttributes,
     } = props;
@@ -58,6 +65,10 @@ registerBlockType("podkit/flip", {
     };
     const onChangeBackBackground = (newbackCardBackground) => {
       setAttributes({ backCardBackground: newbackCardBackground });
+    };
+
+    const onChangeCardAlignment = (newCardAlignment) => {
+      setAttributes({ cardAlignment: newCardAlignment });
     };
 
     return [
@@ -96,45 +107,87 @@ registerBlockType("podkit/flip", {
         </PanelBody>
       </InspectorControls>,
       <div class="cards">
-        <a class="card" href="#">
+        <BlockControls>
+          <AlignmentToolbar
+            value={cardAlignment}
+            onChange={onChangeCardAlignment}
+          />
+        </BlockControls>
+        <div class="card">
           <div class="card-body">
-            <h2 class="card-front" style={{ background: frontCardBackground }}>
+            <div
+              class="card-front"
+              style={{
+                display: "block",
+
+                background: frontCardBackground,
+                textAlign: cardAlignment,
+              }}
+            >
               <RichText
                 placeholder={__("First Card", "podkit")}
                 value={cardFront}
                 onChange={onChangeCardFront}
               />
-            </h2>
-            <p class="card-back"  style={{ background: backCardBackground }}>
+            </div>
+            <div
+              class="card-back"
+              style={{
+                display: "block",
+                background: backCardBackground,
+                textAlign: cardAlignment,
+              }}
+            >
               <RichText
                 placeholder={__("Card Back", "podkit")}
                 value={cardBack}
                 onChange={onChangeCardBack}
               />
-            </p>
+            </div>
           </div>
-        </a>
+        </div>
       </div>,
     ];
   },
   save: (props) => {
     const {
-      attributes: { cardFront, cardBack, frontCardBackground, backCardBackground },
+      attributes: {
+        cardFront,
+        cardBack,
+        frontCardBackground,
+        backCardBackground,
+        cardAlignment,
+      },
     } = props;
-
-    console.log(props);
     return (
       <div class="cards">
-        <a class="card" href="#">
+        <div class="card">
           <div class="card-body">
-            <h2 class="card-front" style={{ background: frontCardBackground }}>
-              <RichText.Content value={cardFront} />
-            </h2>
-            <p class="card-back" style={{ background: backCardBackground }}>
+            <div
+              class="card-front"
+              style={{
+                display: "block",
+                background: frontCardBackground,
+                textAlign: cardAlignment,
+              }}
+            >
+              <RichText.Content
+                value={cardFront}
+                style={{ background: backCardBackground }}
+              />
+            </div>
+            <div
+              class="card-back"
+              style={{
+                display: "block",
+                background: backCardBackground,
+                textAlign: cardAlignment,
+              }}
+            >
               <RichText.Content value={cardBack} />
-            </p>
+            </div>
           </div>
-        </a>
+        </div>
       </div>
     );
   },
