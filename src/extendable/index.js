@@ -117,11 +117,11 @@ registerBlockType("podkit/extended", {
 
     return [
       <InspectorControls>
-        <PanelBody title={__("Color settings", "podkit")}>
+        <PanelBody title={__("Color settings", "wpb")}>
           <div className="components-base-control">
             <div className="components-base-control__field">
               <label className="components-base-control__label">
-                {__("Background color", "podkit")}
+                {__("Background color", "wpb")}
               </label>
               <ColorPalette
                 value={backgroundColor}
@@ -153,18 +153,18 @@ registerBlockType("podkit/extended", {
                 onClick={open}
                 icon="format-image"
                 showTooltip="true"
-                label={__("Change image.", "podkit")}
+                label={__("Change image.", "wpb")}
               />
             )}
           />
         </figure>
         <div className="podkit-info">
           <div className="podkit-nameplate">
-            {__("The Binaryville Podcast", "podkit")}
+            {__("The Binaryville Podcast", "wpb")}
           </div>
           <h3 className="podkit-title">
             <RichText
-              placeholder={__("Podcast episode title", "podkit")}
+              placeholder={__("Podcast episode title", "wpb")}
               value={epsiodeTitle}
               onChange={onChangeEpisodeTitle}
             />
@@ -174,7 +174,7 @@ registerBlockType("podkit/extended", {
           <RichText
             style={{ textAlign: descriptionAlignment }}
             multiline="p"
-            placeholder={__("Episode description", "podkit")}
+            placeholder={__("Episode description", "wpb")}
             onChange={onChangeEpisodeDescription}
             value={episodeDescription}
           />
@@ -182,10 +182,10 @@ registerBlockType("podkit/extended", {
         <div className="podkit-cta">
           {/* Note: href is NOT populated with attribute to avoid
               accidental navigation from within the editor. */}
-          <a href="#">{__("Listen now!", "podkit")}</a>
+          <a href="#">{__("Listen now!", "wpb")}</a>
           <URLInputButton
             className="podkit-dropdown__input"
-            label={__("Episode URL", "podkit")}
+            label={__("Episode URL", "wpb")}
             onChange={onChangeEpisodeURL}
             url={episodeURL}
           />

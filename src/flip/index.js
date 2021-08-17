@@ -33,6 +33,14 @@ const FlipBoxAttributes = {
     type: "string",
     default: "Tahoma"
   },
+  textSize: {
+    type: "number",
+    default: 16
+  },
+  textWeight: {
+    type: "number",
+    default: 400
+  }
 };
 
 const FlipBoxSupports = {

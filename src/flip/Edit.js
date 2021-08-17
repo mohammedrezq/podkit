@@ -9,6 +9,7 @@ import {
 } from "@wordpress/block-editor";
 import GoogleFontsNames from "../components/googleFontsNames";
 import addFontToHead from "../components/googleFonts";
+import Typography from "../components/Typography";
 
 const Edit = (props) => {
   const {
@@ -19,6 +20,8 @@ const Edit = (props) => {
       backCardBackground,
       cardAlignment,
       cardFontFamily,
+      textSize,
+      textWeight,
     },
     setAttributes,
   } = props;
@@ -52,20 +55,20 @@ const Edit = (props) => {
 
   return [
     <InspectorControls>
-      <PanelBody title={__("Flip Card", "podkit")}>
+      <PanelBody title={__("Flip Card", "wpb")}>
         <div className="components-base-control">
           <div className="components-base-control__field">
             <div className="front_flip_card">
               <hr />
               <h3>Card Front</h3>
               <TextControl
-                label={__("Card Front", "podkit")}
+                label={__("Card Front", "wpb")}
                 className="components-base-control__label"
                 value={cardFront}
                 onChange={onChangeCardFront}
               />
               <p className="components-base-control__label">
-                {__("Front Background color", "podkit")}
+                {__("Front Background color", "wpb")}
               </p>
               <ColorPalette
                 value={frontCardBackground}
@@ -76,13 +79,13 @@ const Edit = (props) => {
               <hr />
               <h3>Card Back</h3>
               <TextControl
-                label={__("Card Back", "podkit")}
+                label={__("Card Back", "wpb")}
                 className="components-base-control__label"
                 value={cardBack}
                 onChange={onChangeCardBack}
               />
               <p className="components-base-control__label">
-                {__("Back Background color", "podkit")}
+                {__("Back Background color", "wpb")}
               </p>
               <ColorPalette
                 value={backCardBackground}
@@ -92,12 +95,23 @@ const Edit = (props) => {
           </div>
         </div>
       </PanelBody>
-      <PanelBody title={__("Text Style", "podkit")}>
+      <PanelBody title={__("Text Style", "wpb")}>
         <SelectControl
-          label={__("Font Family", "podkit")}
+          label={__("Font Family", "wpb")}
           options={GoogleFontsNames}
           value={cardFontFamily}
           onChange={onChangeTextFamily}
+        />
+        <Typography
+          components={["size", "weight"]} //, 'weight', 'line', 'style', 'upper', 'spacing'
+          size={textSize}
+          weight={textWeight}
+          onChangeSize={(newTextSize) => {
+            setAttributes({ textSize: newTextSize });
+          }}
+          onChangeWeight={(newTextWeight) => {
+            setAttributes({ textWeight: newTextWeight });
+          }}
         />
       </PanelBody>
     </InspectorControls>,
@@ -117,10 +131,12 @@ const Edit = (props) => {
 
               background: frontCardBackground,
               textAlign: cardAlignment,
+              fontSize: textSize + "px",
+              fontWeight: textWeight,
             }}
           >
             <RichText
-              placeholder={__("First Card", "podkit")}
+              placeholder={__("First Card", "wpb")}
               value={cardFront}
               onChange={onChangeCardFront}
               style={{
@@ -134,10 +150,12 @@ const Edit = (props) => {
               display: "block",
               background: backCardBackground,
               textAlign: `${cardAlignment}`,
+              fontSize: textSize + "px",
+              fontWeight: textWeight,
             }}
           >
             <RichText
-              placeholder={__("Card Back", "podkit")}
+              placeholder={__("Card Back", "wpb")}
               value={cardBack}
               onChange={onChangeCardBack}
               style={{

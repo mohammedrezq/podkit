@@ -238,6 +238,119 @@ function SvgBvLogo(props) {
 
 /***/ }),
 
+/***/ "./src/components/Typography.js":
+/*!**************************************!*\
+  !*** ./src/components/Typography.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+
+var Typography = function Typography(props) {
+  var components = props.components,
+      size = props.size,
+      weight = props.weight,
+      style = props.style,
+      spacing = props.spacing,
+      line = props.line,
+      upper = props.upper,
+      _props$onChangeSize = props.onChangeSize,
+      onChangeSize = _props$onChangeSize === void 0 ? function () {} : _props$onChangeSize,
+      _props$onChangeWeight = props.onChangeWeight,
+      onChangeWeight = _props$onChangeWeight === void 0 ? function () {} : _props$onChangeWeight,
+      _props$onChangeStyle = props.onChangeStyle,
+      onChangeStyle = _props$onChangeStyle === void 0 ? function () {} : _props$onChangeStyle,
+      _props$onChangeSpacin = props.onChangeSpacing,
+      onChangeSpacing = _props$onChangeSpacin === void 0 ? function () {} : _props$onChangeSpacin,
+      _props$onChangeLine = props.onChangeLine,
+      onChangeLine = _props$onChangeLine === void 0 ? function () {} : _props$onChangeLine,
+      _props$onChangeUpper = props.onChangeUpper,
+      onChangeUpper = _props$onChangeUpper === void 0 ? function () {} : _props$onChangeUpper,
+      _props$onResetClick = props.onResetClick,
+      onResetClick = _props$onResetClick === void 0 ? function () {} : _props$onResetClick;
+  var STYLE = [{
+    value: "normal",
+    label: "Normal"
+  }, {
+    value: "italic",
+    label: "Italic"
+  }, {
+    value: "oblique",
+    label: "Oblique"
+  }];
+  return /*#__PURE__*/React.createElement("div", {
+    class: "wpb-toggle"
+  }, /*#__PURE__*/React.createElement("strong", null, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Typography", "wpb")), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["Dropdown"], {
+    className: "wpb_control_toggle_button",
+    contentClassName: "wp_control_toggle_content",
+    position: "bottom right",
+    renderToggle: function renderToggle(_ref) {
+      var isOpen = _ref.isOpen,
+          onToggle = _ref.onToggle;
+      return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["Button"], {
+        isSmall: true,
+        onClick: onToggle,
+        "aria-expanded": isOpen
+      }, /*#__PURE__*/React.createElement("i", {
+        className: "dashicons dashicons-edit"
+      }));
+    },
+    renderContent: function renderContent() {
+      return /*#__PURE__*/React.createElement(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, components.includes("size") && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["RangeControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Font Size (PX)", "wpb"),
+        value: size,
+        min: "10",
+        max: "100",
+        onChange: onChangeSize
+      }), components.includes("weight") && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["RangeControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Font Weight", "wpb"),
+        value: weight,
+        min: "100",
+        max: "900",
+        onChange: onChangeWeight,
+        onResetClick: onResetClick,
+        step: "100"
+      }), components.includes("style") && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["SelectControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Style", "wpb"),
+        options: STYLE,
+        value: style,
+        onChange: onChangeStyle,
+        onResetClick: onResetClick
+      }), components.includes("upper") && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["ToggleControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Uppercase", "wpb"),
+        checked: upper,
+        onChange: onChangeUpper,
+        onResetClick: onResetClick
+      }), components.includes("spacing") && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["RangeControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Spacing", "wpb"),
+        value: spacing,
+        onChange: onChangeSpacing,
+        onResetClick: onResetClick
+      }), components.includes("line") && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["RangeControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Line Height", "wpb"),
+        value: line,
+        onChange: onChangeLine,
+        onResetClick: onResetClick
+      }));
+    }
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Typography);
+
+/***/ }),
+
 /***/ "./src/components/googleFonts.js":
 /*!***************************************!*\
   !*** ./src/components/googleFonts.js ***!
@@ -3357,14 +3470,14 @@ registerBlockType("podkit/extended", {
     };
 
     return [/*#__PURE__*/React.createElement(InspectorControls, null, /*#__PURE__*/React.createElement(PanelBody, {
-      title: __("Color settings", "podkit")
+      title: __("Color settings", "wpb")
     }, /*#__PURE__*/React.createElement("div", {
       className: "components-base-control"
     }, /*#__PURE__*/React.createElement("div", {
       className: "components-base-control__field"
     }, /*#__PURE__*/React.createElement("label", {
       className: "components-base-control__label"
-    }, __("Background color", "podkit")), /*#__PURE__*/React.createElement(ColorPalette, {
+    }, __("Background color", "wpb")), /*#__PURE__*/React.createElement(ColorPalette, {
       value: backgroundColor,
       onChange: onChangeBackgroundColor
     }))))), /*#__PURE__*/React.createElement("div", {
@@ -3391,17 +3504,17 @@ registerBlockType("podkit/extended", {
           onClick: open,
           icon: "format-image",
           showTooltip: "true",
-          label: __("Change image.", "podkit")
+          label: __("Change image.", "wpb")
         });
       }
     })), /*#__PURE__*/React.createElement("div", {
       className: "podkit-info"
     }, /*#__PURE__*/React.createElement("div", {
       className: "podkit-nameplate"
-    }, __("The Binaryville Podcast", "podkit")), /*#__PURE__*/React.createElement("h3", {
+    }, __("The Binaryville Podcast", "wpb")), /*#__PURE__*/React.createElement("h3", {
       className: "podkit-title"
     }, /*#__PURE__*/React.createElement(RichText, {
-      placeholder: __("Podcast episode title", "podkit"),
+      placeholder: __("Podcast episode title", "wpb"),
       value: epsiodeTitle,
       onChange: onChangeEpisodeTitle
     }))), /*#__PURE__*/React.createElement("div", {
@@ -3411,16 +3524,16 @@ registerBlockType("podkit/extended", {
         textAlign: descriptionAlignment
       },
       multiline: "p",
-      placeholder: __("Episode description", "podkit"),
+      placeholder: __("Episode description", "wpb"),
       onChange: onChangeEpisodeDescription,
       value: episodeDescription
     })), /*#__PURE__*/React.createElement("div", {
       className: "podkit-cta"
     }, /*#__PURE__*/React.createElement("a", {
       href: "#"
-    }, __("Listen now!", "podkit")), /*#__PURE__*/React.createElement(URLInputButton, {
+    }, __("Listen now!", "wpb")), /*#__PURE__*/React.createElement(URLInputButton, {
       className: "podkit-dropdown__input",
-      label: __("Episode URL", "podkit"),
+      label: __("Episode URL", "wpb"),
       onChange: onChangeEpisodeURL,
       url: episodeURL
     })))];
@@ -3482,7 +3595,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_googleFontsNames__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/googleFontsNames */ "./src/components/googleFontsNames.js");
 /* harmony import */ var _components_googleFonts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/googleFonts */ "./src/components/googleFonts.js");
+/* harmony import */ var _components_Typography__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Typography */ "./src/components/Typography.js");
 var __ = wp.i18n.__;
+
 
 
 
@@ -3496,6 +3611,8 @@ var Edit = function Edit(props) {
       backCardBackground = _props$attributes.backCardBackground,
       cardAlignment = _props$attributes.cardAlignment,
       cardFontFamily = _props$attributes.cardFontFamily,
+      textSize = _props$attributes.textSize,
+      textWeight = _props$attributes.textWeight,
       setAttributes = props.setAttributes;
 
   var onChangeCardFront = function onChangeCardFront(newCardFront) {
@@ -3541,7 +3658,7 @@ var Edit = function Edit(props) {
   };
 
   return [/*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["InspectorControls"], null, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__["PanelBody"], {
-    title: __("Flip Card", "podkit")
+    title: __("Flip Card", "wpb")
   }, /*#__PURE__*/React.createElement("div", {
     className: "components-base-control"
   }, /*#__PURE__*/React.createElement("div", {
@@ -3549,34 +3666,49 @@ var Edit = function Edit(props) {
   }, /*#__PURE__*/React.createElement("div", {
     className: "front_flip_card"
   }, /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement("h3", null, "Card Front"), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__["TextControl"], {
-    label: __("Card Front", "podkit"),
+    label: __("Card Front", "wpb"),
     className: "components-base-control__label",
     value: cardFront,
     onChange: onChangeCardFront
   }), /*#__PURE__*/React.createElement("p", {
     className: "components-base-control__label"
-  }, __("Front Background color", "podkit")), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["ColorPalette"], {
+  }, __("Front Background color", "wpb")), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["ColorPalette"], {
     value: frontCardBackground,
     onChange: onChangeFrontBackground
   })), /*#__PURE__*/React.createElement("div", {
     className: "back_flip_card"
   }, /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement("h3", null, "Card Back"), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__["TextControl"], {
-    label: __("Card Back", "podkit"),
+    label: __("Card Back", "wpb"),
     className: "components-base-control__label",
     value: cardBack,
     onChange: onChangeCardBack
   }), /*#__PURE__*/React.createElement("p", {
     className: "components-base-control__label"
-  }, __("Back Background color", "podkit")), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["ColorPalette"], {
+  }, __("Back Background color", "wpb")), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["ColorPalette"], {
     value: backCardBackground,
     onChange: onChangeBackBackground
   }))))), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__["PanelBody"], {
-    title: __("Text Style", "podkit")
+    title: __("Text Style", "wpb")
   }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__["SelectControl"], {
-    label: __("Font Family", "podkit"),
+    label: __("Font Family", "wpb"),
     options: _components_googleFontsNames__WEBPACK_IMPORTED_MODULE_2__["default"],
     value: cardFontFamily,
     onChange: onChangeTextFamily
+  }), /*#__PURE__*/React.createElement(_components_Typography__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    components: ["size", "weight"] //, 'weight', 'line', 'style', 'upper', 'spacing'
+    ,
+    size: textSize,
+    weight: textWeight,
+    onChangeSize: function onChangeSize(newTextSize) {
+      setAttributes({
+        textSize: newTextSize
+      });
+    },
+    onChangeWeight: function onChangeWeight(newTextWeight) {
+      setAttributes({
+        textWeight: newTextWeight
+      });
+    }
   }))), /*#__PURE__*/React.createElement("div", {
     class: "cards"
   }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["BlockControls"], null, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["AlignmentToolbar"], {
@@ -3591,10 +3723,12 @@ var Edit = function Edit(props) {
     style: {
       display: "block",
       background: frontCardBackground,
-      textAlign: cardAlignment
+      textAlign: cardAlignment,
+      fontSize: textSize + "px",
+      fontWeight: textWeight
     }
   }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["RichText"], {
-    placeholder: __("First Card", "podkit"),
+    placeholder: __("First Card", "wpb"),
     value: cardFront,
     onChange: onChangeCardFront,
     style: {
@@ -3605,10 +3739,12 @@ var Edit = function Edit(props) {
     style: {
       display: "block",
       background: backCardBackground,
-      textAlign: "".concat(cardAlignment)
+      textAlign: "".concat(cardAlignment),
+      fontSize: textSize + "px",
+      fontWeight: textWeight
     }
   }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["RichText"], {
-    placeholder: __("Card Back", "podkit"),
+    placeholder: __("Card Back", "wpb"),
     value: cardBack,
     onChange: onChangeCardBack,
     style: {
@@ -3669,7 +3805,9 @@ var Save = function Save(props) {
       frontCardBackground = _props$attributes.frontCardBackground,
       backCardBackground = _props$attributes.backCardBackground,
       cardAlignment = _props$attributes.cardAlignment,
-      cardFontFamily = _props$attributes.cardFontFamily;
+      cardFontFamily = _props$attributes.cardFontFamily,
+      textSize = _props$attributes.textSize,
+      textWeight = _props$attributes.textWeight;
   return /*#__PURE__*/React.createElement("div", {
     class: "cards"
   }, /*#__PURE__*/React.createElement("div", {
@@ -3682,7 +3820,9 @@ var Save = function Save(props) {
       display: "block",
       fontFamily: cardFontFamily,
       background: frontCardBackground,
-      textAlign: cardAlignment
+      textAlign: cardAlignment,
+      fontSize: textSize + 'px',
+      fontWeight: textWeight
     }
   }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__["RichText"].Content, {
     value: cardFront,
@@ -3695,7 +3835,9 @@ var Save = function Save(props) {
       display: "block",
       fontFamily: cardFontFamily,
       background: backCardBackground,
-      textAlign: cardAlignment
+      textAlign: cardAlignment,
+      fontSize: textSize + 'px',
+      fontWeight: textWeight
     }
   }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__["RichText"].Content, {
     value: cardBack
@@ -3754,6 +3896,14 @@ var FlipBoxAttributes = {
   cardFontFamily: {
     type: "string",
     default: "Tahoma"
+  },
+  textSize: {
+    type: "number",
+    default: 16
+  },
+  textWeight: {
+    type: "number",
+    default: 400
   }
 };
 var FlipBoxSupports = {
@@ -4033,6 +4183,28 @@ registerBlockType("podkit/static", {
 /***/ (function(module, exports) {
 
 (function() { module.exports = window["wp"]["components"]; }());
+
+/***/ }),
+
+/***/ "@wordpress/element":
+/*!*********************************!*\
+  !*** external ["wp","element"] ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function() { module.exports = window["wp"]["element"]; }());
+
+/***/ }),
+
+/***/ "@wordpress/i18n":
+/*!******************************!*\
+  !*** external ["wp","i18n"] ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function() { module.exports = window["wp"]["i18n"]; }());
 
 /***/ }),
 
