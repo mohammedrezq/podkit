@@ -14,7 +14,9 @@ const Save = (props) => {
       textLineHeight,
       textStyle,
       textUpper,
-      textLetter
+      textLetter,
+      textColor,
+      textHoverColor,
     },
   } = props;
   return (
@@ -34,6 +36,7 @@ const Save = (props) => {
               fontStyle: textStyle,
               textTransform: textUpper ? "uppercase" : "none",
               letterSpacing: textLetter,
+              color: textColor,
             }}
           >
             <RichText.Content
@@ -56,6 +59,7 @@ const Save = (props) => {
               fontStyle: textStyle,
               textTransform: textUpper ? "uppercase" : "none",
               letterSpacing: textLetter,
+              color: textColor,
             }}
           >
             <RichText.Content value={cardBack} />

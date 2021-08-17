@@ -51,9 +51,19 @@ const FlipBoxAttributes = {
   },
   textUpper: {
     type: "string",
+    default: "none"
   },
   textLetter: {
-    type: "number"
+    type: "number",
+    default: 1
+  },
+  textColor: {
+    type: "string",
+    default: "#000000"
+  },
+  textHoverColor: {
+    type: "string",
+    default: "#ccc"
   }
 };
 

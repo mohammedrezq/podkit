@@ -3596,14 +3596,19 @@ registerBlockType("podkit/extended", {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _components_googleFontsNames__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/googleFontsNames */ "./src/components/googleFontsNames.js");
-/* harmony import */ var _components_googleFonts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/googleFonts */ "./src/components/googleFonts.js");
-/* harmony import */ var _components_Typography__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Typography */ "./src/components/Typography.js");
-var __ = wp.i18n.__;
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _components_googleFontsNames__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/googleFontsNames */ "./src/components/googleFontsNames.js");
+/* harmony import */ var _components_googleFonts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/googleFonts */ "./src/components/googleFonts.js");
+/* harmony import */ var _components_Typography__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/Typography */ "./src/components/Typography.js");
+
+
 
 
 
@@ -3624,6 +3629,8 @@ var Edit = function Edit(props) {
       textStyle = _props$attributes.textStyle,
       textUpper = _props$attributes.textUpper,
       textLetter = _props$attributes.textLetter,
+      textColor = _props$attributes.textColor,
+      textHoverColor = _props$attributes.textHoverColor,
       setAttributes = props.setAttributes;
 
   var onChangeCardFront = function onChangeCardFront(newCardFront) {
@@ -3665,7 +3672,7 @@ var Edit = function Edit(props) {
       return;
     }
 
-    Object(_components_googleFonts__WEBPACK_IMPORTED_MODULE_3__["default"])(cardFontFamily);
+    Object(_components_googleFonts__WEBPACK_IMPORTED_MODULE_5__["default"])(cardFontFamily);
   };
 
   var textWeightfn = function textWeightfn(newTextWeight) {
@@ -3698,44 +3705,56 @@ var Edit = function Edit(props) {
     });
   };
 
-  return [/*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["InspectorControls"], null, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__["PanelBody"], {
-    title: __("Flip Card", "wpb")
+  var onChangeTextColor = function onChangeTextColor(newTextColor) {
+    setAttributes({
+      textColor: newTextColor
+    });
+  };
+
+  var onChangetextHoverColor = function onChangetextHoverColor(newTextHoverColor) {
+    setAttributes({
+      textHoverColor: newTextHoverColor
+    });
+  };
+
+  return [/*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["InspectorControls"], null, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["PanelBody"], {
+    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Flip Card", "wpb")
   }, /*#__PURE__*/React.createElement("div", {
     className: "components-base-control"
   }, /*#__PURE__*/React.createElement("div", {
     className: "components-base-control__field"
   }, /*#__PURE__*/React.createElement("div", {
     className: "front_flip_card"
-  }, /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement("h3", null, "Card Front"), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__["TextControl"], {
-    label: __("Card Front", "wpb"),
+  }, /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement("h3", null, "Card Front"), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["TextControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Card Front", "wpb"),
     className: "components-base-control__label",
     value: cardFront,
     onChange: onChangeCardFront
   }), /*#__PURE__*/React.createElement("p", {
     className: "components-base-control__label"
-  }, __("Front Background color", "wpb")), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["ColorPalette"], {
+  }, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Front Background color", "wpb")), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["ColorPalette"], {
     value: frontCardBackground,
     onChange: onChangeFrontBackground
   })), /*#__PURE__*/React.createElement("div", {
     className: "back_flip_card"
-  }, /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement("h3", null, "Card Back"), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__["TextControl"], {
-    label: __("Card Back", "wpb"),
+  }, /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement("h3", null, "Card Back"), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["TextControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Card Back", "wpb"),
     className: "components-base-control__label",
     value: cardBack,
     onChange: onChangeCardBack
   }), /*#__PURE__*/React.createElement("p", {
     className: "components-base-control__label"
-  }, __("Back Background color", "wpb")), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["ColorPalette"], {
+  }, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Back Background color", "wpb")), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["ColorPalette"], {
     value: backCardBackground,
     onChange: onChangeBackBackground
-  }))))), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__["PanelBody"], {
-    title: __("Text Style", "wpb")
-  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__["SelectControl"], {
-    label: __("Font Family", "wpb"),
-    options: _components_googleFontsNames__WEBPACK_IMPORTED_MODULE_2__["default"],
+  }))))), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["PanelBody"], {
+    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Text Style", "wpb")
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["SelectControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Font Family", "wpb"),
+    options: _components_googleFontsNames__WEBPACK_IMPORTED_MODULE_4__["default"],
     value: cardFontFamily,
     onChange: onChangeTextFamily
-  }), /*#__PURE__*/React.createElement(_components_Typography__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }), /*#__PURE__*/React.createElement(_components_Typography__WEBPACK_IMPORTED_MODULE_6__["default"], {
     components: ["size", "weight", "line", "style", "upper", "spacing"] //, 'spacing'
     ,
     size: textSize,
@@ -3754,9 +3773,39 @@ var Edit = function Edit(props) {
     onChangeStyle: textStylefn,
     onChangeUpper: textUpperfn,
     onChangeSpacing: textLetterfn
-  }))), /*#__PURE__*/React.createElement("div", {
+  }), /*#__PURE__*/React.createElement("div", {
+    class: "wpb-toggle"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "wpb-toggle-title"
+  }, /*#__PURE__*/React.createElement("strong", null, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Color", "wpb"))), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["Dropdown"], {
+    className: "wpb_control_toggle_button",
+    contentClassName: "wp_control_toggle_content",
+    position: "bottom right",
+    renderToggle: function renderToggle(_ref) {
+      var isOpen = _ref.isOpen,
+          onToggle = _ref.onToggle;
+      return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["Button"], {
+        isSmall: true,
+        onClick: onToggle,
+        "aria-expanded": isOpen
+      }, /*#__PURE__*/React.createElement("i", {
+        className: "dashicons dashicons-edit"
+      }));
+    },
+    renderContent: function renderContent() {
+      return /*#__PURE__*/React.createElement(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["Fragment"], null, /*#__PURE__*/React.createElement("p", null, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Text Color", "wpb")), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["ColorPalette"], {
+        value: textColor,
+        onChange: onChangeTextColor,
+        allowReset: true
+      }), /*#__PURE__*/React.createElement("p", null, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Text Hover Color", "wpb")), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["ColorPalette"], {
+        value: textHoverColor,
+        onChange: onChangetextHoverColor,
+        allowReset: true
+      }));
+    }
+  })))), /*#__PURE__*/React.createElement("div", {
     class: "cards"
-  }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["BlockControls"], null, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["AlignmentToolbar"], {
+  }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["BlockControls"], null, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["AlignmentToolbar"], {
     value: cardAlignment,
     onChange: onChangeCardAlignment
   })), /*#__PURE__*/React.createElement("div", {
@@ -3773,10 +3822,11 @@ var Edit = function Edit(props) {
       fontWeight: textWeight,
       fontStyle: textStyle,
       textTransform: textUpper ? "uppercase" : "none",
-      letterSpacing: textLetter
+      letterSpacing: textLetter,
+      color: textColor
     }
-  }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["RichText"], {
-    placeholder: __("First Card", "wpb"),
+  }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"], {
+    placeholder: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("First Card", "wpb"),
     value: cardFront,
     onChange: onChangeCardFront,
     style: {
@@ -3792,10 +3842,11 @@ var Edit = function Edit(props) {
       fontWeight: textWeight,
       fontStyle: textStyle,
       textTransform: textUpper ? "uppercase" : "none",
-      letterSpacing: textLetter
+      letterSpacing: textLetter,
+      color: textColor
     }
-  }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["RichText"], {
-    placeholder: __("Card Back", "wpb"),
+  }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"], {
+    placeholder: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Card Back", "wpb"),
     value: cardBack,
     onChange: onChangeCardBack,
     style: {
@@ -3862,7 +3913,9 @@ var Save = function Save(props) {
       textLineHeight = _props$attributes.textLineHeight,
       textStyle = _props$attributes.textStyle,
       textUpper = _props$attributes.textUpper,
-      textLetter = _props$attributes.textLetter;
+      textLetter = _props$attributes.textLetter,
+      textColor = _props$attributes.textColor,
+      textHoverColor = _props$attributes.textHoverColor;
   return /*#__PURE__*/React.createElement("div", {
     class: "cards"
   }, /*#__PURE__*/React.createElement("div", {
@@ -3881,7 +3934,8 @@ var Save = function Save(props) {
       lineHeight: textLineHeight,
       fontStyle: textStyle,
       textTransform: textUpper ? "uppercase" : "none",
-      letterSpacing: textLetter
+      letterSpacing: textLetter,
+      color: textColor
     }
   }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__["RichText"].Content, {
     value: cardFront,
@@ -3900,7 +3954,8 @@ var Save = function Save(props) {
       lineHeight: textLineHeight,
       fontStyle: textStyle,
       textTransform: textUpper ? "uppercase" : "none",
-      letterSpacing: textLetter
+      letterSpacing: textLetter,
+      color: textColor
     }
   }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__["RichText"].Content, {
     value: cardBack
@@ -3977,10 +4032,20 @@ var FlipBoxAttributes = {
     default: "normal"
   },
   textUpper: {
-    type: "string"
+    type: "string",
+    default: "none"
   },
   textLetter: {
-    type: "number"
+    type: "number",
+    default: 1
+  },
+  textColor: {
+    type: "string",
+    default: "#000000"
+  },
+  textHoverColor: {
+    type: "string",
+    default: "#ccc"
   }
 };
 var FlipBoxSupports = {

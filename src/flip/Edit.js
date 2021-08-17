@@ -1,5 +1,11 @@
-const { __ } = wp.i18n;
-import { TextControl, PanelBody, SelectControl } from "@wordpress/components";
+import { __ } from "@wordpress/i18n";
+import {
+  TextControl,
+  PanelBody,
+  SelectControl,
+  Dropdown,
+  Button,
+} from "@wordpress/components";
 import {
   RichText,
   InspectorControls,
@@ -7,6 +13,7 @@ import {
   BlockControls,
   AlignmentToolbar,
 } from "@wordpress/block-editor";
+import { Fragment } from "@wordpress/element";
 import GoogleFontsNames from "../components/googleFontsNames";
 import addFontToHead from "../components/googleFonts";
 import Typography from "../components/Typography";
@@ -26,6 +33,8 @@ const Edit = (props) => {
       textStyle,
       textUpper,
       textLetter,
+      textColor,
+      textHoverColor,
     },
     setAttributes,
   } = props;
@@ -73,6 +82,13 @@ const Edit = (props) => {
 
   const textLetterfn = (newTextLetter) => {
     setAttributes({ textLetter: newTextLetter });
+  };
+
+  const onChangeTextColor = (newTextColor) => {
+    setAttributes({ textColor: newTextColor });
+  };
+  const onChangetextHoverColor = (newTextHoverColor) => {
+    setAttributes({ textHoverColor: newTextHoverColor });
   };
 
   return [
@@ -141,6 +157,41 @@ const Edit = (props) => {
           onChangeUpper={textUpperfn}
           onChangeSpacing={textLetterfn}
         />
+        <div class="wpb-toggle">
+          <div className="wpb-toggle-title">
+            <strong>{__("Color", "wpb")}</strong>
+          </div>
+          <Dropdown
+            className="wpb_control_toggle_button"
+            contentClassName="wp_control_toggle_content"
+            position="bottom right"
+            renderToggle={({ isOpen, onToggle }) => {
+              return (
+                <Button isSmall onClick={onToggle} aria-expanded={isOpen}>
+                  <i className="dashicons dashicons-edit" />
+                </Button>
+              );
+            }}
+            renderContent={() => {
+              return (
+                <Fragment>
+                  <p>{__("Text Color", "wpb")}</p>
+                  <ColorPalette
+                    value={textColor}
+                    onChange={onChangeTextColor}
+                    allowReset={true}
+                  />
+                  <p>{__("Text Hover Color", "wpb")}</p>
+                  <ColorPalette
+                    value={textHoverColor}
+                    onChange={onChangetextHoverColor}
+                    allowReset={true}
+                  />
+                </Fragment>
+              );
+            }}
+          />
+        </div>
       </PanelBody>
     </InspectorControls>,
     <div class="cards">
@@ -164,6 +215,7 @@ const Edit = (props) => {
               fontStyle: textStyle,
               textTransform: textUpper ? "uppercase" : "none",
               letterSpacing: textLetter,
+              color: textColor,
             }}
           >
             <RichText
@@ -186,6 +238,7 @@ const Edit = (props) => {
               fontStyle: textStyle,
               textTransform: textUpper ? "uppercase" : "none",
               letterSpacing: textLetter,
+              color: textColor,
             }}
           >
             <RichText
