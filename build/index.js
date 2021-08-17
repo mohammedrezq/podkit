@@ -3595,7 +3595,6 @@ var Edit = function Edit(props) {
     }
   }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["RichText"], {
     placeholder: __("First Card", "podkit"),
-    className: "premium-button",
     value: cardFront,
     onChange: onChangeCardFront,
     style: {
@@ -3606,16 +3605,15 @@ var Edit = function Edit(props) {
     style: {
       display: "block",
       background: backCardBackground,
-      textAlign: cardAlignment
+      textAlign: "".concat(cardAlignment)
     }
   }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["RichText"], {
     placeholder: __("Card Back", "podkit"),
-    className: "premium-button",
     value: cardBack,
+    onChange: onChangeCardBack,
     style: {
-      fontFamily: cardFontFamily
-    },
-    onChange: onChangeCardBack
+      fontFamily: "".concat(cardFontFamily)
+    }
   })))))];
 };
 
@@ -3682,29 +3680,25 @@ var Save = function Save(props) {
     class: "card-front",
     style: {
       display: "block",
+      fontFamily: cardFontFamily,
       background: frontCardBackground,
       textAlign: cardAlignment
     }
   }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__["RichText"].Content, {
-    className: "premium-button",
     value: cardFront,
     style: {
-      background: backCardBackground,
-      fontFamily: cardFontFamily
+      background: backCardBackground
     }
   })), /*#__PURE__*/React.createElement("div", {
     class: "card-back",
     style: {
       display: "block",
+      fontFamily: cardFontFamily,
       background: backCardBackground,
       textAlign: cardAlignment
     }
   }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__["RichText"].Content, {
-    className: "premium-button",
-    value: cardBack,
-    style: {
-      fontFamily: cardFontFamily
-    }
+    value: cardBack
   })))));
 };
 
@@ -3746,17 +3740,20 @@ var FlipBoxAttributes = {
     selector: ".card-back"
   },
   frontCardBackground: {
-    type: "string"
+    type: "string",
+    default: "#ffffff"
   },
   backCardBackground: {
-    type: "string"
+    type: "string",
+    default: "#ffffff"
   },
   cardAlignment: {
     type: "string",
     default: "center"
   },
   cardFontFamily: {
-    type: "string"
+    type: "string",
+    default: "Tahoma"
   }
 };
 var FlipBoxSupports = {

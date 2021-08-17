@@ -19,16 +19,15 @@ const Save = (props) => {
             class="card-front"
             style={{
               display: "block",
+              fontFamily: cardFontFamily,
               background: frontCardBackground,
               textAlign: cardAlignment,
             }}
           >
             <RichText.Content
-              className={`premium-button`}
               value={cardFront}
               style={{
                 background: backCardBackground,
-                fontFamily: cardFontFamily,
               }}
             />
           </div>
@@ -36,17 +35,12 @@ const Save = (props) => {
             class="card-back"
             style={{
               display: "block",
+              fontFamily: cardFontFamily,
               background: backCardBackground,
               textAlign: cardAlignment,
             }}
           >
-            <RichText.Content
-              className={`premium-button`}
-              value={cardBack}
-              style={{
-                fontFamily: cardFontFamily,
-              }}
-            />
+            <RichText.Content value={cardBack} />
           </div>
         </div>
       </div>

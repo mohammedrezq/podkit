@@ -1,40 +1,43 @@
 const { __ } = wp.i18n;
 import { registerBlockType } from "@wordpress/blocks";
 
-import './Font';
+import "./Font";
 import { ReactComponent as Logo } from "../bv-logo.svg";
 import Edit from "./Edit";
 import Save from "./Save";
 
 const FlipBoxAttributes = {
-    cardFront: {
-      type: "string",
-      source: "html",
-      selector: ".card-front",
-    },
-    cardBack: {
-      type: "string",
-      source: "html",
-      selector: ".card-back",
-    },
-    frontCardBackground: {
-      type: "string",
-    },
-    backCardBackground: {
-      type: "string",
-    },
-    cardAlignment: {
-      type: "string",
-      default: "center",
-    },
-    cardFontFamily: {
-        type:"string"
-    }
+  cardFront: {
+    type: "string",
+    source: "html",
+    selector: ".card-front",
+  },
+  cardBack: {
+    type: "string",
+    source: "html",
+    selector: ".card-back",
+  },
+  frontCardBackground: {
+    type: "string",
+    default: "#ffffff",
+  },
+  backCardBackground: {
+    type: "string",
+    default: "#ffffff",
+  },
+  cardAlignment: {
+    type: "string",
+    default: "center",
+  },
+  cardFontFamily: {
+    type: "string",
+    default: "Tahoma"
+  },
 };
-  
-  const FlipBoxSupports = {
-    align: true,
-  };
+
+const FlipBoxSupports = {
+  align: true,
+};
 
 registerBlockType("podkit/flip", {
   title: __("Flip Box", "podkit"),
@@ -43,5 +46,5 @@ registerBlockType("podkit/flip", {
   attributes: FlipBoxAttributes,
   supports: FlipBoxSupports,
   edit: Edit,
-  save: Save
+  save: Save,
 });

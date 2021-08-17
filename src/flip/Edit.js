@@ -121,7 +121,6 @@ const Edit = (props) => {
           >
             <RichText
               placeholder={__("First Card", "podkit")}
-              className={`premium-button`}
               value={cardFront}
               onChange={onChangeCardFront}
               style={{
@@ -134,17 +133,16 @@ const Edit = (props) => {
             style={{
               display: "block",
               background: backCardBackground,
-              textAlign: cardAlignment,
+              textAlign: `${cardAlignment}`,
             }}
           >
             <RichText
               placeholder={__("Card Back", "podkit")}
-              className={`premium-button`}
               value={cardBack}
-              style={{
-                fontFamily: cardFontFamily,
-              }}
               onChange={onChangeCardBack}
+              style={{
+                fontFamily: `${cardFontFamily}`,
+              }}
             />
           </div>
         </div>
