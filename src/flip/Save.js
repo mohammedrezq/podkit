@@ -10,7 +10,11 @@ const Save = (props) => {
       cardAlignment,
       cardFontFamily,
       textSize,
-      textWeight
+      textWeight,
+      textLineHeight,
+      textStyle,
+      textUpper,
+      textLetter
     },
   } = props;
   return (
@@ -24,8 +28,12 @@ const Save = (props) => {
               fontFamily: cardFontFamily,
               background: frontCardBackground,
               textAlign: cardAlignment,
-              fontSize: textSize + 'px',
-              fontWeight: textWeight
+              fontSize: textSize + "px",
+              fontWeight: textWeight,
+              lineHeight: textLineHeight,
+              fontStyle: textStyle,
+              textTransform: textUpper ? "uppercase" : "none",
+              letterSpacing: textLetter,
             }}
           >
             <RichText.Content
@@ -42,8 +50,12 @@ const Save = (props) => {
               fontFamily: cardFontFamily,
               background: backCardBackground,
               textAlign: cardAlignment,
-              fontSize: textSize + 'px',
-              fontWeight: textWeight
+              fontSize: textSize + "px",
+              fontWeight: textWeight,
+              lineHeight: textLineHeight,
+              fontStyle: textStyle,
+              textTransform: textUpper ? "uppercase" : "none",
+              letterSpacing: textLetter,
             }}
           >
             <RichText.Content value={cardBack} />

@@ -40,6 +40,20 @@ const FlipBoxAttributes = {
   textWeight: {
     type: "number",
     default: 400
+  },
+  textLineHeight: {
+    type: "number",
+    default: 1.2
+  },
+  textStyle: {
+    type: "string",
+    default: "normal"
+  },
+  textUpper: {
+    type: "string",
+  },
+  textLetter: {
+    type: "number"
   }
 };
 

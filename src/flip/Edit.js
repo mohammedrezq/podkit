@@ -22,6 +22,10 @@ const Edit = (props) => {
       cardFontFamily,
       textSize,
       textWeight,
+      textLineHeight,
+      textStyle,
+      textUpper,
+      textLetter,
     },
     setAttributes,
   } = props;
@@ -51,6 +55,24 @@ const Edit = (props) => {
     }
 
     addFontToHead(cardFontFamily);
+  };
+
+  const textWeightfn = (newTextWeight) => {
+    setAttributes({ textWeight: newTextWeight });
+  };
+
+  const lineHeight = (newTextLineHeight) => {
+    setAttributes({ textLineHeight: newTextLineHeight });
+  };
+
+  const textStylefn = (newTextStyle) => {
+    setAttributes({ textStyle: newTextStyle });
+  };
+
+  const textUpperfn = (check) => setAttributes({ textUpper: check });
+
+  const textLetterfn = (newTextLetter) => {
+    setAttributes({ textLetter: newTextLetter });
   };
 
   return [
@@ -103,15 +125,21 @@ const Edit = (props) => {
           onChange={onChangeTextFamily}
         />
         <Typography
-          components={["size", "weight"]} //, 'weight', 'line', 'style', 'upper', 'spacing'
+          components={["size", "weight", "line", "style", "upper", "spacing"]} //, 'spacing'
           size={textSize}
           weight={textWeight}
-          onChangeSize={(newTextSize) => {
-            setAttributes({ textSize: newTextSize });
-          }}
-          onChangeWeight={(newTextWeight) => {
-            setAttributes({ textWeight: newTextWeight });
-          }}
+          line={textLineHeight}
+          style={textStyle}
+          upper={textUpper}
+          spacing={textLetter}
+          onChangeSize={(newTextSize) =>
+            setAttributes({ textSize: newTextSize })
+          }
+          onChangeWeight={textWeightfn}
+          onChangeLine={lineHeight}
+          onChangeStyle={textStylefn}
+          onChangeUpper={textUpperfn}
+          onChangeSpacing={textLetterfn}
         />
       </PanelBody>
     </InspectorControls>,
@@ -133,6 +161,9 @@ const Edit = (props) => {
               textAlign: cardAlignment,
               fontSize: textSize + "px",
               fontWeight: textWeight,
+              fontStyle: textStyle,
+              textTransform: textUpper ? "uppercase" : "none",
+              letterSpacing: textLetter,
             }}
           >
             <RichText
@@ -152,6 +183,9 @@ const Edit = (props) => {
               textAlign: `${cardAlignment}`,
               fontSize: textSize + "px",
               fontWeight: textWeight,
+              fontStyle: textStyle,
+              textTransform: textUpper ? "uppercase" : "none",
+              letterSpacing: textLetter,
             }}
           >
             <RichText

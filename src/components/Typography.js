@@ -43,7 +43,9 @@ const Typography = (props) => {
 
   return (
     <div class="wpb-toggle">
-      <strong>{__("Typography", "wpb")}</strong>
+      <div className="wpb-toggle-title">
+        <strong>{__("Typography", "wpb")}</strong>
+      </div>
       <Dropdown
         className="wpb_control_toggle_button"
         contentClassName="wp_control_toggle_content"
@@ -99,12 +101,17 @@ const Typography = (props) => {
                 <RangeControl
                   label={__("Spacing", "wpb")}
                   value={spacing}
+                  step="0.1"
+                  min="0"
+                  max="30"
                   onChange={onChangeSpacing}
                   onResetClick={onResetClick}
                 />
               )}
               {components.includes("line") && (
                 <RangeControl
+                  min="0.1"
+                  max="15"
                   label={__("Line Height", "wpb")}
                   value={line}
                   onChange={onChangeLine}

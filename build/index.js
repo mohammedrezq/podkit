@@ -291,7 +291,9 @@ var Typography = function Typography(props) {
   }];
   return /*#__PURE__*/React.createElement("div", {
     class: "wpb-toggle"
-  }, /*#__PURE__*/React.createElement("strong", null, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Typography", "wpb")), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["Dropdown"], {
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "wpb-toggle-title"
+  }, /*#__PURE__*/React.createElement("strong", null, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Typography", "wpb"))), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["Dropdown"], {
     className: "wpb_control_toggle_button",
     contentClassName: "wp_control_toggle_content",
     position: "bottom right",
@@ -335,9 +337,14 @@ var Typography = function Typography(props) {
       }), components.includes("spacing") && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["RangeControl"], {
         label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Spacing", "wpb"),
         value: spacing,
+        step: "0.1",
+        min: "0",
+        max: "30",
         onChange: onChangeSpacing,
         onResetClick: onResetClick
       }), components.includes("line") && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["RangeControl"], {
+        min: "0.1",
+        max: "15",
         label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Line Height", "wpb"),
         value: line,
         onChange: onChangeLine,
@@ -3613,6 +3620,10 @@ var Edit = function Edit(props) {
       cardFontFamily = _props$attributes.cardFontFamily,
       textSize = _props$attributes.textSize,
       textWeight = _props$attributes.textWeight,
+      textLineHeight = _props$attributes.textLineHeight,
+      textStyle = _props$attributes.textStyle,
+      textUpper = _props$attributes.textUpper,
+      textLetter = _props$attributes.textLetter,
       setAttributes = props.setAttributes;
 
   var onChangeCardFront = function onChangeCardFront(newCardFront) {
@@ -3657,6 +3668,36 @@ var Edit = function Edit(props) {
     Object(_components_googleFonts__WEBPACK_IMPORTED_MODULE_3__["default"])(cardFontFamily);
   };
 
+  var textWeightfn = function textWeightfn(newTextWeight) {
+    setAttributes({
+      textWeight: newTextWeight
+    });
+  };
+
+  var lineHeight = function lineHeight(newTextLineHeight) {
+    setAttributes({
+      textLineHeight: newTextLineHeight
+    });
+  };
+
+  var textStylefn = function textStylefn(newTextStyle) {
+    setAttributes({
+      textStyle: newTextStyle
+    });
+  };
+
+  var textUpperfn = function textUpperfn(check) {
+    return setAttributes({
+      textUpper: check
+    });
+  };
+
+  var textLetterfn = function textLetterfn(newTextLetter) {
+    setAttributes({
+      textLetter: newTextLetter
+    });
+  };
+
   return [/*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["InspectorControls"], null, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__["PanelBody"], {
     title: __("Flip Card", "wpb")
   }, /*#__PURE__*/React.createElement("div", {
@@ -3695,20 +3736,24 @@ var Edit = function Edit(props) {
     value: cardFontFamily,
     onChange: onChangeTextFamily
   }), /*#__PURE__*/React.createElement(_components_Typography__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    components: ["size", "weight"] //, 'weight', 'line', 'style', 'upper', 'spacing'
+    components: ["size", "weight", "line", "style", "upper", "spacing"] //, 'spacing'
     ,
     size: textSize,
     weight: textWeight,
+    line: textLineHeight,
+    style: textStyle,
+    upper: textUpper,
+    spacing: textLetter,
     onChangeSize: function onChangeSize(newTextSize) {
-      setAttributes({
+      return setAttributes({
         textSize: newTextSize
       });
     },
-    onChangeWeight: function onChangeWeight(newTextWeight) {
-      setAttributes({
-        textWeight: newTextWeight
-      });
-    }
+    onChangeWeight: textWeightfn,
+    onChangeLine: lineHeight,
+    onChangeStyle: textStylefn,
+    onChangeUpper: textUpperfn,
+    onChangeSpacing: textLetterfn
   }))), /*#__PURE__*/React.createElement("div", {
     class: "cards"
   }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["BlockControls"], null, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["AlignmentToolbar"], {
@@ -3725,7 +3770,10 @@ var Edit = function Edit(props) {
       background: frontCardBackground,
       textAlign: cardAlignment,
       fontSize: textSize + "px",
-      fontWeight: textWeight
+      fontWeight: textWeight,
+      fontStyle: textStyle,
+      textTransform: textUpper ? "uppercase" : "none",
+      letterSpacing: textLetter
     }
   }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["RichText"], {
     placeholder: __("First Card", "wpb"),
@@ -3741,7 +3789,10 @@ var Edit = function Edit(props) {
       background: backCardBackground,
       textAlign: "".concat(cardAlignment),
       fontSize: textSize + "px",
-      fontWeight: textWeight
+      fontWeight: textWeight,
+      fontStyle: textStyle,
+      textTransform: textUpper ? "uppercase" : "none",
+      letterSpacing: textLetter
     }
   }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["RichText"], {
     placeholder: __("Card Back", "wpb"),
@@ -3807,7 +3858,11 @@ var Save = function Save(props) {
       cardAlignment = _props$attributes.cardAlignment,
       cardFontFamily = _props$attributes.cardFontFamily,
       textSize = _props$attributes.textSize,
-      textWeight = _props$attributes.textWeight;
+      textWeight = _props$attributes.textWeight,
+      textLineHeight = _props$attributes.textLineHeight,
+      textStyle = _props$attributes.textStyle,
+      textUpper = _props$attributes.textUpper,
+      textLetter = _props$attributes.textLetter;
   return /*#__PURE__*/React.createElement("div", {
     class: "cards"
   }, /*#__PURE__*/React.createElement("div", {
@@ -3821,8 +3876,12 @@ var Save = function Save(props) {
       fontFamily: cardFontFamily,
       background: frontCardBackground,
       textAlign: cardAlignment,
-      fontSize: textSize + 'px',
-      fontWeight: textWeight
+      fontSize: textSize + "px",
+      fontWeight: textWeight,
+      lineHeight: textLineHeight,
+      fontStyle: textStyle,
+      textTransform: textUpper ? "uppercase" : "none",
+      letterSpacing: textLetter
     }
   }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__["RichText"].Content, {
     value: cardFront,
@@ -3836,8 +3895,12 @@ var Save = function Save(props) {
       fontFamily: cardFontFamily,
       background: backCardBackground,
       textAlign: cardAlignment,
-      fontSize: textSize + 'px',
-      fontWeight: textWeight
+      fontSize: textSize + "px",
+      fontWeight: textWeight,
+      lineHeight: textLineHeight,
+      fontStyle: textStyle,
+      textTransform: textUpper ? "uppercase" : "none",
+      letterSpacing: textLetter
     }
   }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__["RichText"].Content, {
     value: cardBack
@@ -3904,6 +3967,20 @@ var FlipBoxAttributes = {
   textWeight: {
     type: "number",
     default: 400
+  },
+  textLineHeight: {
+    type: "number",
+    default: 1.2
+  },
+  textStyle: {
+    type: "string",
+    default: "normal"
+  },
+  textUpper: {
+    type: "string"
+  },
+  textLetter: {
+    type: "number"
   }
 };
 var FlipBoxSupports = {
