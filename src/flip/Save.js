@@ -16,13 +16,22 @@ const Save = (props) => {
       textUpper,
       textLetter,
       textColor,
-      textHoverColor,
+      boxShadowColor,
+      boxShadowBlur,
+      boxShadowHorizontal,
+      boxShadowVertical,
+      boxShadowPosition,
     },
   } = props;
   return (
     <div class="cards">
       <div class="card">
-        <div class="card-body">
+        <div
+          class="card-body"
+          style={{
+            boxShadow: `${boxShadowHorizontal}px ${boxShadowVertical}px ${boxShadowBlur}px ${boxShadowColor} ${boxShadowPosition}`,
+          }}
+        >
           <div
             class="card-front"
             style={{
@@ -37,6 +46,7 @@ const Save = (props) => {
               textTransform: textUpper ? "uppercase" : "none",
               letterSpacing: textLetter,
               color: textColor,
+              boxShadow: `${boxShadowHorizontal}px ${boxShadowVertical}px ${boxShadowBlur}px ${boxShadowColor} ${boxShadowPosition}`,
             }}
           >
             <RichText.Content
@@ -60,6 +70,7 @@ const Save = (props) => {
               textTransform: textUpper ? "uppercase" : "none",
               letterSpacing: textLetter,
               color: textColor,
+              boxShadow: `${boxShadowHorizontal}px ${boxShadowVertical}px ${boxShadowBlur}px ${boxShadowColor} ${boxShadowPosition}`,
             }}
           >
             <RichText.Content value={cardBack} />

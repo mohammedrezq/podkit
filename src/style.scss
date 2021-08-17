@@ -187,7 +187,7 @@ body {
 }
 
 .card-front, .card-back {
-  @extend .shadow;
+  // @extend .shadow;
   display: flex;
   align-items: center;
   background-color: white;

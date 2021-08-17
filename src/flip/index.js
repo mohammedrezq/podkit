@@ -31,40 +31,56 @@ const FlipBoxAttributes = {
   },
   cardFontFamily: {
     type: "string",
-    default: "Tahoma"
+    default: "Tahoma",
   },
   textSize: {
     type: "number",
-    default: 16
+    default: 16,
   },
   textWeight: {
     type: "number",
-    default: 400
+    default: 400,
   },
   textLineHeight: {
     type: "number",
-    default: 1.2
+    default: 1.2,
   },
   textStyle: {
     type: "string",
-    default: "normal"
+    default: "normal",
   },
   textUpper: {
     type: "string",
-    default: "none"
+    default: "none",
   },
   textLetter: {
     type: "number",
-    default: 1
+    default: 1,
   },
   textColor: {
     type: "string",
-    default: "#000000"
+    default: "#000000",
   },
-  textHoverColor: {
+  boxShadowColor: {
+    type:"string"
+  },
+  boxShadowBlur: {
+    type: "number",
+    default: 0
+  },
+  boxShadowHorizontal: {
+    type: 'number',
+    default: 0
+  },
+  boxShadowVertical: {
+    type: 'number',
+    default: 0
+  },
+  boxShadowPosition: {
     type: "string",
-    default: "#ccc"
+    default: "inset"
   }
+
 };
 
 const FlipBoxSupports = {

@@ -238,6 +238,108 @@ function SvgBvLogo(props) {
 
 /***/ }),
 
+/***/ "./src/components/BoxShadow.js":
+/*!*************************************!*\
+  !*** ./src/components/BoxShadow.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+
+var BoxShadow = function BoxShadow(props) {
+  var label = props.label,
+      color = props.color,
+      blur = props.blur,
+      horizontal = props.horizontal,
+      vertical = props.vertical,
+      position = props.position,
+      _props$onChangeColor = props.onChangeColor,
+      onChangeColor = _props$onChangeColor === void 0 ? function () {} : _props$onChangeColor,
+      _props$onChangeBlur = props.onChangeBlur,
+      onChangeBlur = _props$onChangeBlur === void 0 ? function () {} : _props$onChangeBlur,
+      _props$onChangeHorizo = props.onChangeHorizontal,
+      onChangeHorizontal = _props$onChangeHorizo === void 0 ? function () {} : _props$onChangeHorizo,
+      _props$onChangeVertic = props.onChangeVertical,
+      onChangeVertical = _props$onChangeVertic === void 0 ? function () {} : _props$onChangeVertic,
+      _props$onChangePositi = props.onChangePosition,
+      onChangePosition = _props$onChangePositi === void 0 ? function () {} : _props$onChangePositi,
+      _props$onResetClick = props.onResetClick,
+      onResetClick = _props$onResetClick === void 0 ? function () {} : _props$onResetClick;
+  var POSITION = [{
+    value: "inset",
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Inset")
+  }, {
+    value: "",
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Outline")
+  }];
+  return /*#__PURE__*/React.createElement("div", {
+    class: "wpb-toggle"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "wpb-toggle-title"
+  }, /*#__PURE__*/React.createElement("strong", null, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])(label || "Text Shadow", "wpb"))), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["Dropdown"], {
+    className: "wpb_control_toggle_button",
+    contentClassName: "wp_control_toggle_content",
+    position: "bottom right",
+    renderToggle: function renderToggle(_ref) {
+      var isOpen = _ref.isOpen,
+          onToggle = _ref.onToggle;
+      return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["Button"], {
+        isSmall: true,
+        onClick: onToggle,
+        "aria-expanded": isOpen
+      }, /*#__PURE__*/React.createElement("i", {
+        className: "dashicons dashicons-edit"
+      }));
+    },
+    renderContent: function renderContent() {
+      return /*#__PURE__*/React.createElement(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, /*#__PURE__*/React.createElement(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, /*#__PURE__*/React.createElement("p", null, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Shadow Color")), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["ColorPicker"], {
+        color: color,
+        onChangeComplete: onChangeColor,
+        disableAlpha: true,
+        onResetClick: onResetClick
+      })), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["RangeControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Blur", "wpb"),
+        value: blur,
+        onChange: onChangeBlur,
+        onResetClick: onResetClick
+      }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["RangeControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Horizontal", "wpb"),
+        value: horizontal,
+        onChange: onChangeHorizontal,
+        onResetClick: onResetClick
+      }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["RangeControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Vertical", "wpb"),
+        value: vertical,
+        onChange: onChangeVertical,
+        onResetClick: onResetClick
+      }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["SelectControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Position", "wpb"),
+        value: position,
+        options: POSITION,
+        onChange: onChangePosition
+      }));
+    }
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (BoxShadow);
+
+/***/ }),
+
 /***/ "./src/components/Typography.js":
 /*!**************************************!*\
   !*** ./src/components/Typography.js ***!
@@ -3607,6 +3709,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_googleFontsNames__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/googleFontsNames */ "./src/components/googleFontsNames.js");
 /* harmony import */ var _components_googleFonts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/googleFonts */ "./src/components/googleFonts.js");
 /* harmony import */ var _components_Typography__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/Typography */ "./src/components/Typography.js");
+/* harmony import */ var _components_BoxShadow__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/BoxShadow */ "./src/components/BoxShadow.js");
+
 
 
 
@@ -3630,7 +3734,11 @@ var Edit = function Edit(props) {
       textUpper = _props$attributes.textUpper,
       textLetter = _props$attributes.textLetter,
       textColor = _props$attributes.textColor,
-      textHoverColor = _props$attributes.textHoverColor,
+      boxShadowColor = _props$attributes.boxShadowColor,
+      boxShadowBlur = _props$attributes.boxShadowBlur,
+      boxShadowHorizontal = _props$attributes.boxShadowHorizontal,
+      boxShadowVertical = _props$attributes.boxShadowVertical,
+      boxShadowPosition = _props$attributes.boxShadowPosition,
       setAttributes = props.setAttributes;
 
   var onChangeCardFront = function onChangeCardFront(newCardFront) {
@@ -3708,12 +3816,6 @@ var Edit = function Edit(props) {
   var onChangeTextColor = function onChangeTextColor(newTextColor) {
     setAttributes({
       textColor: newTextColor
-    });
-  };
-
-  var onChangetextHoverColor = function onChangetextHoverColor(newTextHoverColor) {
-    setAttributes({
-      textHoverColor: newTextHoverColor
     });
   };
 
@@ -3797,13 +3899,42 @@ var Edit = function Edit(props) {
         value: textColor,
         onChange: onChangeTextColor,
         allowReset: true
-      }), /*#__PURE__*/React.createElement("p", null, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Text Hover Color", "wpb")), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["ColorPalette"], {
-        value: textHoverColor,
-        onChange: onChangetextHoverColor,
-        allowReset: true
       }));
     }
-  })))), /*#__PURE__*/React.createElement("div", {
+  })), /*#__PURE__*/React.createElement(_components_BoxShadow__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    label: "Shadow",
+    inner: true,
+    color: boxShadowColor,
+    blur: boxShadowBlur,
+    horizontal: boxShadowHorizontal,
+    vertical: boxShadowVertical,
+    position: boxShadowPosition,
+    onChangeColor: function onChangeColor(newValue) {
+      setAttributes({
+        boxShadowColor: newValue === undefined ? "transparent" : newValue.hex
+      });
+    },
+    onChangeBlur: function onChangeBlur(newValue) {
+      setAttributes({
+        boxShadowBlur: newValue === undefined ? 0 : newValue
+      });
+    },
+    onChangeHorizontal: function onChangeHorizontal(newValue) {
+      setAttributes({
+        boxShadowHorizontal: newValue === undefined ? 0 : newValue
+      });
+    },
+    onChangeVertical: function onChangeVertical(newValue) {
+      setAttributes({
+        boxShadowVertical: newValue === undefined ? 0 : newValue
+      });
+    },
+    onChangePosition: function onChangePosition(newValue) {
+      setAttributes({
+        boxShadowPosition: newValue
+      });
+    }
+  }))), /*#__PURE__*/React.createElement("div", {
     class: "cards"
   }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["BlockControls"], null, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["AlignmentToolbar"], {
     value: cardAlignment,
@@ -3811,7 +3942,10 @@ var Edit = function Edit(props) {
   })), /*#__PURE__*/React.createElement("div", {
     class: "card"
   }, /*#__PURE__*/React.createElement("div", {
-    class: "card-body"
+    class: "card-body",
+    style: {
+      boxShadow: "".concat(boxShadowHorizontal, "px ").concat(boxShadowVertical, "px ").concat(boxShadowBlur, "px ").concat(boxShadowColor, " ").concat(boxShadowPosition)
+    }
   }, /*#__PURE__*/React.createElement("div", {
     class: "card-front",
     style: {
@@ -3823,7 +3957,8 @@ var Edit = function Edit(props) {
       fontStyle: textStyle,
       textTransform: textUpper ? "uppercase" : "none",
       letterSpacing: textLetter,
-      color: textColor
+      color: textColor,
+      boxShadow: "".concat(boxShadowHorizontal, "px ").concat(boxShadowVertical, "px ").concat(boxShadowBlur, "px ").concat(boxShadowColor, " ").concat(boxShadowPosition)
     }
   }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"], {
     placeholder: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("First Card", "wpb"),
@@ -3843,7 +3978,8 @@ var Edit = function Edit(props) {
       fontStyle: textStyle,
       textTransform: textUpper ? "uppercase" : "none",
       letterSpacing: textLetter,
-      color: textColor
+      color: textColor,
+      boxShadow: "".concat(boxShadowHorizontal, "px ").concat(boxShadowVertical, "px ").concat(boxShadowBlur, "px ").concat(boxShadowColor, " ").concat(boxShadowPosition)
     }
   }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"], {
     placeholder: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Card Back", "wpb"),
@@ -3915,13 +4051,20 @@ var Save = function Save(props) {
       textUpper = _props$attributes.textUpper,
       textLetter = _props$attributes.textLetter,
       textColor = _props$attributes.textColor,
-      textHoverColor = _props$attributes.textHoverColor;
+      boxShadowColor = _props$attributes.boxShadowColor,
+      boxShadowBlur = _props$attributes.boxShadowBlur,
+      boxShadowHorizontal = _props$attributes.boxShadowHorizontal,
+      boxShadowVertical = _props$attributes.boxShadowVertical,
+      boxShadowPosition = _props$attributes.boxShadowPosition;
   return /*#__PURE__*/React.createElement("div", {
     class: "cards"
   }, /*#__PURE__*/React.createElement("div", {
     class: "card"
   }, /*#__PURE__*/React.createElement("div", {
-    class: "card-body"
+    class: "card-body",
+    style: {
+      boxShadow: "".concat(boxShadowHorizontal, "px ").concat(boxShadowVertical, "px ").concat(boxShadowBlur, "px ").concat(boxShadowColor, " ").concat(boxShadowPosition)
+    }
   }, /*#__PURE__*/React.createElement("div", {
     class: "card-front",
     style: {
@@ -3935,7 +4078,8 @@ var Save = function Save(props) {
       fontStyle: textStyle,
       textTransform: textUpper ? "uppercase" : "none",
       letterSpacing: textLetter,
-      color: textColor
+      color: textColor,
+      boxShadow: "".concat(boxShadowHorizontal, "px ").concat(boxShadowVertical, "px ").concat(boxShadowBlur, "px ").concat(boxShadowColor, " ").concat(boxShadowPosition)
     }
   }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__["RichText"].Content, {
     value: cardFront,
@@ -3955,7 +4099,8 @@ var Save = function Save(props) {
       fontStyle: textStyle,
       textTransform: textUpper ? "uppercase" : "none",
       letterSpacing: textLetter,
-      color: textColor
+      color: textColor,
+      boxShadow: "".concat(boxShadowHorizontal, "px ").concat(boxShadowVertical, "px ").concat(boxShadowBlur, "px ").concat(boxShadowColor, " ").concat(boxShadowPosition)
     }
   }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__["RichText"].Content, {
     value: cardBack
@@ -4043,9 +4188,24 @@ var FlipBoxAttributes = {
     type: "string",
     default: "#000000"
   },
-  textHoverColor: {
+  boxShadowColor: {
+    type: "string"
+  },
+  boxShadowBlur: {
+    type: "number",
+    default: 0
+  },
+  boxShadowHorizontal: {
+    type: 'number',
+    default: 0
+  },
+  boxShadowVertical: {
+    type: 'number',
+    default: 0
+  },
+  boxShadowPosition: {
     type: "string",
-    default: "#ccc"
+    default: "inset"
   }
 };
 var FlipBoxSupports = {

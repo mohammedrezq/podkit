@@ -17,6 +17,7 @@ import { Fragment } from "@wordpress/element";
 import GoogleFontsNames from "../components/googleFontsNames";
 import addFontToHead from "../components/googleFonts";
 import Typography from "../components/Typography";
+import BoxShadow from "../components/BoxShadow";
 
 const Edit = (props) => {
   const {
@@ -34,7 +35,11 @@ const Edit = (props) => {
       textUpper,
       textLetter,
       textColor,
-      textHoverColor,
+      boxShadowColor,
+      boxShadowBlur,
+      boxShadowHorizontal,
+      boxShadowVertical,
+      boxShadowPosition,
     },
     setAttributes,
   } = props;
@@ -86,9 +91,6 @@ const Edit = (props) => {
 
   const onChangeTextColor = (newTextColor) => {
     setAttributes({ textColor: newTextColor });
-  };
-  const onChangetextHoverColor = (newTextHoverColor) => {
-    setAttributes({ textHoverColor: newTextHoverColor });
   };
 
   return [
@@ -181,17 +183,46 @@ const Edit = (props) => {
                     onChange={onChangeTextColor}
                     allowReset={true}
                   />
-                  <p>{__("Text Hover Color", "wpb")}</p>
-                  <ColorPalette
-                    value={textHoverColor}
-                    onChange={onChangetextHoverColor}
-                    allowReset={true}
-                  />
                 </Fragment>
               );
             }}
           />
         </div>
+        <BoxShadow
+          label="Shadow"
+          inner={true}
+          color={boxShadowColor}
+          blur={boxShadowBlur}
+          horizontal={boxShadowHorizontal}
+          vertical={boxShadowVertical}
+          position={boxShadowPosition}
+          onChangeColor={(newValue) => {
+            setAttributes({
+              boxShadowColor:
+                newValue === undefined ? "transparent" : newValue.hex,
+            });
+          }}
+          onChangeBlur={(newValue) => {
+            setAttributes({
+              boxShadowBlur: newValue === undefined ? 0 : newValue,
+            });
+          }}
+          onChangeHorizontal={(newValue) => {
+            setAttributes({
+              boxShadowHorizontal: newValue === undefined ? 0 : newValue,
+            });
+          }}
+          onChangeVertical={(newValue) => {
+            setAttributes({
+              boxShadowVertical: newValue === undefined ? 0 : newValue,
+            });
+          }}
+          onChangePosition={(newValue) => {
+            setAttributes({
+              boxShadowPosition: newValue
+            });
+          }}
+        />
       </PanelBody>
     </InspectorControls>,
     <div class="cards">
@@ -202,7 +233,12 @@ const Edit = (props) => {
         />
       </BlockControls>
       <div class="card">
-        <div class="card-body">
+        <div
+          class="card-body"
+          style={{
+            boxShadow: `${boxShadowHorizontal}px ${boxShadowVertical}px ${boxShadowBlur}px ${boxShadowColor} ${boxShadowPosition}`,
+          }}
+        >
           <div
             class="card-front"
             style={{
@@ -216,6 +252,7 @@ const Edit = (props) => {
               textTransform: textUpper ? "uppercase" : "none",
               letterSpacing: textLetter,
               color: textColor,
+              boxShadow: `${boxShadowHorizontal}px ${boxShadowVertical}px ${boxShadowBlur}px ${boxShadowColor} ${boxShadowPosition}`,
             }}
           >
             <RichText
@@ -239,6 +276,7 @@ const Edit = (props) => {
               textTransform: textUpper ? "uppercase" : "none",
               letterSpacing: textLetter,
               color: textColor,
+              boxShadow: `${boxShadowHorizontal}px ${boxShadowVertical}px ${boxShadowBlur}px ${boxShadowColor} ${boxShadowPosition}`,
             }}
           >
             <RichText
