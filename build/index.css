@@ -80,4 +80,88 @@ figure {
   box-shadow: none;
 }
 
+:root {
+  --time: 0.707s;
+}
+
+.cards {
+  display: -ms-grid;
+  display: grid;
+}
+
+.card {
+  perspective: 40rem;
+}
+
+.card-body {
+  transform-style: preserve-3d;
+  transition: var(--time) transform;
+}
+.card:hover .card-body {
+  transform: rotateX(-180deg);
+}
+
+.card-front,
+.card-back {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+.card-back {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: rotateX(-180deg);
+}
+
+/* Make it Pretty */
+body {
+  line-height: 1.3;
+  font-family: sans-serif;
+}
+
+.cards {
+  grid-gap: 1.5rem;
+  padding: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+}
+
+.card {
+  display: flex;
+  transition: transform calc(var(--time) / 4);
+  text-decoration: none;
+  color: inherit;
+  border: none;
+}
+.card:active {
+  transform: scale(0.975);
+}
+
+.card-body {
+  border-radius: 0.25rem;
+  flex: 1;
+}
+
+.card-front,
+.card-back {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  box-sizing: border-box;
+  padding: 1.5rem;
+  border-radius: 0.25rem;
+}
+
+.card-front {
+  font-size: 1.5rem;
+}
+
+.wpb-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 /*# sourceMappingURL=index.css.map*/

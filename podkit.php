@@ -1,13 +1,13 @@
 <?php
 
 /**
- * Plugin Name: Podkit
+ * Plugin Name: WP Premium Blocks
  * Plugin URI: https://github.com/LinkedInLearning/WPContentBlocks-Adv-5034179
  * Description: Custom block plugin from the LinkedIn Learning course "WordPress Content Blocks: Advanced".
  * Version: 1.0.0
- * Author: Morten Rand-Hendriksen
+ * Author: Mohammed Rezq
  *
- * @package podkit
+ * @package wpb
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -114,7 +114,8 @@ function podkit_register_blocks() {
 		'podkit/static',
 		'podkit/editable',
 		'podkit/media',
-		'podkit/extended'
+		'podkit/extended',
+		'podkit/flip'
 	];
 	
 	// Loop through $blocks and register each block with the same script and styles.
