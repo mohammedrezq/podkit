@@ -18,6 +18,7 @@ import GoogleFontsNames from "../components/googleFontsNames";
 import addFontToHead from "../components/googleFonts";
 import Typography from "../components/Typography";
 import BoxShadow from "../components/BoxShadow";
+import TextShadow from "../components/TextShadow";
 
 const Edit = (props) => {
   const {
@@ -40,6 +41,10 @@ const Edit = (props) => {
       boxShadowHorizontal,
       boxShadowVertical,
       boxShadowPosition,
+      textShadowColor,
+      textShadowBlur,
+      textShadowHorizontal,
+      textShadowVertical,
     },
     setAttributes,
   } = props;
@@ -189,7 +194,7 @@ const Edit = (props) => {
           />
         </div>
         <BoxShadow
-          label="Shadow"
+          label="Box Shadow"
           inner={true}
           color={boxShadowColor}
           blur={boxShadowBlur}
@@ -219,8 +224,27 @@ const Edit = (props) => {
           }}
           onChangePosition={(newValue) => {
             setAttributes({
-              boxShadowPosition: newValue
+              boxShadowPosition: newValue,
             });
+          }}
+        />
+        <TextShadow
+          label="Text Shadow"
+          color={textShadowColor}
+          // blur={textShadowBlur}
+          horizontal={textShadowHorizontal}
+          vertical={textShadowVertical}
+          onChangeColor={(newValue) => {
+            setAttributes({ textShadowColor: newValue.hex });
+          }}
+          onChangeBlur={(newValue) => {
+            setAttributes({ textShadowBlur: newValue });
+          }}
+          onChangeHorizontal={(newValue) => {
+            setAttributes({ textShadowHorizontal: newValue });
+          }}
+          onChangeVertical={(newValue) => {
+            setAttributes({ textShadowVertical: newValue });
           }}
         />
       </PanelBody>
@@ -253,6 +277,7 @@ const Edit = (props) => {
               letterSpacing: textLetter,
               color: textColor,
               boxShadow: `${boxShadowHorizontal}px ${boxShadowVertical}px ${boxShadowBlur}px ${boxShadowColor} ${boxShadowPosition}`,
+              textShadow: `${textShadowHorizontal}px ${textShadowVertical}px ${textShadowColor}`,
             }}
           >
             <RichText
@@ -277,6 +302,7 @@ const Edit = (props) => {
               letterSpacing: textLetter,
               color: textColor,
               boxShadow: `${boxShadowHorizontal}px ${boxShadowVertical}px ${boxShadowBlur}px ${boxShadowColor} ${boxShadowPosition}`,
+              textShadow: `${textShadowHorizontal}px ${textShadowVertical}px ${textShadowColor}`,
             }}
           >
             <RichText

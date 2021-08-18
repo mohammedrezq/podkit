@@ -4,11 +4,9 @@ import {
   Dropdown,
   RangeControl,
   SelectControl,
-  ToggleControl,
   ColorPicker,
 } from "@wordpress/components";
 import { Fragment } from "@wordpress/element";
-import { ColorPalette } from "@wordpress/block-editor";
 
 const BoxShadow = (props) => {
   const {
@@ -40,7 +38,7 @@ const BoxShadow = (props) => {
   return (
     <div class="wpb-toggle">
       <div className="wpb-toggle-title">
-        <strong>{__(label || "Text Shadow", "wpb")}</strong>
+        <strong>{__(label || "Shadow", "wpb")}</strong>
       </div>
       <Dropdown
         className="wpb_control_toggle_button"

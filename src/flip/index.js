@@ -62,25 +62,39 @@ const FlipBoxAttributes = {
     default: "#000000",
   },
   boxShadowColor: {
-    type:"string"
+    type: "string",
   },
   boxShadowBlur: {
     type: "number",
-    default: 0
+    default: 0,
   },
   boxShadowHorizontal: {
-    type: 'number',
-    default: 0
+    type: "number",
+    default: 0,
   },
   boxShadowVertical: {
-    type: 'number',
-    default: 0
+    type: "number",
+    default: 0,
   },
   boxShadowPosition: {
     type: "string",
-    default: "inset"
-  }
-
+    default: "inset",
+  },
+  textShadowColor: {
+    type: "string",
+  },
+  textShadowBlur: {
+    type: "number",
+    default: 0,
+  },
+  textShadowHorizontal: {
+    type: "number",
+    default: 0,
+  },
+  textShadowVertical: {
+    type: "number",
+    default: 0,
+  },
 };
 
 const FlipBoxSupports = {
