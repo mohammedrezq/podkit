@@ -198,41 +198,7 @@ const Edit = (props) => {
             }}
           />
         </div>
-        <BoxShadow
-          label="Box Shadow"
-          inner={true}
-          color={boxShadowColor}
-          blur={boxShadowBlur}
-          horizontal={boxShadowHorizontal}
-          vertical={boxShadowVertical}
-          position={boxShadowPosition}
-          onChangeColor={(newValue) => {
-            setAttributes({
-              boxShadowColor:
-                newValue === undefined ? "transparent" : newValue.hex,
-            });
-          }}
-          onChangeBlur={(newValue) => {
-            setAttributes({
-              boxShadowBlur: newValue === undefined ? 0 : newValue,
-            });
-          }}
-          onChangeHorizontal={(newValue) => {
-            setAttributes({
-              boxShadowHorizontal: newValue === undefined ? 0 : newValue,
-            });
-          }}
-          onChangeVertical={(newValue) => {
-            setAttributes({
-              boxShadowVertical: newValue === undefined ? 0 : newValue,
-            });
-          }}
-          onChangePosition={(newValue) => {
-            setAttributes({
-              boxShadowPosition: newValue,
-            });
-          }}
-        />
+        
         <TextShadow
           label="Text Shadow"
           color={textShadowColor}
@@ -271,6 +237,41 @@ const Edit = (props) => {
           }}
           onChangeBorderRadius={(newValue) => {
             setAttributes({ borderRadius: newValue });
+          }}
+        />
+        <BoxShadow
+          label="Box Shadow"
+          inner={true}
+          color={boxShadowColor}
+          blur={boxShadowBlur}
+          horizontal={boxShadowHorizontal}
+          vertical={boxShadowVertical}
+          position={boxShadowPosition}
+          onChangeColor={(newValue) => {
+            setAttributes({
+              boxShadowColor:
+                newValue === undefined ? "transparent" : newValue.hex,
+            });
+          }}
+          onChangeBlur={(newValue) => {
+            setAttributes({
+              boxShadowBlur: newValue === undefined ? 0 : newValue,
+            });
+          }}
+          onChangeHorizontal={(newValue) => {
+            setAttributes({
+              boxShadowHorizontal: newValue === undefined ? 0 : newValue,
+            });
+          }}
+          onChangeVertical={(newValue) => {
+            setAttributes({
+              boxShadowVertical: newValue === undefined ? 0 : newValue,
+            });
+          }}
+          onChangePosition={(newValue) => {
+            setAttributes({
+              boxShadowPosition: newValue,
+            });
           }}
         />
       </PanelBody>

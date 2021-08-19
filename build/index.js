@@ -4091,40 +4091,7 @@ var Edit = function Edit(props) {
         allowReset: true
       }));
     }
-  })), /*#__PURE__*/React.createElement(_components_BoxShadow__WEBPACK_IMPORTED_MODULE_7__["default"], {
-    label: "Box Shadow",
-    inner: true,
-    color: boxShadowColor,
-    blur: boxShadowBlur,
-    horizontal: boxShadowHorizontal,
-    vertical: boxShadowVertical,
-    position: boxShadowPosition,
-    onChangeColor: function onChangeColor(newValue) {
-      setAttributes({
-        boxShadowColor: newValue === undefined ? "transparent" : newValue.hex
-      });
-    },
-    onChangeBlur: function onChangeBlur(newValue) {
-      setAttributes({
-        boxShadowBlur: newValue === undefined ? 0 : newValue
-      });
-    },
-    onChangeHorizontal: function onChangeHorizontal(newValue) {
-      setAttributes({
-        boxShadowHorizontal: newValue === undefined ? 0 : newValue
-      });
-    },
-    onChangeVertical: function onChangeVertical(newValue) {
-      setAttributes({
-        boxShadowVertical: newValue === undefined ? 0 : newValue
-      });
-    },
-    onChangePosition: function onChangePosition(newValue) {
-      setAttributes({
-        boxShadowPosition: newValue
-      });
-    }
-  }), /*#__PURE__*/React.createElement(_components_TextShadow__WEBPACK_IMPORTED_MODULE_8__["default"], {
+  })), /*#__PURE__*/React.createElement(_components_TextShadow__WEBPACK_IMPORTED_MODULE_8__["default"], {
     label: "Text Shadow",
     color: textShadowColor // blur={textShadowBlur}
     ,
@@ -4175,6 +4142,39 @@ var Edit = function Edit(props) {
     onChangeBorderRadius: function onChangeBorderRadius(newValue) {
       setAttributes({
         borderRadius: newValue
+      });
+    }
+  }), /*#__PURE__*/React.createElement(_components_BoxShadow__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    label: "Box Shadow",
+    inner: true,
+    color: boxShadowColor,
+    blur: boxShadowBlur,
+    horizontal: boxShadowHorizontal,
+    vertical: boxShadowVertical,
+    position: boxShadowPosition,
+    onChangeColor: function onChangeColor(newValue) {
+      setAttributes({
+        boxShadowColor: newValue === undefined ? "transparent" : newValue.hex
+      });
+    },
+    onChangeBlur: function onChangeBlur(newValue) {
+      setAttributes({
+        boxShadowBlur: newValue === undefined ? 0 : newValue
+      });
+    },
+    onChangeHorizontal: function onChangeHorizontal(newValue) {
+      setAttributes({
+        boxShadowHorizontal: newValue === undefined ? 0 : newValue
+      });
+    },
+    onChangeVertical: function onChangeVertical(newValue) {
+      setAttributes({
+        boxShadowVertical: newValue === undefined ? 0 : newValue
+      });
+    },
+    onChangePosition: function onChangePosition(newValue) {
+      setAttributes({
+        boxShadowPosition: newValue
       });
     }
   }))), /*#__PURE__*/React.createElement("div", {
