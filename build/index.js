@@ -319,8 +319,9 @@ var Border = function Border(props) {
         label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Border Width", "wpb"),
         value: borderWidth,
         min: "0",
-        max: "60",
-        onChange: onChangeBorderWidth
+        max: "100",
+        onChange: onChangeBorderWidth,
+        allowReset: "true"
       }), "none" != borderType && /*#__PURE__*/React.createElement(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, /*#__PURE__*/React.createElement("p", null, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Border Color", "wpb")), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["ColorPicker"], {
         color: borderColor,
         onChangeComplete: onChangeBorderColor,
@@ -330,7 +331,8 @@ var Border = function Border(props) {
         value: borderRadius,
         min: "0",
         max: "300",
-        onChange: onChangeBorderRadius
+        onChange: onChangeBorderRadius,
+        allowReset: "true"
       }));
     }
   }));
@@ -414,7 +416,7 @@ var BoxShadow = function BoxShadow(props) {
         label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Blur", "wpb"),
         value: blur,
         onChange: onChangeBlur,
-        onResetClick: onResetClick
+        allowReset: "true"
       }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["RangeControl"], {
         label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Horizontal", "wpb"),
         value: horizontal,
@@ -424,7 +426,7 @@ var BoxShadow = function BoxShadow(props) {
         label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Vertical", "wpb"),
         value: vertical,
         onChange: onChangeVertical,
-        onResetClick: onResetClick
+        allowReset: "true"
       }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["SelectControl"], {
         label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Position", "wpb"),
         value: position,
@@ -498,17 +500,17 @@ var TextShadow = function TextShadow(props) {
         label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Blur", "wpb"),
         value: blur,
         onChange: onChangeBlur,
-        onResetClick: onResetClick
+        allowReset: "true"
       }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["RangeControl"], {
         label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Horizontal", "wpb"),
         value: horizontal,
         onChange: onChangeHorizontal,
-        onResetClick: onResetClick
+        allowReset: "true"
       }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["RangeControl"], {
         label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Vertical", "wpb"),
         value: vertical,
         onChange: onChangeVertical,
-        onResetClick: onResetClick
+        allowReset: "true"
       })));
     }
   }));
@@ -4501,8 +4503,7 @@ var FlipBoxAttributes = {
     default: "normal"
   },
   textUpper: {
-    type: "string",
-    default: "none"
+    type: "string"
   },
   textLetter: {
     type: "number",

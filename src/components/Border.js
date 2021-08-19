@@ -77,8 +77,9 @@ const Border = (props) => {
                   label={__("Border Width", "wpb")}
                   value={borderWidth}
                   min="0"
-                  max="60"
+                  max="100"
                   onChange={onChangeBorderWidth}
+                  allowReset="true"
                 />
               )}
               {"none" != borderType && (
@@ -97,6 +98,7 @@ const Border = (props) => {
                 min="0"
                 max="300"
                 onChange={onChangeBorderRadius}
+                allowReset="true"
               />
             </Fragment>
           );
