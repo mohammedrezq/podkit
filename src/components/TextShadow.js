@@ -31,7 +31,7 @@ const TextShadow = (props) => {
         className="wpb_control_toggle_button"
         contentClassName="wp_control_toggle_content"
         position="bottom right"
-        renderToggle={({isOpen, onToggle}) => {
+        renderToggle={({ isOpen, onToggle }) => {
           return (
             <Button isSmall onClick={onToggle} aria-expanded={isOpen}>
               <i className="dashicons dashicons-edit" />
@@ -53,19 +53,19 @@ const TextShadow = (props) => {
                   label={__("Blur", "wpb")}
                   value={blur}
                   onChange={onChangeBlur}
-                  onResetClick={onResetClick}
+                  allowReset="true"
                 />
                 <RangeControl
                   label={__("Horizontal", "wpb")}
                   value={horizontal}
                   onChange={onChangeHorizontal}
-                  onResetClick={onResetClick}
+                  allowReset="true"
                 />
                 <RangeControl
                   label={__("Vertical", "wpb")}
                   value={vertical}
                   onChange={onChangeVertical}
-                  onResetClick={onResetClick}
+                  allowReset="true"
                 />
               </Fragment>
             </Fragment>

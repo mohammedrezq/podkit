@@ -99,21 +99,22 @@ figure {
 }
 .card:hover .card-body {
   transform: rotateX(-180deg);
+  z-index: 1;
 }
 
 .card-front,
 .card-back {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
+  min-width: 100%;
 }
 
 .card-back {
   position: absolute;
-  top: 0;
-  right: 0;
   bottom: 0;
   left: 0;
   transform: rotateX(-180deg);
+  z-index: 3;
 }
 
 /* Make it Pretty */
@@ -152,10 +153,6 @@ body {
   box-sizing: border-box;
   padding: 1.5rem;
   border-radius: 0.25rem;
-}
-
-.card-front {
-  font-size: 1.5rem;
 }
 
 .wpb-toggle {
