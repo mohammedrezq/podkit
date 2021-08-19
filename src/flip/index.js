@@ -95,6 +95,22 @@ const FlipBoxAttributes = {
     type: "number",
     default: 0,
   },
+  borderType: {
+    type: "string",
+    default: "none"
+  },
+  borderWidth: {
+    type: "number",
+    default: 0
+  },
+  borderColor: {
+    type: "string",
+    default: "#000000"
+  },
+  borderRadius: {
+    type: "number",
+    default: 0
+  },
 };
 
 const FlipBoxSupports = {

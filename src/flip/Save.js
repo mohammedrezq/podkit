@@ -25,6 +25,10 @@ const Save = (props) => {
       textShadowBlur,
       textShadowHorizontal,
       textShadowVertical,
+      borderType,
+      borderWidth,
+      borderColor,
+      borderRadius,
     },
   } = props;
   return (
@@ -52,6 +56,10 @@ const Save = (props) => {
               color: textColor,
               boxShadow: `${boxShadowHorizontal}px ${boxShadowVertical}px ${boxShadowBlur}px ${boxShadowColor} ${boxShadowPosition}`,
               textShadow: `${textShadowHorizontal}px ${textShadowVertical}px ${textShadowBlur} ${textShadowColor}`,
+              border: borderType,
+              borderWidth: borderWidth + "px",
+              borderRadius: borderRadius + "px",
+              borderColor: borderColor,
             }}
           >
             <RichText.Content
@@ -77,6 +85,10 @@ const Save = (props) => {
               color: textColor,
               boxShadow: `${boxShadowHorizontal}px ${boxShadowVertical}px ${boxShadowBlur}px ${boxShadowColor} ${boxShadowPosition}`,
               textShadow: `${textShadowHorizontal}px ${textShadowVertical}px ${textShadowBlur} ${textShadowColor}`,
+              border: borderType,
+              borderWidth: borderWidth + "px",
+              borderRadius: borderRadius + "px",
+              borderColor: borderColor,
             }}
           >
             <RichText.Content value={cardBack} />

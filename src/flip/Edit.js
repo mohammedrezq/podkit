@@ -19,6 +19,7 @@ import addFontToHead from "../components/googleFonts";
 import Typography from "../components/Typography";
 import BoxShadow from "../components/BoxShadow";
 import TextShadow from "../components/TextShadow";
+import Border from "../components/Border";
 
 const Edit = (props) => {
   const {
@@ -45,6 +46,10 @@ const Edit = (props) => {
       textShadowBlur,
       textShadowHorizontal,
       textShadowVertical,
+      borderType,
+      borderWidth,
+      borderColor,
+      borderRadius,
     },
     setAttributes,
   } = props;
@@ -248,6 +253,27 @@ const Edit = (props) => {
           }}
         />
       </PanelBody>
+      <PanelBody title={__("Box Style", "wpb")}>
+        <h1>Hello Box Style</h1>
+        <Border
+          borderType={borderType}
+          borderWidth={borderWidth}
+          borderColor={borderColor}
+          borderRadius={borderRadius}
+          onChangeBorderType={(newValue) => {
+            setAttributes({ borderType: newValue });
+          }}
+          onChangeBorderWidth={(newValue) => {
+            setAttributes({ borderWidth: newValue });
+          }}
+          onChangeBorderColor={(newValue) => {
+            setAttributes({ borderColor: newValue.hex });
+          }}
+          onChangeBorderRadius={(newValue) => {
+            setAttributes({ borderRadius: newValue });
+          }}
+        />
+      </PanelBody>
     </InspectorControls>,
     <div class="cards">
       <BlockControls>
@@ -278,6 +304,10 @@ const Edit = (props) => {
               color: textColor,
               boxShadow: `${boxShadowHorizontal}px ${boxShadowVertical}px ${boxShadowBlur}px ${boxShadowColor} ${boxShadowPosition}`,
               textShadow: `${textShadowHorizontal}px ${textShadowVertical}px ${textShadowColor}`,
+              border: borderType,
+              borderWidth: borderWidth + "px",
+              borderRadius: borderRadius + "px",
+              borderColor: borderColor
             }}
           >
             <RichText
@@ -303,6 +333,10 @@ const Edit = (props) => {
               color: textColor,
               boxShadow: `${boxShadowHorizontal}px ${boxShadowVertical}px ${boxShadowBlur}px ${boxShadowColor} ${boxShadowPosition}`,
               textShadow: `${textShadowHorizontal}px ${textShadowVertical}px ${textShadowColor}`,
+              border: borderType,
+              borderWidth: borderWidth + "px",
+              borderRadius: borderRadius + "px",
+              borderColor: borderColor
             }}
           >
             <RichText
