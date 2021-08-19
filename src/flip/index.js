@@ -101,7 +101,7 @@ const FlipBoxAttributes = {
   },
   borderWidth: {
     type: "number",
-    default: 0
+    default: 3
   },
   borderColor: {
     type: "string",
@@ -109,8 +109,13 @@ const FlipBoxAttributes = {
   },
   borderRadius: {
     type: "number",
-    default: 0
+    default: 3
   },
+  flipDirection: {
+    type: "string",
+    default: "Vertical"
+  },
+
 };
 
 const FlipBoxSupports = {

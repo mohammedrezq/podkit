@@ -3929,7 +3929,15 @@ var Edit = function Edit(props) {
       borderWidth = _props$attributes.borderWidth,
       borderColor = _props$attributes.borderColor,
       borderRadius = _props$attributes.borderRadius,
+      flipDirection = _props$attributes.flipDirection,
       setAttributes = props.setAttributes;
+  var DIRECTIONS = [{
+    value: "rotateX(-180deg)",
+    label: "Vertical"
+  }, {
+    value: "rotateY(-180deg)",
+    label: "Horizontal"
+  }];
 
   var onChangeCardFront = function onChangeCardFront(newCardFront) {
     setAttributes({
@@ -4009,6 +4017,13 @@ var Edit = function Edit(props) {
     });
   };
 
+  var onChangeFlipDirection = function onChangeFlipDirection(newDirection) {
+    setAttributes({
+      flipDirection: newDirection
+    });
+  };
+
+  var styleHTML = "\n  .card:hover > .card-body{\n   transform: ".concat(flipDirection, " !important;\n }\n .card-back {\n   transform: ").concat(flipDirection, " !important;\n }");
   return [/*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["InspectorControls"], null, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["PanelBody"], {
     title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Flip Card", "wpb")
   }, /*#__PURE__*/React.createElement("div", {
@@ -4177,9 +4192,17 @@ var Edit = function Edit(props) {
         boxShadowPosition: newValue
       });
     }
+  }), /*#__PURE__*/React.createElement("strong", null, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Flip Direction", "wpb")), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["SelectControl"], {
+    options: DIRECTIONS,
+    value: flipDirection,
+    onChange: onChangeFlipDirection
   }))), /*#__PURE__*/React.createElement("div", {
     class: "cards"
-  }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["BlockControls"], null, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["AlignmentToolbar"], {
+  }, /*#__PURE__*/React.createElement("style", {
+    dangerouslySetInnerHTML: {
+      __html: [styleHTML].join("\n")
+    }
+  }), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["BlockControls"], null, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["AlignmentToolbar"], {
     value: cardAlignment,
     onChange: onChangeCardAlignment
   })), /*#__PURE__*/React.createElement("div", {
@@ -4187,7 +4210,9 @@ var Edit = function Edit(props) {
   }, /*#__PURE__*/React.createElement("div", {
     class: "card-body",
     style: {
-      boxShadow: "".concat(boxShadowHorizontal, "px ").concat(boxShadowVertical, "px ").concat(boxShadowBlur, "px ").concat(boxShadowColor, " ").concat(boxShadowPosition)
+      boxShadow: "".concat(boxShadowHorizontal, "px ").concat(boxShadowVertical, "px ").concat(boxShadowBlur, "px ").concat(boxShadowColor, " ").concat(boxShadowPosition),
+      borderRadius: borderRadius + "px",
+      height: "max-content !important"
     }
   }, /*#__PURE__*/React.createElement("div", {
     class: "card-front",
@@ -4206,7 +4231,8 @@ var Edit = function Edit(props) {
       border: borderType,
       borderWidth: borderWidth + "px",
       borderRadius: borderRadius + "px",
-      borderColor: borderColor
+      borderColor: borderColor,
+      height: "max-content !important"
     }
   }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"], {
     placeholder: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("First Card", "wpb"),
@@ -4232,7 +4258,8 @@ var Edit = function Edit(props) {
       border: borderType,
       borderWidth: borderWidth + "px",
       borderRadius: borderRadius + "px",
-      borderColor: borderColor
+      borderColor: borderColor,
+      height: "max-content !important"
     }
   }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"], {
     placeholder: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Card Back", "wpb"),
@@ -4287,6 +4314,9 @@ jQuery(document).ready(function ($) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+
 
 
 var Save = function Save(props) {
@@ -4316,15 +4346,21 @@ var Save = function Save(props) {
       borderType = _props$attributes.borderType,
       borderWidth = _props$attributes.borderWidth,
       borderColor = _props$attributes.borderColor,
-      borderRadius = _props$attributes.borderRadius;
+      borderRadius = _props$attributes.borderRadius,
+      flipDirection = _props$attributes.flipDirection;
   return /*#__PURE__*/React.createElement("div", {
     class: "cards"
-  }, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("style", {
+    dangerouslySetInnerHTML: {
+      __html: ["\n            .card:hover > .card-body{\n             transform: ".concat(flipDirection, " !important;\n           }\n           .card-back {\n             transform: ").concat(flipDirection, " !important;\n           }\n           ")].join("\n")
+    }
+  }), /*#__PURE__*/React.createElement("div", {
     class: "card"
   }, /*#__PURE__*/React.createElement("div", {
     class: "card-body",
     style: {
-      boxShadow: "".concat(boxShadowHorizontal, "px ").concat(boxShadowVertical, "px ").concat(boxShadowBlur, "px ").concat(boxShadowColor, " ").concat(boxShadowPosition)
+      boxShadow: "".concat(boxShadowHorizontal, "px ").concat(boxShadowVertical, "px ").concat(boxShadowBlur, "px ").concat(boxShadowColor, " ").concat(boxShadowPosition),
+      borderRadius: borderRadius + "px"
     }
   }, /*#__PURE__*/React.createElement("div", {
     class: "card-front",
@@ -4499,7 +4535,7 @@ var FlipBoxAttributes = {
   },
   borderWidth: {
     type: "number",
-    default: 0
+    default: 3
   },
   borderColor: {
     type: "string",
@@ -4507,7 +4543,11 @@ var FlipBoxAttributes = {
   },
   borderRadius: {
     type: "number",
-    default: 0
+    default: 3
+  },
+  flipDirection: {
+    type: "string",
+    default: "Vertical"
   }
 };
 var FlipBoxSupports = {

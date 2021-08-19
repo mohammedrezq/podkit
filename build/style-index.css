@@ -157,6 +157,7 @@
 .card-front, .card-back {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
+  height: auto;
 }
 
 .card-back {

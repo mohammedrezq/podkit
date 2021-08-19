@@ -5,6 +5,7 @@ import {
   SelectControl,
   Dropdown,
   Button,
+  ButtonGroup,
 } from "@wordpress/components";
 import {
   RichText,
@@ -50,9 +51,21 @@ const Edit = (props) => {
       borderWidth,
       borderColor,
       borderRadius,
+      flipDirection,
     },
     setAttributes,
   } = props;
+
+  const DIRECTIONS = [
+    {
+      value: "rotateX(-180deg)",
+      label: "Vertical",
+    },
+    {
+      value: "rotateY(-180deg)",
+      label: "Horizontal",
+    },
+  ];
 
   const onChangeCardFront = (newCardFront) => {
     setAttributes({ cardFront: newCardFront });
@@ -102,6 +115,18 @@ const Edit = (props) => {
   const onChangeTextColor = (newTextColor) => {
     setAttributes({ textColor: newTextColor });
   };
+
+  const onChangeFlipDirection = (newDirection) => {
+    setAttributes({ flipDirection: newDirection });
+  };
+
+  const styleHTML = `
+  .card:hover > .card-body{
+   transform: ${flipDirection} !important;
+ }
+ .card-back {
+   transform: ${flipDirection} !important;
+ }`;
 
   return [
     <InspectorControls>
@@ -198,7 +223,7 @@ const Edit = (props) => {
             }}
           />
         </div>
-        
+
         <TextShadow
           label="Text Shadow"
           color={textShadowColor}
@@ -274,9 +299,20 @@ const Edit = (props) => {
             });
           }}
         />
+        <strong>{__("Flip Direction", "wpb")}</strong>
+        <SelectControl
+          options={DIRECTIONS}
+          value={flipDirection}
+          onChange={onChangeFlipDirection}
+        />
       </PanelBody>
     </InspectorControls>,
     <div class="cards">
+      <style
+        dangerouslySetInnerHTML={{
+          __html: [styleHTML].join("\n"),
+        }}
+      />
       <BlockControls>
         <AlignmentToolbar
           value={cardAlignment}
@@ -288,6 +324,8 @@ const Edit = (props) => {
           class="card-body"
           style={{
             boxShadow: `${boxShadowHorizontal}px ${boxShadowVertical}px ${boxShadowBlur}px ${boxShadowColor} ${boxShadowPosition}`,
+            borderRadius: borderRadius + "px",
+            height: "max-content !important",
           }}
         >
           <div
@@ -308,7 +346,8 @@ const Edit = (props) => {
               border: borderType,
               borderWidth: borderWidth + "px",
               borderRadius: borderRadius + "px",
-              borderColor: borderColor
+              borderColor: borderColor,
+              height: "max-content !important",
             }}
           >
             <RichText
@@ -337,7 +376,8 @@ const Edit = (props) => {
               border: borderType,
               borderWidth: borderWidth + "px",
               borderRadius: borderRadius + "px",
-              borderColor: borderColor
+              borderColor: borderColor,
+              height: "max-content !important",
             }}
           >
             <RichText
