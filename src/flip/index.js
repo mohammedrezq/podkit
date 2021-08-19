@@ -115,6 +115,10 @@ const FlipBoxAttributes = {
     type: "string",
     default: "Vertical"
   },
+  flipBoxSpace: {
+    type: "number",
+    default: 5
+  }
 
 };
 

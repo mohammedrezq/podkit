@@ -5,6 +5,7 @@ import {
   SelectControl,
   Dropdown,
   Button,
+  RangeControl,
   ButtonGroup,
 } from "@wordpress/components";
 import {
@@ -52,6 +53,7 @@ const Edit = (props) => {
       borderColor,
       borderRadius,
       flipDirection,
+      flipBoxSpace,
     },
     setAttributes,
   } = props;
@@ -305,6 +307,18 @@ const Edit = (props) => {
           value={flipDirection}
           onChange={onChangeFlipDirection}
         />
+        <strong>{__("Flip Box Spacing", "wpb")}</strong>
+        <RangeControl
+          value={flipBoxSpace}
+          min="0"
+          max="300"
+          onChange={(newValue) => {
+            setAttributes({
+              flipBoxSpace: newValue === undefined ? 0 : newValue,
+            });
+          }}
+          allowReset="true"
+        />
       </PanelBody>
     </InspectorControls>,
     <div class="cards">
@@ -347,6 +361,7 @@ const Edit = (props) => {
               borderRadius: `${borderRadius}px`,
               borderColor: borderColor,
               height: "max-content !important",
+              padding: `${flipBoxSpace}px`,
             }}
           >
             <RichText
@@ -377,6 +392,7 @@ const Edit = (props) => {
               borderWidth: `${borderWidth}px`,
               borderRadius: `${borderRadius}px`,
               borderColor: borderColor,
+              padding: `${flipBoxSpace}px`,
             }}
           >
             <RichText

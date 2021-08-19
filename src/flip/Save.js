@@ -31,6 +31,7 @@ const Save = (props) => {
       borderColor,
       borderRadius,
       flipDirection,
+      flipBoxSpace,
     },
   } = props;
   return (
@@ -77,6 +78,7 @@ const Save = (props) => {
               borderWidth: borderWidth + "px",
               borderRadius: borderRadius + "px",
               borderColor: borderColor,
+              padding: `${flipBoxSpace}px`,
             }}
           >
             <RichText.Content
@@ -106,6 +108,7 @@ const Save = (props) => {
               borderWidth: borderWidth + "px",
               borderRadius: borderRadius + "px",
               borderColor: borderColor,
+              padding: `${flipBoxSpace}px`,
             }}
           >
             <RichText.Content value={cardBack} />
