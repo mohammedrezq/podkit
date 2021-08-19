@@ -51,7 +51,6 @@ const FlipBoxAttributes = {
   },
   textUpper: {
     type: "string",
-    default: "none",
   },
   textLetter: {
     type: "number",
@@ -95,6 +94,31 @@ const FlipBoxAttributes = {
     type: "number",
     default: 0,
   },
+  borderType: {
+    type: "string",
+    default: "none"
+  },
+  borderWidth: {
+    type: "number",
+    default: 3
+  },
+  borderColor: {
+    type: "string",
+    default: "#000000"
+  },
+  borderRadius: {
+    type: "number",
+    default: 3
+  },
+  flipDirection: {
+    type: "string",
+    default: "Vertical"
+  },
+  flipBoxSpace: {
+    type: "number",
+    default: 5
+  }
+
 };
 
 const FlipBoxSupports = {

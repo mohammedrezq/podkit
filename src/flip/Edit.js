@@ -5,6 +5,8 @@ import {
   SelectControl,
   Dropdown,
   Button,
+  RangeControl,
+  ButtonGroup,
 } from "@wordpress/components";
 import {
   RichText,
@@ -19,6 +21,7 @@ import addFontToHead from "../components/googleFonts";
 import Typography from "../components/Typography";
 import BoxShadow from "../components/BoxShadow";
 import TextShadow from "../components/TextShadow";
+import Border from "../components/Border";
 
 const Edit = (props) => {
   const {
@@ -45,9 +48,26 @@ const Edit = (props) => {
       textShadowBlur,
       textShadowHorizontal,
       textShadowVertical,
+      borderType,
+      borderWidth,
+      borderColor,
+      borderRadius,
+      flipDirection,
+      flipBoxSpace,
     },
     setAttributes,
   } = props;
+
+  const DIRECTIONS = [
+    {
+      value: "rotateX(-180deg)",
+      label: "Vertical",
+    },
+    {
+      value: "rotateY(-180deg)",
+      label: "Horizontal",
+    },
+  ];
 
   const onChangeCardFront = (newCardFront) => {
     setAttributes({ cardFront: newCardFront });
@@ -97,6 +117,18 @@ const Edit = (props) => {
   const onChangeTextColor = (newTextColor) => {
     setAttributes({ textColor: newTextColor });
   };
+
+  const onChangeFlipDirection = (newDirection) => {
+    setAttributes({ flipDirection: newDirection });
+  };
+
+  const styleHTML = `
+  .card:hover > .card-body{
+   transform: ${flipDirection} !important;
+ }
+ .card-back {
+   transform: ${flipDirection} !important;
+ }`;
 
   return [
     <InspectorControls>
@@ -193,6 +225,47 @@ const Edit = (props) => {
             }}
           />
         </div>
+
+        <TextShadow
+          label="Text Shadow"
+          color={textShadowColor}
+          // blur={textShadowBlur}
+          horizontal={textShadowHorizontal}
+          vertical={textShadowVertical}
+          onChangeColor={(newValue) => {
+            setAttributes({ textShadowColor: newValue.hex });
+          }}
+          onChangeBlur={(newValue) => {
+            setAttributes({ textShadowBlur: newValue });
+          }}
+          onChangeHorizontal={(newValue) => {
+            setAttributes({ textShadowHorizontal: newValue });
+          }}
+          onChangeVertical={(newValue) => {
+            setAttributes({ textShadowVertical: newValue });
+          }}
+        />
+      </PanelBody>
+      <PanelBody title={__("Box Style", "wpb")}>
+        <h1>Hello Box Style</h1>
+        <Border
+          borderType={borderType}
+          borderWidth={borderWidth}
+          borderColor={borderColor}
+          borderRadius={borderRadius}
+          onChangeBorderType={(newValue) => {
+            setAttributes({ borderType: newValue });
+          }}
+          onChangeBorderWidth={(newValue) => {
+            setAttributes({ borderWidth: newValue });
+          }}
+          onChangeBorderColor={(newValue) => {
+            setAttributes({ borderColor: newValue.hex });
+          }}
+          onChangeBorderRadius={(newValue) => {
+            setAttributes({ borderRadius: newValue });
+          }}
+        />
         <BoxShadow
           label="Box Shadow"
           inner={true}
@@ -228,28 +301,32 @@ const Edit = (props) => {
             });
           }}
         />
-        <TextShadow
-          label="Text Shadow"
-          color={textShadowColor}
-          // blur={textShadowBlur}
-          horizontal={textShadowHorizontal}
-          vertical={textShadowVertical}
-          onChangeColor={(newValue) => {
-            setAttributes({ textShadowColor: newValue.hex });
+        <strong>{__("Flip Direction", "wpb")}</strong>
+        <SelectControl
+          options={DIRECTIONS}
+          value={flipDirection}
+          onChange={onChangeFlipDirection}
+        />
+        <strong>{__("Flip Box Spacing", "wpb")}</strong>
+        <RangeControl
+          value={flipBoxSpace}
+          min="0"
+          max="300"
+          onChange={(newValue) => {
+            setAttributes({
+              flipBoxSpace: newValue === undefined ? 0 : newValue,
+            });
           }}
-          onChangeBlur={(newValue) => {
-            setAttributes({ textShadowBlur: newValue });
-          }}
-          onChangeHorizontal={(newValue) => {
-            setAttributes({ textShadowHorizontal: newValue });
-          }}
-          onChangeVertical={(newValue) => {
-            setAttributes({ textShadowVertical: newValue });
-          }}
+          allowReset="true"
         />
       </PanelBody>
     </InspectorControls>,
     <div class="cards">
+      <style
+        dangerouslySetInnerHTML={{
+          __html: [styleHTML].join("\n"),
+        }}
+      />
       <BlockControls>
         <AlignmentToolbar
           value={cardAlignment}
@@ -261,16 +338,17 @@ const Edit = (props) => {
           class="card-body"
           style={{
             boxShadow: `${boxShadowHorizontal}px ${boxShadowVertical}px ${boxShadowBlur}px ${boxShadowColor} ${boxShadowPosition}`,
+            borderRadius: borderRadius + "px",
+            height: "max-content !important",
           }}
         >
           <div
             class="card-front"
             style={{
               display: "block",
-
               background: frontCardBackground,
-              textAlign: cardAlignment,
-              fontSize: textSize + "px",
+              textAlign: `${cardAlignment}`,
+              fontSize: `${textSize}px`,
               fontWeight: textWeight,
               fontStyle: textStyle,
               textTransform: textUpper ? "uppercase" : "none",
@@ -278,6 +356,12 @@ const Edit = (props) => {
               color: textColor,
               boxShadow: `${boxShadowHorizontal}px ${boxShadowVertical}px ${boxShadowBlur}px ${boxShadowColor} ${boxShadowPosition}`,
               textShadow: `${textShadowHorizontal}px ${textShadowVertical}px ${textShadowColor}`,
+              border: borderType,
+              borderWidth: `${borderWidth}px`,
+              borderRadius: `${borderRadius}px`,
+              borderColor: borderColor,
+              height: "max-content !important",
+              padding: `${flipBoxSpace}px`,
             }}
           >
             <RichText
@@ -286,6 +370,7 @@ const Edit = (props) => {
               onChange={onChangeCardFront}
               style={{
                 fontFamily: cardFontFamily,
+                height: "max-content !important",
               }}
             />
           </div>
@@ -295,7 +380,7 @@ const Edit = (props) => {
               display: "block",
               background: backCardBackground,
               textAlign: `${cardAlignment}`,
-              fontSize: textSize + "px",
+              fontSize: `${textSize}px`,
               fontWeight: textWeight,
               fontStyle: textStyle,
               textTransform: textUpper ? "uppercase" : "none",
@@ -303,6 +388,11 @@ const Edit = (props) => {
               color: textColor,
               boxShadow: `${boxShadowHorizontal}px ${boxShadowVertical}px ${boxShadowBlur}px ${boxShadowColor} ${boxShadowPosition}`,
               textShadow: `${textShadowHorizontal}px ${textShadowVertical}px ${textShadowColor}`,
+              border: borderType,
+              borderWidth: `${borderWidth}px`,
+              borderRadius: `${borderRadius}px`,
+              borderColor: borderColor,
+              padding: `${flipBoxSpace}px`,
             }}
           >
             <RichText
@@ -310,6 +400,7 @@ const Edit = (props) => {
               value={cardBack}
               onChange={onChangeCardBack}
               style={{
+                height: "max-content !important",
                 fontFamily: `${cardFontFamily}`,
               }}
             />

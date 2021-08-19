@@ -67,7 +67,7 @@ const BoxShadow = (props) => {
                 label={__("Blur", "wpb")}
                 value={blur}
                 onChange={onChangeBlur}
-                onResetClick={onResetClick}
+                allowReset="true"
               />
               <RangeControl
                 label={__("Horizontal", "wpb")}
@@ -79,8 +79,8 @@ const BoxShadow = (props) => {
                 label={__("Vertical", "wpb")}
                 value={vertical}
                 onChange={onChangeVertical}
-                onResetClick={onResetClick}
-              />
+                allowReset="true"
+                />
               <SelectControl
                 label={__("Position", "wpb")}
                 value={position}

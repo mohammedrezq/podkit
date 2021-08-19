@@ -1,4 +1,5 @@
 import { RichText } from "@wordpress/block-editor";
+import { __ } from "@wordpress/i18n";
 
 const Save = (props) => {
   const {
@@ -25,15 +26,36 @@ const Save = (props) => {
       textShadowBlur,
       textShadowHorizontal,
       textShadowVertical,
+      borderType,
+      borderWidth,
+      borderColor,
+      borderRadius,
+      flipDirection,
+      flipBoxSpace,
     },
   } = props;
   return (
     <div class="cards">
+      <style
+        dangerouslySetInnerHTML={{
+          __html: [
+            `
+            .card:hover > .card-body{
+             transform: ${flipDirection} !important;
+           }
+           .card-back {
+             transform: ${flipDirection} !important;
+           }
+           `,
+          ].join("\n"),
+        }}
+      />
       <div class="card">
         <div
           class="card-body"
           style={{
             boxShadow: `${boxShadowHorizontal}px ${boxShadowVertical}px ${boxShadowBlur}px ${boxShadowColor} ${boxShadowPosition}`,
+            borderRadius: borderRadius + "px",
           }}
         >
           <div
@@ -52,6 +74,11 @@ const Save = (props) => {
               color: textColor,
               boxShadow: `${boxShadowHorizontal}px ${boxShadowVertical}px ${boxShadowBlur}px ${boxShadowColor} ${boxShadowPosition}`,
               textShadow: `${textShadowHorizontal}px ${textShadowVertical}px ${textShadowBlur} ${textShadowColor}`,
+              border: borderType,
+              borderWidth: borderWidth + "px",
+              borderRadius: borderRadius + "px",
+              borderColor: borderColor,
+              padding: `${flipBoxSpace}px`,
             }}
           >
             <RichText.Content
@@ -77,6 +104,11 @@ const Save = (props) => {
               color: textColor,
               boxShadow: `${boxShadowHorizontal}px ${boxShadowVertical}px ${boxShadowBlur}px ${boxShadowColor} ${boxShadowPosition}`,
               textShadow: `${textShadowHorizontal}px ${textShadowVertical}px ${textShadowBlur} ${textShadowColor}`,
+              border: borderType,
+              borderWidth: borderWidth + "px",
+              borderRadius: borderRadius + "px",
+              borderColor: borderColor,
+              padding: `${flipBoxSpace}px`,
             }}
           >
             <RichText.Content value={cardBack} />
