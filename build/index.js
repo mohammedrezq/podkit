@@ -4219,8 +4219,8 @@ var Edit = function Edit(props) {
     style: {
       display: "block",
       background: frontCardBackground,
-      textAlign: cardAlignment,
-      fontSize: textSize + "px",
+      textAlign: "".concat(cardAlignment),
+      fontSize: "".concat(textSize, "px"),
       fontWeight: textWeight,
       fontStyle: textStyle,
       textTransform: textUpper ? "uppercase" : "none",
@@ -4229,8 +4229,8 @@ var Edit = function Edit(props) {
       boxShadow: "".concat(boxShadowHorizontal, "px ").concat(boxShadowVertical, "px ").concat(boxShadowBlur, "px ").concat(boxShadowColor, " ").concat(boxShadowPosition),
       textShadow: "".concat(textShadowHorizontal, "px ").concat(textShadowVertical, "px ").concat(textShadowColor),
       border: borderType,
-      borderWidth: borderWidth + "px",
-      borderRadius: borderRadius + "px",
+      borderWidth: "".concat(borderWidth, "px"),
+      borderRadius: "".concat(borderRadius, "px"),
       borderColor: borderColor,
       height: "max-content !important"
     }
@@ -4239,7 +4239,8 @@ var Edit = function Edit(props) {
     value: cardFront,
     onChange: onChangeCardFront,
     style: {
-      fontFamily: cardFontFamily
+      fontFamily: cardFontFamily,
+      height: "max-content !important"
     }
   })), /*#__PURE__*/React.createElement("div", {
     class: "card-back",
@@ -4247,7 +4248,7 @@ var Edit = function Edit(props) {
       display: "block",
       background: backCardBackground,
       textAlign: "".concat(cardAlignment),
-      fontSize: textSize + "px",
+      fontSize: "".concat(textSize, "px"),
       fontWeight: textWeight,
       fontStyle: textStyle,
       textTransform: textUpper ? "uppercase" : "none",
@@ -4256,16 +4257,16 @@ var Edit = function Edit(props) {
       boxShadow: "".concat(boxShadowHorizontal, "px ").concat(boxShadowVertical, "px ").concat(boxShadowBlur, "px ").concat(boxShadowColor, " ").concat(boxShadowPosition),
       textShadow: "".concat(textShadowHorizontal, "px ").concat(textShadowVertical, "px ").concat(textShadowColor),
       border: borderType,
-      borderWidth: borderWidth + "px",
-      borderRadius: borderRadius + "px",
-      borderColor: borderColor,
-      height: "max-content !important"
+      borderWidth: "".concat(borderWidth, "px"),
+      borderRadius: "".concat(borderRadius, "px"),
+      borderColor: borderColor
     }
   }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"], {
     placeholder: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Card Back", "wpb"),
     value: cardBack,
     onChange: onChangeCardBack,
     style: {
+      height: "max-content !important",
       fontFamily: "".concat(cardFontFamily)
     }
   })))))];

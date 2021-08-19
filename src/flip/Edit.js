@@ -332,10 +332,9 @@ const Edit = (props) => {
             class="card-front"
             style={{
               display: "block",
-
               background: frontCardBackground,
-              textAlign: cardAlignment,
-              fontSize: textSize + "px",
+              textAlign: `${cardAlignment}`,
+              fontSize: `${textSize}px`,
               fontWeight: textWeight,
               fontStyle: textStyle,
               textTransform: textUpper ? "uppercase" : "none",
@@ -344,8 +343,8 @@ const Edit = (props) => {
               boxShadow: `${boxShadowHorizontal}px ${boxShadowVertical}px ${boxShadowBlur}px ${boxShadowColor} ${boxShadowPosition}`,
               textShadow: `${textShadowHorizontal}px ${textShadowVertical}px ${textShadowColor}`,
               border: borderType,
-              borderWidth: borderWidth + "px",
-              borderRadius: borderRadius + "px",
+              borderWidth: `${borderWidth}px`,
+              borderRadius: `${borderRadius}px`,
               borderColor: borderColor,
               height: "max-content !important",
             }}
@@ -356,6 +355,7 @@ const Edit = (props) => {
               onChange={onChangeCardFront}
               style={{
                 fontFamily: cardFontFamily,
+                height: "max-content !important",
               }}
             />
           </div>
@@ -365,7 +365,7 @@ const Edit = (props) => {
               display: "block",
               background: backCardBackground,
               textAlign: `${cardAlignment}`,
-              fontSize: textSize + "px",
+              fontSize: `${textSize}px`,
               fontWeight: textWeight,
               fontStyle: textStyle,
               textTransform: textUpper ? "uppercase" : "none",
@@ -374,10 +374,9 @@ const Edit = (props) => {
               boxShadow: `${boxShadowHorizontal}px ${boxShadowVertical}px ${boxShadowBlur}px ${boxShadowColor} ${boxShadowPosition}`,
               textShadow: `${textShadowHorizontal}px ${textShadowVertical}px ${textShadowColor}`,
               border: borderType,
-              borderWidth: borderWidth + "px",
-              borderRadius: borderRadius + "px",
+              borderWidth: `${borderWidth}px`,
+              borderRadius: `${borderRadius}px`,
               borderColor: borderColor,
-              height: "max-content !important",
             }}
           >
             <RichText
@@ -385,6 +384,7 @@ const Edit = (props) => {
               value={cardBack}
               onChange={onChangeCardBack}
               style={{
+                height: "max-content !important",
                 fontFamily: `${cardFontFamily}`,
               }}
             />
