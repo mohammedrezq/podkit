@@ -4137,7 +4137,7 @@ var Edit = function Edit(props) {
     }
   })), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["PanelBody"], {
     title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Box Style", "wpb")
-  }, /*#__PURE__*/React.createElement("h1", null, "Hello Box Style"), /*#__PURE__*/React.createElement(_components_Border__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  }, /*#__PURE__*/React.createElement(_components_Border__WEBPACK_IMPORTED_MODULE_9__["default"], {
     borderType: borderType,
     borderWidth: borderWidth,
     borderColor: borderColor,
@@ -4446,14 +4446,16 @@ var Save = function Save(props) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
-/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Font__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Font */ "./src/flip/Font.js");
-/* harmony import */ var _Font__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Font__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _bv_logo_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../bv-logo.svg */ "./src/bv-logo.svg");
-/* harmony import */ var _Edit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Edit */ "./src/flip/Edit.js");
-/* harmony import */ var _Save__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Save */ "./src/flip/Save.js");
-var __ = wp.i18n.__;
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Font__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Font */ "./src/flip/Font.js");
+/* harmony import */ var _Font__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Font__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _bv_logo_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../bv-logo.svg */ "./src/bv-logo.svg");
+/* harmony import */ var _Edit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Edit */ "./src/flip/Edit.js");
+/* harmony import */ var _Save__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Save */ "./src/flip/Save.js");
+
 
 
 
@@ -4575,16 +4577,16 @@ var FlipBoxAttributes = {
 var FlipBoxSupports = {
   align: true
 };
-Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__["registerBlockType"])("podkit/flip", {
-  title: __("Flip Box", "podkit"),
+Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__["registerBlockType"])("podkit/flip", {
+  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Flip Box", "podkit"),
   icon: {
-    src: _bv_logo_svg__WEBPACK_IMPORTED_MODULE_2__["ReactComponent"]
+    src: _bv_logo_svg__WEBPACK_IMPORTED_MODULE_3__["ReactComponent"]
   },
   category: "podkit",
   attributes: FlipBoxAttributes,
   supports: FlipBoxSupports,
-  edit: _Edit__WEBPACK_IMPORTED_MODULE_3__["default"],
-  save: _Save__WEBPACK_IMPORTED_MODULE_4__["default"]
+  edit: _Edit__WEBPACK_IMPORTED_MODULE_4__["default"],
+  save: _Save__WEBPACK_IMPORTED_MODULE_5__["default"]
 });
 
 /***/ }),

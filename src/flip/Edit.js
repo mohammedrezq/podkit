@@ -247,7 +247,6 @@ const Edit = (props) => {
         />
       </PanelBody>
       <PanelBody title={__("Box Style", "wpb")}>
-        <h1>Hello Box Style</h1>
         <Border
           borderType={borderType}
           borderWidth={borderWidth}
