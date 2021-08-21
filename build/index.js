@@ -190,6 +190,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _components_googleFontsNames__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/googleFontsNames */ "./src/components/googleFontsNames.js");
+/* harmony import */ var _components_googleFonts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/googleFonts */ "./src/components/googleFonts.js");
+
+
 
 
 
@@ -201,6 +205,7 @@ var Edit = function Edit(props) {
       hoverAnimation = _props$attributes.hoverAnimation,
       buttonColor = _props$attributes.buttonColor,
       hoverColor = _props$attributes.hoverColor,
+      btnFontFamily = _props$attributes.btnFontFamily,
       setAttributes = props.setAttributes;
   var HOVERANIMATIONS = [{
     value: "",
@@ -217,21 +222,7 @@ var Edit = function Edit(props) {
   }, {
     value: "wpb_sweep_left",
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Sweep Left")
-  }]; // Helper Functions
-  // const onChangeHover = (newValue) => {
-  //   setAttributes({ effect: newValue });
-  //   switch (newValue) {
-  //     case "slide":
-  //       setAttributes({ effectDir: "top" });
-  //       break;
-  //     case "shutter":
-  //       setAttributes({ effectDir: "shutouthor" });
-  //       break;
-  //     case "radial":
-  //       setAttributes({ effectDir: "radialin" });
-  //       break;
-  //   }
-  // };
+  }];
 
   var onChangeHoverAnimation = function onChangeHoverAnimation(newValue) {
     setAttributes({
@@ -249,6 +240,18 @@ var Edit = function Edit(props) {
     setAttributes({
       buttonColor: newValue
     });
+  };
+
+  var onChangeTextFamily = function onChangeTextFamily(newValue) {
+    setAttributes({
+      btnFontFamily: newValue
+    });
+
+    if (!btnFontFamily) {
+      return;
+    }
+
+    Object(_components_googleFonts__WEBPACK_IMPORTED_MODULE_5__["default"])(btnFontFamily);
   };
 
   return [/*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["InspectorControls"], null, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["PanelBody"], {
@@ -270,11 +273,22 @@ var Edit = function Edit(props) {
     color: hoverColor,
     onChange: onChangeHoverColor,
     clearable: true
-  })))))), /*#__PURE__*/React.createElement("div", {
+  }))))), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["PanelBody"], {
+    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Button Text")
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "components-base-control"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "components-base-control__field"
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["SelectControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Font Family", "wpb"),
+    options: _components_googleFontsNames__WEBPACK_IMPORTED_MODULE_4__["default"],
+    value: btnFontFamily,
+    onChange: onChangeTextFamily
+  }))))), /*#__PURE__*/React.createElement("div", {
     className: "wpb_block_container"
   }, /*#__PURE__*/React.createElement("style", {
     dangerouslySetInnerHTML: {
-      __html: ["\n.wpb_pulse:hover, .wpb_fade:hover {\n background-color: ".concat(hoverColor, " !important;\n}\n.wpb_sweep_right::before, .wpb_sweep_left::before {\n background: ").concat(hoverColor, " !important;\n}\n")].join("\n")
+      __html: ["\n            .wpb_pulse:hover, .wpb_fade:hover {\n            background-color: ".concat(hoverColor, " !important;\n            }\n            .wpb_sweep_right::before, .wpb_sweep_left::before {\n            background: ").concat(hoverColor, " !important;\n            }\n            ")].join("\n")
     }
   }), /*#__PURE__*/React.createElement("div", {
     className: "wpb_button",
@@ -283,6 +297,9 @@ var Edit = function Edit(props) {
     }
   }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"], {
     className: "wpb_button_container ".concat(hoverAnimation),
+    style: {
+      fontFamily: btnFontFamily
+    },
     onChange: function onChange(newValue) {
       setAttributes({
         buttonText: newValue
@@ -317,7 +334,8 @@ var Save = function Save(props) {
       buttonText = _props$attributes.buttonText,
       hoverAnimation = _props$attributes.hoverAnimation,
       buttonColor = _props$attributes.buttonColor,
-      hoverColor = _props$attributes.hoverColor;
+      hoverColor = _props$attributes.hoverColor,
+      btnFontFamily = _props$attributes.btnFontFamily;
   return /*#__PURE__*/React.createElement("div", {
     className: "button_container"
   }, /*#__PURE__*/React.createElement("style", {
@@ -327,7 +345,8 @@ var Save = function Save(props) {
   }), /*#__PURE__*/React.createElement("div", {
     className: "wpb_button ".concat(hoverAnimation, " wpb_button_container"),
     style: {
-      backgroundColor: buttonColor
+      backgroundColor: buttonColor,
+      fontFamily: btnFontFamily
     }
   }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__["RichText"].Content, {
     value: buttonText
@@ -383,6 +402,10 @@ var buttonAttributes = {
   buttonColor: {
     type: "string",
     default: "#000000"
+  },
+  btnFontFamily: {
+    type: "string",
+    default: "Arial"
   }
 };
 var buttonSupports = {

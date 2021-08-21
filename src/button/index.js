@@ -30,6 +30,10 @@ const buttonAttributes = {
     type: "string",
     default: "#000000",
   },
+  btnFontFamily: {
+    type: "string",
+    default: "Arial",
+  },
 };
 
 const buttonSupports = {

@@ -18,10 +18,18 @@ import {
 } from "@wordpress/block-editor";
 
 import { Fragment } from "@wordpress/element";
+import GoogleFontsNames from "../components/googleFontsNames";
+import addFontToHead from "../components/googleFonts";
 
 const Edit = (props) => {
   const {
-    attributes: { buttonText, hoverAnimation, buttonColor, hoverColor },
+    attributes: {
+      buttonText,
+      hoverAnimation,
+      buttonColor,
+      hoverColor,
+      btnFontFamily,
+    },
     setAttributes,
   } = props;
 
@@ -48,23 +56,6 @@ const Edit = (props) => {
     },
   ];
 
-  // Helper Functions
-
-  // const onChangeHover = (newValue) => {
-  //   setAttributes({ effect: newValue });
-  //   switch (newValue) {
-  //     case "slide":
-  //       setAttributes({ effectDir: "top" });
-  //       break;
-  //     case "shutter":
-  //       setAttributes({ effectDir: "shutouthor" });
-  //       break;
-  //     case "radial":
-  //       setAttributes({ effectDir: "radialin" });
-  //       break;
-  //   }
-  // };
-
   const onChangeHoverAnimation = (newValue) => {
     setAttributes({
       hoverAnimation: newValue,
@@ -80,6 +71,14 @@ const Edit = (props) => {
     setAttributes({
       buttonColor: newValue,
     });
+  };
+
+  const onChangeTextFamily = (newValue) => {
+    setAttributes({ btnFontFamily: newValue });
+    if (!btnFontFamily) {
+      return;
+    }
+    addFontToHead(btnFontFamily);
   };
 
   return [
@@ -114,19 +113,31 @@ const Edit = (props) => {
           </div>
         </div>
       </PanelBody>
+      <PanelBody title={__("Button Text")}>
+        <div className="components-base-control">
+          <div className="components-base-control__field">
+            <SelectControl
+              label={__("Font Family", "wpb")}
+              options={GoogleFontsNames}
+              value={btnFontFamily}
+              onChange={onChangeTextFamily}
+            />
+          </div>
+        </div>
+      </PanelBody>
     </InspectorControls>,
     <div className="wpb_block_container">
       <style
         dangerouslySetInnerHTML={{
           __html: [
             `
-.wpb_pulse:hover, .wpb_fade:hover {
- background-color: ${hoverColor} !important;
-}
-.wpb_sweep_right::before, .wpb_sweep_left::before {
- background: ${hoverColor} !important;
-}
-`,
+            .wpb_pulse:hover, .wpb_fade:hover {
+            background-color: ${hoverColor} !important;
+            }
+            .wpb_sweep_right::before, .wpb_sweep_left::before {
+            background: ${hoverColor} !important;
+            }
+            `,
           ].join("\n"),
         }}
       />
@@ -138,6 +149,9 @@ const Edit = (props) => {
       >
         <RichText
           className={`wpb_button_container ${hoverAnimation}`}
+          style={{
+            fontFamily: btnFontFamily,
+          }}
           onChange={(newValue) => {
             setAttributes({ buttonText: newValue });
           }}
