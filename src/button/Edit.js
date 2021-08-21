@@ -21,6 +21,7 @@ import { Fragment } from "@wordpress/element";
 import GoogleFontsNames from "../components/googleFontsNames";
 import addFontToHead from "../components/googleFonts";
 import Typography from "../components/Typography";
+import TextShadow from "../components/TextShadow";
 
 const Edit = (props) => {
   const {
@@ -37,6 +38,10 @@ const Edit = (props) => {
       textStyle,
       textUpper,
       textLetter,
+      textShadowColor,
+      textShadowBlur,
+      textShadowHorizontal,
+      textShadowVertical,
     },
     setAttributes,
   } = props;
@@ -179,6 +184,25 @@ const Edit = (props) => {
           onChangeUpper={textUpperfn}
           onChangeSpacing={textLetterfn}
         />
+        <TextShadow
+          label="Text Shadow"
+          color={textShadowColor}
+          // blur={textShadowBlur}
+          horizontal={textShadowHorizontal}
+          vertical={textShadowVertical}
+          onChangeColor={(newValue) => {
+            setAttributes({ textShadowColor: newValue.hex });
+          }}
+          onChangeBlur={(newValue) => {
+            setAttributes({ textShadowBlur: newValue });
+          }}
+          onChangeHorizontal={(newValue) => {
+            setAttributes({ textShadowHorizontal: newValue });
+          }}
+          onChangeVertical={(newValue) => {
+            setAttributes({ textShadowVertical: newValue });
+          }}
+        />
       </PanelBody>
     </InspectorControls>,
     <div className="wpb_block_container">
@@ -215,6 +239,7 @@ const Edit = (props) => {
             textTransform: textUpper ? "uppercase" : "none",
             letterSpacing: textLetter,
             lineHeight: textLineHeight,
+            textShadow: `${textShadowHorizontal}px ${textShadowVertical}px ${textShadowColor}`,
           }}
           onChange={(newValue) => {
             setAttributes({ buttonText: newValue });

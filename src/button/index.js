@@ -61,6 +61,21 @@ const buttonAttributes = {
     type: "number",
     default: 1,
   },
+  textShadowColor: {
+    type: "string",
+  },
+  textShadowBlur: {
+    type: "number",
+    default: 0,
+  },
+  textShadowHorizontal: {
+    type: "number",
+    default: 0,
+  },
+  textShadowVertical: {
+    type: "number",
+    default: 0,
+  },
 };
 
 const buttonSupports = {

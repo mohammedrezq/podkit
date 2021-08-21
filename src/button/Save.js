@@ -16,6 +16,10 @@ const Save = (props) => {
       textStyle,
       textUpper,
       textLetter,
+      textShadowColor,
+      textShadowBlur,
+      textShadowHorizontal,
+      textShadowVertical,
     },
   } = props;
 
@@ -49,6 +53,7 @@ const Save = (props) => {
           textTransform: textUpper ? "uppercase" : "none",
           letterSpacing: textLetter,
           lineHeight: textLineHeight,
+          textShadow: `${textShadowHorizontal}px ${textShadowVertical}px ${textShadowColor}`,
         }}
       >
         <RichText.Content value={buttonText} />

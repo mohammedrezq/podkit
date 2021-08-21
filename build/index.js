@@ -193,6 +193,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_googleFontsNames__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/googleFontsNames */ "./src/components/googleFontsNames.js");
 /* harmony import */ var _components_googleFonts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/googleFonts */ "./src/components/googleFonts.js");
 /* harmony import */ var _components_Typography__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/Typography */ "./src/components/Typography.js");
+/* harmony import */ var _components_TextShadow__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/TextShadow */ "./src/components/TextShadow.js");
+
 
 
 
@@ -215,6 +217,10 @@ var Edit = function Edit(props) {
       textStyle = _props$attributes.textStyle,
       textUpper = _props$attributes.textUpper,
       textLetter = _props$attributes.textLetter,
+      textShadowColor = _props$attributes.textShadowColor,
+      textShadowBlur = _props$attributes.textShadowBlur,
+      textShadowHorizontal = _props$attributes.textShadowHorizontal,
+      textShadowVertical = _props$attributes.textShadowVertical,
       setAttributes = props.setAttributes;
   var HOVERANIMATIONS = [{
     value: "",
@@ -351,6 +357,32 @@ var Edit = function Edit(props) {
     onChangeStyle: textStylefn,
     onChangeUpper: textUpperfn,
     onChangeSpacing: textLetterfn
+  }), /*#__PURE__*/React.createElement(_components_TextShadow__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    label: "Text Shadow",
+    color: textShadowColor // blur={textShadowBlur}
+    ,
+    horizontal: textShadowHorizontal,
+    vertical: textShadowVertical,
+    onChangeColor: function onChangeColor(newValue) {
+      setAttributes({
+        textShadowColor: newValue.hex
+      });
+    },
+    onChangeBlur: function onChangeBlur(newValue) {
+      setAttributes({
+        textShadowBlur: newValue
+      });
+    },
+    onChangeHorizontal: function onChangeHorizontal(newValue) {
+      setAttributes({
+        textShadowHorizontal: newValue
+      });
+    },
+    onChangeVertical: function onChangeVertical(newValue) {
+      setAttributes({
+        textShadowVertical: newValue
+      });
+    }
   }))), /*#__PURE__*/React.createElement("div", {
     className: "wpb_block_container"
   }, /*#__PURE__*/React.createElement("style", {
@@ -371,7 +403,8 @@ var Edit = function Edit(props) {
       fontStyle: textStyle,
       textTransform: textUpper ? "uppercase" : "none",
       letterSpacing: textLetter,
-      lineHeight: textLineHeight
+      lineHeight: textLineHeight,
+      textShadow: "".concat(textShadowHorizontal, "px ").concat(textShadowVertical, "px ").concat(textShadowColor)
     },
     onChange: function onChange(newValue) {
       setAttributes({
@@ -415,7 +448,11 @@ var Save = function Save(props) {
       textLineHeight = _props$attributes.textLineHeight,
       textStyle = _props$attributes.textStyle,
       textUpper = _props$attributes.textUpper,
-      textLetter = _props$attributes.textLetter;
+      textLetter = _props$attributes.textLetter,
+      textShadowColor = _props$attributes.textShadowColor,
+      textShadowBlur = _props$attributes.textShadowBlur,
+      textShadowHorizontal = _props$attributes.textShadowHorizontal,
+      textShadowVertical = _props$attributes.textShadowVertical;
   return /*#__PURE__*/React.createElement("div", {
     className: "button_container"
   }, /*#__PURE__*/React.createElement("style", {
@@ -432,7 +469,8 @@ var Save = function Save(props) {
       fontStyle: textStyle,
       textTransform: textUpper ? "uppercase" : "none",
       letterSpacing: textLetter,
-      lineHeight: textLineHeight
+      lineHeight: textLineHeight,
+      textShadow: "".concat(textShadowHorizontal, "px ").concat(textShadowVertical, "px ").concat(textShadowColor)
     }
   }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__["RichText"].Content, {
     value: buttonText
@@ -519,6 +557,21 @@ var buttonAttributes = {
   textLetter: {
     type: "number",
     default: 1
+  },
+  textShadowColor: {
+    type: "string"
+  },
+  textShadowBlur: {
+    type: "number",
+    default: 0
+  },
+  textShadowHorizontal: {
+    type: "number",
+    default: 0
+  },
+  textShadowVertical: {
+    type: "number",
+    default: 0
   }
 };
 var buttonSupports = {
