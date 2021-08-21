@@ -20,6 +20,7 @@ import {
 import { Fragment } from "@wordpress/element";
 import GoogleFontsNames from "../components/googleFontsNames";
 import addFontToHead from "../components/googleFonts";
+import Typography from "../components/Typography";
 
 const Edit = (props) => {
   const {
@@ -30,6 +31,12 @@ const Edit = (props) => {
       hoverColor,
       btnFontFamily,
       btnTextColorHover,
+      textSize,
+      textWeight,
+      textLineHeight,
+      textStyle,
+      textUpper,
+      textLetter,
     },
     setAttributes,
   } = props;
@@ -83,7 +90,25 @@ const Edit = (props) => {
   };
 
   const onChangeButtonTextColorHover = (newValue) => {
-    setAttributes({ btnTextColorHover: newValue.hex });
+    setAttributes({ btnTextColorHover: newValue });
+  };
+
+  const textWeightfn = (newTextWeight) => {
+    setAttributes({ textWeight: newTextWeight });
+  };
+
+  const lineHeight = (newTextLineHeight) => {
+    setAttributes({ textLineHeight: newTextLineHeight });
+  };
+
+  const textStylefn = (newTextStyle) => {
+    setAttributes({ textStyle: newTextStyle });
+  };
+
+  const textUpperfn = (check) => setAttributes({ textUpper: check });
+
+  const textLetterfn = (newTextLetter) => {
+    setAttributes({ textLetter: newTextLetter });
   };
 
   return [
@@ -129,14 +154,31 @@ const Edit = (props) => {
             />
             <Fragment>
               <strong>Text Color on Hover</strong>
-              <ColorPicker
+              <ColorPalette
                 color={btnTextColorHover}
-                onChangeComplete={onChangeButtonTextColorHover}
+                onChange={onChangeButtonTextColorHover}
                 disableAlpha
               />
             </Fragment>
           </div>
         </div>
+        <Typography
+          components={["size", "weight", "line", "style", "upper", "spacing"]}
+          size={textSize}
+          weight={textWeight}
+          line={textLineHeight}
+          style={textStyle}
+          upper={textUpper}
+          spacing={textLetter}
+          onChangeSize={(newTextSize) =>
+            setAttributes({ textSize: newTextSize })
+          }
+          onChangeWeight={textWeightfn}
+          onChangeLine={lineHeight}
+          onChangeStyle={textStylefn}
+          onChangeUpper={textUpperfn}
+          onChangeSpacing={textLetterfn}
+        />
       </PanelBody>
     </InspectorControls>,
     <div className="wpb_block_container">
@@ -167,6 +209,12 @@ const Edit = (props) => {
           className={`wpb_button_container ${hoverAnimation}`}
           style={{
             fontFamily: btnFontFamily,
+            fontSize: `${textSize}px`,
+            fontWeight: textWeight,
+            fontStyle: textStyle,
+            textTransform: textUpper ? "uppercase" : "none",
+            letterSpacing: textLetter,
+            lineHeight: textLineHeight,
           }}
           onChange={(newValue) => {
             setAttributes({ buttonText: newValue });

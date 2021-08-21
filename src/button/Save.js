@@ -10,6 +10,12 @@ const Save = (props) => {
       hoverColor,
       btnFontFamily,
       btnTextColorHover,
+      textSize,
+      textWeight,
+      textLineHeight,
+      textStyle,
+      textUpper,
+      textLetter,
     },
   } = props;
 
@@ -37,6 +43,12 @@ const Save = (props) => {
         style={{
           backgroundColor: buttonColor,
           fontFamily: btnFontFamily,
+          fontSize: `${textSize}px`,
+          fontWeight: textWeight,
+          fontStyle: textStyle,
+          textTransform: textUpper ? "uppercase" : "none",
+          letterSpacing: textLetter,
+          lineHeight: textLineHeight,
         }}
       >
         <RichText.Content value={buttonText} />

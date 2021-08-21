@@ -37,7 +37,30 @@ const buttonAttributes = {
   btnTextColorHover: {
     type: "string",
     default: "#CCCCCC",
-  }
+  },
+  textSize: {
+    type: "number",
+    default: 16,
+  },
+  textWeight: {
+    type: "number",
+    default: 400,
+  },
+  textLineHeight: {
+    type: "number",
+    default: 1.2,
+  },
+  textStyle: {
+    type: "string",
+    default: "normal",
+  },
+  textUpper: {
+    type: "string",
+  },
+  textLetter: {
+    type: "number",
+    default: 1,
+  },
 };
 
 const buttonSupports = {

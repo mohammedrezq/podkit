@@ -192,6 +192,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _components_googleFontsNames__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/googleFontsNames */ "./src/components/googleFontsNames.js");
 /* harmony import */ var _components_googleFonts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/googleFonts */ "./src/components/googleFonts.js");
+/* harmony import */ var _components_Typography__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/Typography */ "./src/components/Typography.js");
+
 
 
 
@@ -207,6 +209,12 @@ var Edit = function Edit(props) {
       hoverColor = _props$attributes.hoverColor,
       btnFontFamily = _props$attributes.btnFontFamily,
       btnTextColorHover = _props$attributes.btnTextColorHover,
+      textSize = _props$attributes.textSize,
+      textWeight = _props$attributes.textWeight,
+      textLineHeight = _props$attributes.textLineHeight,
+      textStyle = _props$attributes.textStyle,
+      textUpper = _props$attributes.textUpper,
+      textLetter = _props$attributes.textLetter,
       setAttributes = props.setAttributes;
   var HOVERANIMATIONS = [{
     value: "",
@@ -257,7 +265,37 @@ var Edit = function Edit(props) {
 
   var onChangeButtonTextColorHover = function onChangeButtonTextColorHover(newValue) {
     setAttributes({
-      btnTextColorHover: newValue.hex
+      btnTextColorHover: newValue
+    });
+  };
+
+  var textWeightfn = function textWeightfn(newTextWeight) {
+    setAttributes({
+      textWeight: newTextWeight
+    });
+  };
+
+  var lineHeight = function lineHeight(newTextLineHeight) {
+    setAttributes({
+      textLineHeight: newTextLineHeight
+    });
+  };
+
+  var textStylefn = function textStylefn(newTextStyle) {
+    setAttributes({
+      textStyle: newTextStyle
+    });
+  };
+
+  var textUpperfn = function textUpperfn(check) {
+    return setAttributes({
+      textUpper: check
+    });
+  };
+
+  var textLetterfn = function textLetterfn(newTextLetter) {
+    setAttributes({
+      textLetter: newTextLetter
     });
   };
 
@@ -291,11 +329,29 @@ var Edit = function Edit(props) {
     options: _components_googleFontsNames__WEBPACK_IMPORTED_MODULE_4__["default"],
     value: btnFontFamily,
     onChange: onChangeTextFamily
-  }), /*#__PURE__*/React.createElement(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["Fragment"], null, /*#__PURE__*/React.createElement("strong", null, "Text Color on Hover"), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["ColorPicker"], {
+  }), /*#__PURE__*/React.createElement(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["Fragment"], null, /*#__PURE__*/React.createElement("strong", null, "Text Color on Hover"), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["ColorPalette"], {
     color: btnTextColorHover,
-    onChangeComplete: onChangeButtonTextColorHover,
+    onChange: onChangeButtonTextColorHover,
     disableAlpha: true
-  })))))), /*#__PURE__*/React.createElement("div", {
+  })))), /*#__PURE__*/React.createElement(_components_Typography__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    components: ["size", "weight", "line", "style", "upper", "spacing"],
+    size: textSize,
+    weight: textWeight,
+    line: textLineHeight,
+    style: textStyle,
+    upper: textUpper,
+    spacing: textLetter,
+    onChangeSize: function onChangeSize(newTextSize) {
+      return setAttributes({
+        textSize: newTextSize
+      });
+    },
+    onChangeWeight: textWeightfn,
+    onChangeLine: lineHeight,
+    onChangeStyle: textStylefn,
+    onChangeUpper: textUpperfn,
+    onChangeSpacing: textLetterfn
+  }))), /*#__PURE__*/React.createElement("div", {
     className: "wpb_block_container"
   }, /*#__PURE__*/React.createElement("style", {
     dangerouslySetInnerHTML: {
@@ -309,7 +365,13 @@ var Edit = function Edit(props) {
   }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"], {
     className: "wpb_button_container ".concat(hoverAnimation),
     style: {
-      fontFamily: btnFontFamily
+      fontFamily: btnFontFamily,
+      fontSize: "".concat(textSize, "px"),
+      fontWeight: textWeight,
+      fontStyle: textStyle,
+      textTransform: textUpper ? "uppercase" : "none",
+      letterSpacing: textLetter,
+      lineHeight: textLineHeight
     },
     onChange: function onChange(newValue) {
       setAttributes({
@@ -347,7 +409,13 @@ var Save = function Save(props) {
       buttonColor = _props$attributes.buttonColor,
       hoverColor = _props$attributes.hoverColor,
       btnFontFamily = _props$attributes.btnFontFamily,
-      btnTextColorHover = _props$attributes.btnTextColorHover;
+      btnTextColorHover = _props$attributes.btnTextColorHover,
+      textSize = _props$attributes.textSize,
+      textWeight = _props$attributes.textWeight,
+      textLineHeight = _props$attributes.textLineHeight,
+      textStyle = _props$attributes.textStyle,
+      textUpper = _props$attributes.textUpper,
+      textLetter = _props$attributes.textLetter;
   return /*#__PURE__*/React.createElement("div", {
     className: "button_container"
   }, /*#__PURE__*/React.createElement("style", {
@@ -358,7 +426,13 @@ var Save = function Save(props) {
     className: "wpb_button ".concat(hoverAnimation, " wpb_button_container"),
     style: {
       backgroundColor: buttonColor,
-      fontFamily: btnFontFamily
+      fontFamily: btnFontFamily,
+      fontSize: "".concat(textSize, "px"),
+      fontWeight: textWeight,
+      fontStyle: textStyle,
+      textTransform: textUpper ? "uppercase" : "none",
+      letterSpacing: textLetter,
+      lineHeight: textLineHeight
     }
   }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__["RichText"].Content, {
     value: buttonText
@@ -422,6 +496,29 @@ var buttonAttributes = {
   btnTextColorHover: {
     type: "string",
     default: "#CCCCCC"
+  },
+  textSize: {
+    type: "number",
+    default: 16
+  },
+  textWeight: {
+    type: "number",
+    default: 400
+  },
+  textLineHeight: {
+    type: "number",
+    default: 1.2
+  },
+  textStyle: {
+    type: "string",
+    default: "normal"
+  },
+  textUpper: {
+    type: "string"
+  },
+  textLetter: {
+    type: "number",
+    default: 1
   }
 };
 var buttonSupports = {
