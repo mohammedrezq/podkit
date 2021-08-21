@@ -241,13 +241,13 @@ var Edit = function Edit(props) {
 
   var onChangeHoverColor = function onChangeHoverColor(newValue) {
     setAttributes({
-      hoverColor: newValue.hex
+      hoverColor: newValue
     });
   };
 
   var onChangeButtonColor = function onChangeButtonColor(newValue) {
     setAttributes({
-      buttonColor: newValue.hex
+      buttonColor: newValue
     });
   };
 
@@ -257,19 +257,19 @@ var Edit = function Edit(props) {
     className: "components-base-control"
   }, /*#__PURE__*/React.createElement("div", {
     className: "components-base-control__field"
-  }, /*#__PURE__*/React.createElement("h3", null, "Button Hover Styles"), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["SelectControl"], {
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("strong", null, "Button Color"), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["ColorPalette"], {
+    color: buttonColor,
+    onChange: onChangeButtonColor,
+    clearable: true
+  })), /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement("strong", null, "Button Hover Styles"), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["SelectControl"], {
     options: HOVERANIMATIONS,
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Hover Effect", "wpb"),
     value: hoverAnimation,
     onChange: onChangeHoverAnimation
-  }), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("strong", null, "Button Color"), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["ColorPicker"], {
-    color: buttonColor,
-    onChangeComplete: onChangeButtonColor,
-    disableAlpha: true
-  })), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("strong", null, "Hover Color"), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["ColorPicker"], {
+  }), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("strong", null, "Hover Color"), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["ColorPalette"], {
     color: hoverColor,
-    onChangeComplete: onChangeHoverColor,
-    disableAlpha: true
+    onChange: onChangeHoverColor,
+    clearable: true
   })))))), /*#__PURE__*/React.createElement("div", {
     className: "wpb_block_container"
   }, /*#__PURE__*/React.createElement("style", {

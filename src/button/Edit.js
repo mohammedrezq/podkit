@@ -73,12 +73,12 @@ const Edit = (props) => {
 
   const onChangeHoverColor = (newValue) => {
     setAttributes({
-      hoverColor: newValue.hex,
+      hoverColor: newValue,
     });
   };
   const onChangeButtonColor = (newValue) => {
     setAttributes({
-      buttonColor: newValue.hex,
+      buttonColor: newValue,
     });
   };
 
@@ -87,7 +87,16 @@ const Edit = (props) => {
       <PanelBody title={__("Button Settings", "wpb")}>
         <div className="components-base-control">
           <div className="components-base-control__field">
-            <h3>Button Hover Styles</h3>
+            <div>
+              <strong>Button Color</strong>
+              <ColorPalette
+                color={buttonColor}
+                onChange={onChangeButtonColor}
+                clearable
+              />
+            </div>
+            <hr />
+            <strong>Button Hover Styles</strong>
             <SelectControl
               options={HOVERANIMATIONS}
               label={__("Hover Effect", "wpb")}
@@ -95,19 +104,11 @@ const Edit = (props) => {
               onChange={onChangeHoverAnimation}
             />
             <div>
-              <strong>Button Color</strong>
-              <ColorPicker
-                color={buttonColor}
-                onChangeComplete={onChangeButtonColor}
-                disableAlpha
-              />
-            </div>
-            <div>
               <strong>Hover Color</strong>
-              <ColorPicker
+              <ColorPalette
                 color={hoverColor}
-                onChangeComplete={onChangeHoverColor}
-                disableAlpha
+                onChange={onChangeHoverColor}
+                clearable
               />
             </div>
           </div>
