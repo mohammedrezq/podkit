@@ -47,6 +47,7 @@ const Edit = (props) => {
       borderWidth,
       borderColor,
       borderRadius,
+      borderColorHover,
     },
     setAttributes,
   } = props;
@@ -119,6 +120,10 @@ const Edit = (props) => {
 
   const textLetterfn = (newTextLetter) => {
     setAttributes({ textLetter: newTextLetter });
+  };
+
+  const onChangeBorderColorHover = (newValue) => {
+    setAttributes({ borderColorHover: newValue });
   };
 
   return [
@@ -230,6 +235,14 @@ const Edit = (props) => {
                 setAttributes({ borderRadius: newValue });
               }}
             />
+            <Fragment>
+              <strong>{__("Button Border Hover Color")}</strong>
+              <ColorPalette
+                color={borderColorHover}
+                onChange={onChangeBorderColorHover}
+                clearable
+              />
+            </Fragment>
           </div>
         </div>
       </PanelBody>
@@ -240,20 +253,23 @@ const Edit = (props) => {
           __html: [
             `
             .wpb_pulse:hover, .wpb_fade:hover {
-            background-color: ${hoverColor} !important;
+                background-color: ${hoverColor} !important;
             }
             .wpb_sweep_right::before, .wpb_sweep_left::before {
-            background: ${hoverColor} !important;
+                background: ${hoverColor} !important;
             }
             .wpb_button_container.rich-text:hover {
-              color: ${btnTextColorHover} !important;
+                color: ${btnTextColorHover} !important;
+            }
+            .wpb_button:hover {
+                border-color: ${borderColorHover} !important;
             }
             `,
           ].join("\n"),
         }}
       />
       <div
-        className="wpb_button"
+        className={`wpb_button ${hoverAnimation}`}
         style={{
           backgroundColor: buttonColor,
           border: borderType,

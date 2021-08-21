@@ -24,11 +24,12 @@ const Save = (props) => {
       borderWidth,
       borderColor,
       borderRadius,
+      borderColorHover,
     },
   } = props;
 
   return (
-    <div className="button_container">
+    <div className={`button_container`}>
       <style
         dangerouslySetInnerHTML={{
           __html: [
@@ -36,11 +37,14 @@ const Save = (props) => {
             .wpb_pulse:hover, .wpb_fade:hover {
                 background-color: ${hoverColor} !important;
                 }
-                .wpb_sweep_right::before, .wpb_sweep_left::before {
+            .wpb_sweep_right::before, .wpb_sweep_left::before {
                 background: ${hoverColor} !important;
                 }
-                .wpb_button_container:hover {
+            .wpb_button_container:hover {
                   color: ${btnTextColorHover} !important;
+                }
+            .wpb_button:hover {
+                  border-color: ${borderColorHover} !important;
                 }
            `,
           ].join("\n"),

@@ -92,6 +92,10 @@ const buttonAttributes = {
     type: "number",
     default: 3,
   },
+  borderColorHover: {
+    type: "string",
+    default: "#ff0000",
+  },
 };
 
 const buttonSupports = {

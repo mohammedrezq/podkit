@@ -227,6 +227,7 @@ var Edit = function Edit(props) {
       borderWidth = _props$attributes.borderWidth,
       borderColor = _props$attributes.borderColor,
       borderRadius = _props$attributes.borderRadius,
+      borderColorHover = _props$attributes.borderColorHover,
       setAttributes = props.setAttributes;
   var HOVERANIMATIONS = [{
     value: "",
@@ -308,6 +309,12 @@ var Edit = function Edit(props) {
   var textLetterfn = function textLetterfn(newTextLetter) {
     setAttributes({
       textLetter: newTextLetter
+    });
+  };
+
+  var onChangeBorderColorHover = function onChangeBorderColorHover(newValue) {
+    setAttributes({
+      borderColorHover: newValue
     });
   };
 
@@ -420,14 +427,18 @@ var Edit = function Edit(props) {
         borderRadius: newValue
       });
     }
-  }))))), /*#__PURE__*/React.createElement("div", {
+  }), /*#__PURE__*/React.createElement(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["Fragment"], null, /*#__PURE__*/React.createElement("strong", null, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Button Border Hover Color")), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["ColorPalette"], {
+    color: borderColorHover,
+    onChange: onChangeBorderColorHover,
+    clearable: true
+  })))))), /*#__PURE__*/React.createElement("div", {
     className: "wpb_block_container"
   }, /*#__PURE__*/React.createElement("style", {
     dangerouslySetInnerHTML: {
-      __html: ["\n            .wpb_pulse:hover, .wpb_fade:hover {\n            background-color: ".concat(hoverColor, " !important;\n            }\n            .wpb_sweep_right::before, .wpb_sweep_left::before {\n            background: ").concat(hoverColor, " !important;\n            }\n            .wpb_button_container.rich-text:hover {\n              color: ").concat(btnTextColorHover, " !important;\n            }\n            ")].join("\n")
+      __html: ["\n            .wpb_pulse:hover, .wpb_fade:hover {\n                background-color: ".concat(hoverColor, " !important;\n            }\n            .wpb_sweep_right::before, .wpb_sweep_left::before {\n                background: ").concat(hoverColor, " !important;\n            }\n            .wpb_button_container.rich-text:hover {\n                color: ").concat(btnTextColorHover, " !important;\n            }\n            .wpb_button:hover {\n                border-color: ").concat(borderColorHover, " !important;\n            }\n            ")].join("\n")
     }
   }), /*#__PURE__*/React.createElement("div", {
-    className: "wpb_button",
+    className: "wpb_button ".concat(hoverAnimation),
     style: {
       backgroundColor: buttonColor,
       border: borderType,
@@ -497,12 +508,13 @@ var Save = function Save(props) {
       borderType = _props$attributes.borderType,
       borderWidth = _props$attributes.borderWidth,
       borderColor = _props$attributes.borderColor,
-      borderRadius = _props$attributes.borderRadius;
+      borderRadius = _props$attributes.borderRadius,
+      borderColorHover = _props$attributes.borderColorHover;
   return /*#__PURE__*/React.createElement("div", {
     className: "button_container"
   }, /*#__PURE__*/React.createElement("style", {
     dangerouslySetInnerHTML: {
-      __html: ["\n            .wpb_pulse:hover, .wpb_fade:hover {\n                background-color: ".concat(hoverColor, " !important;\n                }\n                .wpb_sweep_right::before, .wpb_sweep_left::before {\n                background: ").concat(hoverColor, " !important;\n                }\n                .wpb_button_container:hover {\n                  color: ").concat(btnTextColorHover, " !important;\n                }\n           ")].join("\n")
+      __html: ["\n            .wpb_pulse:hover, .wpb_fade:hover {\n                background-color: ".concat(hoverColor, " !important;\n                }\n            .wpb_sweep_right::before, .wpb_sweep_left::before {\n                background: ").concat(hoverColor, " !important;\n                }\n            .wpb_button_container:hover {\n                  color: ").concat(btnTextColorHover, " !important;\n                }\n            .wpb_button:hover {\n                  border-color: ").concat(borderColorHover, " !important;\n                }\n           ")].join("\n")
     }
   }), /*#__PURE__*/React.createElement("div", {
     className: "wpb_button ".concat(hoverAnimation, " wpb_button_container"),
@@ -637,6 +649,10 @@ var buttonAttributes = {
   borderRadius: {
     type: "number",
     default: 3
+  },
+  borderColorHover: {
+    type: "string",
+    default: "#ff0000"
   }
 };
 var buttonSupports = {
