@@ -197,9 +197,9 @@ __webpack_require__.r(__webpack_exports__);
 
 var Edit = function Edit(props) {
   var _props$attributes = props.attributes,
+      buttonText = _props$attributes.buttonText,
       effect = _props$attributes.effect,
       effectDir = _props$attributes.effectDir,
-      buttonText = _props$attributes.buttonText,
       setAttributes = props.setAttributes;
   var SIZE = [{
     value: "sm",
@@ -340,7 +340,12 @@ var Edit = function Edit(props) {
   }))))), /*#__PURE__*/React.createElement("div", {
     className: "wpb_button"
   }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"], {
-    className: "wpb_button",
+    className: "wpb_button_container wpb_sweep_right",
+    onChange: function onChange(newValue) {
+      setAttributes({
+        buttonText: newValue
+      });
+    },
     value: buttonText
   }))];
 };
@@ -365,7 +370,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var Save = function Save(props) {};
+var Save = function Save(props) {
+  var buttonText = props.attributes.buttonText;
+  return /*#__PURE__*/React.createElement("div", {
+    className: "wpb_button wpb_sweep_right wpb_button_container"
+  }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__["RichText"].Content, {
+    value: buttonText
+  }));
+};
 
 /* harmony default export */ __webpack_exports__["default"] = (Save);
 

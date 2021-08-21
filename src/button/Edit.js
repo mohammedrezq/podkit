@@ -20,7 +20,7 @@ import { Fragment } from "@wordpress/element";
 
 const Edit = (props) => {
   const {
-    attributes: { effect, effectDir, buttonText },
+    attributes: { buttonText, effect, effectDir },
     setAttributes,
   } = props;
 
@@ -125,6 +125,7 @@ const Edit = (props) => {
 
   // Helper Functions
 
+
   const onChangeHover = (newValue) => {
     setAttributes({ effect: newValue });
     switch (newValue) {
@@ -181,7 +182,13 @@ const Edit = (props) => {
       </PanelBody>
     </InspectorControls>,
     <div className="wpb_button">
-      <RichText className={`wpb_button`} value={buttonText} />
+      <RichText
+        className={`wpb_button_container wpb_sweep_right`}
+        onChange={(newValue) => {
+          setAttributes({ buttonText: newValue });
+        }}
+        value={buttonText}
+      />
     </div>,
   ];
 };
