@@ -16,8 +16,20 @@ const buttonAttributes = {
   },
   buttonText: {
     type: "string",
-    default: "Button Text"
-  }
+    default: "Button Text",
+  },
+  hoverAnimation: {
+    type: "string",
+    default: "",
+  },
+  hoverColor: {
+    type: "string",
+    default: "#2098d1",
+  },
+  buttonColor: {
+    type: "string",
+    default: "#000000",
+  },
 };
 
 const buttonSupports = {

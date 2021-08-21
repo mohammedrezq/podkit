@@ -198,105 +198,57 @@ __webpack_require__.r(__webpack_exports__);
 var Edit = function Edit(props) {
   var _props$attributes = props.attributes,
       buttonText = _props$attributes.buttonText,
-      effect = _props$attributes.effect,
-      effectDir = _props$attributes.effectDir,
+      hoverAnimation = _props$attributes.hoverAnimation,
+      buttonColor = _props$attributes.buttonColor,
+      hoverColor = _props$attributes.hoverColor,
       setAttributes = props.setAttributes;
-  var SIZE = [{
-    value: "sm",
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Small")
-  }, {
-    value: "md",
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Medium")
-  }, {
-    value: "lg",
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Large")
-  }, {
-    value: "block",
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Block")
-  }];
-  var DIRECTIONS = [{
-    value: "top",
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Top to Bottom")
-  }, {
-    value: "bottom",
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Bottom to Top")
-  }, {
-    value: "left",
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Left to Right")
-  }, {
-    value: "right",
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Right to Left")
-  }];
-  var SHUTTER = [{
-    value: "shutouthor",
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Shutter out Horizontal")
-  }, {
-    value: "shutoutver",
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Shutter out Vertical")
-  }, {
-    value: "scshutoutver",
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Scaled Shutter Vertical")
-  }, {
-    value: "scshutouthor",
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Scaled Shutter Horizontal")
-  }, {
-    value: "dshutinver",
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Tilted Left")
-  }, {
-    value: "dshutinhor",
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Tilted Right")
-  }];
-  var RADIAL = [{
-    value: "radialin",
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Radial In")
-  }, {
-    value: "radialout",
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Radial Out")
-  }, {
-    value: "rectin",
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Rectangle In")
-  }, {
-    value: "rectout",
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Rectangle Out")
-  }];
-  var EFFECTS = [{
-    value: "none",
+  var HOVERANIMATIONS = [{
+    value: "",
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("None")
   }, {
-    value: "slide",
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Slide")
+    value: "wpb_fade",
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Fade")
   }, {
-    value: "shutter",
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Shutter")
+    value: "wpb_pulse",
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Pulse")
   }, {
-    value: "radial",
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Radial")
+    value: "wpb_sweep_right",
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Sweep Right")
+  }, {
+    value: "wpb_sweep_left",
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Sweep Left")
   }]; // Helper Functions
+  // const onChangeHover = (newValue) => {
+  //   setAttributes({ effect: newValue });
+  //   switch (newValue) {
+  //     case "slide":
+  //       setAttributes({ effectDir: "top" });
+  //       break;
+  //     case "shutter":
+  //       setAttributes({ effectDir: "shutouthor" });
+  //       break;
+  //     case "radial":
+  //       setAttributes({ effectDir: "radialin" });
+  //       break;
+  //   }
+  // };
 
-  var onChangeHover = function onChangeHover(newValue) {
+  var onChangeHoverAnimation = function onChangeHoverAnimation(newValue) {
     setAttributes({
-      effect: newValue
+      hoverAnimation: newValue
     });
+  };
 
-    switch (newValue) {
-      case "slide":
-        setAttributes({
-          effectDir: "top"
-        });
-        break;
+  var onChangeHoverColor = function onChangeHoverColor(newValue) {
+    setAttributes({
+      hoverColor: newValue.hex
+    });
+  };
 
-      case "shutter":
-        setAttributes({
-          effectDir: "shutouthor"
-        });
-        break;
-
-      case "radial":
-        setAttributes({
-          effectDir: "radialin"
-        });
-        break;
-    }
+  var onChangeButtonColor = function onChangeButtonColor(newValue) {
+    setAttributes({
+      buttonColor: newValue.hex
+    });
   };
 
   return [/*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["InspectorControls"], null, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["PanelBody"], {
@@ -306,48 +258,38 @@ var Edit = function Edit(props) {
   }, /*#__PURE__*/React.createElement("div", {
     className: "components-base-control__field"
   }, /*#__PURE__*/React.createElement("h3", null, "Button Hover Styles"), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["SelectControl"], {
-    options: EFFECTS,
+    options: HOVERANIMATIONS,
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Hover Effect", "wpb"),
-    value: effect,
-    onChange: onChangeHover
-  }), "slide" === effect && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["SelectControl"], {
-    options: DIRECTIONS,
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Direction"),
-    value: effectDir,
-    onChange: function onChange(newValue) {
-      return setAttributes({
-        effectDir: newValue
-      });
+    value: hoverAnimation,
+    onChange: onChangeHoverAnimation
+  }), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("strong", null, "Button Color"), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["ColorPicker"], {
+    color: buttonColor,
+    onChangeComplete: onChangeButtonColor,
+    disableAlpha: true
+  })), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("strong", null, "Hover Color"), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["ColorPicker"], {
+    color: hoverColor,
+    onChangeComplete: onChangeHoverColor,
+    disableAlpha: true
+  })))))), /*#__PURE__*/React.createElement("div", {
+    className: "wpb_block_container"
+  }, /*#__PURE__*/React.createElement("style", {
+    dangerouslySetInnerHTML: {
+      __html: ["\n.wpb_pulse:hover, .wpb_fade:hover {\n background-color: ".concat(hoverColor, " !important;\n}\n.wpb_sweep_right::before, .wpb_sweep_left::before {\n background: ").concat(hoverColor, " !important;\n}\n")].join("\n")
     }
-  }), "shutter" === effect && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["SelectControl"], {
-    options: SHUTTER,
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Shutter Direction"),
-    value: effectDir,
-    onChange: function onChange(newValue) {
-      return setAttributes({
-        effectDir: newValue
-      });
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "wpb_button",
+    style: {
+      backgroundColor: buttonColor
     }
-  }), "radial" === effect && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["SelectControl"], {
-    options: RADIAL,
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Style"),
-    value: effectDir,
-    onChange: function onChange(newValue) {
-      return setAttributes({
-        effectDir: newValue
-      });
-    }
-  }))))), /*#__PURE__*/React.createElement("div", {
-    className: "wpb_button"
   }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"], {
-    className: "wpb_button_container wpb_sweep_right",
+    className: "wpb_button_container ".concat(hoverAnimation),
     onChange: function onChange(newValue) {
       setAttributes({
         buttonText: newValue
       });
     },
     value: buttonText
-  }))];
+  })))];
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Edit);
@@ -371,12 +313,25 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Save = function Save(props) {
-  var buttonText = props.attributes.buttonText;
+  var _props$attributes = props.attributes,
+      buttonText = _props$attributes.buttonText,
+      hoverAnimation = _props$attributes.hoverAnimation,
+      buttonColor = _props$attributes.buttonColor,
+      hoverColor = _props$attributes.hoverColor;
   return /*#__PURE__*/React.createElement("div", {
-    className: "wpb_button wpb_sweep_right wpb_button_container"
+    className: "button_container"
+  }, /*#__PURE__*/React.createElement("style", {
+    dangerouslySetInnerHTML: {
+      __html: ["\n            .wpb_pulse:hover, .wpb_fade:hover {\n                background-color: ".concat(hoverColor, " !important;\n                }\n                .wpb_sweep_right::before, .wpb_sweep_left::before {\n                background: ").concat(hoverColor, " !important;\n                }\n           ")].join("\n")
+    }
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "wpb_button ".concat(hoverAnimation, " wpb_button_container"),
+    style: {
+      backgroundColor: buttonColor
+    }
   }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__["RichText"].Content, {
     value: buttonText
-  }));
+  })));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Save);
@@ -416,6 +371,18 @@ var buttonAttributes = {
   buttonText: {
     type: "string",
     default: "Button Text"
+  },
+  hoverAnimation: {
+    type: "string",
+    default: ""
+  },
+  hoverColor: {
+    type: "string",
+    default: "#2098d1"
+  },
+  buttonColor: {
+    type: "string",
+    default: "#000000"
   }
 };
 var buttonSupports = {

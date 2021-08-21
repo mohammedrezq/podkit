@@ -3,11 +3,34 @@ import { __ } from "@wordpress/i18n";
 
 const Save = (props) => {
   const {
-    attributes: { buttonText },
+    attributes: { buttonText, hoverAnimation, buttonColor, hoverColor },
   } = props;
+
   return (
-    <div className="wpb_button wpb_sweep_right wpb_button_container">
-      <RichText.Content value={buttonText} />
+    <div className="button_container">
+        <style
+          dangerouslySetInnerHTML={{
+            __html: [
+              `
+            .wpb_pulse:hover, .wpb_fade:hover {
+                background-color: ${hoverColor} !important;
+                }
+                .wpb_sweep_right::before, .wpb_sweep_left::before {
+                background: ${hoverColor} !important;
+                }
+           `,
+            ].join("\n"),
+          }}
+        />
+      <div
+        className={`wpb_button ${hoverAnimation} wpb_button_container`}
+        style={{
+          backgroundColor: buttonColor,
+        }}
+      >
+
+        <RichText.Content value={buttonText} />
+      </div>
     </div>
   );
 };

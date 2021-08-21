@@ -6,6 +6,7 @@ import {
   Dropdown,
   Button,
   RangeControl,
+  ColorPicker,
 } from "@wordpress/components";
 
 import {
@@ -20,125 +21,65 @@ import { Fragment } from "@wordpress/element";
 
 const Edit = (props) => {
   const {
-    attributes: { buttonText, effect, effectDir },
+    attributes: { buttonText, hoverAnimation, buttonColor, hoverColor },
     setAttributes,
   } = props;
 
-  const SIZE = [
+  const HOVERANIMATIONS = [
     {
-      value: "sm",
-      label: __("Small"),
-    },
-    {
-      value: "md",
-      label: __("Medium"),
-    },
-    {
-      value: "lg",
-      label: __("Large"),
-    },
-    {
-      value: "block",
-      label: __("Block"),
-    },
-  ];
-  const DIRECTIONS = [
-    {
-      value: "top",
-      label: __("Top to Bottom"),
-    },
-    {
-      value: "bottom",
-      label: __("Bottom to Top"),
-    },
-    {
-      value: "left",
-      label: __("Left to Right"),
-    },
-    {
-      value: "right",
-      label: __("Right to Left"),
-    },
-  ];
-  const SHUTTER = [
-    {
-      value: "shutouthor",
-      label: __("Shutter out Horizontal"),
-    },
-    {
-      value: "shutoutver",
-      label: __("Shutter out Vertical"),
-    },
-    {
-      value: "scshutoutver",
-      label: __("Scaled Shutter Vertical"),
-    },
-    {
-      value: "scshutouthor",
-      label: __("Scaled Shutter Horizontal"),
-    },
-    {
-      value: "dshutinver",
-      label: __("Tilted Left"),
-    },
-    {
-      value: "dshutinhor",
-      label: __("Tilted Right"),
-    },
-  ];
-  const RADIAL = [
-    {
-      value: "radialin",
-      label: __("Radial In"),
-    },
-    {
-      value: "radialout",
-      label: __("Radial Out"),
-    },
-    {
-      value: "rectin",
-      label: __("Rectangle In"),
-    },
-    {
-      value: "rectout",
-      label: __("Rectangle Out"),
-    },
-  ];
-  const EFFECTS = [
-    {
-      value: "none",
+      value: "",
       label: __("None"),
     },
     {
-      value: "slide",
-      label: __("Slide"),
+      value: "wpb_fade",
+      label: __("Fade"),
     },
     {
-      value: "shutter",
-      label: __("Shutter"),
+      value: "wpb_pulse",
+      label: __("Pulse"),
     },
     {
-      value: "radial",
-      label: __("Radial"),
+      value: "wpb_sweep_right",
+      label: __("Sweep Right"),
+    },
+    {
+      value: "wpb_sweep_left",
+      label: __("Sweep Left"),
     },
   ];
 
   // Helper Functions
 
+  // const onChangeHover = (newValue) => {
+  //   setAttributes({ effect: newValue });
+  //   switch (newValue) {
+  //     case "slide":
+  //       setAttributes({ effectDir: "top" });
+  //       break;
+  //     case "shutter":
+  //       setAttributes({ effectDir: "shutouthor" });
+  //       break;
+  //     case "radial":
+  //       setAttributes({ effectDir: "radialin" });
+  //       break;
+  //   }
+  // };
 
-  const onChangeHover = (newValue) => {
-    setAttributes({ effect: newValue });
-    switch (newValue) {
-      case "slide":
-        setAttributes({ effectDir: "top" });
-        break;
-      case "shutter":
-        setAttributes({ effectDir: "shutouthor" });
-        break;
-      case "radial":
-        setAttributes({ effectDir: "radialin" });
-        break;
-    }
+  const onChangeHoverAnimation = (newValue) => {
+    setAttributes({
+      hoverAnimation: newValue,
+    });
+  };
+
+  const onChangeHoverColor = (newValue) => {
+    setAttributes({
+      hoverColor: newValue.hex,
+    });
+  };
+  const onChangeButtonColor = (newValue) => {
+    setAttributes({
+      buttonColor: newValue.hex,
+    });
   };
 
   return [
@@ -148,47 +89,60 @@ const Edit = (props) => {
           <div className="components-base-control__field">
             <h3>Button Hover Styles</h3>
             <SelectControl
-              options={EFFECTS}
+              options={HOVERANIMATIONS}
               label={__("Hover Effect", "wpb")}
-              value={effect}
-              onChange={onChangeHover}
+              value={hoverAnimation}
+              onChange={onChangeHoverAnimation}
             />
-            {"slide" === effect && (
-              <SelectControl
-                options={DIRECTIONS}
-                label={__("Direction")}
-                value={effectDir}
-                onChange={(newValue) => setAttributes({ effectDir: newValue })}
+            <div>
+              <strong>Button Color</strong>
+              <ColorPicker
+                color={buttonColor}
+                onChangeComplete={onChangeButtonColor}
+                disableAlpha
               />
-            )}
-            {"shutter" === effect && (
-              <SelectControl
-                options={SHUTTER}
-                label={__("Shutter Direction")}
-                value={effectDir}
-                onChange={(newValue) => setAttributes({ effectDir: newValue })}
+            </div>
+            <div>
+              <strong>Hover Color</strong>
+              <ColorPicker
+                color={hoverColor}
+                onChangeComplete={onChangeHoverColor}
+                disableAlpha
               />
-            )}
-            {"radial" === effect && (
-              <SelectControl
-                options={RADIAL}
-                label={__("Style")}
-                value={effectDir}
-                onChange={(newValue) => setAttributes({ effectDir: newValue })}
-              />
-            )}
+            </div>
           </div>
         </div>
       </PanelBody>
     </InspectorControls>,
-    <div className="wpb_button">
-      <RichText
-        className={`wpb_button_container wpb_sweep_right`}
-        onChange={(newValue) => {
-          setAttributes({ buttonText: newValue });
+    <div className="wpb_block_container">
+      <style
+        dangerouslySetInnerHTML={{
+          __html: [
+            `
+.wpb_pulse:hover, .wpb_fade:hover {
+ background-color: ${hoverColor} !important;
+}
+.wpb_sweep_right::before, .wpb_sweep_left::before {
+ background: ${hoverColor} !important;
+}
+`,
+          ].join("\n"),
         }}
-        value={buttonText}
       />
+      <div
+        className="wpb_button"
+        style={{
+          backgroundColor: buttonColor,
+        }}
+      >
+        <RichText
+          className={`wpb_button_container ${hoverAnimation}`}
+          onChange={(newValue) => {
+            setAttributes({ buttonText: newValue });
+          }}
+          value={buttonText}
+        />
+      </div>
     </div>,
   ];
 };

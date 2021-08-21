@@ -234,7 +234,7 @@ body {
   transition-duration: 0.3s;
   transition-property: color, background-color;
 }
-.wpb_fade:hover {
+.wpb_fade:hover, .wpb_fade:focus, .wpb_fade:active {
   background-color: #2098d1;
   color: white;
 }
@@ -259,7 +259,7 @@ body {
   transition-duration: 0.5s;
   transition-property: color, background-color;
 }
-.wpb_pulse:hover {
+.wpb_pulse:hover, .wpb_pulse:focus, .wpb_pulse:active {
   -webkit-animation-name: hvr-back-pulse;
   animation-name: hvr-back-pulse;
   -webkit-animation-duration: 1s;
@@ -299,10 +299,41 @@ body {
   transition-duration: 0.3s;
   transition-timing-function: ease-out;
 }
-.wpb_sweep_right:hover {
+.wpb_sweep_right:hover, .wpb_sweep_right:focus, .wpb_sweep_right:active {
   color: white;
 }
-.wpb_sweep_right:hover::before {
+.wpb_sweep_right:hover::before, .wpb_sweep_right:focus::before, .wpb_sweep_right:active::before {
+  transform: scaleX(1);
+}
+
+/* Sweep To Left */
+.wpb_sweep_left {
+  vertical-align: middle;
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  transition-property: color;
+  transition-duration: 0.3s;
+}
+.wpb_sweep_left:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #2098d1;
+  transform: scaleX(0);
+  transform-origin: 100% 50%;
+  transition-property: transform;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+}
+.wpb_sweep_left:hover, .wpb_sweep_left:focus, .wpb_sweep_left:active {
+  color: white;
+}
+.wpb_sweep_left:hover::before, .wpb_sweep_left:focus::before, .wpb_sweep_left:active::before {
   transform: scaleX(1);
 }
 
