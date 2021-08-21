@@ -9,6 +9,7 @@ const Save = (props) => {
       buttonColor,
       hoverColor,
       btnFontFamily,
+      btnTextColorHover,
     },
   } = props;
 
@@ -23,6 +24,9 @@ const Save = (props) => {
                 }
                 .wpb_sweep_right::before, .wpb_sweep_left::before {
                 background: ${hoverColor} !important;
+                }
+                .wpb_button_container:hover {
+                  color: ${btnTextColorHover} !important;
                 }
            `,
           ].join("\n"),

@@ -34,6 +34,10 @@ const buttonAttributes = {
     type: "string",
     default: "Arial",
   },
+  btnTextColorHover: {
+    type: "string",
+    default: "#CCCCCC",
+  }
 };
 
 const buttonSupports = {

@@ -29,6 +29,7 @@ const Edit = (props) => {
       buttonColor,
       hoverColor,
       btnFontFamily,
+      btnTextColorHover,
     },
     setAttributes,
   } = props;
@@ -81,6 +82,10 @@ const Edit = (props) => {
     addFontToHead(btnFontFamily);
   };
 
+  const onChangeButtonTextColorHover = (newValue) => {
+    setAttributes({ btnTextColorHover: newValue.hex });
+  };
+
   return [
     <InspectorControls>
       <PanelBody title={__("Button Settings", "wpb")}>
@@ -113,7 +118,7 @@ const Edit = (props) => {
           </div>
         </div>
       </PanelBody>
-      <PanelBody title={__("Button Text")}>
+      <PanelBody title={__("Button Text Settings")}>
         <div className="components-base-control">
           <div className="components-base-control__field">
             <SelectControl
@@ -122,6 +127,14 @@ const Edit = (props) => {
               value={btnFontFamily}
               onChange={onChangeTextFamily}
             />
+            <Fragment>
+              <strong>Text Color on Hover</strong>
+              <ColorPicker
+                color={btnTextColorHover}
+                onChangeComplete={onChangeButtonTextColorHover}
+                disableAlpha
+              />
+            </Fragment>
           </div>
         </div>
       </PanelBody>
@@ -136,6 +149,9 @@ const Edit = (props) => {
             }
             .wpb_sweep_right::before, .wpb_sweep_left::before {
             background: ${hoverColor} !important;
+            }
+            .wpb_button_container.rich-text:hover {
+              color: ${btnTextColorHover} !important;
             }
             `,
           ].join("\n"),

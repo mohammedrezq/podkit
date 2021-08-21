@@ -206,6 +206,7 @@ var Edit = function Edit(props) {
       buttonColor = _props$attributes.buttonColor,
       hoverColor = _props$attributes.hoverColor,
       btnFontFamily = _props$attributes.btnFontFamily,
+      btnTextColorHover = _props$attributes.btnTextColorHover,
       setAttributes = props.setAttributes;
   var HOVERANIMATIONS = [{
     value: "",
@@ -254,6 +255,12 @@ var Edit = function Edit(props) {
     Object(_components_googleFonts__WEBPACK_IMPORTED_MODULE_5__["default"])(btnFontFamily);
   };
 
+  var onChangeButtonTextColorHover = function onChangeButtonTextColorHover(newValue) {
+    setAttributes({
+      btnTextColorHover: newValue.hex
+    });
+  };
+
   return [/*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["InspectorControls"], null, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["PanelBody"], {
     title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Button Settings", "wpb")
   }, /*#__PURE__*/React.createElement("div", {
@@ -274,7 +281,7 @@ var Edit = function Edit(props) {
     onChange: onChangeHoverColor,
     clearable: true
   }))))), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["PanelBody"], {
-    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Button Text")
+    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Button Text Settings")
   }, /*#__PURE__*/React.createElement("div", {
     className: "components-base-control"
   }, /*#__PURE__*/React.createElement("div", {
@@ -284,11 +291,15 @@ var Edit = function Edit(props) {
     options: _components_googleFontsNames__WEBPACK_IMPORTED_MODULE_4__["default"],
     value: btnFontFamily,
     onChange: onChangeTextFamily
-  }))))), /*#__PURE__*/React.createElement("div", {
+  }), /*#__PURE__*/React.createElement(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["Fragment"], null, /*#__PURE__*/React.createElement("strong", null, "Text Color on Hover"), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["ColorPicker"], {
+    color: btnTextColorHover,
+    onChangeComplete: onChangeButtonTextColorHover,
+    disableAlpha: true
+  })))))), /*#__PURE__*/React.createElement("div", {
     className: "wpb_block_container"
   }, /*#__PURE__*/React.createElement("style", {
     dangerouslySetInnerHTML: {
-      __html: ["\n            .wpb_pulse:hover, .wpb_fade:hover {\n            background-color: ".concat(hoverColor, " !important;\n            }\n            .wpb_sweep_right::before, .wpb_sweep_left::before {\n            background: ").concat(hoverColor, " !important;\n            }\n            ")].join("\n")
+      __html: ["\n            .wpb_pulse:hover, .wpb_fade:hover {\n            background-color: ".concat(hoverColor, " !important;\n            }\n            .wpb_sweep_right::before, .wpb_sweep_left::before {\n            background: ").concat(hoverColor, " !important;\n            }\n            .wpb_button_container.rich-text:hover {\n              color: ").concat(btnTextColorHover, " !important;\n            }\n            ")].join("\n")
     }
   }), /*#__PURE__*/React.createElement("div", {
     className: "wpb_button",
@@ -335,12 +346,13 @@ var Save = function Save(props) {
       hoverAnimation = _props$attributes.hoverAnimation,
       buttonColor = _props$attributes.buttonColor,
       hoverColor = _props$attributes.hoverColor,
-      btnFontFamily = _props$attributes.btnFontFamily;
+      btnFontFamily = _props$attributes.btnFontFamily,
+      btnTextColorHover = _props$attributes.btnTextColorHover;
   return /*#__PURE__*/React.createElement("div", {
     className: "button_container"
   }, /*#__PURE__*/React.createElement("style", {
     dangerouslySetInnerHTML: {
-      __html: ["\n            .wpb_pulse:hover, .wpb_fade:hover {\n                background-color: ".concat(hoverColor, " !important;\n                }\n                .wpb_sweep_right::before, .wpb_sweep_left::before {\n                background: ").concat(hoverColor, " !important;\n                }\n           ")].join("\n")
+      __html: ["\n            .wpb_pulse:hover, .wpb_fade:hover {\n                background-color: ".concat(hoverColor, " !important;\n                }\n                .wpb_sweep_right::before, .wpb_sweep_left::before {\n                background: ").concat(hoverColor, " !important;\n                }\n                .wpb_button_container:hover {\n                  color: ").concat(btnTextColorHover, " !important;\n                }\n           ")].join("\n")
     }
   }), /*#__PURE__*/React.createElement("div", {
     className: "wpb_button ".concat(hoverAnimation, " wpb_button_container"),
@@ -406,6 +418,10 @@ var buttonAttributes = {
   btnFontFamily: {
     type: "string",
     default: "Arial"
+  },
+  btnTextColorHover: {
+    type: "string",
+    default: "#CCCCCC"
   }
 };
 var buttonSupports = {
