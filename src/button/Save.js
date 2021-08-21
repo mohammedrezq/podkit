@@ -20,6 +20,10 @@ const Save = (props) => {
       textShadowBlur,
       textShadowHorizontal,
       textShadowVertical,
+      borderType,
+      borderWidth,
+      borderColor,
+      borderRadius,
     },
   } = props;
 
@@ -54,6 +58,10 @@ const Save = (props) => {
           letterSpacing: textLetter,
           lineHeight: textLineHeight,
           textShadow: `${textShadowHorizontal}px ${textShadowVertical}px ${textShadowColor}`,
+          border: borderType,
+          borderWidth: `${borderWidth}px`,
+          borderRadius: `${borderRadius}px`,
+          borderColor: borderColor,
         }}
       >
         <RichText.Content value={buttonText} />

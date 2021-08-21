@@ -22,6 +22,7 @@ import GoogleFontsNames from "../components/googleFontsNames";
 import addFontToHead from "../components/googleFonts";
 import Typography from "../components/Typography";
 import TextShadow from "../components/TextShadow";
+import Border from "../components/Border";
 
 const Edit = (props) => {
   const {
@@ -42,6 +43,10 @@ const Edit = (props) => {
       textShadowBlur,
       textShadowHorizontal,
       textShadowVertical,
+      borderType,
+      borderWidth,
+      borderColor,
+      borderRadius,
     },
     setAttributes,
   } = props;
@@ -148,7 +153,7 @@ const Edit = (props) => {
           </div>
         </div>
       </PanelBody>
-      <PanelBody title={__("Button Text Settings")}>
+      <PanelBody title={__("Button Text Styling")}>
         <div className="components-base-control">
           <div className="components-base-control__field">
             <SelectControl
@@ -204,6 +209,30 @@ const Edit = (props) => {
           }}
         />
       </PanelBody>
+      <PanelBody title={__("Button Styling")}>
+        <div className="components-base-control">
+          <div className="components-base-control__field">
+            <Border
+              borderType={borderType}
+              borderWidth={borderWidth}
+              borderColor={borderColor}
+              borderRadius={borderRadius}
+              onChangeBorderType={(newValue) => {
+                setAttributes({ borderType: newValue });
+              }}
+              onChangeBorderWidth={(newValue) => {
+                setAttributes({ borderWidth: newValue });
+              }}
+              onChangeBorderColor={(newValue) => {
+                setAttributes({ borderColor: newValue.hex });
+              }}
+              onChangeBorderRadius={(newValue) => {
+                setAttributes({ borderRadius: newValue });
+              }}
+            />
+          </div>
+        </div>
+      </PanelBody>
     </InspectorControls>,
     <div className="wpb_block_container">
       <style
@@ -227,6 +256,10 @@ const Edit = (props) => {
         className="wpb_button"
         style={{
           backgroundColor: buttonColor,
+          border: borderType,
+          borderWidth: `${borderWidth}px`,
+          borderRadius: `${borderRadius}px`,
+          borderColor: borderColor,
         }}
       >
         <RichText

@@ -194,6 +194,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_googleFonts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/googleFonts */ "./src/components/googleFonts.js");
 /* harmony import */ var _components_Typography__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/Typography */ "./src/components/Typography.js");
 /* harmony import */ var _components_TextShadow__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/TextShadow */ "./src/components/TextShadow.js");
+/* harmony import */ var _components_Border__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/Border */ "./src/components/Border.js");
+
 
 
 
@@ -221,6 +223,10 @@ var Edit = function Edit(props) {
       textShadowBlur = _props$attributes.textShadowBlur,
       textShadowHorizontal = _props$attributes.textShadowHorizontal,
       textShadowVertical = _props$attributes.textShadowVertical,
+      borderType = _props$attributes.borderType,
+      borderWidth = _props$attributes.borderWidth,
+      borderColor = _props$attributes.borderColor,
+      borderRadius = _props$attributes.borderRadius,
       setAttributes = props.setAttributes;
   var HOVERANIMATIONS = [{
     value: "",
@@ -325,7 +331,7 @@ var Edit = function Edit(props) {
     onChange: onChangeHoverColor,
     clearable: true
   }))))), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["PanelBody"], {
-    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Button Text Settings")
+    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Button Text Styling")
   }, /*#__PURE__*/React.createElement("div", {
     className: "components-base-control"
   }, /*#__PURE__*/React.createElement("div", {
@@ -383,7 +389,38 @@ var Edit = function Edit(props) {
         textShadowVertical: newValue
       });
     }
-  }))), /*#__PURE__*/React.createElement("div", {
+  })), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["PanelBody"], {
+    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Button Styling")
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "components-base-control"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "components-base-control__field"
+  }, /*#__PURE__*/React.createElement(_components_Border__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    borderType: borderType,
+    borderWidth: borderWidth,
+    borderColor: borderColor,
+    borderRadius: borderRadius,
+    onChangeBorderType: function onChangeBorderType(newValue) {
+      setAttributes({
+        borderType: newValue
+      });
+    },
+    onChangeBorderWidth: function onChangeBorderWidth(newValue) {
+      setAttributes({
+        borderWidth: newValue
+      });
+    },
+    onChangeBorderColor: function onChangeBorderColor(newValue) {
+      setAttributes({
+        borderColor: newValue.hex
+      });
+    },
+    onChangeBorderRadius: function onChangeBorderRadius(newValue) {
+      setAttributes({
+        borderRadius: newValue
+      });
+    }
+  }))))), /*#__PURE__*/React.createElement("div", {
     className: "wpb_block_container"
   }, /*#__PURE__*/React.createElement("style", {
     dangerouslySetInnerHTML: {
@@ -392,7 +429,11 @@ var Edit = function Edit(props) {
   }), /*#__PURE__*/React.createElement("div", {
     className: "wpb_button",
     style: {
-      backgroundColor: buttonColor
+      backgroundColor: buttonColor,
+      border: borderType,
+      borderWidth: "".concat(borderWidth, "px"),
+      borderRadius: "".concat(borderRadius, "px"),
+      borderColor: borderColor
     }
   }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"], {
     className: "wpb_button_container ".concat(hoverAnimation),
@@ -452,7 +493,11 @@ var Save = function Save(props) {
       textShadowColor = _props$attributes.textShadowColor,
       textShadowBlur = _props$attributes.textShadowBlur,
       textShadowHorizontal = _props$attributes.textShadowHorizontal,
-      textShadowVertical = _props$attributes.textShadowVertical;
+      textShadowVertical = _props$attributes.textShadowVertical,
+      borderType = _props$attributes.borderType,
+      borderWidth = _props$attributes.borderWidth,
+      borderColor = _props$attributes.borderColor,
+      borderRadius = _props$attributes.borderRadius;
   return /*#__PURE__*/React.createElement("div", {
     className: "button_container"
   }, /*#__PURE__*/React.createElement("style", {
@@ -470,7 +515,11 @@ var Save = function Save(props) {
       textTransform: textUpper ? "uppercase" : "none",
       letterSpacing: textLetter,
       lineHeight: textLineHeight,
-      textShadow: "".concat(textShadowHorizontal, "px ").concat(textShadowVertical, "px ").concat(textShadowColor)
+      textShadow: "".concat(textShadowHorizontal, "px ").concat(textShadowVertical, "px ").concat(textShadowColor),
+      border: borderType,
+      borderWidth: "".concat(borderWidth, "px"),
+      borderRadius: "".concat(borderRadius, "px"),
+      borderColor: borderColor
     }
   }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__["RichText"].Content, {
     value: buttonText
@@ -572,6 +621,22 @@ var buttonAttributes = {
   textShadowVertical: {
     type: "number",
     default: 0
+  },
+  borderType: {
+    type: "string",
+    default: "none"
+  },
+  borderWidth: {
+    type: "number",
+    default: 3
+  },
+  borderColor: {
+    type: "string",
+    default: "#000000"
+  },
+  borderRadius: {
+    type: "number",
+    default: 3
   }
 };
 var buttonSupports = {
