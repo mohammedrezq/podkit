@@ -173,6 +173,590 @@ __webpack_require__.r(__webpack_exports__);
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/button/Edit.js":
+/*!****************************!*\
+  !*** ./src/button/Edit.js ***!
+  \****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _components_googleFontsNames__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/googleFontsNames */ "./src/components/googleFontsNames.js");
+/* harmony import */ var _components_googleFonts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/googleFonts */ "./src/components/googleFonts.js");
+/* harmony import */ var _components_Typography__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/Typography */ "./src/components/Typography.js");
+/* harmony import */ var _components_TextShadow__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/TextShadow */ "./src/components/TextShadow.js");
+/* harmony import */ var _components_Border__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/Border */ "./src/components/Border.js");
+/* harmony import */ var _components_BoxShadow__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/BoxShadow */ "./src/components/BoxShadow.js");
+
+
+
+
+
+
+
+
+
+
+
+var Edit = function Edit(props) {
+  var _props$attributes = props.attributes,
+      buttonText = _props$attributes.buttonText,
+      hoverAnimation = _props$attributes.hoverAnimation,
+      buttonColor = _props$attributes.buttonColor,
+      hoverColor = _props$attributes.hoverColor,
+      btnFontFamily = _props$attributes.btnFontFamily,
+      btnTextColorHover = _props$attributes.btnTextColorHover,
+      textSize = _props$attributes.textSize,
+      textWeight = _props$attributes.textWeight,
+      textLineHeight = _props$attributes.textLineHeight,
+      textStyle = _props$attributes.textStyle,
+      textUpper = _props$attributes.textUpper,
+      textLetter = _props$attributes.textLetter,
+      textShadowColor = _props$attributes.textShadowColor,
+      textShadowBlur = _props$attributes.textShadowBlur,
+      textShadowHorizontal = _props$attributes.textShadowHorizontal,
+      textShadowVertical = _props$attributes.textShadowVertical,
+      borderType = _props$attributes.borderType,
+      borderWidth = _props$attributes.borderWidth,
+      borderColor = _props$attributes.borderColor,
+      borderRadius = _props$attributes.borderRadius,
+      borderColorHover = _props$attributes.borderColorHover,
+      boxShadowColor = _props$attributes.boxShadowColor,
+      boxShadowBlur = _props$attributes.boxShadowBlur,
+      boxShadowHorizontal = _props$attributes.boxShadowHorizontal,
+      boxShadowVertical = _props$attributes.boxShadowVertical,
+      boxShadowPosition = _props$attributes.boxShadowPosition,
+      buttonSpace = _props$attributes.buttonSpace,
+      setAttributes = props.setAttributes;
+  var HOVERANIMATIONS = [{
+    value: "",
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("None")
+  }, {
+    value: "wpb_fade",
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Fade")
+  }, {
+    value: "wpb_pulse",
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Pulse")
+  }, {
+    value: "wpb_sweep_right",
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Sweep Right")
+  }, {
+    value: "wpb_sweep_left",
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Sweep Left")
+  }];
+
+  var onChangeHoverAnimation = function onChangeHoverAnimation(newValue) {
+    setAttributes({
+      hoverAnimation: newValue
+    });
+  };
+
+  var onChangeHoverColor = function onChangeHoverColor(newValue) {
+    setAttributes({
+      hoverColor: newValue
+    });
+  };
+
+  var onChangeButtonColor = function onChangeButtonColor(newValue) {
+    setAttributes({
+      buttonColor: newValue
+    });
+  };
+
+  var onChangeTextFamily = function onChangeTextFamily(newValue) {
+    setAttributes({
+      btnFontFamily: newValue
+    });
+
+    if (!btnFontFamily) {
+      return;
+    }
+
+    Object(_components_googleFonts__WEBPACK_IMPORTED_MODULE_5__["default"])(btnFontFamily);
+  };
+
+  var onChangeButtonTextColorHover = function onChangeButtonTextColorHover(newValue) {
+    setAttributes({
+      btnTextColorHover: newValue
+    });
+  };
+
+  var textWeightfn = function textWeightfn(newTextWeight) {
+    setAttributes({
+      textWeight: newTextWeight
+    });
+  };
+
+  var lineHeight = function lineHeight(newTextLineHeight) {
+    setAttributes({
+      textLineHeight: newTextLineHeight
+    });
+  };
+
+  var textStylefn = function textStylefn(newTextStyle) {
+    setAttributes({
+      textStyle: newTextStyle
+    });
+  };
+
+  var textUpperfn = function textUpperfn(check) {
+    return setAttributes({
+      textUpper: check
+    });
+  };
+
+  var textLetterfn = function textLetterfn(newTextLetter) {
+    setAttributes({
+      textLetter: newTextLetter
+    });
+  };
+
+  var onChangeBorderColorHover = function onChangeBorderColorHover(newValue) {
+    setAttributes({
+      borderColorHover: newValue
+    });
+  };
+
+  return [/*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["InspectorControls"], null, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["PanelBody"], {
+    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Button Settings", "wpb")
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "components-base-control"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "components-base-control__field"
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("strong", null, "Button Color"), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["ColorPalette"], {
+    color: buttonColor,
+    onChange: onChangeButtonColor,
+    clearable: true
+  })), /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement("strong", null, "Button Hover Styles"), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["SelectControl"], {
+    options: HOVERANIMATIONS,
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Hover Effect", "wpb"),
+    value: hoverAnimation,
+    onChange: onChangeHoverAnimation
+  }), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("strong", null, "Hover Color"), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["ColorPalette"], {
+    color: hoverColor,
+    onChange: onChangeHoverColor,
+    clearable: true
+  }))))), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["PanelBody"], {
+    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Button Text Styling")
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "components-base-control"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "components-base-control__field"
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["SelectControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Font Family", "wpb"),
+    options: _components_googleFontsNames__WEBPACK_IMPORTED_MODULE_4__["default"],
+    value: btnFontFamily,
+    onChange: onChangeTextFamily
+  }), /*#__PURE__*/React.createElement(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["Fragment"], null, /*#__PURE__*/React.createElement("strong", null, "Text Color on Hover"), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["ColorPalette"], {
+    color: btnTextColorHover,
+    onChange: onChangeButtonTextColorHover,
+    disableAlpha: true
+  })))), /*#__PURE__*/React.createElement(_components_Typography__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    components: ["size", "weight", "line", "style", "upper", "spacing"],
+    size: textSize,
+    weight: textWeight,
+    line: textLineHeight,
+    style: textStyle,
+    upper: textUpper,
+    spacing: textLetter,
+    onChangeSize: function onChangeSize(newTextSize) {
+      return setAttributes({
+        textSize: newTextSize
+      });
+    },
+    onChangeWeight: textWeightfn,
+    onChangeLine: lineHeight,
+    onChangeStyle: textStylefn,
+    onChangeUpper: textUpperfn,
+    onChangeSpacing: textLetterfn
+  }), /*#__PURE__*/React.createElement(_components_TextShadow__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    label: "Text Shadow",
+    color: textShadowColor // blur={textShadowBlur}
+    ,
+    horizontal: textShadowHorizontal,
+    vertical: textShadowVertical,
+    onChangeColor: function onChangeColor(newValue) {
+      setAttributes({
+        textShadowColor: newValue.hex
+      });
+    },
+    onChangeBlur: function onChangeBlur(newValue) {
+      setAttributes({
+        textShadowBlur: newValue
+      });
+    },
+    onChangeHorizontal: function onChangeHorizontal(newValue) {
+      setAttributes({
+        textShadowHorizontal: newValue
+      });
+    },
+    onChangeVertical: function onChangeVertical(newValue) {
+      setAttributes({
+        textShadowVertical: newValue
+      });
+    }
+  })), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["PanelBody"], {
+    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Button Styling")
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "components-base-control"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "components-base-control__field"
+  }, /*#__PURE__*/React.createElement(_components_Border__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    borderType: borderType,
+    borderWidth: borderWidth,
+    borderColor: borderColor,
+    borderRadius: borderRadius,
+    onChangeBorderType: function onChangeBorderType(newValue) {
+      setAttributes({
+        borderType: newValue
+      });
+    },
+    onChangeBorderWidth: function onChangeBorderWidth(newValue) {
+      setAttributes({
+        borderWidth: newValue
+      });
+    },
+    onChangeBorderColor: function onChangeBorderColor(newValue) {
+      setAttributes({
+        borderColor: newValue.hex
+      });
+    },
+    onChangeBorderRadius: function onChangeBorderRadius(newValue) {
+      setAttributes({
+        borderRadius: newValue
+      });
+    }
+  }), /*#__PURE__*/React.createElement(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["Fragment"], null, /*#__PURE__*/React.createElement("strong", null, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Button Border Hover Color")), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["ColorPalette"], {
+    color: borderColorHover,
+    onChange: onChangeBorderColorHover,
+    clearable: true
+  })), /*#__PURE__*/React.createElement(_components_BoxShadow__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    label: "Button Shadow",
+    inner: true,
+    color: boxShadowColor,
+    blur: boxShadowBlur,
+    horizontal: boxShadowHorizontal,
+    vertical: boxShadowVertical,
+    position: boxShadowPosition,
+    onChangeColor: function onChangeColor(newColor) {
+      setAttributes({
+        boxShadowColor: newColor === undefined ? "transparent" : newColor.hex
+      });
+    },
+    onChangeBlur: function onChangeBlur(newBlur) {
+      setAttributes({
+        boxShadowBlur: newBlur === undefined ? 0 : newBlur
+      });
+    },
+    onChangeHorizontal: function onChangeHorizontal(newHorizontalShadow) {
+      setAttributes({
+        boxShadowHorizontal: newHorizontalShadow === undefined ? 0 : newHorizontalShadow
+      });
+    },
+    onChangeVertical: function onChangeVertical(newVerticalShadow) {
+      setAttributes({
+        boxShadowVertical: newVerticalShadow === undefined ? 0 : newVerticalShadow
+      });
+    },
+    onChangePosition: function onChangePosition(newPosition) {
+      setAttributes({
+        boxShadowPosition: newPosition
+      });
+    }
+  }), /*#__PURE__*/React.createElement("strong", null, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Button Spacing", "wpb")), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["RangeControl"], {
+    value: buttonSpace,
+    min: "0",
+    max: "300",
+    onChange: function onChange(newValue) {
+      setAttributes({
+        buttonSpace: newValue === undefined ? 0 : newValue
+      });
+    },
+    allowReset: "true"
+  }))))), /*#__PURE__*/React.createElement("div", {
+    className: "wpb_block_container"
+  }, /*#__PURE__*/React.createElement("style", {
+    dangerouslySetInnerHTML: {
+      __html: ["\n            .wpb_pulse:hover, .wpb_fade:hover {\n                background-color: ".concat(hoverColor, " !important;\n            }\n            .wpb_sweep_right::before, .wpb_sweep_left::before {\n                background: ").concat(hoverColor, " !important;\n            }\n            .wpb_button_container.rich-text:hover {\n                color: ").concat(btnTextColorHover, " !important;\n            }\n            .wpb_button_container.rich-text > span:hover {\n                color: ").concat(btnTextColorHover, " !important;\n            }\n            .wpb_button:hover {\n                border-color: ").concat(borderColorHover, " !important;\n            }\n            ")].join("\n")
+    }
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "wpb_button ".concat(hoverAnimation),
+    style: {
+      backgroundColor: buttonColor,
+      border: borderType,
+      borderWidth: "".concat(borderWidth, "px"),
+      borderRadius: "".concat(borderRadius, "px"),
+      borderColor: borderColor,
+      boxShadow: "".concat(boxShadowHorizontal, "px ").concat(boxShadowVertical, "px ").concat(boxShadowBlur, "px ").concat(boxShadowColor, " ").concat(boxShadowPosition)
+    }
+  }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"], {
+    className: "wpb_button_container ".concat(hoverAnimation),
+    style: {
+      fontFamily: btnFontFamily,
+      fontSize: "".concat(textSize, "px"),
+      fontWeight: textWeight,
+      fontStyle: textStyle,
+      textTransform: textUpper ? "uppercase" : "none",
+      letterSpacing: textLetter,
+      lineHeight: textLineHeight,
+      textShadow: "".concat(textShadowHorizontal, "px ").concat(textShadowVertical, "px ").concat(textShadowColor),
+      boxShadow: "".concat(boxShadowHorizontal, "px ").concat(boxShadowVertical, "px ").concat(boxShadowBlur, "px ").concat(boxShadowColor, " ").concat(boxShadowPosition),
+      padding: "".concat(buttonSpace, "px")
+    },
+    onChange: function onChange(newValue) {
+      setAttributes({
+        buttonText: newValue
+      });
+    },
+    value: buttonText
+  })))];
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Edit);
+
+/***/ }),
+
+/***/ "./src/button/Save.js":
+/*!****************************!*\
+  !*** ./src/button/Save.js ***!
+  \****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+var Save = function Save(props) {
+  var _props$attributes = props.attributes,
+      buttonText = _props$attributes.buttonText,
+      hoverAnimation = _props$attributes.hoverAnimation,
+      buttonColor = _props$attributes.buttonColor,
+      hoverColor = _props$attributes.hoverColor,
+      btnFontFamily = _props$attributes.btnFontFamily,
+      btnTextColorHover = _props$attributes.btnTextColorHover,
+      textSize = _props$attributes.textSize,
+      textWeight = _props$attributes.textWeight,
+      textLineHeight = _props$attributes.textLineHeight,
+      textStyle = _props$attributes.textStyle,
+      textUpper = _props$attributes.textUpper,
+      textLetter = _props$attributes.textLetter,
+      textShadowColor = _props$attributes.textShadowColor,
+      textShadowBlur = _props$attributes.textShadowBlur,
+      textShadowHorizontal = _props$attributes.textShadowHorizontal,
+      textShadowVertical = _props$attributes.textShadowVertical,
+      borderType = _props$attributes.borderType,
+      borderWidth = _props$attributes.borderWidth,
+      borderColor = _props$attributes.borderColor,
+      borderRadius = _props$attributes.borderRadius,
+      borderColorHover = _props$attributes.borderColorHover,
+      boxShadowColor = _props$attributes.boxShadowColor,
+      boxShadowBlur = _props$attributes.boxShadowBlur,
+      boxShadowHorizontal = _props$attributes.boxShadowHorizontal,
+      boxShadowVertical = _props$attributes.boxShadowVertical,
+      boxShadowPosition = _props$attributes.boxShadowPosition,
+      buttonSpace = _props$attributes.buttonSpace;
+  return /*#__PURE__*/React.createElement("div", {
+    className: "button_container"
+  }, /*#__PURE__*/React.createElement("style", {
+    dangerouslySetInnerHTML: {
+      __html: ["\n            .wpb_pulse:hover, .wpb_fade:hover {\n                background-color: ".concat(hoverColor, " !important;\n                }\n            .wpb_sweep_right::before, .wpb_sweep_left::before {\n                background: ").concat(hoverColor, " !important;\n                }\n            .wpb_button_container:hover {\n                  color: ").concat(btnTextColorHover, " !important;\n                }\n            .wpb_button_container > span:hover {\n                  color: ").concat(btnTextColorHover, " !important;\n                }\n            .wpb_button:hover {\n                  border-color: ").concat(borderColorHover, " !important;\n                }\n           ")].join("\n")
+    }
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "wpb_button ".concat(hoverAnimation, " wpb_button_container"),
+    style: {
+      backgroundColor: buttonColor,
+      fontFamily: btnFontFamily,
+      fontSize: "".concat(textSize, "px"),
+      fontWeight: textWeight,
+      fontStyle: textStyle,
+      textTransform: textUpper ? "uppercase" : "none",
+      letterSpacing: textLetter,
+      lineHeight: textLineHeight,
+      textShadow: "".concat(textShadowHorizontal, "px ").concat(textShadowVertical, "px ").concat(textShadowColor),
+      border: borderType,
+      borderWidth: "".concat(borderWidth, "px"),
+      borderRadius: "".concat(borderRadius, "px"),
+      borderColor: borderColor,
+      boxShadow: "".concat(boxShadowHorizontal, "px ").concat(boxShadowVertical, "px ").concat(boxShadowBlur, "px ").concat(boxShadowColor, " ").concat(boxShadowPosition),
+      padding: "".concat(buttonSpace, "px")
+    }
+  }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__["RichText"].Content, {
+    value: buttonText
+  })));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Save);
+
+/***/ }),
+
+/***/ "./src/button/index.js":
+/*!*****************************!*\
+  !*** ./src/button/index.js ***!
+  \*****************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _bv_logo_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../bv-logo.svg */ "./src/bv-logo.svg");
+/* harmony import */ var _Edit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Edit */ "./src/button/Edit.js");
+/* harmony import */ var _Save__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Save */ "./src/button/Save.js");
+
+
+
+
+
+var buttonAttributes = {
+  effect: {
+    type: "string",
+    default: "none"
+  },
+  effectDir: {
+    type: "string",
+    default: "top"
+  },
+  buttonText: {
+    type: "string",
+    default: "Button Text"
+  },
+  hoverAnimation: {
+    type: "string",
+    default: ""
+  },
+  hoverColor: {
+    type: "string",
+    default: "#2098d1"
+  },
+  buttonColor: {
+    type: "string",
+    default: "#000000"
+  },
+  btnFontFamily: {
+    type: "string",
+    default: "Arial"
+  },
+  btnTextColorHover: {
+    type: "string",
+    default: "#CCCCCC"
+  },
+  textSize: {
+    type: "number",
+    default: 16
+  },
+  textWeight: {
+    type: "number",
+    default: 400
+  },
+  textLineHeight: {
+    type: "number",
+    default: 1.2
+  },
+  textStyle: {
+    type: "string",
+    default: "normal"
+  },
+  textUpper: {
+    type: "string"
+  },
+  textLetter: {
+    type: "number",
+    default: 1
+  },
+  textShadowColor: {
+    type: "string"
+  },
+  textShadowBlur: {
+    type: "number",
+    default: 0
+  },
+  textShadowHorizontal: {
+    type: "number",
+    default: 0
+  },
+  textShadowVertical: {
+    type: "number",
+    default: 0
+  },
+  borderType: {
+    type: "string",
+    default: "none"
+  },
+  borderWidth: {
+    type: "number",
+    default: 3
+  },
+  borderColor: {
+    type: "string",
+    default: "#000000"
+  },
+  borderRadius: {
+    type: "number",
+    default: 3
+  },
+  borderColorHover: {
+    type: "string",
+    default: "#ff0000"
+  },
+  boxShadowColor: {
+    type: "string"
+  },
+  boxShadowBlur: {
+    type: "number",
+    default: 0
+  },
+  boxShadowHorizontal: {
+    type: "number",
+    default: 0
+  },
+  boxShadowVertical: {
+    type: "number",
+    default: 0
+  },
+  boxShadowPosition: {
+    type: "string",
+    default: "inset"
+  },
+  buttonSpace: {
+    type: "number",
+    default: 16
+  }
+};
+var buttonSupports = {
+  align: true
+};
+Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__["registerBlockType"])("podkit/button", {
+  title: "Button",
+  icon: {
+    src: _bv_logo_svg__WEBPACK_IMPORTED_MODULE_2__["ReactComponent"]
+  },
+  category: "podkit",
+  attributes: buttonAttributes,
+  supports: buttonSupports,
+  edit: _Edit__WEBPACK_IMPORTED_MODULE_3__["default"],
+  save: _Save__WEBPACK_IMPORTED_MODULE_4__["default"]
+});
+
+/***/ }),
+
 /***/ "./src/bv-logo-white.svg":
 /*!*******************************!*\
   !*** ./src/bv-logo-white.svg ***!
@@ -4210,7 +4794,7 @@ var Edit = function Edit(props) {
     },
     allowReset: "true"
   }))), /*#__PURE__*/React.createElement("div", {
-    class: "cards"
+    class: "wpb_button cards"
   }, /*#__PURE__*/React.createElement("style", {
     dangerouslySetInnerHTML: {
       __html: [styleHTML].join("\n")
@@ -4606,11 +5190,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _extendable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./extendable */ "./src/extendable/index.js");
 /* harmony import */ var _dynamic__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./dynamic */ "./src/dynamic/index.js");
 /* harmony import */ var _flip__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./flip */ "./src/flip/index.js");
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./editor.scss */ "./src/editor.scss");
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./style.scss */ "./src/style.scss");
+/* harmony import */ var _button__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./button */ "./src/button/index.js");
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./editor.scss */ "./src/editor.scss");
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./style.scss */ "./src/style.scss");
 /**
  * Import blocks as components.
  */
+
 
 
 

@@ -7,5 +7,6 @@ import "./media";
 import "./extendable";
 import "./dynamic";
 import "./flip";
+import "./button";
 import "./editor.scss";
 import "./style.scss";
