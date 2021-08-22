@@ -5506,11 +5506,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _dynamic__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./dynamic */ "./src/dynamic/index.js");
 /* harmony import */ var _flip__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./flip */ "./src/flip/index.js");
 /* harmony import */ var _button__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./button */ "./src/button/index.js");
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./editor.scss */ "./src/editor.scss");
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./style.scss */ "./src/style.scss");
+/* harmony import */ var _team_member__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./team-member */ "./src/team-member/index.js");
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./editor.scss */ "./src/editor.scss");
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./style.scss */ "./src/style.scss");
 /**
  * Import blocks as components.
  */
+
 
 
 
@@ -5718,6 +5720,79 @@ registerBlockType("podkit/static", {
       href: "/subscribe"
     }, __("Like & Subscribe!", "podkit")))));
   }
+});
+
+/***/ }),
+
+/***/ "./src/team-member/Edit.js":
+/*!*********************************!*\
+  !*** ./src/team-member/Edit.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var Edit = function Edit(props) {
+  return /*#__PURE__*/React.createElement("h1", null, "Hello Team Member");
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Edit);
+
+/***/ }),
+
+/***/ "./src/team-member/Save.js":
+/*!*********************************!*\
+  !*** ./src/team-member/Save.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var Save = function Save(props) {
+  return /*#__PURE__*/React.createElement("h1", null, "Hello Team Member");
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Save);
+
+/***/ }),
+
+/***/ "./src/team-member/index.js":
+/*!**********************************!*\
+  !*** ./src/team-member/index.js ***!
+  \**********************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _bv_logo_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../bv-logo.svg */ "./src/bv-logo.svg");
+/* harmony import */ var _Edit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Edit */ "./src/team-member/Edit.js");
+/* harmony import */ var _Save__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Save */ "./src/team-member/Save.js");
+
+
+
+
+
+var teamAttributes = {};
+var teamSupports = {
+  align: true
+};
+Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__["registerBlockType"])("podkit/team", {
+  title: "Team Members",
+  icon: {
+    src: _bv_logo_svg__WEBPACK_IMPORTED_MODULE_2__["ReactComponent"]
+  },
+  category: "podkit",
+  attributes: teamAttributes,
+  supports: teamSupports,
+  edit: _Edit__WEBPACK_IMPORTED_MODULE_3__["default"],
+  save: _Save__WEBPACK_IMPORTED_MODULE_4__["default"]
 });
 
 /***/ }),
