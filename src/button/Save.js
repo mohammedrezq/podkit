@@ -25,6 +25,11 @@ const Save = (props) => {
       borderColor,
       borderRadius,
       borderColorHover,
+      boxShadowColor,
+      boxShadowBlur,
+      boxShadowHorizontal,
+      boxShadowVertical,
+      boxShadowPosition,
     },
   } = props;
 
@@ -41,6 +46,9 @@ const Save = (props) => {
                 background: ${hoverColor} !important;
                 }
             .wpb_button_container:hover {
+                  color: ${btnTextColorHover} !important;
+                }
+            .wpb_button_container > span:hover {
                   color: ${btnTextColorHover} !important;
                 }
             .wpb_button:hover {
@@ -66,6 +74,7 @@ const Save = (props) => {
           borderWidth: `${borderWidth}px`,
           borderRadius: `${borderRadius}px`,
           borderColor: borderColor,
+          boxShadow: `${boxShadowHorizontal}px ${boxShadowVertical}px ${boxShadowBlur}px ${boxShadowColor} ${boxShadowPosition}`,
         }}
       >
         <RichText.Content value={buttonText} />

@@ -195,6 +195,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Typography__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/Typography */ "./src/components/Typography.js");
 /* harmony import */ var _components_TextShadow__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/TextShadow */ "./src/components/TextShadow.js");
 /* harmony import */ var _components_Border__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/Border */ "./src/components/Border.js");
+/* harmony import */ var _components_BoxShadow__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/BoxShadow */ "./src/components/BoxShadow.js");
+
 
 
 
@@ -228,6 +230,11 @@ var Edit = function Edit(props) {
       borderColor = _props$attributes.borderColor,
       borderRadius = _props$attributes.borderRadius,
       borderColorHover = _props$attributes.borderColorHover,
+      boxShadowColor = _props$attributes.boxShadowColor,
+      boxShadowBlur = _props$attributes.boxShadowBlur,
+      boxShadowHorizontal = _props$attributes.boxShadowHorizontal,
+      boxShadowVertical = _props$attributes.boxShadowVertical,
+      boxShadowPosition = _props$attributes.boxShadowPosition,
       setAttributes = props.setAttributes;
   var HOVERANIMATIONS = [{
     value: "",
@@ -431,11 +438,44 @@ var Edit = function Edit(props) {
     color: borderColorHover,
     onChange: onChangeBorderColorHover,
     clearable: true
-  })))))), /*#__PURE__*/React.createElement("div", {
+  })), /*#__PURE__*/React.createElement(_components_BoxShadow__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    label: "Button Shadow",
+    inner: true,
+    color: boxShadowColor,
+    blur: boxShadowBlur,
+    horizontal: boxShadowHorizontal,
+    vertical: boxShadowVertical,
+    position: boxShadowPosition,
+    onChangeColor: function onChangeColor(newValue) {
+      setAttributes({
+        boxShadowColor: newValue === undefined ? "transparent" : newValue.hex
+      });
+    },
+    onChangeBlur: function onChangeBlur(newValue) {
+      setAttributes({
+        boxShadowBlur: newValue === undefined ? 0 : newValue
+      });
+    },
+    onChangeHorizontal: function onChangeHorizontal(newValue) {
+      setAttributes({
+        boxShadowHorizontal: newValue === undefined ? 0 : newValue
+      });
+    },
+    onChangeVertical: function onChangeVertical(newValue) {
+      setAttributes({
+        boxShadowVertical: newValue === undefined ? 0 : newValue
+      });
+    },
+    onChangePosition: function onChangePosition(newValue) {
+      setAttributes({
+        boxShadowPosition: newValue
+      });
+    }
+  }))))), /*#__PURE__*/React.createElement("div", {
     className: "wpb_block_container"
   }, /*#__PURE__*/React.createElement("style", {
     dangerouslySetInnerHTML: {
-      __html: ["\n            .wpb_pulse:hover, .wpb_fade:hover {\n                background-color: ".concat(hoverColor, " !important;\n            }\n            .wpb_sweep_right::before, .wpb_sweep_left::before {\n                background: ").concat(hoverColor, " !important;\n            }\n            .wpb_button_container.rich-text:hover {\n                color: ").concat(btnTextColorHover, " !important;\n            }\n            .wpb_button:hover {\n                border-color: ").concat(borderColorHover, " !important;\n            }\n            ")].join("\n")
+      __html: ["\n            .wpb_pulse:hover, .wpb_fade:hover {\n                background-color: ".concat(hoverColor, " !important;\n            }\n            .wpb_sweep_right::before, .wpb_sweep_left::before {\n                background: ").concat(hoverColor, " !important;\n            }\n            .wpb_button_container.rich-text:hover {\n                color: ").concat(btnTextColorHover, " !important;\n            }\n            .wpb_button_container.rich-text > span:hover {\n                color: ").concat(btnTextColorHover, " !important;\n            }\n            .wpb_button:hover {\n                border-color: ").concat(borderColorHover, " !important;\n            }\n            ")].join("\n")
     }
   }), /*#__PURE__*/React.createElement("div", {
     className: "wpb_button ".concat(hoverAnimation),
@@ -444,7 +484,8 @@ var Edit = function Edit(props) {
       border: borderType,
       borderWidth: "".concat(borderWidth, "px"),
       borderRadius: "".concat(borderRadius, "px"),
-      borderColor: borderColor
+      borderColor: borderColor,
+      boxShadow: "".concat(boxShadowHorizontal, "px ").concat(boxShadowVertical, "px ").concat(boxShadowBlur, "px ").concat(boxShadowColor, " ").concat(boxShadowPosition)
     }
   }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"], {
     className: "wpb_button_container ".concat(hoverAnimation),
@@ -456,7 +497,8 @@ var Edit = function Edit(props) {
       textTransform: textUpper ? "uppercase" : "none",
       letterSpacing: textLetter,
       lineHeight: textLineHeight,
-      textShadow: "".concat(textShadowHorizontal, "px ").concat(textShadowVertical, "px ").concat(textShadowColor)
+      textShadow: "".concat(textShadowHorizontal, "px ").concat(textShadowVertical, "px ").concat(textShadowColor),
+      boxShadow: "".concat(boxShadowHorizontal, "px ").concat(boxShadowVertical, "px ").concat(boxShadowBlur, "px ").concat(boxShadowColor, " ").concat(boxShadowPosition)
     },
     onChange: function onChange(newValue) {
       setAttributes({
@@ -509,12 +551,17 @@ var Save = function Save(props) {
       borderWidth = _props$attributes.borderWidth,
       borderColor = _props$attributes.borderColor,
       borderRadius = _props$attributes.borderRadius,
-      borderColorHover = _props$attributes.borderColorHover;
+      borderColorHover = _props$attributes.borderColorHover,
+      boxShadowColor = _props$attributes.boxShadowColor,
+      boxShadowBlur = _props$attributes.boxShadowBlur,
+      boxShadowHorizontal = _props$attributes.boxShadowHorizontal,
+      boxShadowVertical = _props$attributes.boxShadowVertical,
+      boxShadowPosition = _props$attributes.boxShadowPosition;
   return /*#__PURE__*/React.createElement("div", {
     className: "button_container"
   }, /*#__PURE__*/React.createElement("style", {
     dangerouslySetInnerHTML: {
-      __html: ["\n            .wpb_pulse:hover, .wpb_fade:hover {\n                background-color: ".concat(hoverColor, " !important;\n                }\n            .wpb_sweep_right::before, .wpb_sweep_left::before {\n                background: ").concat(hoverColor, " !important;\n                }\n            .wpb_button_container:hover {\n                  color: ").concat(btnTextColorHover, " !important;\n                }\n            .wpb_button:hover {\n                  border-color: ").concat(borderColorHover, " !important;\n                }\n           ")].join("\n")
+      __html: ["\n            .wpb_pulse:hover, .wpb_fade:hover {\n                background-color: ".concat(hoverColor, " !important;\n                }\n            .wpb_sweep_right::before, .wpb_sweep_left::before {\n                background: ").concat(hoverColor, " !important;\n                }\n            .wpb_button_container:hover {\n                  color: ").concat(btnTextColorHover, " !important;\n                }\n            .wpb_button_container > span:hover {\n                  color: ").concat(btnTextColorHover, " !important;\n                }\n            .wpb_button:hover {\n                  border-color: ").concat(borderColorHover, " !important;\n                }\n           ")].join("\n")
     }
   }), /*#__PURE__*/React.createElement("div", {
     className: "wpb_button ".concat(hoverAnimation, " wpb_button_container"),
@@ -531,7 +578,8 @@ var Save = function Save(props) {
       border: borderType,
       borderWidth: "".concat(borderWidth, "px"),
       borderRadius: "".concat(borderRadius, "px"),
-      borderColor: borderColor
+      borderColor: borderColor,
+      boxShadow: "".concat(boxShadowHorizontal, "px ").concat(boxShadowVertical, "px ").concat(boxShadowBlur, "px ").concat(boxShadowColor, " ").concat(boxShadowPosition)
     }
   }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__["RichText"].Content, {
     value: buttonText
@@ -653,6 +701,25 @@ var buttonAttributes = {
   borderColorHover: {
     type: "string",
     default: "#ff0000"
+  },
+  boxShadowColor: {
+    type: "string"
+  },
+  boxShadowBlur: {
+    type: "number",
+    default: 0
+  },
+  boxShadowHorizontal: {
+    type: "number",
+    default: 0
+  },
+  boxShadowVertical: {
+    type: "number",
+    default: 0
+  },
+  boxShadowPosition: {
+    type: "string",
+    default: "inset"
   }
 };
 var buttonSupports = {

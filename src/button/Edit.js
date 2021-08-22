@@ -23,6 +23,7 @@ import addFontToHead from "../components/googleFonts";
 import Typography from "../components/Typography";
 import TextShadow from "../components/TextShadow";
 import Border from "../components/Border";
+import BoxShadow from "../components/BoxShadow";
 
 const Edit = (props) => {
   const {
@@ -48,6 +49,11 @@ const Edit = (props) => {
       borderColor,
       borderRadius,
       borderColorHover,
+      boxShadowColor,
+      boxShadowBlur,
+      boxShadowHorizontal,
+      boxShadowVertical,
+      boxShadowPosition,
     },
     setAttributes,
   } = props;
@@ -243,6 +249,41 @@ const Edit = (props) => {
                 clearable
               />
             </Fragment>
+            <BoxShadow
+              label="Button Shadow"
+              inner={true}
+              color={boxShadowColor}
+              blur={boxShadowBlur}
+              horizontal={boxShadowHorizontal}
+              vertical={boxShadowVertical}
+              position={boxShadowPosition}
+              onChangeColor={(newValue) => {
+                setAttributes({
+                  boxShadowColor:
+                    newValue === undefined ? "transparent" : newValue.hex,
+                });
+              }}
+              onChangeBlur={(newValue) => {
+                setAttributes({
+                  boxShadowBlur: newValue === undefined ? 0 : newValue,
+                });
+              }}
+              onChangeHorizontal={(newValue) => {
+                setAttributes({
+                  boxShadowHorizontal: newValue === undefined ? 0 : newValue,
+                });
+              }}
+              onChangeVertical={(newValue) => {
+                setAttributes({
+                  boxShadowVertical: newValue === undefined ? 0 : newValue,
+                });
+              }}
+              onChangePosition={(newValue) => {
+                setAttributes({
+                  boxShadowPosition: newValue,
+                });
+              }}
+            />
           </div>
         </div>
       </PanelBody>
@@ -261,6 +302,9 @@ const Edit = (props) => {
             .wpb_button_container.rich-text:hover {
                 color: ${btnTextColorHover} !important;
             }
+            .wpb_button_container.rich-text > span:hover {
+                color: ${btnTextColorHover} !important;
+            }
             .wpb_button:hover {
                 border-color: ${borderColorHover} !important;
             }
@@ -276,6 +320,7 @@ const Edit = (props) => {
           borderWidth: `${borderWidth}px`,
           borderRadius: `${borderRadius}px`,
           borderColor: borderColor,
+          boxShadow: `${boxShadowHorizontal}px ${boxShadowVertical}px ${boxShadowBlur}px ${boxShadowColor} ${boxShadowPosition}`,
         }}
       >
         <RichText
@@ -289,6 +334,7 @@ const Edit = (props) => {
             letterSpacing: textLetter,
             lineHeight: textLineHeight,
             textShadow: `${textShadowHorizontal}px ${textShadowVertical}px ${textShadowColor}`,
+            boxShadow: `${boxShadowHorizontal}px ${boxShadowVertical}px ${boxShadowBlur}px ${boxShadowColor} ${boxShadowPosition}`,
           }}
           onChange={(newValue) => {
             setAttributes({ buttonText: newValue });

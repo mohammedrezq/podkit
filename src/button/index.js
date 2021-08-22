@@ -96,6 +96,25 @@ const buttonAttributes = {
     type: "string",
     default: "#ff0000",
   },
+  boxShadowColor: {
+    type: "string",
+  },
+  boxShadowBlur: {
+    type: "number",
+    default: 0,
+  },
+  boxShadowHorizontal: {
+    type: "number",
+    default: 0,
+  },
+  boxShadowVertical: {
+    type: "number",
+    default: 0,
+  },
+  boxShadowPosition: {
+    type: "string",
+    default: "inset",
+  },
 };
 
 const buttonSupports = {
