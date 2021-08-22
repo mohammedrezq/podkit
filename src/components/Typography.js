@@ -42,7 +42,7 @@ const Typography = (props) => {
   ];
 
   return (
-    <div class="wpb-toggle">
+    <div className="wpb-toggle">
       <div className="wpb-toggle-title">
         <strong>{__("Typography", "wpb")}</strong>
       </div>

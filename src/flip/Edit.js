@@ -131,7 +131,7 @@ const Edit = (props) => {
  }`;
 
   return [
-    <InspectorControls>
+    <InspectorControls key="inspector_control_section">
       <PanelBody title={__("Flip Card", "wpb")}>
         <div className="components-base-control">
           <div className="components-base-control__field">
@@ -196,7 +196,7 @@ const Edit = (props) => {
           onChangeUpper={textUpperfn}
           onChangeSpacing={textLetterfn}
         />
-        <div class="wpb-toggle">
+        <div className="wpb-toggle">
           <div className="wpb-toggle-title">
             <strong>{__("Color", "wpb")}</strong>
           </div>
@@ -320,7 +320,7 @@ const Edit = (props) => {
         />
       </PanelBody>
     </InspectorControls>,
-    <div class="cards">
+    <div className="cards" key="render_section">
       <style
         dangerouslySetInnerHTML={{
           __html: [styleHTML].join("\n"),
@@ -332,9 +332,9 @@ const Edit = (props) => {
           onChange={onChangeCardAlignment}
         />
       </BlockControls>
-      <div class="card">
+      <div className="card">
         <div
-          class="card-body"
+          className="card-body"
           style={{
             boxShadow: `${boxShadowHorizontal}px ${boxShadowVertical}px ${boxShadowBlur}px ${boxShadowColor} ${boxShadowPosition}`,
             borderRadius: borderRadius + "px",
@@ -342,7 +342,7 @@ const Edit = (props) => {
           }}
         >
           <div
-            class="card-front"
+            className="card-front"
             style={{
               display: "block",
               background: frontCardBackground,
@@ -374,7 +374,7 @@ const Edit = (props) => {
             />
           </div>
           <div
-            class="card-back"
+            className="card-back"
             style={{
               display: "block",
               background: backCardBackground,

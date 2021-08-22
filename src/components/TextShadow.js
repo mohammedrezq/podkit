@@ -23,7 +23,7 @@ const TextShadow = (props) => {
   } = props;
 
   return (
-    <div class="wpb-toggle">
+    <div className="wpb-toggle">
       <div className="wpb-toggle-title">
         <strong>{__(label || "Shadow", "wpb")}</strong>
       </div>

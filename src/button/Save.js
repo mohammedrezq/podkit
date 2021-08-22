@@ -31,6 +31,11 @@ const Save = (props) => {
       boxShadowVertical,
       boxShadowPosition,
       buttonSpace,
+      paddingTop,
+      paddingRight,
+      paddingBottom,
+      paddingLeft,
+      paddingUnit,
     },
   } = props;
 
@@ -76,7 +81,11 @@ const Save = (props) => {
           borderRadius: `${borderRadius}px`,
           borderColor: borderColor,
           boxShadow: `${boxShadowHorizontal}px ${boxShadowVertical}px ${boxShadowBlur}px ${boxShadowColor} ${boxShadowPosition}`,
-          padding: `${buttonSpace}px`,
+          // padding: `${buttonSpace}px`,
+          paddingTop: paddingTop + paddingUnit,
+          paddingBottom: paddingBottom + paddingUnit,
+          paddingLeft: paddingLeft + paddingUnit,
+          paddingRight: paddingRight + paddingUnit
         }}
       >
         <RichText.Content value={buttonText} />

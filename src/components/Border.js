@@ -48,7 +48,7 @@ const Border = (props) => {
     },
   ];
   return (
-    <div class="wpb-toggle">
+    <div className="wpb-toggle">
       <div className="wpb-toggle-title">
         <strong>{__(label || "Border", "wpb")}</strong>
       </div>

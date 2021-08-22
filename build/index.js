@@ -196,6 +196,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_TextShadow__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/TextShadow */ "./src/components/TextShadow.js");
 /* harmony import */ var _components_Border__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/Border */ "./src/components/Border.js");
 /* harmony import */ var _components_BoxShadow__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/BoxShadow */ "./src/components/BoxShadow.js");
+/* harmony import */ var _components_Padding__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/Padding */ "./src/components/Padding.js");
+
 
 
 
@@ -236,6 +238,11 @@ var Edit = function Edit(props) {
       boxShadowVertical = _props$attributes.boxShadowVertical,
       boxShadowPosition = _props$attributes.boxShadowPosition,
       buttonSpace = _props$attributes.buttonSpace,
+      paddingTop = _props$attributes.paddingTop,
+      paddingRight = _props$attributes.paddingRight,
+      paddingBottom = _props$attributes.paddingBottom,
+      paddingLeft = _props$attributes.paddingLeft,
+      paddingUnit = _props$attributes.paddingUnit,
       setAttributes = props.setAttributes;
   var HOVERANIMATIONS = [{
     value: "",
@@ -326,7 +333,9 @@ var Edit = function Edit(props) {
     });
   };
 
-  return [/*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["InspectorControls"], null, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["PanelBody"], {
+  return [/*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["InspectorControls"], {
+    key: "inspector_control_section"
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["PanelBody"], {
     title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Button Settings", "wpb")
   }, /*#__PURE__*/React.createElement("div", {
     className: "components-base-control"
@@ -482,8 +491,41 @@ var Edit = function Edit(props) {
       });
     },
     allowReset: "true"
+  }), /*#__PURE__*/React.createElement(_components_Padding__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    paddingTop: paddingTop,
+    paddingRight: paddingRight,
+    paddingBottom: paddingBottom,
+    paddingLeft: paddingLeft,
+    onChangePadTop: function onChangePadTop(value) {
+      return setAttributes({
+        paddingTop: value
+      });
+    },
+    onChangePadRight: function onChangePadRight(value) {
+      return setAttributes({
+        paddingRight: value
+      });
+    },
+    onChangePadBottom: function onChangePadBottom(value) {
+      return setAttributes({
+        paddingBottom: value
+      });
+    },
+    onChangePadLeft: function onChangePadLeft(value) {
+      return setAttributes({
+        paddingLeft: value
+      });
+    },
+    showUnits: true,
+    selectedUnit: paddingUnit,
+    onChangePadSizeUnit: function onChangePadSizeUnit(newvalue) {
+      return setAttributes({
+        paddingUnit: newvalue
+      });
+    }
   }))))), /*#__PURE__*/React.createElement("div", {
-    className: "wpb_block_container"
+    className: "wpb_block_container",
+    key: "render_section"
   }, /*#__PURE__*/React.createElement("style", {
     dangerouslySetInnerHTML: {
       __html: ["\n            .wpb_pulse:hover, .wpb_fade:hover {\n                background-color: ".concat(hoverColor, " !important;\n            }\n            .wpb_sweep_right::before, .wpb_sweep_left::before {\n                background: ").concat(hoverColor, " !important;\n            }\n            .wpb_button_container.rich-text:hover {\n                color: ").concat(btnTextColorHover, " !important;\n            }\n            .wpb_button_container.rich-text > span:hover {\n                color: ").concat(btnTextColorHover, " !important;\n            }\n            .wpb_button:hover {\n                border-color: ").concat(borderColorHover, " !important;\n            }\n            ")].join("\n")
@@ -510,7 +552,11 @@ var Edit = function Edit(props) {
       lineHeight: textLineHeight,
       textShadow: "".concat(textShadowHorizontal, "px ").concat(textShadowVertical, "px ").concat(textShadowColor),
       boxShadow: "".concat(boxShadowHorizontal, "px ").concat(boxShadowVertical, "px ").concat(boxShadowBlur, "px ").concat(boxShadowColor, " ").concat(boxShadowPosition),
-      padding: "".concat(buttonSpace, "px")
+      // padding: `${buttonSpace}px`,
+      paddingTop: paddingTop + paddingUnit,
+      paddingBottom: paddingBottom + paddingUnit,
+      paddingLeft: paddingLeft + paddingUnit,
+      paddingRight: paddingRight + paddingUnit
     },
     onChange: function onChange(newValue) {
       setAttributes({
@@ -569,7 +615,12 @@ var Save = function Save(props) {
       boxShadowHorizontal = _props$attributes.boxShadowHorizontal,
       boxShadowVertical = _props$attributes.boxShadowVertical,
       boxShadowPosition = _props$attributes.boxShadowPosition,
-      buttonSpace = _props$attributes.buttonSpace;
+      buttonSpace = _props$attributes.buttonSpace,
+      paddingTop = _props$attributes.paddingTop,
+      paddingRight = _props$attributes.paddingRight,
+      paddingBottom = _props$attributes.paddingBottom,
+      paddingLeft = _props$attributes.paddingLeft,
+      paddingUnit = _props$attributes.paddingUnit;
   return /*#__PURE__*/React.createElement("div", {
     className: "button_container"
   }, /*#__PURE__*/React.createElement("style", {
@@ -593,7 +644,11 @@ var Save = function Save(props) {
       borderRadius: "".concat(borderRadius, "px"),
       borderColor: borderColor,
       boxShadow: "".concat(boxShadowHorizontal, "px ").concat(boxShadowVertical, "px ").concat(boxShadowBlur, "px ").concat(boxShadowColor, " ").concat(boxShadowPosition),
-      padding: "".concat(buttonSpace, "px")
+      // padding: `${buttonSpace}px`,
+      paddingTop: paddingTop + paddingUnit,
+      paddingBottom: paddingBottom + paddingUnit,
+      paddingLeft: paddingLeft + paddingUnit,
+      paddingRight: paddingRight + paddingUnit
     }
   }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__["RichText"].Content, {
     value: buttonText
@@ -738,6 +793,22 @@ var buttonAttributes = {
   buttonSpace: {
     type: "number",
     default: 16
+  },
+  paddingTop: {
+    type: "number"
+  },
+  paddingRight: {
+    type: "number"
+  },
+  paddingBottom: {
+    type: "number"
+  },
+  paddingLeft: {
+    type: "number"
+  },
+  paddingUnit: {
+    type: "string",
+    default: "px"
   }
 };
 var buttonSupports = {
@@ -875,7 +946,7 @@ var Border = function Border(props) {
     label: "Groove"
   }];
   return /*#__PURE__*/React.createElement("div", {
-    class: "wpb-toggle"
+    className: "wpb-toggle"
   }, /*#__PURE__*/React.createElement("div", {
     className: "wpb-toggle-title"
   }, /*#__PURE__*/React.createElement("strong", null, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])(label || "Border", "wpb"))), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["Dropdown"], {
@@ -972,7 +1043,7 @@ var BoxShadow = function BoxShadow(props) {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Outline")
   }];
   return /*#__PURE__*/React.createElement("div", {
-    class: "wpb-toggle"
+    className: "wpb-toggle"
   }, /*#__PURE__*/React.createElement("div", {
     className: "wpb-toggle-title"
   }, /*#__PURE__*/React.createElement("strong", null, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])(label || "Shadow", "wpb"))), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["Dropdown"], {
@@ -1025,6 +1096,205 @@ var BoxShadow = function BoxShadow(props) {
 
 /***/ }),
 
+/***/ "./src/components/Padding.js":
+/*!***********************************!*\
+  !*** ./src/components/Padding.js ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _UnitSizes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UnitSizes */ "./src/components/UnitSizes.js");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+ // import { __ } from "@wordpress/i18n";
+// import React, { Component } from "react";
+
+
+
+
+var Padding = /*#__PURE__*/function (_Component) {
+  _inherits(Padding, _Component);
+
+  var _super = _createSuper(Padding);
+
+  function Padding(props) {
+    var _this;
+
+    _classCallCheck(this, Padding);
+
+    _this = _super.call(this, props);
+    _this.state = {
+      isLinked: false,
+      top: _this.props.paddingTop || 0,
+      right: _this.props.paddingRight || 0,
+      bottom: _this.props.paddingBottom || 0,
+      left: _this.props.paddingLeft || 0,
+      showUnits: _this.props.showUnits || false
+    };
+    _this.onInputChange = _this.onInputChange.bind(_assertThisInitialized(_this));
+    _this.onButtonClick = _this.onButtonClick.bind(_assertThisInitialized(_this));
+    _this.changeFunction = _this.changeFunction.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(Padding, [{
+    key: "onButtonClick",
+    value: function onButtonClick() {
+      this.setState({
+        isLinked: !this.state.isLinked
+      });
+    }
+  }, {
+    key: "changeFunction",
+    value: function changeFunction() {
+      var _this$state = this.state,
+          top = _this$state.top,
+          right = _this$state.right,
+          bottom = _this$state.bottom,
+          left = _this$state.left;
+      this.props.onChangePadTop(top);
+      this.props.onChangePadRight(right);
+      this.props.onChangePadBottom(bottom);
+      this.props.onChangePadLeft(left);
+    }
+  }, {
+    key: "onInputChange",
+    value: function onInputChange(event) {
+      var _this2 = this;
+
+      var _this$state2 = this.state,
+          isLinked = _this$state2.isLinked,
+          top = _this$state2.top,
+          right = _this$state2.right,
+          bottom = _this$state2.bottom,
+          left = _this$state2.left;
+      var _event$target = event.target,
+          name = _event$target.name,
+          value = _event$target.value;
+
+      if (isLinked) {
+        top = right = bottom = left = parseInt(value) || 0;
+        this.setState({
+          top: top,
+          right: right,
+          bottom: bottom,
+          left: left
+        }, function () {
+          _this2.changeFunction();
+        });
+      } else {
+        this.setState(_defineProperty({}, name, parseInt(value) || 0), function () {
+          _this2.changeFunction();
+        });
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      console.log(this.props);
+      console.log(this.state);
+      var _this$state3 = this.state,
+          top = _this$state3.top,
+          right = _this$state3.right,
+          bottom = _this$state3.bottom,
+          left = _this$state3.left,
+          showUnits = _this$state3.showUnits,
+          isLinked = _this$state3.isLinked;
+      var _this$props = this.props,
+          _this$props$onChangeP = _this$props.onChangePadSizeUnit,
+          onChangePadSizeUnit = _this$props$onChangeP === void 0 ? function () {} : _this$props$onChangeP,
+          selectedUnit = _this$props.selectedUnit;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "premium-control-group"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "premium-control-label-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "premium-control-label"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("strong", null, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Padding"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "premium-control-units"
+      }, showUnits && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_UnitSizes__WEBPACK_IMPORTED_MODULE_0__["default"], {
+        activeUnit: selectedUnit,
+        onChangeUnitSize: onChangePadSizeUnit
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "premium-controls-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "premium-control-wrapper"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("input", {
+        type: "number",
+        name: "top",
+        value: top || 0,
+        onChange: this.onInputChange
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("label", {
+        className: "premium-control-label"
+      }, "Top")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "premium-control-wrapper"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("input", {
+        type: "number",
+        name: "right",
+        value: right || 0,
+        onChange: this.onInputChange
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("label", {
+        className: "premium-control-label"
+      }, "Right")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "premium-control-wrapper"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("input", {
+        type: "number",
+        name: "bottom",
+        value: bottom || 0,
+        onChange: this.onInputChange
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("label", {
+        className: "premium-control-label"
+      }, "Bottom")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "premium-control-wrapper"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("input", {
+        type: "number",
+        name: "left",
+        value: left || 0,
+        onChange: this.onInputChange
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("label", {
+        className: "premium-control-label"
+      }, "Left")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
+        className: "linked-btn components-button is-button dashicons dashicons-".concat(isLinked ? "admin-links" : "editor-unlink"),
+        onClick: this.onButtonClick
+      }))));
+    }
+  }]);
+
+  return Padding;
+}(react__WEBPACK_IMPORTED_MODULE_2__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (Padding);
+
+/***/ }),
+
 /***/ "./src/components/TextShadow.js":
 /*!**************************************!*\
   !*** ./src/components/TextShadow.js ***!
@@ -1056,7 +1326,7 @@ var TextShadow = function TextShadow(props) {
       onChangeVertical = props.onChangeVertical,
       onResetClick = props.onResetClick;
   return /*#__PURE__*/React.createElement("div", {
-    class: "wpb-toggle"
+    className: "wpb-toggle"
   }, /*#__PURE__*/React.createElement("div", {
     className: "wpb-toggle-title"
   }, /*#__PURE__*/React.createElement("strong", null, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])(label || "Shadow", "wpb"))), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["Dropdown"], {
@@ -1156,7 +1426,7 @@ var Typography = function Typography(props) {
     label: "Oblique"
   }];
   return /*#__PURE__*/React.createElement("div", {
-    class: "wpb-toggle"
+    className: "wpb-toggle"
   }, /*#__PURE__*/React.createElement("div", {
     className: "wpb-toggle-title"
   }, /*#__PURE__*/React.createElement("strong", null, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Typography", "wpb"))), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["Dropdown"], {
@@ -1221,6 +1491,48 @@ var Typography = function Typography(props) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Typography);
+
+/***/ }),
+
+/***/ "./src/components/UnitSizes.js":
+/*!*************************************!*\
+  !*** ./src/components/UnitSizes.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__);
+function _readOnlyError(name) { throw new TypeError("\"" + name + "\" is read-only"); }
+
+
+
+var UnitSizes = function UnitSizes(props) {
+  var activeUnit = props.activeUnit,
+      units = props.units,
+      _props$onChangeUnitSi = props.onChangeUnitSize,
+      onChangeUnitSize = _props$onChangeUnitSi === void 0 ? function () {} : _props$onChangeUnitSi;
+  var unitSizes = ["px", "em", "%"];
+
+  if (undefined !== units) {
+    units, _readOnlyError("unitSizes");
+  }
+
+  return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__["ButtonGroup"], null, unitSizes.map(function (unitSize, i) {
+    return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__["Button"], {
+      key: i,
+      isSmall: true,
+      className: "wpb_unit_size_control ".concat(unitSize === activeUnit && "unit_size_control_active_btn"),
+      onClick: function onClick() {
+        return onChangeUnitSize(unitSize);
+      }
+    }, unitSize);
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (UnitSizes);
 
 /***/ }),
 
@@ -4611,7 +4923,9 @@ var Edit = function Edit(props) {
   };
 
   var styleHTML = "\n  .card:hover > .card-body{\n   transform: ".concat(flipDirection, " !important;\n }\n .card-back {\n   transform: ").concat(flipDirection, " !important;\n }");
-  return [/*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["InspectorControls"], null, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["PanelBody"], {
+  return [/*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["InspectorControls"], {
+    key: "inspector_control_section"
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["PanelBody"], {
     title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Flip Card", "wpb")
   }, /*#__PURE__*/React.createElement("div", {
     className: "components-base-control"
@@ -4668,7 +4982,7 @@ var Edit = function Edit(props) {
     onChangeUpper: textUpperfn,
     onChangeSpacing: textLetterfn
   }), /*#__PURE__*/React.createElement("div", {
-    class: "wpb-toggle"
+    className: "wpb-toggle"
   }, /*#__PURE__*/React.createElement("div", {
     className: "wpb-toggle-title"
   }, /*#__PURE__*/React.createElement("strong", null, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Color", "wpb"))), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["Dropdown"], {
@@ -4794,7 +5108,8 @@ var Edit = function Edit(props) {
     },
     allowReset: "true"
   }))), /*#__PURE__*/React.createElement("div", {
-    class: "cards"
+    className: "cards",
+    key: "render_section"
   }, /*#__PURE__*/React.createElement("style", {
     dangerouslySetInnerHTML: {
       __html: [styleHTML].join("\n")
@@ -4803,16 +5118,16 @@ var Edit = function Edit(props) {
     value: cardAlignment,
     onChange: onChangeCardAlignment
   })), /*#__PURE__*/React.createElement("div", {
-    class: "card"
+    className: "card"
   }, /*#__PURE__*/React.createElement("div", {
-    class: "card-body",
+    className: "card-body",
     style: {
       boxShadow: "".concat(boxShadowHorizontal, "px ").concat(boxShadowVertical, "px ").concat(boxShadowBlur, "px ").concat(boxShadowColor, " ").concat(boxShadowPosition),
       borderRadius: borderRadius + "px",
       height: "max-content !important"
     }
   }, /*#__PURE__*/React.createElement("div", {
-    class: "card-front",
+    className: "card-front",
     style: {
       display: "block",
       background: frontCardBackground,
@@ -4841,7 +5156,7 @@ var Edit = function Edit(props) {
       height: "max-content !important"
     }
   })), /*#__PURE__*/React.createElement("div", {
-    class: "card-back",
+    className: "card-back",
     style: {
       display: "block",
       background: backCardBackground,
@@ -4950,21 +5265,21 @@ var Save = function Save(props) {
       flipDirection = _props$attributes.flipDirection,
       flipBoxSpace = _props$attributes.flipBoxSpace;
   return /*#__PURE__*/React.createElement("div", {
-    class: "cards"
+    className: "cards"
   }, /*#__PURE__*/React.createElement("style", {
     dangerouslySetInnerHTML: {
       __html: ["\n            .card:hover > .card-body{\n             transform: ".concat(flipDirection, " !important;\n           }\n           .card-back {\n             transform: ").concat(flipDirection, " !important;\n           }\n           ")].join("\n")
     }
   }), /*#__PURE__*/React.createElement("div", {
-    class: "card"
+    className: "card"
   }, /*#__PURE__*/React.createElement("div", {
-    class: "card-body",
+    className: "card-body",
     style: {
       boxShadow: "".concat(boxShadowHorizontal, "px ").concat(boxShadowVertical, "px ").concat(boxShadowBlur, "px ").concat(boxShadowColor, " ").concat(boxShadowPosition),
       borderRadius: borderRadius + "px"
     }
   }, /*#__PURE__*/React.createElement("div", {
-    class: "card-front",
+    className: "card-front",
     style: {
       display: "block",
       fontFamily: cardFontFamily,
@@ -4991,7 +5306,7 @@ var Save = function Save(props) {
       background: backCardBackground
     }
   })), /*#__PURE__*/React.createElement("div", {
-    class: "card-back",
+    className: "card-back",
     style: {
       display: "block",
       fontFamily: cardFontFamily,
