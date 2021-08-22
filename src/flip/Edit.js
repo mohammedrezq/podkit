@@ -320,7 +320,7 @@ const Edit = (props) => {
         />
       </PanelBody>
     </InspectorControls>,
-    <div class="wpb_button cards">
+    <div class="cards">
       <style
         dangerouslySetInnerHTML={{
           __html: [styleHTML].join("\n"),

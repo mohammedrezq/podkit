@@ -4794,7 +4794,7 @@ var Edit = function Edit(props) {
     },
     allowReset: "true"
   }))), /*#__PURE__*/React.createElement("div", {
-    class: "wpb_button cards"
+    class: "cards"
   }, /*#__PURE__*/React.createElement("style", {
     dangerouslySetInnerHTML: {
       __html: [styleHTML].join("\n")
