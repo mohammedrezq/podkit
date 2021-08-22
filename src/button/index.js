@@ -115,6 +115,10 @@ const buttonAttributes = {
     type: "string",
     default: "inset",
   },
+  buttonSpace: {
+    type: "number",
+    default: 16
+  }
 };
 
 const buttonSupports = {

@@ -235,6 +235,7 @@ var Edit = function Edit(props) {
       boxShadowHorizontal = _props$attributes.boxShadowHorizontal,
       boxShadowVertical = _props$attributes.boxShadowVertical,
       boxShadowPosition = _props$attributes.boxShadowPosition,
+      buttonSpace = _props$attributes.buttonSpace,
       setAttributes = props.setAttributes;
   var HOVERANIMATIONS = [{
     value: "",
@@ -446,31 +447,41 @@ var Edit = function Edit(props) {
     horizontal: boxShadowHorizontal,
     vertical: boxShadowVertical,
     position: boxShadowPosition,
-    onChangeColor: function onChangeColor(newValue) {
+    onChangeColor: function onChangeColor(newColor) {
       setAttributes({
-        boxShadowColor: newValue === undefined ? "transparent" : newValue.hex
+        boxShadowColor: newColor === undefined ? "transparent" : newColor.hex
       });
     },
-    onChangeBlur: function onChangeBlur(newValue) {
+    onChangeBlur: function onChangeBlur(newBlur) {
       setAttributes({
-        boxShadowBlur: newValue === undefined ? 0 : newValue
+        boxShadowBlur: newBlur === undefined ? 0 : newBlur
       });
     },
-    onChangeHorizontal: function onChangeHorizontal(newValue) {
+    onChangeHorizontal: function onChangeHorizontal(newHorizontalShadow) {
       setAttributes({
-        boxShadowHorizontal: newValue === undefined ? 0 : newValue
+        boxShadowHorizontal: newHorizontalShadow === undefined ? 0 : newHorizontalShadow
       });
     },
-    onChangeVertical: function onChangeVertical(newValue) {
+    onChangeVertical: function onChangeVertical(newVerticalShadow) {
       setAttributes({
-        boxShadowVertical: newValue === undefined ? 0 : newValue
+        boxShadowVertical: newVerticalShadow === undefined ? 0 : newVerticalShadow
       });
     },
-    onChangePosition: function onChangePosition(newValue) {
+    onChangePosition: function onChangePosition(newPosition) {
       setAttributes({
-        boxShadowPosition: newValue
+        boxShadowPosition: newPosition
       });
     }
+  }), /*#__PURE__*/React.createElement("strong", null, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Button Spacing", "wpb")), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["RangeControl"], {
+    value: buttonSpace,
+    min: "0",
+    max: "300",
+    onChange: function onChange(newValue) {
+      setAttributes({
+        buttonSpace: newValue === undefined ? 0 : newValue
+      });
+    },
+    allowReset: "true"
   }))))), /*#__PURE__*/React.createElement("div", {
     className: "wpb_block_container"
   }, /*#__PURE__*/React.createElement("style", {
@@ -498,7 +509,8 @@ var Edit = function Edit(props) {
       letterSpacing: textLetter,
       lineHeight: textLineHeight,
       textShadow: "".concat(textShadowHorizontal, "px ").concat(textShadowVertical, "px ").concat(textShadowColor),
-      boxShadow: "".concat(boxShadowHorizontal, "px ").concat(boxShadowVertical, "px ").concat(boxShadowBlur, "px ").concat(boxShadowColor, " ").concat(boxShadowPosition)
+      boxShadow: "".concat(boxShadowHorizontal, "px ").concat(boxShadowVertical, "px ").concat(boxShadowBlur, "px ").concat(boxShadowColor, " ").concat(boxShadowPosition),
+      padding: "".concat(buttonSpace, "px")
     },
     onChange: function onChange(newValue) {
       setAttributes({
@@ -556,7 +568,8 @@ var Save = function Save(props) {
       boxShadowBlur = _props$attributes.boxShadowBlur,
       boxShadowHorizontal = _props$attributes.boxShadowHorizontal,
       boxShadowVertical = _props$attributes.boxShadowVertical,
-      boxShadowPosition = _props$attributes.boxShadowPosition;
+      boxShadowPosition = _props$attributes.boxShadowPosition,
+      buttonSpace = _props$attributes.buttonSpace;
   return /*#__PURE__*/React.createElement("div", {
     className: "button_container"
   }, /*#__PURE__*/React.createElement("style", {
@@ -579,7 +592,8 @@ var Save = function Save(props) {
       borderWidth: "".concat(borderWidth, "px"),
       borderRadius: "".concat(borderRadius, "px"),
       borderColor: borderColor,
-      boxShadow: "".concat(boxShadowHorizontal, "px ").concat(boxShadowVertical, "px ").concat(boxShadowBlur, "px ").concat(boxShadowColor, " ").concat(boxShadowPosition)
+      boxShadow: "".concat(boxShadowHorizontal, "px ").concat(boxShadowVertical, "px ").concat(boxShadowBlur, "px ").concat(boxShadowColor, " ").concat(boxShadowPosition),
+      padding: "".concat(buttonSpace, "px")
     }
   }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__["RichText"].Content, {
     value: buttonText
@@ -720,6 +734,10 @@ var buttonAttributes = {
   boxShadowPosition: {
     type: "string",
     default: "inset"
+  },
+  buttonSpace: {
+    type: "number",
+    default: 16
   }
 };
 var buttonSupports = {

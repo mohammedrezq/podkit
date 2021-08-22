@@ -54,6 +54,7 @@ const Edit = (props) => {
       boxShadowHorizontal,
       boxShadowVertical,
       boxShadowPosition,
+      buttonSpace,
     },
     setAttributes,
   } = props;
@@ -257,32 +258,46 @@ const Edit = (props) => {
               horizontal={boxShadowHorizontal}
               vertical={boxShadowVertical}
               position={boxShadowPosition}
-              onChangeColor={(newValue) => {
+              onChangeColor={(newColor) => {
                 setAttributes({
                   boxShadowColor:
-                    newValue === undefined ? "transparent" : newValue.hex,
+                    newColor === undefined ? "transparent" : newColor.hex,
                 });
               }}
-              onChangeBlur={(newValue) => {
+              onChangeBlur={(newBlur) => {
                 setAttributes({
-                  boxShadowBlur: newValue === undefined ? 0 : newValue,
+                  boxShadowBlur: newBlur === undefined ? 0 : newBlur,
                 });
               }}
-              onChangeHorizontal={(newValue) => {
+              onChangeHorizontal={(newHorizontalShadow) => {
                 setAttributes({
-                  boxShadowHorizontal: newValue === undefined ? 0 : newValue,
+                  boxShadowHorizontal:
+                    newHorizontalShadow === undefined ? 0 : newHorizontalShadow,
                 });
               }}
-              onChangeVertical={(newValue) => {
+              onChangeVertical={(newVerticalShadow) => {
                 setAttributes({
-                  boxShadowVertical: newValue === undefined ? 0 : newValue,
+                  boxShadowVertical:
+                    newVerticalShadow === undefined ? 0 : newVerticalShadow,
                 });
               }}
-              onChangePosition={(newValue) => {
+              onChangePosition={(newPosition) => {
                 setAttributes({
-                  boxShadowPosition: newValue,
+                  boxShadowPosition: newPosition,
                 });
               }}
+            />
+            <strong>{__("Button Spacing", "wpb")}</strong>
+            <RangeControl
+              value={buttonSpace}
+              min="0"
+              max="300"
+              onChange={(newValue) => {
+                setAttributes({
+                  buttonSpace: newValue === undefined ? 0 : newValue,
+                });
+              }}
+              allowReset="true"
             />
           </div>
         </div>
@@ -335,6 +350,7 @@ const Edit = (props) => {
             lineHeight: textLineHeight,
             textShadow: `${textShadowHorizontal}px ${textShadowVertical}px ${textShadowColor}`,
             boxShadow: `${boxShadowHorizontal}px ${boxShadowVertical}px ${boxShadowBlur}px ${boxShadowColor} ${boxShadowPosition}`,
+            padding: `${buttonSpace}px`,
           }}
           onChange={(newValue) => {
             setAttributes({ buttonText: newValue });
