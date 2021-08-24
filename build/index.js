@@ -5819,8 +5819,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Border__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/Border */ "./src/components/Border.js");
 /* harmony import */ var _components_BoxShadow__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/BoxShadow */ "./src/components/BoxShadow.js");
 /* harmony import */ var _components_Padding__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../components/Padding */ "./src/components/Padding.js");
-function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
-
 
 
 
@@ -5836,9 +5834,8 @@ function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("
 
 
 var Edit = function Edit(props) {
-  _objectDestructuringEmpty(props.attributes);
-
-  var setAttributes = props.setAttributes;
+  var columnsNumber = props.attributes.columnsNumber,
+      setAttributes = props.setAttributes;
   return [/*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__["InspectorControls"], {
     key: "inspector_control_section"
   }, /*#__PURE__*/React.createElement(_TabPanel__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -5875,7 +5872,22 @@ var Edit = function Edit(props) {
       })),
       title: "Style",
       className: "tab-two",
-      children: /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["PanelBody"], null, /*#__PURE__*/React.createElement("h1", null, "Tab two Testing Tabs"))
+      children: /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["PanelBody"], {
+        title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("General"),
+        className: "wpb_panel_body",
+        initialOpen: false
+      }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["RangeControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Columns"),
+        min: "1",
+        max: "3",
+        step: "1",
+        value: columnsNumber,
+        onChange: function onChange(newValue) {
+          setAttributes({
+            columnsNumber: newValue === undefined ? 2 : newValue
+          });
+        }
+      }))
     }, {
       name: "tab3",
       icon: /*#__PURE__*/React.createElement("div", {
@@ -5896,7 +5908,7 @@ var Edit = function Edit(props) {
   })), /*#__PURE__*/React.createElement("div", {
     className: "wpb_block_container",
     key: "render_section"
-  }, /*#__PURE__*/React.createElement("h1", null, "Edit Test asmdmnasnn", /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["Dashicon"], {
+  }, columnsNumber, /*#__PURE__*/React.createElement("h1", null, "Edit Test asmdmnasnn", /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["Dashicon"], {
     icon: "wordpress-alt"
   })))];
 };
@@ -5918,15 +5930,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
-function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
-
 
 
 
 var Save = function Save(props) {
-  _objectDestructuringEmpty(props.attributes);
-
-  return /*#__PURE__*/React.createElement("h1", null, "Hello Save adlm,sk");
+  var columnsNumber = props.attributes.columnsNumber;
+  return /*#__PURE__*/React.createElement(React.Fragment, null, "Range Number Columns: ", columnsNumber, /*#__PURE__*/React.createElement("h1", null, "Hello Save adlm,sk"));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Save);
@@ -6099,7 +6108,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var teamAttributes = {};
+var teamAttributes = {
+  columnsNumber: {
+    type: "number",
+    default: 2
+  }
+};
 var teamSupports = {
   align: true
 };

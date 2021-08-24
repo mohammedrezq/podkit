@@ -6,6 +6,10 @@ import Edit from "./Edit";
 import Save from "./Save";
 
 const teamAttributes = {
+  columnsNumber: {
+    type: "number",
+    default: 2
+  }
 
 };
 

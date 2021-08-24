@@ -3,9 +3,14 @@ import { __ } from "@wordpress/i18n";
 
 const Save = (props) => {
   const {
-    attributes: {},
+    attributes: { columnsNumber },
   } = props;
-  return <h1>Hello Save adlm,sk</h1>;
+  return (
+    <>
+      Range Number Columns: {columnsNumber}
+      <h1>Hello Save adlm,sk</h1>
+    </>
+  );
 };
 
 export default Save;

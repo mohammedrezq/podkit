@@ -53,9 +53,11 @@ import Padding from "../components/Padding";
 
 const Edit = (props) => {
   const {
-    attributes: {},
+    attributes: { columnsNumber },
     setAttributes,
   } = props;
+
+ 
 
   return [
     <InspectorControls key="inspector_control_section">
@@ -100,8 +102,23 @@ const Edit = (props) => {
             title: "Style",
             className: "tab-two",
             children: (
-              <PanelBody>
-                <h1>Tab two Testing Tabs</h1>
+              <PanelBody
+                title={__("General")}
+                className={`wpb_panel_body`}
+                initialOpen={false}
+              >
+                <RangeControl
+                  label={__("Columns")}
+                  min="1"
+                  max="3"
+                  step="1"
+                  value={columnsNumber}
+                  onChange={(newValue) => {
+                    setAttributes({
+                      columnsNumber: newValue === undefined ? 2 : newValue,
+                    });
+                  }}
+                />
               </PanelBody>
             ),
           },
@@ -130,6 +147,11 @@ const Edit = (props) => {
       </TabPanel>
     </InspectorControls>,
     <div className="wpb_block_container" key="render_section">
+      {columnsNumber}
+
+      {/* {columnsNumber.map((column, index) => {
+        return <h1 key={index}>Hello: {column}</h1>;
+      })} */}
       <h1>
         Edit Test asmdmnasnn
         <Dashicon icon="wordpress-alt" />
