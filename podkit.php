@@ -116,7 +116,9 @@ function podkit_register_blocks() {
 		'podkit/media',
 		'podkit/extended',
 		'podkit/flip',
-		'podkit/button'
+		'podkit/button',
+		'podkit/testblock',
+		"podkit/team-members",
 	];
 	
 	// Loop through $blocks and register each block with the same script and styles.
