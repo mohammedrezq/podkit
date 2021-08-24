@@ -5934,7 +5934,7 @@ var Edit = function Edit(props) {
   }, columnsNumber, _toConsumableArray(Array(columnsNumber)).map(function (column, index) {
     return /*#__PURE__*/React.createElement(_MemebrCard__WEBPACK_IMPORTED_MODULE_12__["default"], {
       key: index,
-      className: "test_hello",
+      className: "test_hello".concat(index + 1),
       imageClass: "test_image",
       icon: "no",
       size: 30,

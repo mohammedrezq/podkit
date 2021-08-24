@@ -159,7 +159,7 @@ const Edit = (props) => {
        {[...Array(columnsNumber)].map((column, index) => {
          return <MemebrCard
           key={index}
-           className="test_hello"
+           className={`test_hello${index+1}`}
            imageClass="test_image"
            icon="no"
            size={30}
