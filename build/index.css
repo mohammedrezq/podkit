@@ -281,7 +281,7 @@ body {
   transform: scaleX(1);
 }
 
-.components-tab-panel__tabs {
+.wpb_tabs_panel .components-tab-panel__tabs {
   min-width: 100%;
   display: -ms-grid;
   display: grid;
@@ -289,7 +289,7 @@ body {
   grid-template-columns: repeat(3, minmax(80px, 1fr));
   height: 60px;
 }
-.components-tab-panel__tabs .components-tab-panel__tabs-item {
+.wpb_tabs_panel .components-tab-panel__tabs .components-tab-panel__tabs-item {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -300,23 +300,23 @@ body {
   height: 100%;
   min-width: 33%;
 }
-.components-tab-panel__tabs .components-tab-panel__tabs-item:last-child {
+.wpb_tabs_panel .components-tab-panel__tabs .components-tab-panel__tabs-item:last-child {
   border-right: none;
 }
-.components-tab-panel__tabs .components-tab-panel__tabs-item .icon_layout {
+.wpb_tabs_panel .components-tab-panel__tabs .components-tab-panel__tabs-item .icon_layout {
   margin-bottom: 6px;
 }
-.components-tab-panel__tabs .components-tab-panel__tabs-item:focus {
+.wpb_tabs_panel .components-tab-panel__tabs .components-tab-panel__tabs-item:focus {
   box-shadow: none;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
 }
-.components-tab-panel__tabs .components-tab-panel__tabs-item.is_active {
+.wpb_tabs_panel .components-tab-panel__tabs .components-tab-panel__tabs-item.is_active {
   background-color: #000000;
   color: #ffffff;
   border-top: none;
 }
-.components-tab-panel__tabs .components-tab-panel__tabs-item.is_active:focus {
+.wpb_tabs_panel .components-tab-panel__tabs .components-tab-panel__tabs-item.is_active:focus {
   box-shadow: none;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;

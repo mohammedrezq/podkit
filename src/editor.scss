@@ -344,46 +344,47 @@ body {
 }
 
 // Team Member Block
+.wpb_tabs_panel {
+  .components-tab-panel__tabs {
+    min-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(80px, 1fr));
+    height: 60px;
 
-.components-tab-panel__tabs {
-  min-width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(80px, 1fr));
-  height: 60px;
+    .components-tab-panel__tabs-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-top: 1px solid #000000;
+      border-bottom: 1px solid #000000;
+      border-right: 1px solid #000000;
+      height: 100%;
+      &:last-child {
+        border-right: none;
+      }
+      min-width: 33%;
 
-  .components-tab-panel__tabs-item {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-top: 1px solid #000000;
-    border-bottom: 1px solid #000000;
-    border-right: 1px solid #000000;
-    height: 100%;
-    &:last-child {
-      border-right: none;
-    }
-    min-width: 33%;
+      & .icon_layout {
+        margin-bottom: 6px;
+      }
 
-    & .icon_layout {
-      margin-bottom: 6px;
-    }
+      &:focus {
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+      }
 
-    &:focus {
-      box-shadow: none;
-      -webkit-box-shadow: none;
-      -moz-box-shadow: none;
-    }
-
-    &.is_active {
-      background-color: #000000;
-      color: #ffffff;
-      border-top: none;
-    }
-    &.is_active:focus {
-      box-shadow: none;
-      -webkit-box-shadow: none;
-      -moz-box-shadow: none;
+      &.is_active {
+        background-color: #000000;
+        color: #ffffff;
+        border-top: none;
+      }
+      &.is_active:focus {
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+      }
     }
   }
 }
