@@ -5819,6 +5819,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Border__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/Border */ "./src/components/Border.js");
 /* harmony import */ var _components_BoxShadow__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/BoxShadow */ "./src/components/BoxShadow.js");
 /* harmony import */ var _components_Padding__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../components/Padding */ "./src/components/Padding.js");
+/* harmony import */ var _MemebrCard__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./MemebrCard */ "./src/team-memebers/MemebrCard.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+
 
 
 
@@ -5836,6 +5852,13 @@ __webpack_require__.r(__webpack_exports__);
 var Edit = function Edit(props) {
   var columnsNumber = props.attributes.columnsNumber,
       setAttributes = props.setAttributes;
+  console.log(columnsNumber);
+  console.log(_typeof(columnsNumber)); // const generateElem = () => {
+  //   for(var i = 0; i< columnsNumber; i++) {
+  //     <MemebrCard className="Hello_CLASS" />
+  //   }
+  // }
+
   return [/*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__["InspectorControls"], {
     key: "inspector_control_section"
   }, /*#__PURE__*/React.createElement(_TabPanel__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -5908,12 +5931,99 @@ var Edit = function Edit(props) {
   })), /*#__PURE__*/React.createElement("div", {
     className: "wpb_block_container",
     key: "render_section"
-  }, columnsNumber, /*#__PURE__*/React.createElement("h1", null, "Edit Test asmdmnasnn", /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["Dashicon"], {
+  }, columnsNumber, _toConsumableArray(Array(columnsNumber)).map(function (column, index) {
+    return /*#__PURE__*/React.createElement(_MemebrCard__WEBPACK_IMPORTED_MODULE_12__["default"], {
+      key: index,
+      className: "test_hello",
+      imageClass: "test_image",
+      icon: "no",
+      size: 30,
+      imageUrl: "https://survey-project.lndo.site/wp-content/uploads/2021/08/cat.jpg",
+      alt: "Cat Image",
+      tagNameTitle: "h2",
+      titlePlaceholder: "PlaceHolder Test",
+      teamMemeberTitle: "Text Test mdfksamfkdasm",
+      onChangeTeamMemeberTitle: "Team Member Title Test"
+    });
+  }), /*#__PURE__*/React.createElement("h1", null, "Edit Test asmdmnasnn", /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["Dashicon"], {
     icon: "wordpress-alt"
   })))];
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Edit);
+
+/***/ }),
+
+/***/ "./src/team-memebers/MemebrCard.js":
+/*!*****************************************!*\
+  !*** ./src/team-memebers/MemebrCard.js ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+var MemebrCard = function MemebrCard(props) {
+  return /*#__PURE__*/React.createElement("div", {
+    className: "wpb-team-member-card-block__item ".concat(props.className)
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "wpb-team-member__image ".concat(props.imageClass)
+  }, /*#__PURE__*/React.createElement("button", {
+    className: "wpb-team-member-image__remove"
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__["Dashicon"], {
+    icon: props.icon,
+    size: props.size
+  })), /*#__PURE__*/React.createElement("img", {
+    src: props.imageUrl,
+    alt: props.alt
+  }), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["MediaUpload"], {
+    onSelect: props.onSelect,
+    type: props.type,
+    value: props.pathUrl,
+    render: function render(_ref) {
+      var open = _ref.open;
+      return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__["IconButton"], {
+        className: props.iconClassName,
+        onClick: open,
+        icon: props.dashiconIconButton,
+        showTooltip: props.toolTip,
+        label: props.label
+      });
+    }
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "wpb-team-member__content"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "wpb-team-member__title"
+  }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["RichText"], {
+    tagName: props.tagNameTitle,
+    placeholder: props.titlePlaceholder,
+    value: props.teamMemeberTitle,
+    onChange: props.onChangeTeamMemeberTitle
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "wpb-team-member__position"
+  }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["RichText"], {
+    tagName: props.tagNamePosition,
+    placeholder: props.positionPlaceholder,
+    value: props.teamMemeberPosition,
+    onChange: props.onChangeTeamMemeberPosition
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "wpb-team-member__description"
+  }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["RichText"], {
+    tagName: props.tagNameDescription,
+    placeholder: props.descriptionPlaceholder,
+    value: props.teamMemeberDescription,
+    onChange: props.onChangeTeamMemeberDescription
+  })))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (MemebrCard);
 
 /***/ }),
 

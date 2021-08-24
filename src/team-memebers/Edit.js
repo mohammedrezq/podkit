@@ -50,6 +50,7 @@ import TextShadow from "../components/TextShadow";
 import Border from "../components/Border";
 import BoxShadow from "../components/BoxShadow";
 import Padding from "../components/Padding";
+import MemebrCard from "./MemebrCard";
 
 const Edit = (props) => {
   const {
@@ -57,8 +58,15 @@ const Edit = (props) => {
     setAttributes,
   } = props;
 
- 
+  console.log(columnsNumber);
+  console.log(typeof(columnsNumber));
 
+  // const generateElem = () => {
+  //   for(var i = 0; i< columnsNumber; i++) {
+  //     <MemebrCard className="Hello_CLASS" />
+  //   }
+  // }
+  
   return [
     <InspectorControls key="inspector_control_section">
       <TabPanel
@@ -148,7 +156,21 @@ const Edit = (props) => {
     </InspectorControls>,
     <div className="wpb_block_container" key="render_section">
       {columnsNumber}
-
+       {[...Array(columnsNumber)].map((column, index) => {
+         return <MemebrCard
+          key={index}
+           className="test_hello"
+           imageClass="test_image"
+           icon="no"
+           size={30}
+           imageUrl="https://survey-project.lndo.site/wp-content/uploads/2021/08/cat.jpg"
+           alt="Cat Image"
+           tagNameTitle="h2"
+           titlePlaceholder="PlaceHolder Test"
+           teamMemeberTitle="Text Test mdfksamfkdasm"
+           onChangeTeamMemeberTitle="Team Member Title Test"
+           />
+       })}
       {/* {columnsNumber.map((column, index) => {
         return <h1 key={index}>Hello: {column}</h1>;
       })} */}

@@ -12,7 +12,7 @@ const MemebrCard = (props) => {
         <MediaUpload
           onSelect={props.onSelect}
           type={props.type}
-          value={episodeImage}
+          value={props.pathUrl}
           render={({ open }) => (
             <IconButton
               className={props.iconClassName}
@@ -51,7 +51,7 @@ const MemebrCard = (props) => {
         </div>
       </div>
     </div>
-  );
+    )
 };
 
 export default MemebrCard;
