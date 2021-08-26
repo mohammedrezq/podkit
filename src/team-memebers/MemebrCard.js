@@ -10,9 +10,10 @@ const MemebrCard = (props) => {
         </button>
         <img src={props.imageUrl} alt={props.alt} />
         <MediaUpload
+        className={props.className_mediaupload_image}
           onSelect={props.onSelect}
           type={props.type}
-          value={props.pathUrl}
+          value={props.imageUrl}
           render={({ open }) => (
             <IconButton
               className={props.iconClassName}
@@ -29,23 +30,23 @@ const MemebrCard = (props) => {
           <RichText
             tagName={props.tagNameTitle}
             placeholder={props.titlePlaceholder}
-            value={props.teamMemeberTitle}
-            onChange={props.onChangeTeamMemeberTitle}
+            value={props.teamMemberTitle}
+            onChange={props.onChangeTeamMemberTitle}
           />
         </div>
         <div className="wpb-team-member__position">
           <RichText
             tagName={props.tagNamePosition}
             placeholder={props.positionPlaceholder}
-            value={props.teamMemeberPosition}
-            onChange={props.onChangeTeamMemeberPosition}
+            value={props.teamMemberPosition}
+            onChange={props.onChangeTeamMemberPosition}
           />
           <div className="wpb-team-member__description">
             <RichText
               tagName={props.tagNameDescription}
               placeholder={props.descriptionPlaceholder}
-              value={props.teamMemeberDescription}
-              onChange={props.onChangeTeamMemeberDescription}
+              value={props.teamMemberDescription}
+              onChange={props.onChangeTeamMemberDescription}
             />
           </div>
         </div>

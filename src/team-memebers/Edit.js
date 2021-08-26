@@ -1,3 +1,5 @@
+import times from 'lodash/times';
+
 import { __ } from "@wordpress/i18n";
 import {
   TextControl,
@@ -54,18 +56,32 @@ import MemebrCard from "./MemebrCard";
 
 const Edit = (props) => {
   const {
-    attributes: { columnsNumber },
+    attributes: { columnsNumber, teamMemberImage, teamMemberTitle, teamMemberPosition, teamMemberDescription },
     setAttributes,
   } = props;
 
-  console.log(columnsNumber);
-  console.log(typeof(columnsNumber));
+  const onImageSelect = (imageObject) => {
+    console.log(imageObject.sizes.large.url);
+    setAttributes({ teamMemberImage: imageObject.sizes.large.url });
+  };
 
-  // const generateElem = () => {
-  //   for(var i = 0; i< columnsNumber; i++) {
-  //     <MemebrCard className="Hello_CLASS" />
-  //   }
+  const onChangeTeamMemberTitle = (newValue) =>{
+    setAttributes({teamMemberTitle: newValue})
+  }
+  
+  const onChangeTeamMemberPosition = (newValue) =>{
+    setAttributes({teamMemberPosition: newValue})
+  }
+  const onChangeTeamMemberDescription = (newValue) =>{
+    setAttributes({teamMemberDescription: newValue})
+  }
+
+  // const renderTeamMemeber = (index) => {
+  //   return (
+      
+  //   )
   // }
+
   
   return [
     <InspectorControls key="inspector_control_section">
@@ -155,29 +171,35 @@ const Edit = (props) => {
       </TabPanel>
     </InspectorControls>,
     <div className="wpb_block_container" key="render_section">
-      {columnsNumber}
-       {[...Array(columnsNumber)].map((column, index) => {
-         return <MemebrCard
-          key={index}
-           className={`test_hello${index+1}`}
-           imageClass="test_image"
+       {times (columnsNumber, n => 
+            <MemebrCard
+          key={n}
+           className={`wpb_column_${n}`}
+           imageClass={`wpb_column_image_${n}`}
            icon="no"
            size={30}
-           imageUrl="https://survey-project.lndo.site/wp-content/uploads/2021/08/cat.jpg"
            alt="Cat Image"
+           onSelect={onImageSelect}
+           imageUrl={teamMemberImage}
+           type="image"
+           iconClassName={`team_memeber_thumbnail_image`}
+           dashiconIconButton="format-image"
+           toolTip={true}
+           label={__("Change image.", "wpb")}
            tagNameTitle="h2"
-           titlePlaceholder="PlaceHolder Test"
-           teamMemeberTitle="Text Test mdfksamfkdasm"
-           onChangeTeamMemeberTitle="Team Member Title Test"
+           titlePlaceholder={"Name"}
+           teamMemeberTitle={teamMemberTitle}
+           onChangeTeamMemberTitle={onChangeTeamMemberTitle}
+           tagNamePosition="p"
+           positionPlaceholder={"Position"}
+           teamMemberPosition={teamMemberPosition}
+           onChangeTeamMemberPosition={onChangeTeamMemberPosition}
+           tagNameDescription="div"
+           descriptionPlaceholder={"Description Lorem Ipsum and other stuff"}
+           teamMemeberDescription={teamMemberDescription}
+           onChangeTeamMemberDescription={onChangeTeamMemberDescription}
            />
-       })}
-      {/* {columnsNumber.map((column, index) => {
-        return <h1 key={index}>Hello: {column}</h1>;
-      })} */}
-      <h1>
-        Edit Test asmdmnasnn
-        <Dashicon icon="wordpress-alt" />
-      </h1>
+        )}
     </div>,
   ];
 };

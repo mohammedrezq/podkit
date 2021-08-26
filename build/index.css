@@ -322,4 +322,10 @@ body {
   -moz-box-shadow: none;
 }
 
+.wpb_block_container .team_memeber_thumbnail_image {
+  color: #ffffff;
+  background-color: #000000;
+  border: 1px solid grey;
+}
+
 /*# sourceMappingURL=index.css.map*/

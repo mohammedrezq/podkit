@@ -9,7 +9,31 @@ const teamAttributes = {
   columnsNumber: {
     type: "number",
     default: 2
-  }
+  },
+  teamMemberImage: {
+    type: "string",
+    source: "attribute",
+    selector: 'img',
+    attribute: 'src',
+  },
+  teamMemberTitle: {
+    type: "string",
+    source: "html",
+    selector: ".wpb-team-member__title",
+    default: "Name"
+  },
+  teamMemberPosition: {
+    type: "string",
+    source: "html",
+    selector: ".wpb-team-member__position",
+    default: "Position"
+  },
+  teamMemberDescription: {
+    type: "string",
+    source: "html",
+    selector: ".wpb-team-member__description",
+    default: "Description Lorem Ipsum and other stuff"
+  },
 
 };
 
