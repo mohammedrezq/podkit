@@ -6499,23 +6499,7 @@ var Edit = function Edit(props) {
   var _props$attributes = props.attributes,
       columnsNumber = _props$attributes.columnsNumber,
       testText = _props$attributes.testText,
-      setAttributes = props.setAttributes; // console.log(props);
-  // const columnsNumberHandler = (newCount) => {
-  //   const newitems = props.attributes.testText;
-  //   if (newitems.length < newcount) {
-  //     const amount = Math.abs(newcount - newitems.length);
-  //     {
-  //       times(amount, (n) => {
-  //         newitems.push({
-  //           title: newitems[0].title,
-  //         });
-  //         setAttributes({ testText: newitems });
-  //         saveTestText({ title: testText[0].title }, 0);
-  //       });
-  //       setAttributes({ columnsNumber: newCount });
-  //     }
-  //   }
-  // };
+      setAttributes = props.setAttributes;
 
   var saveTestText = function saveTestText(value, thisIndex) {
     var newUpdate = testText.map(function (item, index) {
@@ -6528,23 +6512,43 @@ var Edit = function Edit(props) {
     setAttributes({
       testText: newUpdate
     });
-    console.log(testText);
-  }; // const testTextHandler = (newValue) => {
-  //   saveTestText({ title: newValue } , index);
-  // };
-  // console.log(testText[index]);
-
+  };
 
   var renderPreviewContent = function renderPreviewContent(index) {
-    var _testText$index, _testText$index2;
+    var _testText$index, _testText$index$image, _testText$index$image2, _testText$index$image3, _testText$index2, _testText$index2$imag, _testText$index2$imag2, _testText$index2$imag3, _testText$index3;
 
-    console.log((_testText$index = testText[index]) === null || _testText$index === void 0 ? void 0 : _testText$index.title);
     return /*#__PURE__*/React.createElement("div", {
       className: "item-test__wrapper item_test_".concat(index),
-      key: index
-    }, /*#__PURE__*/React.createElement("h1", null, "Item Test Counter ", "".concat(index)), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__["RichText"], {
+      key: Math.random() * 30051
+    }, /*#__PURE__*/React.createElement("h1", null, "Item Test Counter ", "".concat(index)), /*#__PURE__*/React.createElement("img", {
+      src: (_testText$index = testText[index]) === null || _testText$index === void 0 ? void 0 : (_testText$index$image = _testText$index.imageUrl) === null || _testText$index$image === void 0 ? void 0 : (_testText$index$image2 = _testText$index$image.sizes) === null || _testText$index$image2 === void 0 ? void 0 : (_testText$index$image3 = _testText$index$image2.full) === null || _testText$index$image3 === void 0 ? void 0 : _testText$index$image3.url,
+      alt: "logo"
+    }), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__["MediaUpload"], {
+      key: index + Math.random() * 6051,
+      className: "media-image__upload".concat(index),
+      onSelect: function onSelect(media) {
+        saveTestText({
+          imageUrl: media
+        }, index);
+      },
+      type: "image",
+      value: (_testText$index2 = testText[index]) === null || _testText$index2 === void 0 ? void 0 : (_testText$index2$imag = _testText$index2.imageUrl) === null || _testText$index2$imag === void 0 ? void 0 : (_testText$index2$imag2 = _testText$index2$imag.sizes) === null || _testText$index2$imag2 === void 0 ? void 0 : (_testText$index2$imag3 = _testText$index2$imag2.full) === null || _testText$index2$imag3 === void 0 ? void 0 : _testText$index2$imag3.url,
+      render: function render(_ref) {
+        var open = _ref.open;
+        return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["Button"], {
+          style: {
+            backgroundColor: "#000",
+            color: "#fff",
+            width: "80px"
+          },
+          className: "kt-testimonial-image-placeholder",
+          "aria-label": Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Add Image", "kadence-blocks"),
+          onClick: open
+        }, "Image Select");
+      }
+    }), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__["RichText"], {
       key: index,
-      value: (_testText$index2 = testText[index]) === null || _testText$index2 === void 0 ? void 0 : _testText$index2.title,
+      value: (_testText$index3 = testText[index]) === null || _testText$index3 === void 0 ? void 0 : _testText$index3.title,
       onChange: function onChange(newValue) {
         saveTestText({
           title: newValue
@@ -6570,7 +6574,8 @@ var Edit = function Edit(props) {
         {
           lodash_times__WEBPACK_IMPORTED_MODULE_0___default()(amount, function (n) {
             newitems.push({
-              title: newitems[0].title
+              title: newitems[0].title,
+              imageUrl: newitems[0].imageUrl
             });
           });
         }
@@ -6578,7 +6583,8 @@ var Edit = function Edit(props) {
           testText: newitems
         });
         saveTestText({
-          title: testText[0].title
+          title: testText[0].title,
+          imageUrl: testText[0].imageUrl
         }, 0);
       }
 
@@ -6628,13 +6634,18 @@ var Save = function Save(props) {
       testText = _props$attributes.testText;
 
   var contentRenderColumns = function contentRenderColumns(index) {
-    var _testText$index;
+    var _testText$index, _testText$index$image, _testText$index$image2, _testText$index$image3, _testText$index2;
 
     return /*#__PURE__*/React.createElement("div", {
       key: index,
       className: "item-test__wrapper item_test_".concat(index)
-    }, /*#__PURE__*/React.createElement("h1", null, "Item Test Counter ", "".concat(index)), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__["RichText"].Content, {
-      value: (_testText$index = testText[index]) === null || _testText$index === void 0 ? void 0 : _testText$index.title,
+    }, /*#__PURE__*/React.createElement("h1", null, "Item Test Counter ", "".concat(index)), /*#__PURE__*/React.createElement("figure", {
+      className: "podkit-logo"
+    }, /*#__PURE__*/React.createElement("img", {
+      src: (_testText$index = testText[index]) === null || _testText$index === void 0 ? void 0 : (_testText$index$image = _testText$index.imageUrl) === null || _testText$index$image === void 0 ? void 0 : (_testText$index$image2 = _testText$index$image.sizes) === null || _testText$index$image2 === void 0 ? void 0 : (_testText$index$image3 = _testText$index$image2.full) === null || _testText$index$image3 === void 0 ? void 0 : _testText$index$image3.url,
+      alt: "logo"
+    })), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__["RichText"].Content, {
+      value: (_testText$index2 = testText[index]) === null || _testText$index2 === void 0 ? void 0 : _testText$index2.title,
       tagName: "h3"
     }));
   };
@@ -6679,7 +6690,8 @@ var testblockAttributes = {
   testText: {
     type: "array",
     default: [{
-      title: ""
+      title: "",
+      imageUrl: ""
     }]
   }
 };

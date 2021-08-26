@@ -13,6 +13,9 @@ const Save = (props) => {
     return (
       <div key={index} className={`item-test__wrapper item_test_${index}`}>
         <h1>Item Test Counter {`${index}`}</h1>
+        <figure className="podkit-logo">
+          <img src={testText[index]?.imageUrl?.sizes?.full?.url} alt="logo" />
+        </figure>
         <RichText.Content value={testText[index]?.title} tagName="h3" />
       </div>
     );

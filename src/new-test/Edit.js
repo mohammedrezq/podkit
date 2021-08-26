@@ -31,8 +31,9 @@ import {
   __experimentalGradientPicker as GradientPicker,
   __experimentalBoxControl as BoxControl,
   ResponsiveWrapper,
+  IconButton,
 } from "@wordpress/components";
-import { useState } from "@wordpress/element";
+import { useState, useCallback } from "@wordpress/element";
 
 import {
   RichText,
@@ -40,6 +41,7 @@ import {
   ColorPalette,
   BlockControls,
   AlignmentToolbar,
+  MediaUpload,
   DimensionControl,
 } from "@wordpress/block-editor";
 
@@ -58,24 +60,6 @@ const Edit = (props) => {
     setAttributes,
   } = props;
 
-  // console.log(props);
-
-  // const columnsNumberHandler = (newCount) => {
-  //   const newitems = props.attributes.testText;
-  //   if (newitems.length < newcount) {
-  //     const amount = Math.abs(newcount - newitems.length);
-  //     {
-  //       times(amount, (n) => {
-  //         newitems.push({
-  //           title: newitems[0].title,
-  //         });
-  //         setAttributes({ testText: newitems });
-  //         saveTestText({ title: testText[0].title }, 0);
-  //       });
-  //       setAttributes({ columnsNumber: newCount });
-  //     }
-  //   }
-  // };
 
   const saveTestText = (value, thisIndex) => {
     const newUpdate = testText.map((item, index) => {
@@ -87,18 +71,40 @@ const Edit = (props) => {
     setAttributes({
       testText: newUpdate,
     });
-    console.log(testText);
   };
 
-  // const testTextHandler = (newValue) => {
-  //   saveTestText({ title: newValue } , index);
-  // };
-  // console.log(testText[index]);
   const renderPreviewContent = (index) => {
-    console.log(testText[index]?.title);
     return (
-      <div className={`item-test__wrapper item_test_${index}`} key={index}>
+      <div
+        className={`item-test__wrapper item_test_${index}`}
+        key={Math.random() * 30051}
+      >
         <h1>Item Test Counter {`${index}`}</h1>
+        <img src={testText[index]?.imageUrl?.sizes?.full?.url} alt="logo" />
+        <MediaUpload
+          key={index + Math.random() * 6051}
+          className={`media-image__upload${index}`}
+          onSelect={(media) => {
+            saveTestText(
+              {
+                imageUrl: media,
+              },
+              index
+            );
+          }}
+          type="image"
+          value={testText[index]?.imageUrl?.sizes?.full?.url}
+          render={({ open }) => (
+            <Button
+              style={{ backgroundColor: "#000", color: "#fff", width: "80px" }}
+              className="kt-testimonial-image-placeholder"
+              aria-label={__("Add Image", "kadence-blocks")}
+              onClick={open}
+            >
+              Image Select
+            </Button>
+          )}
+        />
         <RichText
           key={index}
           value={testText[index]?.title}
@@ -128,11 +134,18 @@ const Edit = (props) => {
               times(amount, (n) => {
                 newitems.push({
                   title: newitems[0].title,
+                  imageUrl: newitems[0].imageUrl,
                 });
               });
             }
             setAttributes({ testText: newitems });
-            saveTestText({ title: testText[0].title }, 0);
+            saveTestText(
+              {
+                title: testText[0].title,
+                imageUrl: testText[0].imageUrl,
+              },
+              0
+            );
           }
           setAttributes({ columnsNumber: newCount });
         }}

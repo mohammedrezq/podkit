@@ -15,6 +15,7 @@ const testblockAttributes = {
     default: [
       {
         title: "",
+        imageUrl: "",
       },
     ],
   },
