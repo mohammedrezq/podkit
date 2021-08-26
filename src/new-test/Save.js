@@ -8,13 +8,19 @@ const Save = (props) => {
     attributes: { columnsNumber, testText },
   } = props;
 
-
   const contentRenderColumns = (index) => {
     return (
       <div key={index} className={`item-test__wrapper item_test_${index}`}>
         <h1>Item Test Counter {`${index}`}</h1>
         <figure className="podkit-logo">
-          <img src={testText[index]?.imageUrl?.sizes?.full?.url} alt="logo" />
+          {testText[index].imageUrl ? (
+            <img src={testText[index]?.imageUrl?.sizes?.full?.url} alt="logo" />
+          ) : (
+            <img
+              src="https://survey-project.lndo.site/wp-content/plugins/podkit/images/default-thumbnail.jpg"
+              alt="logo"
+            />
+          )}
         </figure>
         <RichText.Content value={testText[index]?.title} tagName="h3" />
       </div>

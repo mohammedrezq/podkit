@@ -45,6 +45,8 @@ import {
   DimensionControl,
 } from "@wordpress/block-editor";
 
+import DefaultImage from  '../../images/default-thumbnail.jpg'
+
 import { Fragment } from "@wordpress/element";
 import GoogleFontsNames from "../components/googleFontsNames";
 import addFontToHead from "../components/googleFonts";
@@ -59,7 +61,6 @@ const Edit = (props) => {
     attributes: { columnsNumber, testText },
     setAttributes,
   } = props;
-
 
   const saveTestText = (value, thisIndex) => {
     const newUpdate = testText.map((item, index) => {
@@ -80,7 +81,9 @@ const Edit = (props) => {
         key={Math.random() * 30051}
       >
         <h1>Item Test Counter {`${index}`}</h1>
-        <img src={testText[index]?.imageUrl?.sizes?.full?.url} alt="logo" />
+        {testText[index] && (
+          <img src={testText[index].imageUrl?.sizes?.full?.url ? testText[index].imageUrl?.sizes?.full?.url : "https://survey-project.lndo.site/wp-content/plugins/podkit/images/default-thumbnail.jpg"} alt="logo" />
+        )}
         <MediaUpload
           key={index + Math.random() * 6051}
           className={`media-image__upload${index}`}
@@ -142,7 +145,7 @@ const Edit = (props) => {
             saveTestText(
               {
                 title: testText[0].title,
-                imageUrl: testText[0].imageUrl,
+                imageUrl: testText[0].imageUrl.sizes.full.url,
               },
               0
             );

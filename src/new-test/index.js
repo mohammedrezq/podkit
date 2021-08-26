@@ -8,7 +8,7 @@ import Save from "./Save";
 const testblockAttributes = {
   columnsNumber: {
     type: "number",
-    default: 2,
+    default: 1,
   },
   testText: {
     type: "array",

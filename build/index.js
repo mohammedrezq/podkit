@@ -173,6 +173,19 @@ __webpack_require__.r(__webpack_exports__);
 /************************************************************************/
 /******/ ({
 
+/***/ "./images/default-thumbnail.jpg":
+/*!**************************************!*\
+  !*** ./images/default-thumbnail.jpg ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "images/default-thumbnail.af0f21db.jpg");
+
+/***/ }),
+
 /***/ "./node_modules/classnames/index.js":
 /*!******************************************!*\
   !*** ./node_modules/classnames/index.js ***!
@@ -6468,18 +6481,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _components_googleFontsNames__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/googleFontsNames */ "./src/components/googleFontsNames.js");
-/* harmony import */ var _components_googleFonts__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/googleFonts */ "./src/components/googleFonts.js");
-/* harmony import */ var _components_Typography__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/Typography */ "./src/components/Typography.js");
-/* harmony import */ var _components_TextShadow__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/TextShadow */ "./src/components/TextShadow.js");
-/* harmony import */ var _components_Border__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/Border */ "./src/components/Border.js");
-/* harmony import */ var _components_BoxShadow__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/BoxShadow */ "./src/components/BoxShadow.js");
-/* harmony import */ var _components_Padding__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../components/Padding */ "./src/components/Padding.js");
+/* harmony import */ var _images_default_thumbnail_jpg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../images/default-thumbnail.jpg */ "./images/default-thumbnail.jpg");
+/* harmony import */ var _components_googleFontsNames__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/googleFontsNames */ "./src/components/googleFontsNames.js");
+/* harmony import */ var _components_googleFonts__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/googleFonts */ "./src/components/googleFonts.js");
+/* harmony import */ var _components_Typography__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/Typography */ "./src/components/Typography.js");
+/* harmony import */ var _components_TextShadow__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/TextShadow */ "./src/components/TextShadow.js");
+/* harmony import */ var _components_Border__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/Border */ "./src/components/Border.js");
+/* harmony import */ var _components_BoxShadow__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../components/BoxShadow */ "./src/components/BoxShadow.js");
+/* harmony import */ var _components_Padding__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../components/Padding */ "./src/components/Padding.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -6515,13 +6530,13 @@ var Edit = function Edit(props) {
   };
 
   var renderPreviewContent = function renderPreviewContent(index) {
-    var _testText$index, _testText$index$image, _testText$index$image2, _testText$index$image3, _testText$index2, _testText$index2$imag, _testText$index2$imag2, _testText$index2$imag3, _testText$index3;
+    var _testText$index$image, _testText$index$image2, _testText$index$image3, _testText$index$image4, _testText$index$image5, _testText$index$image6, _testText$index, _testText$index$image7, _testText$index$image8, _testText$index$image9, _testText$index2;
 
     return /*#__PURE__*/React.createElement("div", {
       className: "item-test__wrapper item_test_".concat(index),
       key: Math.random() * 30051
-    }, /*#__PURE__*/React.createElement("h1", null, "Item Test Counter ", "".concat(index)), /*#__PURE__*/React.createElement("img", {
-      src: (_testText$index = testText[index]) === null || _testText$index === void 0 ? void 0 : (_testText$index$image = _testText$index.imageUrl) === null || _testText$index$image === void 0 ? void 0 : (_testText$index$image2 = _testText$index$image.sizes) === null || _testText$index$image2 === void 0 ? void 0 : (_testText$index$image3 = _testText$index$image2.full) === null || _testText$index$image3 === void 0 ? void 0 : _testText$index$image3.url,
+    }, /*#__PURE__*/React.createElement("h1", null, "Item Test Counter ", "".concat(index)), testText[index] && /*#__PURE__*/React.createElement("img", {
+      src: (_testText$index$image = testText[index].imageUrl) !== null && _testText$index$image !== void 0 && (_testText$index$image2 = _testText$index$image.sizes) !== null && _testText$index$image2 !== void 0 && (_testText$index$image3 = _testText$index$image2.full) !== null && _testText$index$image3 !== void 0 && _testText$index$image3.url ? (_testText$index$image4 = testText[index].imageUrl) === null || _testText$index$image4 === void 0 ? void 0 : (_testText$index$image5 = _testText$index$image4.sizes) === null || _testText$index$image5 === void 0 ? void 0 : (_testText$index$image6 = _testText$index$image5.full) === null || _testText$index$image6 === void 0 ? void 0 : _testText$index$image6.url : "https://survey-project.lndo.site/wp-content/plugins/podkit/images/default-thumbnail.jpg",
       alt: "logo"
     }), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__["MediaUpload"], {
       key: index + Math.random() * 6051,
@@ -6532,7 +6547,7 @@ var Edit = function Edit(props) {
         }, index);
       },
       type: "image",
-      value: (_testText$index2 = testText[index]) === null || _testText$index2 === void 0 ? void 0 : (_testText$index2$imag = _testText$index2.imageUrl) === null || _testText$index2$imag === void 0 ? void 0 : (_testText$index2$imag2 = _testText$index2$imag.sizes) === null || _testText$index2$imag2 === void 0 ? void 0 : (_testText$index2$imag3 = _testText$index2$imag2.full) === null || _testText$index2$imag3 === void 0 ? void 0 : _testText$index2$imag3.url,
+      value: (_testText$index = testText[index]) === null || _testText$index === void 0 ? void 0 : (_testText$index$image7 = _testText$index.imageUrl) === null || _testText$index$image7 === void 0 ? void 0 : (_testText$index$image8 = _testText$index$image7.sizes) === null || _testText$index$image8 === void 0 ? void 0 : (_testText$index$image9 = _testText$index$image8.full) === null || _testText$index$image9 === void 0 ? void 0 : _testText$index$image9.url,
       render: function render(_ref) {
         var open = _ref.open;
         return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["Button"], {
@@ -6548,7 +6563,7 @@ var Edit = function Edit(props) {
       }
     }), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__["RichText"], {
       key: index,
-      value: (_testText$index3 = testText[index]) === null || _testText$index3 === void 0 ? void 0 : _testText$index3.title,
+      value: (_testText$index2 = testText[index]) === null || _testText$index2 === void 0 ? void 0 : _testText$index2.title,
       onChange: function onChange(newValue) {
         saveTestText({
           title: newValue
@@ -6584,7 +6599,7 @@ var Edit = function Edit(props) {
         });
         saveTestText({
           title: testText[0].title,
-          imageUrl: testText[0].imageUrl
+          imageUrl: testText[0].imageUrl.sizes.full.url
         }, 0);
       }
 
@@ -6641,8 +6656,11 @@ var Save = function Save(props) {
       className: "item-test__wrapper item_test_".concat(index)
     }, /*#__PURE__*/React.createElement("h1", null, "Item Test Counter ", "".concat(index)), /*#__PURE__*/React.createElement("figure", {
       className: "podkit-logo"
-    }, /*#__PURE__*/React.createElement("img", {
+    }, testText[index].imageUrl ? /*#__PURE__*/React.createElement("img", {
       src: (_testText$index = testText[index]) === null || _testText$index === void 0 ? void 0 : (_testText$index$image = _testText$index.imageUrl) === null || _testText$index$image === void 0 ? void 0 : (_testText$index$image2 = _testText$index$image.sizes) === null || _testText$index$image2 === void 0 ? void 0 : (_testText$index$image3 = _testText$index$image2.full) === null || _testText$index$image3 === void 0 ? void 0 : _testText$index$image3.url,
+      alt: "logo"
+    }) : /*#__PURE__*/React.createElement("img", {
+      src: "https://survey-project.lndo.site/wp-content/plugins/podkit/images/default-thumbnail.jpg",
       alt: "logo"
     })), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__["RichText"].Content, {
       value: (_testText$index2 = testText[index]) === null || _testText$index2 === void 0 ? void 0 : _testText$index2.title,
@@ -6685,7 +6703,7 @@ __webpack_require__.r(__webpack_exports__);
 var testblockAttributes = {
   columnsNumber: {
     type: "number",
-    default: 2
+    default: 1
   },
   testText: {
     type: "array",
