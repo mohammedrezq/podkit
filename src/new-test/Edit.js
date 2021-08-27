@@ -45,7 +45,7 @@ import {
   DimensionControl,
 } from "@wordpress/block-editor";
 
-import DefaultImage from  '../../images/default-thumbnail.jpg'
+import DefaultImage from "../../images/default-thumbnail.jpg";
 
 import { Fragment } from "@wordpress/element";
 import GoogleFontsNames from "../components/googleFontsNames";
@@ -62,17 +62,36 @@ const Edit = (props) => {
     setAttributes,
   } = props;
 
-  const saveTestText = (value, thisIndex) => {
-    const newUpdate = testText.map((item, index) => {
-      if (index === thisIndex) {
+
+  
+  const saveTestText = ( value, thisIndex ) => {
+    const newUpdate = testText.map( ( item, index ) => {
+      if ( index === thisIndex ) {
         item = { ...item, ...value };
       }
       return item;
-    });
-    setAttributes({
+    } );
+    setAttributes( {
       testText: newUpdate,
-    });
+    } );
   };
+
+  // const saveTestText = (value, thisIndex) => {
+  //   const newUpdate = testText.map((item, index) => {
+  //     if (index === thisIndex) {
+  //       console.log(item);
+  //       console.log(index);
+  //       console.log(theIndex);
+  //       item = { ...item, ...value };
+  //     }
+  //     return item;
+  //   });
+  //   setAttributes({
+  //     testText: newUpdate,
+  //   });
+  // };
+
+  console.log(props.attributes.testText);
 
   const renderPreviewContent = (index) => {
     return (
@@ -82,10 +101,17 @@ const Edit = (props) => {
       >
         <h1>Item Test Counter {`${index}`}</h1>
         {testText[index] && (
-          <img src={testText[index].imageUrl?.sizes?.full?.url ? testText[index].imageUrl?.sizes?.full?.url : "https://survey-project.lndo.site/wp-content/plugins/podkit/images/default-thumbnail.jpg"} alt="logo" />
+          <img
+            src={
+              testText[index].imageUrl?.sizes?.full?.url
+                ? testText[index].imageUrl?.sizes?.full?.url
+                : "https://survey-project.lndo.site/wp-content/plugins/podkit/images/default-thumbnail.jpg"
+            }
+            alt="logo"
+          />
         )}
         <MediaUpload
-          key={index + Math.random() * 6051}
+          key={Math.random() *66}
           className={`media-image__upload${index}`}
           onSelect={(media) => {
             saveTestText(
@@ -110,10 +136,10 @@ const Edit = (props) => {
         />
         <RichText
           key={index}
-          value={testText[index]?.title}
           onChange={(newValue) => {
             saveTestText({ title: newValue }, index);
           }}
+          value={testText[index].title}
           placeholder={__("Text Placeholder", "wpb")}
         />
       </div>
@@ -131,8 +157,10 @@ const Edit = (props) => {
         value={columnsNumber}
         onChange={(newCount) => {
           const newitems = props.attributes.testText;
+          console.log(newitems);
           if (newitems.length < newCount) {
             const amount = Math.abs(newCount - newitems.length);
+            console.log(amount)
             {
               times(amount, (n) => {
                 newitems.push({
@@ -145,7 +173,6 @@ const Edit = (props) => {
             saveTestText(
               {
                 title: testText[0].title,
-                imageUrl: testText[0].imageUrl.sizes.full.url,
               },
               0
             );

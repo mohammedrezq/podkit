@@ -13,13 +13,10 @@ const Save = (props) => {
       <div key={index} className={`item-test__wrapper item_test_${index}`}>
         <h1>Item Test Counter {`${index}`}</h1>
         <figure className="podkit-logo">
-          {testText[index].imageUrl ? (
+          {(testText[index]?.imageUrl?.sizes?.full?.url == undefined) ? (
+            <img src={testText[index]?.imageUrl} alt="logo" />
+            ) : (
             <img src={testText[index]?.imageUrl?.sizes?.full?.url} alt="logo" />
-          ) : (
-            <img
-              src="https://survey-project.lndo.site/wp-content/plugins/podkit/images/default-thumbnail.jpg"
-              alt="logo"
-            />
           )}
         </figure>
         <RichText.Content value={testText[index]?.title} tagName="h3" />

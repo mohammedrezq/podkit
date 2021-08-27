@@ -6527,10 +6527,26 @@ var Edit = function Edit(props) {
     setAttributes({
       testText: newUpdate
     });
-  };
+  }; // const saveTestText = (value, thisIndex) => {
+  //   const newUpdate = testText.map((item, index) => {
+  //     if (index === thisIndex) {
+  //       console.log(item);
+  //       console.log(index);
+  //       console.log(theIndex);
+  //       item = { ...item, ...value };
+  //     }
+  //     return item;
+  //   });
+  //   setAttributes({
+  //     testText: newUpdate,
+  //   });
+  // };
+
+
+  console.log(props.attributes.testText);
 
   var renderPreviewContent = function renderPreviewContent(index) {
-    var _testText$index$image, _testText$index$image2, _testText$index$image3, _testText$index$image4, _testText$index$image5, _testText$index$image6, _testText$index, _testText$index$image7, _testText$index$image8, _testText$index$image9, _testText$index2;
+    var _testText$index$image, _testText$index$image2, _testText$index$image3, _testText$index$image4, _testText$index$image5, _testText$index$image6, _testText$index, _testText$index$image7, _testText$index$image8, _testText$index$image9;
 
     return /*#__PURE__*/React.createElement("div", {
       className: "item-test__wrapper item_test_".concat(index),
@@ -6539,7 +6555,7 @@ var Edit = function Edit(props) {
       src: (_testText$index$image = testText[index].imageUrl) !== null && _testText$index$image !== void 0 && (_testText$index$image2 = _testText$index$image.sizes) !== null && _testText$index$image2 !== void 0 && (_testText$index$image3 = _testText$index$image2.full) !== null && _testText$index$image3 !== void 0 && _testText$index$image3.url ? (_testText$index$image4 = testText[index].imageUrl) === null || _testText$index$image4 === void 0 ? void 0 : (_testText$index$image5 = _testText$index$image4.sizes) === null || _testText$index$image5 === void 0 ? void 0 : (_testText$index$image6 = _testText$index$image5.full) === null || _testText$index$image6 === void 0 ? void 0 : _testText$index$image6.url : "https://survey-project.lndo.site/wp-content/plugins/podkit/images/default-thumbnail.jpg",
       alt: "logo"
     }), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__["MediaUpload"], {
-      key: index + Math.random() * 6051,
+      key: Math.random() * 66,
       className: "media-image__upload".concat(index),
       onSelect: function onSelect(media) {
         saveTestText({
@@ -6563,12 +6579,12 @@ var Edit = function Edit(props) {
       }
     }), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__["RichText"], {
       key: index,
-      value: (_testText$index2 = testText[index]) === null || _testText$index2 === void 0 ? void 0 : _testText$index2.title,
       onChange: function onChange(newValue) {
         saveTestText({
           title: newValue
         }, index);
       },
+      value: testText[index].title,
       placeholder: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Text Placeholder", "wpb")
     }));
   };
@@ -6583,9 +6599,11 @@ var Edit = function Edit(props) {
     value: columnsNumber,
     onChange: function onChange(newCount) {
       var newitems = props.attributes.testText;
+      console.log(newitems);
 
       if (newitems.length < newCount) {
         var amount = Math.abs(newCount - newitems.length);
+        console.log(amount);
         {
           lodash_times__WEBPACK_IMPORTED_MODULE_0___default()(amount, function (n) {
             newitems.push({
@@ -6598,8 +6616,7 @@ var Edit = function Edit(props) {
           testText: newitems
         });
         saveTestText({
-          title: testText[0].title,
-          imageUrl: testText[0].imageUrl.sizes.full.url
+          title: testText[0].title
         }, 0);
       }
 
@@ -6649,21 +6666,21 @@ var Save = function Save(props) {
       testText = _props$attributes.testText;
 
   var contentRenderColumns = function contentRenderColumns(index) {
-    var _testText$index, _testText$index$image, _testText$index$image2, _testText$index$image3, _testText$index2;
+    var _testText$index, _testText$index$image, _testText$index$image2, _testText$index$image3, _testText$index2, _testText$index3, _testText$index3$imag, _testText$index3$imag2, _testText$index3$imag3, _testText$index4;
 
     return /*#__PURE__*/React.createElement("div", {
       key: index,
       className: "item-test__wrapper item_test_".concat(index)
     }, /*#__PURE__*/React.createElement("h1", null, "Item Test Counter ", "".concat(index)), /*#__PURE__*/React.createElement("figure", {
       className: "podkit-logo"
-    }, testText[index].imageUrl ? /*#__PURE__*/React.createElement("img", {
-      src: (_testText$index = testText[index]) === null || _testText$index === void 0 ? void 0 : (_testText$index$image = _testText$index.imageUrl) === null || _testText$index$image === void 0 ? void 0 : (_testText$index$image2 = _testText$index$image.sizes) === null || _testText$index$image2 === void 0 ? void 0 : (_testText$index$image3 = _testText$index$image2.full) === null || _testText$index$image3 === void 0 ? void 0 : _testText$index$image3.url,
+    }, ((_testText$index = testText[index]) === null || _testText$index === void 0 ? void 0 : (_testText$index$image = _testText$index.imageUrl) === null || _testText$index$image === void 0 ? void 0 : (_testText$index$image2 = _testText$index$image.sizes) === null || _testText$index$image2 === void 0 ? void 0 : (_testText$index$image3 = _testText$index$image2.full) === null || _testText$index$image3 === void 0 ? void 0 : _testText$index$image3.url) == undefined ? /*#__PURE__*/React.createElement("img", {
+      src: (_testText$index2 = testText[index]) === null || _testText$index2 === void 0 ? void 0 : _testText$index2.imageUrl,
       alt: "logo"
     }) : /*#__PURE__*/React.createElement("img", {
-      src: "https://survey-project.lndo.site/wp-content/plugins/podkit/images/default-thumbnail.jpg",
+      src: (_testText$index3 = testText[index]) === null || _testText$index3 === void 0 ? void 0 : (_testText$index3$imag = _testText$index3.imageUrl) === null || _testText$index3$imag === void 0 ? void 0 : (_testText$index3$imag2 = _testText$index3$imag.sizes) === null || _testText$index3$imag2 === void 0 ? void 0 : (_testText$index3$imag3 = _testText$index3$imag2.full) === null || _testText$index3$imag3 === void 0 ? void 0 : _testText$index3$imag3.url,
       alt: "logo"
     })), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__["RichText"].Content, {
-      value: (_testText$index2 = testText[index]) === null || _testText$index2 === void 0 ? void 0 : _testText$index2.title,
+      value: (_testText$index4 = testText[index]) === null || _testText$index4 === void 0 ? void 0 : _testText$index4.title,
       tagName: "h3"
     }));
   };
@@ -6700,17 +6717,25 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+var ITEM_COUNT = 3;
+var test_block = [];
+
+for (var i = 1; i <= ITEM_COUNT; i++) {
+  var title_text = "Test Text For the Block";
+  test_block.push({
+    title: title_text,
+    imageUrl: "https://survey-project.lndo.site/wp-content/plugins/podkit/images/default-thumbnail.jpg"
+  });
+}
+
 var testblockAttributes = {
   columnsNumber: {
     type: "number",
-    default: 1
+    default: ITEM_COUNT
   },
   testText: {
     type: "array",
-    default: [{
-      title: "",
-      imageUrl: ""
-    }]
+    default: test_block
   }
 };
 var testblockSupports = {

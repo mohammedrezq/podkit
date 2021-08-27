@@ -4,20 +4,26 @@ import { registerBlockType } from "@wordpress/blocks";
 import { ReactComponent as Logo } from "../bv-logo.svg";
 import Edit from "./Edit";
 import Save from "./Save";
+const ITEM_COUNT = 3
+const test_block = [];
+for (var i = 1; i <= ITEM_COUNT; i++) {
+  const title_text = "Test Text For the Block";
+
+  test_block.push({
+    title: title_text,
+    imageUrl:
+      "https://survey-project.lndo.site/wp-content/plugins/podkit/images/default-thumbnail.jpg",
+  });
+}
 
 const testblockAttributes = {
   columnsNumber: {
     type: "number",
-    default: 1,
+    default: ITEM_COUNT,
   },
   testText: {
     type: "array",
-    default: [
-      {
-        title: "",
-        imageUrl: "",
-      },
-    ],
+    default: test_block,
   },
 };
 
