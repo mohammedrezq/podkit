@@ -10,22 +10,6 @@ const Save = (props) => {
     attributes: { columnsNumber, test_block },
   } = props;
 
-  // const contentRenderColumns = (index) => {
-  //   return (
-  //     <div key={index} className={`item-test__wrapper item_test_${index}`}>
-  //       <h1>Item Test Counter {`${index}`}</h1>
-  //       {/* <figure className="podkit-logo"> */}
-  //         {/* {(testText[index]?.imageUrl?.sizes?.full?.url == undefined) ? (
-  //           <img src={testText[index]?.imageUrl} alt="logo" />
-  //           ) : (
-  //           <img src={testText[index]?.imageUrl?.sizes?.full?.url} alt="logo" />
-  //         )}
-  //       </figure> */}
-  //       <RichText.Content value={testText[index]?.title} tagName="h3" />
-  //     </div>
-  //   );
-  // };
-
   return (
     <Fragment>
       <h1>Hello Testing Block</h1>
@@ -35,11 +19,11 @@ const Save = (props) => {
           <Fragment>
             <h1>Section {index}</h1>
             <figure className="podkit-logo">
-              {test_block[index]?.image?.sizes?.full?.url == undefined ? (
-                <img src={test_block[index]?.image} alt="logo" />
+              {test_block[index].image?.sizes?.full?.url ? (
+                <img src={test_block[index].image?.sizes?.full?.url} alt="logo" />
               ) : (
                 <img
-                  src={test_block[index]?.image?.sizes?.full?.url}
+                  src={"https://survey-project.lndo.site/wp-content/plugins/podkit/images/default-thumbnail.jpg"}
                   alt="logo"
                 />
               )}

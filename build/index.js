@@ -6795,34 +6795,19 @@ __webpack_require__.r(__webpack_exports__);
 var Save = function Save(props) {
   var _props$attributes = props.attributes,
       columnsNumber = _props$attributes.columnsNumber,
-      test_block = _props$attributes.test_block; // const contentRenderColumns = (index) => {
-  //   return (
-  //     <div key={index} className={`item-test__wrapper item_test_${index}`}>
-  //       <h1>Item Test Counter {`${index}`}</h1>
-  //       {/* <figure className="podkit-logo"> */}
-  //         {/* {(testText[index]?.imageUrl?.sizes?.full?.url == undefined) ? (
-  //           <img src={testText[index]?.imageUrl} alt="logo" />
-  //           ) : (
-  //           <img src={testText[index]?.imageUrl?.sizes?.full?.url} alt="logo" />
-  //         )}
-  //       </figure> */}
-  //       <RichText.Content value={testText[index]?.title} tagName="h3" />
-  //     </div>
-  //   );
-  // };
-
+      test_block = _props$attributes.test_block;
   return /*#__PURE__*/React.createElement(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, /*#__PURE__*/React.createElement("h1", null, "Hello Testing Block"), /*#__PURE__*/React.createElement("div", {
     className: "container__items"
   }, test_block.map(function (test, index) {
-    var _test_block$index, _test_block$index$ima, _test_block$index$ima2, _test_block$index$ima3, _test_block$index2, _test_block$index3, _test_block$index3$im, _test_block$index3$im2, _test_block$index3$im3;
+    var _test_block$index$ima, _test_block$index$ima2, _test_block$index$ima3, _test_block$index$ima4, _test_block$index$ima5, _test_block$index$ima6;
 
     return /*#__PURE__*/React.createElement(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, /*#__PURE__*/React.createElement("h1", null, "Section ", index), /*#__PURE__*/React.createElement("figure", {
       className: "podkit-logo"
-    }, ((_test_block$index = test_block[index]) === null || _test_block$index === void 0 ? void 0 : (_test_block$index$ima = _test_block$index.image) === null || _test_block$index$ima === void 0 ? void 0 : (_test_block$index$ima2 = _test_block$index$ima.sizes) === null || _test_block$index$ima2 === void 0 ? void 0 : (_test_block$index$ima3 = _test_block$index$ima2.full) === null || _test_block$index$ima3 === void 0 ? void 0 : _test_block$index$ima3.url) == undefined ? /*#__PURE__*/React.createElement("img", {
-      src: (_test_block$index2 = test_block[index]) === null || _test_block$index2 === void 0 ? void 0 : _test_block$index2.image,
+    }, (_test_block$index$ima = test_block[index].image) !== null && _test_block$index$ima !== void 0 && (_test_block$index$ima2 = _test_block$index$ima.sizes) !== null && _test_block$index$ima2 !== void 0 && (_test_block$index$ima3 = _test_block$index$ima2.full) !== null && _test_block$index$ima3 !== void 0 && _test_block$index$ima3.url ? /*#__PURE__*/React.createElement("img", {
+      src: (_test_block$index$ima4 = test_block[index].image) === null || _test_block$index$ima4 === void 0 ? void 0 : (_test_block$index$ima5 = _test_block$index$ima4.sizes) === null || _test_block$index$ima5 === void 0 ? void 0 : (_test_block$index$ima6 = _test_block$index$ima5.full) === null || _test_block$index$ima6 === void 0 ? void 0 : _test_block$index$ima6.url,
       alt: "logo"
     }) : /*#__PURE__*/React.createElement("img", {
-      src: (_test_block$index3 = test_block[index]) === null || _test_block$index3 === void 0 ? void 0 : (_test_block$index3$im = _test_block$index3.image) === null || _test_block$index3$im === void 0 ? void 0 : (_test_block$index3$im2 = _test_block$index3$im.sizes) === null || _test_block$index3$im2 === void 0 ? void 0 : (_test_block$index3$im3 = _test_block$index3$im2.full) === null || _test_block$index3$im3 === void 0 ? void 0 : _test_block$index3$im3.url,
+      src: "https://survey-project.lndo.site/wp-content/plugins/podkit/images/default-thumbnail.jpg",
       alt: "logo"
     })), /*#__PURE__*/React.createElement("div", {
       className: "uagb-testinomial-text-wrap",
