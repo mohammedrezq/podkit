@@ -8,5 +8,8 @@ import "./extendable";
 import "./dynamic";
 import "./flip";
 import "./button";
+import "./testblock";
+import "./team-memebers";
+import "./new-test";
 import "./editor.scss";
 import "./style.scss";

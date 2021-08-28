@@ -24,6 +24,7 @@ import Typography from "../components/Typography";
 import TextShadow from "../components/TextShadow";
 import Border from "../components/Border";
 import BoxShadow from "../components/BoxShadow";
+import Padding from "../components/Padding";
 
 const Edit = (props) => {
   const {
@@ -55,6 +56,11 @@ const Edit = (props) => {
       boxShadowVertical,
       boxShadowPosition,
       buttonSpace,
+      paddingTop,
+      paddingRight,
+      paddingBottom,
+      paddingLeft,
+      paddingUnit,
     },
     setAttributes,
   } = props;
@@ -134,7 +140,7 @@ const Edit = (props) => {
   };
 
   return [
-    <InspectorControls>
+    <InspectorControls key="inspector_control_section">
       <PanelBody title={__("Button Settings", "wpb")}>
         <div className="components-base-control">
           <div className="components-base-control__field">
@@ -299,11 +305,42 @@ const Edit = (props) => {
               }}
               allowReset="true"
             />
+            <Padding
+              paddingTop={paddingTop}
+              paddingRight={paddingRight}
+              paddingBottom={paddingBottom}
+              paddingLeft={paddingLeft}
+              onChangePadTop={(value) =>
+                setAttributes({
+                  paddingTop: value,
+                })
+              }
+              onChangePadRight={(value) =>
+                setAttributes({
+                  paddingRight: value,
+                })
+              }
+              onChangePadBottom={(value) =>
+                setAttributes({
+                  paddingBottom: value,
+                })
+              }
+              onChangePadLeft={(value) =>
+                setAttributes({
+                  paddingLeft: value,
+                })
+              }
+              showUnits={true}
+              selectedUnit={paddingUnit}
+              onChangePadSizeUnit={(newvalue) =>
+                setAttributes({ paddingUnit: newvalue })
+              }
+            />
           </div>
         </div>
       </PanelBody>
     </InspectorControls>,
-    <div className="wpb_block_container">
+    <div className="wpb_block_container" key="render_section">
       <style
         dangerouslySetInnerHTML={{
           __html: [
@@ -350,7 +387,11 @@ const Edit = (props) => {
             lineHeight: textLineHeight,
             textShadow: `${textShadowHorizontal}px ${textShadowVertical}px ${textShadowColor}`,
             boxShadow: `${boxShadowHorizontal}px ${boxShadowVertical}px ${boxShadowBlur}px ${boxShadowColor} ${boxShadowPosition}`,
-            padding: `${buttonSpace}px`,
+            // padding: `${buttonSpace}px`,
+            paddingTop: paddingTop + paddingUnit,
+            paddingBottom: paddingBottom + paddingUnit,
+            paddingLeft: paddingLeft + paddingUnit,
+            paddingRight: paddingRight + paddingUnit
           }}
           onChange={(newValue) => {
             setAttributes({ buttonText: newValue });

@@ -281,4 +281,51 @@ body {
   transform: scaleX(1);
 }
 
+.wpb_tabs_panel .components-tab-panel__tabs {
+  min-width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(80px, 1fr))[3];
+  grid-template-columns: repeat(3, minmax(80px, 1fr));
+  height: 60px;
+}
+.wpb_tabs_panel .components-tab-panel__tabs .components-tab-panel__tabs-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+  border-right: 1px solid #000000;
+  height: 100%;
+  min-width: 33%;
+}
+.wpb_tabs_panel .components-tab-panel__tabs .components-tab-panel__tabs-item:last-child {
+  border-right: none;
+}
+.wpb_tabs_panel .components-tab-panel__tabs .components-tab-panel__tabs-item .icon_layout {
+  margin-bottom: 6px;
+}
+.wpb_tabs_panel .components-tab-panel__tabs .components-tab-panel__tabs-item:focus {
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+}
+.wpb_tabs_panel .components-tab-panel__tabs .components-tab-panel__tabs-item.is_active {
+  background-color: #000000;
+  color: #ffffff;
+  border-top: none;
+}
+.wpb_tabs_panel .components-tab-panel__tabs .components-tab-panel__tabs-item.is_active:focus {
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+}
+
+.wpb_block_container .team_memeber_thumbnail_image {
+  color: #ffffff;
+  background-color: #000000;
+  border: 1px solid grey;
+}
+
 /*# sourceMappingURL=index.css.map*/

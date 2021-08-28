@@ -35,7 +35,7 @@ const Save = (props) => {
     },
   } = props;
   return (
-    <div class="cards">
+    <div className="cards">
       <style
         dangerouslySetInnerHTML={{
           __html: [
@@ -50,16 +50,16 @@ const Save = (props) => {
           ].join("\n"),
         }}
       />
-      <div class="card">
+      <div className="card">
         <div
-          class="card-body"
+          className="card-body"
           style={{
             boxShadow: `${boxShadowHorizontal}px ${boxShadowVertical}px ${boxShadowBlur}px ${boxShadowColor} ${boxShadowPosition}`,
             borderRadius: borderRadius + "px",
           }}
         >
           <div
-            class="card-front"
+            className="card-front"
             style={{
               display: "block",
               fontFamily: cardFontFamily,
@@ -89,7 +89,7 @@ const Save = (props) => {
             />
           </div>
           <div
-            class="card-back"
+            className="card-back"
             style={{
               display: "block",
               fontFamily: cardFontFamily,

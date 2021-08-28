@@ -117,8 +117,24 @@ const buttonAttributes = {
   },
   buttonSpace: {
     type: "number",
-    default: 16
-  }
+    default: 16,
+  },
+  paddingTop: {
+    type: "number",
+  },
+  paddingRight: {
+    type: "number",
+  },
+  paddingBottom: {
+    type: "number",
+  },
+  paddingLeft: {
+    type: "number",
+  },
+  paddingUnit: {
+    type: "string",
+    default: "px",
+  },
 };
 
 const buttonSupports = {
