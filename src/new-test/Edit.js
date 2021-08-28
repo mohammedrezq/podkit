@@ -57,10 +57,16 @@ import BoxShadow from "../components/BoxShadow";
 import Padding from "../components/Padding";
 import Description from "../components/Description";
 import Position from "../components/Position";
+import MeasurementControls from "../components/MeasurementControl";
 
 const Edit = (props) => {
   const {
-    attributes: { columnsNumber, test_block },
+    attributes: {
+      columnsNumber,
+      test_block,
+      titlePadding,
+      titlePaddingControl,
+    },
     setAttributes,
   } = props;
 
@@ -75,6 +81,8 @@ const Edit = (props) => {
       test_block: newUpdate,
     });
   };
+
+  console.log(titlePadding);
 
   return [
     <InspectorControls key="inspector_control_section">
@@ -113,6 +121,18 @@ const Edit = (props) => {
         max={50}
         allowReset
       />
+      <Fragment>
+        <MeasurementControls
+          label={__("Title Padding (px)", "kadence-blocks")}
+          measurement={titlePadding}
+          control={titlePaddingControl}
+          onChange={(value) => setAttributes({ titlePadding: value })}
+          onControl={(value) => setAttributes({ titlePaddingControl: value })}
+          min={0}
+          max={50}
+          step={1}
+        />
+      </Fragment>
       {/* <RangeControl
         label={__("Columns Number", "wpb")}
         min="1"
@@ -137,7 +157,13 @@ const Edit = (props) => {
       /> */}
     </InspectorControls>,
     <div className="wpb_block_container" key="render_section">
-      <h1>Testing Block Block</h1>
+      <h1
+        style={{
+          padding: titlePadding,
+        }}
+      >
+        Testing Block Block
+      </h1>
       <div className="container__items">
         {test_block.map((test, index) => (
           <Fragment>
