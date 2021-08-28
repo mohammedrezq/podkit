@@ -55,101 +55,64 @@ import TextShadow from "../components/TextShadow";
 import Border from "../components/Border";
 import BoxShadow from "../components/BoxShadow";
 import Padding from "../components/Padding";
+import Description from "../components/Description";
 
 const Edit = (props) => {
   const {
-    attributes: { columnsNumber, testText },
+    attributes: { columnsNumber, test_block },
     setAttributes,
   } = props;
 
-
-  
-  const saveTestText = ( value, thisIndex ) => {
-    const newUpdate = testText.map( ( item, index ) => {
-      if ( index === thisIndex ) {
+  const saveTestText = (value, thisIndex) => {
+    const newUpdate = test_block.map((item, index) => {
+      if (index === thisIndex) {
         item = { ...item, ...value };
       }
       return item;
-    } );
-    setAttributes( {
-      testText: newUpdate,
-    } );
-  };
-
-  // const saveTestText = (value, thisIndex) => {
-  //   const newUpdate = testText.map((item, index) => {
-  //     if (index === thisIndex) {
-  //       console.log(item);
-  //       console.log(index);
-  //       console.log(theIndex);
-  //       item = { ...item, ...value };
-  //     }
-  //     return item;
-  //   });
-  //   setAttributes({
-  //     testText: newUpdate,
-  //   });
-  // };
-
-  console.log(props.attributes.testText);
-
-  const renderPreviewContent = (index) => {
-    return (
-      <div
-        className={`item-test__wrapper item_test_${index}`}
-        key={Math.random() * 30051}
-      >
-        <h1>Item Test Counter {`${index}`}</h1>
-        {testText[index] && (
-          <img
-            src={
-              testText[index].imageUrl?.sizes?.full?.url
-                ? testText[index].imageUrl?.sizes?.full?.url
-                : "https://survey-project.lndo.site/wp-content/plugins/podkit/images/default-thumbnail.jpg"
-            }
-            alt="logo"
-          />
-        )}
-        <MediaUpload
-          key={Math.random() *66}
-          className={`media-image__upload${index}`}
-          onSelect={(media) => {
-            saveTestText(
-              {
-                imageUrl: media,
-              },
-              index
-            );
-          }}
-          type="image"
-          value={testText[index]?.imageUrl?.sizes?.full?.url}
-          render={({ open }) => (
-            <Button
-              style={{ backgroundColor: "#000", color: "#fff", width: "80px" }}
-              className="kt-testimonial-image-placeholder"
-              aria-label={__("Add Image", "kadence-blocks")}
-              onClick={open}
-            >
-              Image Select
-            </Button>
-          )}
-        />
-        <RichText
-          key={index}
-          onChange={(newValue) => {
-            saveTestText({ title: newValue }, index);
-          }}
-          value={testText[index].title}
-          placeholder={__("Text Placeholder", "wpb")}
-        />
-      </div>
-    );
+    });
+    setAttributes({
+      test_block: newUpdate,
+    });
   };
 
   return [
     <InspectorControls key="inspector_control_section">
       <h3>Testing Block Settings</h3>
       <RangeControl
+        label={__("Number of Testimonials", "ultimate-addons-for-gutenberg")}
+        value={columnsNumber}
+        onChange={(newCount) => {
+          let cloneTest_block = [...test_block];
+          if (cloneTest_block.length < newCount) {
+            const incAmount = Math.abs(newCount - cloneTest_block.length);
+
+            {
+              times(incAmount, (n) => {
+                cloneTest_block.push({
+                  description:
+                    "I have been working with these guys since years now! With lots of hard work and timely communication they made sure they delivered the best to me. Highly recommended!",
+                  name: "John Doe",
+                  company: "Company" + (cloneTest_block.length + 1),
+                  image: "",
+                });
+              });
+            }
+            setAttributes({ test_block: cloneTest_block });
+          } else {
+            const incAmount = Math.abs(newCount - cloneTest_block.length);
+            let data_new = cloneTest_block;
+            for (var i = 0; i < incAmount; i++) {
+              data_new.pop();
+            }
+            setAttributes({ test_block: data_new });
+          }
+          setAttributes({ columnsNumber: newCount });
+        }}
+        min={0}
+        max={50}
+        allowReset
+      />
+      {/* <RangeControl
         label={__("Columns Number", "wpb")}
         min="1"
         max="3"
@@ -157,34 +120,77 @@ const Edit = (props) => {
         value={columnsNumber}
         onChange={(newCount) => {
           const newitems = props.attributes.testText;
-          console.log(newitems);
           if (newitems.length < newCount) {
             const amount = Math.abs(newCount - newitems.length);
-            console.log(amount)
             {
               times(amount, (n) => {
                 newitems.push({
-                  title: newitems[0].title,
-                  imageUrl: newitems[0].imageUrl,
+                  title: newitems.title,
                 });
               });
             }
             setAttributes({ testText: newitems });
-            saveTestText(
-              {
-                title: testText[0].title,
-              },
-              0
-            );
           }
           setAttributes({ columnsNumber: newCount });
         }}
-      />
+      /> */}
     </InspectorControls>,
     <div className="wpb_block_container" key="render_section">
       <h1>Testing Block Block</h1>
       <div className="container__items">
-        {times(columnsNumber, (n) => renderPreviewContent(n))}
+        {test_block.map((test, index) => (
+          <Fragment>
+            <h1>Section {index}</h1>
+            {test_block[index] && (
+              <img
+                src={
+                  test_block[index].image?.sizes?.full?.url
+                    ? test_block[index].image?.sizes?.full?.url
+                    : "https://survey-project.lndo.site/wp-content/plugins/podkit/images/default-thumbnail.jpg"
+                }
+                alt="logo"
+              />
+            )}
+            <MediaUpload
+              className={`media-image__upload${index}`}
+              onSelect={(media) => {
+                saveTestText(
+                  {
+                    image: media,
+                  },
+                  index
+                );
+              }}
+              value={test_block[index]?.image?.sizes?.full?.url}
+              type="image"
+              render={({ open }) => (
+                <Button
+                  style={{
+                    backgroundColor: "#000",
+                    color: "#fff",
+                    width: "80px",
+                  }}
+                  className="kt-testimonial-image-placeholder"
+                  aria-label={__("Add Image", "kadence-blocks")}
+                  onClick={open}
+                >
+                  Image Select
+                </Button>
+              )}
+            />
+            <div
+              className="uagb-testinomial-text-wrap"
+              key={"text-wrap-" + index}
+            >
+              <Description
+                attributes={props.attributes}
+                setAttributes={setAttributes}
+                props={props}
+                index_value={index}
+              />
+            </div>
+          </Fragment>
+        ))}
       </div>
     </div>,
   ];

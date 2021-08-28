@@ -1897,6 +1897,138 @@ var BoxShadow = function BoxShadow(props) {
 
 /***/ }),
 
+/***/ "./src/components/Description.js":
+/*!***************************************!*\
+  !*** ./src/components/Description.js ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+var createBlock = wp.blocks.createBlock;
+
+var Description = /*#__PURE__*/function (_React$Component) {
+  _inherits(Description, _React$Component);
+
+  var _super = _createSuper(Description);
+
+  function Description() {
+    _classCallCheck(this, Description);
+
+    return _super.apply(this, arguments);
+  }
+
+  _createClass(Description, [{
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          attributes = _this$props.attributes,
+          setAttributes = _this$props.setAttributes,
+          props = _this$props.props,
+          index_value = _this$props.index_value;
+      var test_arr = attributes.test_block[index_value];
+      var description = "";
+
+      if (test_arr && typeof test_arr !== "undefined") {
+        description = test_arr["description"];
+      }
+
+      var data_copy = _toConsumableArray(attributes.test_block);
+
+      if (setAttributes !== "not_set") {
+        return /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__["RichText"], {
+          tagName: "div",
+          value: description,
+          placeholder: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Write Description", 'ultimate-addons-for-gutenberg'),
+          className: "uagb-tm__desc",
+          onChange: function onChange(value) {
+            var new_content = {
+              "description": value,
+              "name": data_copy[index_value]["name"],
+              "company": data_copy[index_value]["company"],
+              "image": data_copy[index_value]["image"]
+            };
+            data_copy[index_value] = new_content;
+            setAttributes({
+              "test_block": data_copy
+            });
+          },
+          onMerge: props.mergeBlocks,
+          onSplit: props.insertBlocksAfter ? function (before, after) {
+            setAttributes({
+              content: before
+            });
+
+            for (var _len = arguments.length, blocks = new Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
+              blocks[_key - 2] = arguments[_key];
+            }
+
+            props.insertBlocksAfter([].concat(blocks, [createBlock("core/paragraph", {
+              content: after
+            })]));
+          } : undefined,
+          onRemove: function onRemove() {
+            return props.onReplace([]);
+          }
+        });
+      } else {
+        return /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__["RichText"].Content, {
+          tagName: "div",
+          value: description,
+          className: "uagb-tm__desc"
+        });
+      }
+    }
+  }]);
+
+  return Description;
+}(React.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (Description);
+
+/***/ }),
+
 /***/ "./src/components/Padding.js":
 /*!***********************************!*\
   !*** ./src/components/Padding.js ***!
@@ -6489,6 +6621,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Border__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/Border */ "./src/components/Border.js");
 /* harmony import */ var _components_BoxShadow__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../components/BoxShadow */ "./src/components/BoxShadow.js");
 /* harmony import */ var _components_Padding__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../components/Padding */ "./src/components/Padding.js");
+/* harmony import */ var _components_Description__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../components/Description */ "./src/components/Description.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -6510,14 +6655,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 var Edit = function Edit(props) {
   var _props$attributes = props.attributes,
       columnsNumber = _props$attributes.columnsNumber,
-      testText = _props$attributes.testText,
+      test_block = _props$attributes.test_block,
       setAttributes = props.setAttributes;
 
   var saveTestText = function saveTestText(value, thisIndex) {
-    var newUpdate = testText.map(function (item, index) {
+    var newUpdate = test_block.map(function (item, index) {
       if (index === thisIndex) {
         item = _objectSpread(_objectSpread({}, item), value);
       }
@@ -6525,45 +6671,74 @@ var Edit = function Edit(props) {
       return item;
     });
     setAttributes({
-      testText: newUpdate
+      test_block: newUpdate
     });
-  }; // const saveTestText = (value, thisIndex) => {
-  //   const newUpdate = testText.map((item, index) => {
-  //     if (index === thisIndex) {
-  //       console.log(item);
-  //       console.log(index);
-  //       console.log(theIndex);
-  //       item = { ...item, ...value };
-  //     }
-  //     return item;
-  //   });
-  //   setAttributes({
-  //     testText: newUpdate,
-  //   });
-  // };
+  };
 
+  return [/*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__["InspectorControls"], {
+    key: "inspector_control_section"
+  }, /*#__PURE__*/React.createElement("h3", null, "Testing Block Settings"), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["RangeControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Number of Testimonials", "ultimate-addons-for-gutenberg"),
+    value: columnsNumber,
+    onChange: function onChange(newCount) {
+      var cloneTest_block = _toConsumableArray(test_block);
 
-  console.log(props.attributes.testText);
+      if (cloneTest_block.length < newCount) {
+        var incAmount = Math.abs(newCount - cloneTest_block.length);
+        {
+          lodash_times__WEBPACK_IMPORTED_MODULE_0___default()(incAmount, function (n) {
+            cloneTest_block.push({
+              description: "I have been working with these guys since years now! With lots of hard work and timely communication they made sure they delivered the best to me. Highly recommended!",
+              name: "John Doe",
+              company: "Company" + (cloneTest_block.length + 1),
+              image: ""
+            });
+          });
+        }
+        setAttributes({
+          test_block: cloneTest_block
+        });
+      } else {
+        var _incAmount = Math.abs(newCount - cloneTest_block.length);
 
-  var renderPreviewContent = function renderPreviewContent(index) {
-    var _testText$index$image, _testText$index$image2, _testText$index$image3, _testText$index$image4, _testText$index$image5, _testText$index$image6, _testText$index, _testText$index$image7, _testText$index$image8, _testText$index$image9;
+        var data_new = cloneTest_block;
 
-    return /*#__PURE__*/React.createElement("div", {
-      className: "item-test__wrapper item_test_".concat(index),
-      key: Math.random() * 30051
-    }, /*#__PURE__*/React.createElement("h1", null, "Item Test Counter ", "".concat(index)), testText[index] && /*#__PURE__*/React.createElement("img", {
-      src: (_testText$index$image = testText[index].imageUrl) !== null && _testText$index$image !== void 0 && (_testText$index$image2 = _testText$index$image.sizes) !== null && _testText$index$image2 !== void 0 && (_testText$index$image3 = _testText$index$image2.full) !== null && _testText$index$image3 !== void 0 && _testText$index$image3.url ? (_testText$index$image4 = testText[index].imageUrl) === null || _testText$index$image4 === void 0 ? void 0 : (_testText$index$image5 = _testText$index$image4.sizes) === null || _testText$index$image5 === void 0 ? void 0 : (_testText$index$image6 = _testText$index$image5.full) === null || _testText$index$image6 === void 0 ? void 0 : _testText$index$image6.url : "https://survey-project.lndo.site/wp-content/plugins/podkit/images/default-thumbnail.jpg",
+        for (var i = 0; i < _incAmount; i++) {
+          data_new.pop();
+        }
+
+        setAttributes({
+          test_block: data_new
+        });
+      }
+
+      setAttributes({
+        columnsNumber: newCount
+      });
+    },
+    min: 0,
+    max: 50,
+    allowReset: true
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "wpb_block_container",
+    key: "render_section"
+  }, /*#__PURE__*/React.createElement("h1", null, "Testing Block Block"), /*#__PURE__*/React.createElement("div", {
+    className: "container__items"
+  }, test_block.map(function (test, index) {
+    var _test_block$index$ima, _test_block$index$ima2, _test_block$index$ima3, _test_block$index$ima4, _test_block$index$ima5, _test_block$index$ima6, _test_block$index, _test_block$index$ima7, _test_block$index$ima8, _test_block$index$ima9;
+
+    return /*#__PURE__*/React.createElement(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["Fragment"], null, /*#__PURE__*/React.createElement("h1", null, "Section ", index), test_block[index] && /*#__PURE__*/React.createElement("img", {
+      src: (_test_block$index$ima = test_block[index].image) !== null && _test_block$index$ima !== void 0 && (_test_block$index$ima2 = _test_block$index$ima.sizes) !== null && _test_block$index$ima2 !== void 0 && (_test_block$index$ima3 = _test_block$index$ima2.full) !== null && _test_block$index$ima3 !== void 0 && _test_block$index$ima3.url ? (_test_block$index$ima4 = test_block[index].image) === null || _test_block$index$ima4 === void 0 ? void 0 : (_test_block$index$ima5 = _test_block$index$ima4.sizes) === null || _test_block$index$ima5 === void 0 ? void 0 : (_test_block$index$ima6 = _test_block$index$ima5.full) === null || _test_block$index$ima6 === void 0 ? void 0 : _test_block$index$ima6.url : "https://survey-project.lndo.site/wp-content/plugins/podkit/images/default-thumbnail.jpg",
       alt: "logo"
     }), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__["MediaUpload"], {
-      key: Math.random() * 66,
       className: "media-image__upload".concat(index),
       onSelect: function onSelect(media) {
         saveTestText({
-          imageUrl: media
+          image: media
         }, index);
       },
+      value: (_test_block$index = test_block[index]) === null || _test_block$index === void 0 ? void 0 : (_test_block$index$ima7 = _test_block$index.image) === null || _test_block$index$ima7 === void 0 ? void 0 : (_test_block$index$ima8 = _test_block$index$ima7.sizes) === null || _test_block$index$ima8 === void 0 ? void 0 : (_test_block$index$ima9 = _test_block$index$ima8.full) === null || _test_block$index$ima9 === void 0 ? void 0 : _test_block$index$ima9.url,
       type: "image",
-      value: (_testText$index = testText[index]) === null || _testText$index === void 0 ? void 0 : (_testText$index$image7 = _testText$index.imageUrl) === null || _testText$index$image7 === void 0 ? void 0 : (_testText$index$image8 = _testText$index$image7.sizes) === null || _testText$index$image8 === void 0 ? void 0 : (_testText$index$image9 = _testText$index$image8.full) === null || _testText$index$image9 === void 0 ? void 0 : _testText$index$image9.url,
       render: function render(_ref) {
         var open = _ref.open;
         return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["Button"], {
@@ -6577,60 +6752,15 @@ var Edit = function Edit(props) {
           onClick: open
         }, "Image Select");
       }
-    }), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__["RichText"], {
-      key: index,
-      onChange: function onChange(newValue) {
-        saveTestText({
-          title: newValue
-        }, index);
-      },
-      value: testText[index].title,
-      placeholder: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Text Placeholder", "wpb")
-    }));
-  };
-
-  return [/*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__["InspectorControls"], {
-    key: "inspector_control_section"
-  }, /*#__PURE__*/React.createElement("h3", null, "Testing Block Settings"), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["RangeControl"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Columns Number", "wpb"),
-    min: "1",
-    max: "3",
-    allowReset: true,
-    value: columnsNumber,
-    onChange: function onChange(newCount) {
-      var newitems = props.attributes.testText;
-      console.log(newitems);
-
-      if (newitems.length < newCount) {
-        var amount = Math.abs(newCount - newitems.length);
-        console.log(amount);
-        {
-          lodash_times__WEBPACK_IMPORTED_MODULE_0___default()(amount, function (n) {
-            newitems.push({
-              title: newitems[0].title,
-              imageUrl: newitems[0].imageUrl
-            });
-          });
-        }
-        setAttributes({
-          testText: newitems
-        });
-        saveTestText({
-          title: testText[0].title
-        }, 0);
-      }
-
-      setAttributes({
-        columnsNumber: newCount
-      });
-    }
-  })), /*#__PURE__*/React.createElement("div", {
-    className: "wpb_block_container",
-    key: "render_section"
-  }, /*#__PURE__*/React.createElement("h1", null, "Testing Block Block"), /*#__PURE__*/React.createElement("div", {
-    className: "container__items"
-  }, lodash_times__WEBPACK_IMPORTED_MODULE_0___default()(columnsNumber, function (n) {
-    return renderPreviewContent(n);
+    }), /*#__PURE__*/React.createElement("div", {
+      className: "uagb-testinomial-text-wrap",
+      key: "text-wrap-" + index
+    }, /*#__PURE__*/React.createElement(_components_Description__WEBPACK_IMPORTED_MODULE_13__["default"], {
+      attributes: props.attributes,
+      setAttributes: setAttributes,
+      props: props,
+      index_value: index
+    })));
   })))];
 };
 
@@ -6655,6 +6785,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var lodash_times__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash/times */ "./node_modules/lodash/times.js");
 /* harmony import */ var lodash_times__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash_times__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _components_Description__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Description */ "./src/components/Description.js");
+
 
 
 
@@ -6663,32 +6795,44 @@ __webpack_require__.r(__webpack_exports__);
 var Save = function Save(props) {
   var _props$attributes = props.attributes,
       columnsNumber = _props$attributes.columnsNumber,
-      testText = _props$attributes.testText;
-
-  var contentRenderColumns = function contentRenderColumns(index) {
-    var _testText$index, _testText$index$image, _testText$index$image2, _testText$index$image3, _testText$index2, _testText$index3, _testText$index3$imag, _testText$index3$imag2, _testText$index3$imag3, _testText$index4;
-
-    return /*#__PURE__*/React.createElement("div", {
-      key: index,
-      className: "item-test__wrapper item_test_".concat(index)
-    }, /*#__PURE__*/React.createElement("h1", null, "Item Test Counter ", "".concat(index)), /*#__PURE__*/React.createElement("figure", {
-      className: "podkit-logo"
-    }, ((_testText$index = testText[index]) === null || _testText$index === void 0 ? void 0 : (_testText$index$image = _testText$index.imageUrl) === null || _testText$index$image === void 0 ? void 0 : (_testText$index$image2 = _testText$index$image.sizes) === null || _testText$index$image2 === void 0 ? void 0 : (_testText$index$image3 = _testText$index$image2.full) === null || _testText$index$image3 === void 0 ? void 0 : _testText$index$image3.url) == undefined ? /*#__PURE__*/React.createElement("img", {
-      src: (_testText$index2 = testText[index]) === null || _testText$index2 === void 0 ? void 0 : _testText$index2.imageUrl,
-      alt: "logo"
-    }) : /*#__PURE__*/React.createElement("img", {
-      src: (_testText$index3 = testText[index]) === null || _testText$index3 === void 0 ? void 0 : (_testText$index3$imag = _testText$index3.imageUrl) === null || _testText$index3$imag === void 0 ? void 0 : (_testText$index3$imag2 = _testText$index3$imag.sizes) === null || _testText$index3$imag2 === void 0 ? void 0 : (_testText$index3$imag3 = _testText$index3$imag2.full) === null || _testText$index3$imag3 === void 0 ? void 0 : _testText$index3$imag3.url,
-      alt: "logo"
-    })), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__["RichText"].Content, {
-      value: (_testText$index4 = testText[index]) === null || _testText$index4 === void 0 ? void 0 : _testText$index4.title,
-      tagName: "h3"
-    }));
-  };
+      test_block = _props$attributes.test_block; // const contentRenderColumns = (index) => {
+  //   return (
+  //     <div key={index} className={`item-test__wrapper item_test_${index}`}>
+  //       <h1>Item Test Counter {`${index}`}</h1>
+  //       {/* <figure className="podkit-logo"> */}
+  //         {/* {(testText[index]?.imageUrl?.sizes?.full?.url == undefined) ? (
+  //           <img src={testText[index]?.imageUrl} alt="logo" />
+  //           ) : (
+  //           <img src={testText[index]?.imageUrl?.sizes?.full?.url} alt="logo" />
+  //         )}
+  //       </figure> */}
+  //       <RichText.Content value={testText[index]?.title} tagName="h3" />
+  //     </div>
+  //   );
+  // };
 
   return /*#__PURE__*/React.createElement(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, /*#__PURE__*/React.createElement("h1", null, "Hello Testing Block"), /*#__PURE__*/React.createElement("div", {
     className: "container__items"
-  }, lodash_times__WEBPACK_IMPORTED_MODULE_3___default()(columnsNumber, function (n) {
-    return contentRenderColumns(n);
+  }, test_block.map(function (test, index) {
+    var _test_block$index, _test_block$index$ima, _test_block$index$ima2, _test_block$index$ima3, _test_block$index2, _test_block$index3, _test_block$index3$im, _test_block$index3$im2, _test_block$index3$im3;
+
+    return /*#__PURE__*/React.createElement(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, /*#__PURE__*/React.createElement("h1", null, "Section ", index), /*#__PURE__*/React.createElement("figure", {
+      className: "podkit-logo"
+    }, ((_test_block$index = test_block[index]) === null || _test_block$index === void 0 ? void 0 : (_test_block$index$ima = _test_block$index.image) === null || _test_block$index$ima === void 0 ? void 0 : (_test_block$index$ima2 = _test_block$index$ima.sizes) === null || _test_block$index$ima2 === void 0 ? void 0 : (_test_block$index$ima3 = _test_block$index$ima2.full) === null || _test_block$index$ima3 === void 0 ? void 0 : _test_block$index$ima3.url) == undefined ? /*#__PURE__*/React.createElement("img", {
+      src: (_test_block$index2 = test_block[index]) === null || _test_block$index2 === void 0 ? void 0 : _test_block$index2.image,
+      alt: "logo"
+    }) : /*#__PURE__*/React.createElement("img", {
+      src: (_test_block$index3 = test_block[index]) === null || _test_block$index3 === void 0 ? void 0 : (_test_block$index3$im = _test_block$index3.image) === null || _test_block$index3$im === void 0 ? void 0 : (_test_block$index3$im2 = _test_block$index3$im.sizes) === null || _test_block$index3$im2 === void 0 ? void 0 : (_test_block$index3$im3 = _test_block$index3$im2.full) === null || _test_block$index3$im3 === void 0 ? void 0 : _test_block$index3$im3.url,
+      alt: "logo"
+    })), /*#__PURE__*/React.createElement("div", {
+      className: "uagb-testinomial-text-wrap",
+      key: "text-wrap-" + index
+    }, /*#__PURE__*/React.createElement(_components_Description__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      attributes: props.attributes,
+      setAttributes: "not_set",
+      props: props,
+      index_value: index
+    })));
   })));
 };
 
@@ -6721,10 +6865,14 @@ var ITEM_COUNT = 3;
 var test_block = [];
 
 for (var i = 1; i <= ITEM_COUNT; i++) {
-  var title_text = "Test Text For the Block";
+  var desc_text = "I have been working with these guys since years now! With lots of hard work and timely communication they made sure they delivered the best to me. Highly recommended!";
+  var author_text = "John Doe ";
+  var company_text = "Company" + i;
   test_block.push({
-    title: title_text,
-    imageUrl: "https://survey-project.lndo.site/wp-content/plugins/podkit/images/default-thumbnail.jpg"
+    "description": desc_text,
+    "name": author_text,
+    "company": company_text,
+    "image": ""
   });
 }
 
@@ -6733,7 +6881,7 @@ var testblockAttributes = {
     type: "number",
     default: ITEM_COUNT
   },
-  testText: {
+  test_block: {
     type: "array",
     default: test_block
   }

@@ -4,24 +4,32 @@ import { registerBlockType } from "@wordpress/blocks";
 import { ReactComponent as Logo } from "../bv-logo.svg";
 import Edit from "./Edit";
 import Save from "./Save";
-const ITEM_COUNT = 3
-const test_block = [];
-for (var i = 1; i <= ITEM_COUNT; i++) {
-  const title_text = "Test Text For the Block";
 
-  test_block.push({
-    title: title_text,
-    imageUrl:
-      "https://survey-project.lndo.site/wp-content/plugins/podkit/images/default-thumbnail.jpg",
-  });
+const ITEM_COUNT = 3
+
+const test_block = []
+
+for (var i = 1; i <= ITEM_COUNT; i++) {
+	var desc_text = "I have been working with these guys since years now! With lots of hard work and timely communication they made sure they delivered the best to me. Highly recommended!"
+	var author_text    = "John Doe "
+	var company_text    = "Company"+i
+	test_block.push(
+		{
+			"description": desc_text,
+			"name": author_text,
+			"company": company_text,
+			"image": "",
+		}
+	)
 }
+
 
 const testblockAttributes = {
   columnsNumber: {
     type: "number",
     default: ITEM_COUNT,
   },
-  testText: {
+  test_block: {
     type: "array",
     default: test_block,
   },
