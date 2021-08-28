@@ -4,13 +4,13 @@ import { __ } from "@wordpress/i18n";
 
 import { createBlock } from "@wordpress/blocks";
 
-const Description = (propsItems) => {
-  const { attributes, setAttributes, props, index_value } = propsItems;
+const Position = (propItems) => {
+  const { attributes, setAttributes, props, index_value } = propItems;
 
   const test_arr = attributes.test_block[index_value];
-  let description = "";
+  let position = "";
   if (test_arr && typeof test_arr !== "undefined") {
-    description = test_arr["description"];
+    position = test_arr["position"];
   }
 
   var data_copy = [...attributes.test_block];
@@ -19,12 +19,13 @@ const Description = (propsItems) => {
     return (
       <RichText
         tagName="div"
-        value={description}
-        placeholder={__("Write Description", "ultimate-addons-for-gutenberg")}
-        className="uagb-tm__desc"
+        value={position}
+        placeholder={__("Position", "wpb")}
+        className="uagb-tm__position"
         onChange={(value) => {
           var new_content = {
-            description: value,
+            description: data_copy[index_value]["description"],
+            position: value,
             name: data_copy[index_value]["name"],
             company: data_copy[index_value]["company"],
             image: data_copy[index_value]["image"],
@@ -51,11 +52,11 @@ const Description = (propsItems) => {
     return (
       <RichText.Content
         tagName="div"
-        value={description}
-        className="uagb-tm__desc"
+        value={position}
+        className="uagb-tm__position"
       />
     );
   }
 };
 
-export default Description;
+export default Position;

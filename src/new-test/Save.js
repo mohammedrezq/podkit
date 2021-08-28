@@ -4,6 +4,7 @@ import { __ } from "@wordpress/i18n";
 import times from "lodash/times";
 
 import Description from "../components/Description";
+import Position from "../components/Position";
 
 const Save = (props) => {
   const {
@@ -33,6 +34,12 @@ const Save = (props) => {
               key={"text-wrap-" + index}
             >
               <Description
+                attributes={props.attributes}
+                setAttributes="not_set"
+                props={props}
+                index_value={index}
+              />
+              <Position
                 attributes={props.attributes}
                 setAttributes="not_set"
                 props={props}

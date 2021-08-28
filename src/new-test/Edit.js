@@ -56,6 +56,7 @@ import Border from "../components/Border";
 import BoxShadow from "../components/BoxShadow";
 import Padding from "../components/Padding";
 import Description from "../components/Description";
+import Position from "../components/Position";
 
 const Edit = (props) => {
   const {
@@ -183,6 +184,12 @@ const Edit = (props) => {
               key={"text-wrap-" + index}
             >
               <Description
+                attributes={props.attributes}
+                setAttributes={setAttributes}
+                props={props}
+                index_value={index}
+              />
+              <Position
                 attributes={props.attributes}
                 setAttributes={setAttributes}
                 props={props}
