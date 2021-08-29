@@ -5,7 +5,7 @@ import { __ } from "@wordpress/i18n";
 import { createBlock } from "@wordpress/blocks";
 
 const Position = (propItems) => {
-  const { attributes, setAttributes, props, index_value } = propItems;
+  const { attributes, setAttributes, props, index_value, style } = propItems;
 
   const test_arr = attributes.test_block[index_value];
   let position = "";
@@ -17,6 +17,7 @@ const Position = (propItems) => {
 
   if (setAttributes !== "not_set") {
     return (
+      <div style={style}>
       <RichText
         tagName="div"
         value={position}
@@ -47,10 +48,12 @@ const Position = (propItems) => {
         }
         onRemove={() => props.onReplace([])}
       />
+      </div>
     );
   } else {
     return (
       <RichText.Content
+        style={style}
         tagName="div"
         value={position}
         className="uagb-tm__position"

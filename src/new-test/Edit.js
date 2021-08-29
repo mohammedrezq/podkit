@@ -60,7 +60,7 @@ import Position from "../components/Position";
 
 const Edit = (props) => {
   const {
-    attributes: { columnsNumber, test_block },
+    attributes: { columnsNumber, test_block, descriptionSize },
     setAttributes,
   } = props;
 
@@ -112,6 +112,15 @@ const Edit = (props) => {
         min={0}
         max={50}
         allowReset
+      />
+      <RangeControl
+        label={__("Description Text Size", "wpb")}
+        min="8"
+        max="200"
+        allowReset={true}
+        onChange={(newSize) => {
+          setAttributes({ descriptionSize: newSize });
+        }}
       />
       {/* <RangeControl
         label={__("Columns Number", "wpb")}
@@ -190,6 +199,9 @@ const Edit = (props) => {
                 index_value={index}
               />
               <Position
+                style={{
+                  fontSize: descriptionSize + "px",
+                }}
                 attributes={props.attributes}
                 setAttributes={setAttributes}
                 props={props}

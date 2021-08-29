@@ -8,7 +8,7 @@ import Position from "../components/Position";
 
 const Save = (props) => {
   const {
-    attributes: { columnsNumber, test_block },
+    attributes: { columnsNumber, test_block, descriptionSize },
   } = props;
 
   return (
@@ -21,10 +21,15 @@ const Save = (props) => {
             <h1>Section {index}</h1>
             <figure className="podkit-logo">
               {test_block[index].image?.sizes?.full?.url ? (
-                <img src={test_block[index].image?.sizes?.full?.url} alt="logo" />
+                <img
+                  src={test_block[index].image?.sizes?.full?.url}
+                  alt="logo"
+                />
               ) : (
                 <img
-                  src={"https://survey-project.lndo.site/wp-content/plugins/podkit/images/default-thumbnail.jpg"}
+                  src={
+                    "https://survey-project.lndo.site/wp-content/plugins/podkit/images/default-thumbnail.jpg"
+                  }
                   alt="logo"
                 />
               )}
@@ -40,6 +45,9 @@ const Save = (props) => {
                 index_value={index}
               />
               <Position
+                style={{
+                  fontSize: descriptionSize + "px",
+                }}
                 attributes={props.attributes}
                 setAttributes="not_set"
                 props={props}

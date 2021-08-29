@@ -2225,7 +2225,8 @@ var Position = function Position(propItems) {
   var attributes = propItems.attributes,
       setAttributes = propItems.setAttributes,
       props = propItems.props,
-      index_value = propItems.index_value;
+      index_value = propItems.index_value,
+      style = propItems.style;
   var test_arr = attributes.test_block[index_value];
   var position = "";
 
@@ -2236,7 +2237,9 @@ var Position = function Position(propItems) {
   var data_copy = _toConsumableArray(attributes.test_block);
 
   if (setAttributes !== "not_set") {
-    return /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__["RichText"], {
+    return /*#__PURE__*/React.createElement("div", {
+      style: style
+    }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__["RichText"], {
       tagName: "div",
       value: position,
       placeholder: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Position", "wpb"),
@@ -2271,9 +2274,10 @@ var Position = function Position(propItems) {
       onRemove: function onRemove() {
         return props.onReplace([]);
       }
-    });
+    }));
   } else {
     return /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__["RichText"].Content, {
+      style: style,
       tagName: "div",
       value: position,
       className: "uagb-tm__position"
@@ -6719,6 +6723,7 @@ var Edit = function Edit(props) {
   var _props$attributes = props.attributes,
       columnsNumber = _props$attributes.columnsNumber,
       test_block = _props$attributes.test_block,
+      descriptionSize = _props$attributes.descriptionSize,
       setAttributes = props.setAttributes;
 
   var saveTestText = function saveTestText(value, thisIndex) {
@@ -6778,6 +6783,16 @@ var Edit = function Edit(props) {
     min: 0,
     max: 50,
     allowReset: true
+  }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["RangeControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Description Text Size", "wpb"),
+    min: "8",
+    max: "200",
+    allowReset: true,
+    onChange: function onChange(newSize) {
+      setAttributes({
+        descriptionSize: newSize
+      });
+    }
   })), /*#__PURE__*/React.createElement("div", {
     className: "wpb_block_container",
     key: "render_section"
@@ -6820,6 +6835,9 @@ var Edit = function Edit(props) {
       props: props,
       index_value: index
     }), /*#__PURE__*/React.createElement(_components_Position__WEBPACK_IMPORTED_MODULE_14__["default"], {
+      style: {
+        fontSize: descriptionSize + "px"
+      },
       attributes: props.attributes,
       setAttributes: setAttributes,
       props: props,
@@ -6861,7 +6879,8 @@ __webpack_require__.r(__webpack_exports__);
 var Save = function Save(props) {
   var _props$attributes = props.attributes,
       columnsNumber = _props$attributes.columnsNumber,
-      test_block = _props$attributes.test_block;
+      test_block = _props$attributes.test_block,
+      descriptionSize = _props$attributes.descriptionSize;
   return /*#__PURE__*/React.createElement(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, /*#__PURE__*/React.createElement("h1", null, "Hello Testing Block"), /*#__PURE__*/React.createElement("div", {
     className: "container__items"
   }, test_block.map(function (test, index) {
@@ -6884,6 +6903,9 @@ var Save = function Save(props) {
       props: props,
       index_value: index
     }), /*#__PURE__*/React.createElement(_components_Position__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      style: {
+        fontSize: descriptionSize + "px"
+      },
       attributes: props.attributes,
       setAttributes: "not_set",
       props: props,
@@ -6926,11 +6948,11 @@ for (var i = 1; i <= ITEM_COUNT; i++) {
   var author_text = "John Doe ";
   var company_text = "Company" + i;
   test_block.push({
-    "description": desc_text,
-    "position": position_text,
-    "name": author_text,
-    "company": company_text,
-    "image": ""
+    description: desc_text,
+    position: position_text,
+    name: author_text,
+    company: company_text,
+    image: ""
   });
 }
 
@@ -6942,6 +6964,10 @@ var testblockAttributes = {
   test_block: {
     type: "array",
     default: test_block
+  },
+  descriptionSize: {
+    type: "number",
+    default: 16
   }
 };
 var testblockSupports = {
