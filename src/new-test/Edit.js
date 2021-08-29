@@ -1,4 +1,6 @@
 import times from "lodash/times";
+const { Visualizer } = BoxControl;
+
 import { __ } from "@wordpress/i18n";
 import {
   TextControl,
@@ -59,8 +61,23 @@ import Description from "../components/Description";
 import Position from "../components/Position";
 
 const Edit = (props) => {
+  const [values, setValues] = useState({
+    top: "10px",
+    right: "10px",
+    bottom: "10px",
+    left: "10px",
+  });
   const {
-    attributes: { columnsNumber, test_block, descriptionSize },
+    attributes: {
+      columnsNumber,
+      test_block,
+      descriptionSize,
+      paddingTop,
+      paddingRight,
+      paddingBottom,
+      paddingLeft,
+      paddingUnit,
+    },
     setAttributes,
   } = props;
 
@@ -75,6 +92,22 @@ const Edit = (props) => {
       test_block: newUpdate,
     });
   };
+
+  let paddingValues = Object.values(values);
+
+  const paddingValuesString = paddingValues.toString();
+
+  const thePaddingValues = paddingValuesString.replace(/,/g, " ");
+
+  console.log(paddingValues);
+  console.log(paddingValues.toString());
+
+  // for (const value in values) {
+
+  //   paddingValues = `${value}: ${values[value]}`
+
+  //   console.log(paddingValues);
+  // }
 
   return [
     <InspectorControls key="inspector_control_section">
@@ -121,6 +154,57 @@ const Edit = (props) => {
         onChange={(newSize) => {
           setAttributes({ descriptionSize: newSize });
         }}
+        value={descriptionSize}
+      />
+      <FontSizePicker
+        fallbackFontSize={22}
+        fontSize={[
+          {
+            small: 12,
+          },
+          {
+            medium: 18,
+          },
+          {
+            large: 24,
+          },
+        ]}
+        onChange={(newSize) => {
+          setAttributes({ descriptionSize: newSize });
+        }}
+        value={descriptionSize}
+        // withSlider={true}
+      />
+      <Padding
+        paddingTop={paddingTop}
+        paddingRight={paddingRight}
+        paddingBottom={paddingBottom}
+        paddingLeft={paddingLeft}
+        onChangePadTop={(value) =>
+          setAttributes({
+            paddingTop: value,
+          })
+        }
+        onChangePadRight={(value) =>
+          setAttributes({
+            paddingRight: value,
+          })
+        }
+        onChangePadBottom={(value) =>
+          setAttributes({
+            paddingBottom: value,
+          })
+        }
+        onChangePadLeft={(value) =>
+          setAttributes({
+            paddingLeft: value,
+          })
+        }
+        showUnits={true}
+        selectedUnit={paddingUnit}
+        onChangePadSizeUnit={(newvalue) =>
+          setAttributes({ paddingUnit: newvalue })
+        }
       />
       {/* <RangeControl
         label={__("Columns Number", "wpb")}
@@ -200,7 +284,11 @@ const Edit = (props) => {
               />
               <Position
                 style={{
-                  fontSize: descriptionSize + "px",
+                  fontSize: descriptionSize,
+                  paddingTop: paddingTop + paddingUnit,
+                  paddingBottom: paddingBottom + paddingUnit,
+                  paddingLeft: paddingLeft + paddingUnit,
+                  paddingRight: paddingRight + paddingUnit,
                 }}
                 attributes={props.attributes}
                 setAttributes={setAttributes}

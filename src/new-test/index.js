@@ -37,6 +37,25 @@ const testblockAttributes = {
     type: "number",
     default: 16,
   },
+  paddingSize: {
+    type: "string",
+  },
+  paddingTop: {
+    type: "number",
+  },
+  paddingRight: {
+    type: "number",
+  },
+  paddingBottom: {
+    type: "number",
+  },
+  paddingLeft: {
+    type: "number",
+  },
+  paddingUnit: {
+    type: "string",
+    default: "px",
+  },
 };
 
 const testblockSupports = {

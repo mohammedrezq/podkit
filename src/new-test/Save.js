@@ -8,7 +8,16 @@ import Position from "../components/Position";
 
 const Save = (props) => {
   const {
-    attributes: { columnsNumber, test_block, descriptionSize },
+    attributes: {
+      columnsNumber,
+      test_block,
+      descriptionSize,
+      paddingTop,
+      paddingRight,
+      paddingBottom,
+      paddingLeft,
+      paddingUnit,
+    },
   } = props;
 
   return (
@@ -46,7 +55,11 @@ const Save = (props) => {
               />
               <Position
                 style={{
-                  fontSize: descriptionSize + "px",
+                  fontSize: descriptionSize,
+                  paddingTop: paddingTop + paddingUnit,
+                  paddingBottom: paddingBottom + paddingUnit,
+                  paddingLeft: paddingLeft + paddingUnit,
+                  paddingRight: paddingRight + paddingUnit,
                 }}
                 attributes={props.attributes}
                 setAttributes="not_set"

@@ -6688,13 +6688,9 @@ function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableTo
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
 function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
@@ -6702,7 +6698,20 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+var Visualizer = _wordpress_components__WEBPACK_IMPORTED_MODULE_2__["__experimentalBoxControl"].Visualizer;
 
 
 
@@ -6720,10 +6729,25 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 var Edit = function Edit(props) {
+  var _useState = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["useState"])({
+    top: "10px",
+    right: "10px",
+    bottom: "10px",
+    left: "10px"
+  }),
+      _useState2 = _slicedToArray(_useState, 2),
+      values = _useState2[0],
+      setValues = _useState2[1];
+
   var _props$attributes = props.attributes,
       columnsNumber = _props$attributes.columnsNumber,
       test_block = _props$attributes.test_block,
       descriptionSize = _props$attributes.descriptionSize,
+      paddingTop = _props$attributes.paddingTop,
+      paddingRight = _props$attributes.paddingRight,
+      paddingBottom = _props$attributes.paddingBottom,
+      paddingLeft = _props$attributes.paddingLeft,
+      paddingUnit = _props$attributes.paddingUnit,
       setAttributes = props.setAttributes;
 
   var saveTestText = function saveTestText(value, thisIndex) {
@@ -6738,6 +6762,15 @@ var Edit = function Edit(props) {
       test_block: newUpdate
     });
   };
+
+  var paddingValues = Object.values(values);
+  var paddingValuesString = paddingValues.toString();
+  var thePaddingValues = paddingValuesString.replace(/,/g, " ");
+  console.log(paddingValues);
+  console.log(paddingValues.toString()); // for (const value in values) {
+  //   paddingValues = `${value}: ${values[value]}`
+  //   console.log(paddingValues);
+  // }
 
   return [/*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__["InspectorControls"], {
     key: "inspector_control_section"
@@ -6792,6 +6825,55 @@ var Edit = function Edit(props) {
       setAttributes({
         descriptionSize: newSize
       });
+    },
+    value: descriptionSize
+  }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["FontSizePicker"], {
+    fallbackFontSize: 22,
+    fontSize: [{
+      small: 12
+    }, {
+      medium: 18
+    }, {
+      large: 24
+    }],
+    onChange: function onChange(newSize) {
+      setAttributes({
+        descriptionSize: newSize
+      });
+    },
+    value: descriptionSize // withSlider={true}
+
+  }), /*#__PURE__*/React.createElement(_components_Padding__WEBPACK_IMPORTED_MODULE_12__["default"], {
+    paddingTop: paddingTop,
+    paddingRight: paddingRight,
+    paddingBottom: paddingBottom,
+    paddingLeft: paddingLeft,
+    onChangePadTop: function onChangePadTop(value) {
+      return setAttributes({
+        paddingTop: value
+      });
+    },
+    onChangePadRight: function onChangePadRight(value) {
+      return setAttributes({
+        paddingRight: value
+      });
+    },
+    onChangePadBottom: function onChangePadBottom(value) {
+      return setAttributes({
+        paddingBottom: value
+      });
+    },
+    onChangePadLeft: function onChangePadLeft(value) {
+      return setAttributes({
+        paddingLeft: value
+      });
+    },
+    showUnits: true,
+    selectedUnit: paddingUnit,
+    onChangePadSizeUnit: function onChangePadSizeUnit(newvalue) {
+      return setAttributes({
+        paddingUnit: newvalue
+      });
     }
   })), /*#__PURE__*/React.createElement("div", {
     className: "wpb_block_container",
@@ -6836,7 +6918,11 @@ var Edit = function Edit(props) {
       index_value: index
     }), /*#__PURE__*/React.createElement(_components_Position__WEBPACK_IMPORTED_MODULE_14__["default"], {
       style: {
-        fontSize: descriptionSize + "px"
+        fontSize: descriptionSize,
+        paddingTop: paddingTop + paddingUnit,
+        paddingBottom: paddingBottom + paddingUnit,
+        paddingLeft: paddingLeft + paddingUnit,
+        paddingRight: paddingRight + paddingUnit
       },
       attributes: props.attributes,
       setAttributes: setAttributes,
@@ -6880,7 +6966,12 @@ var Save = function Save(props) {
   var _props$attributes = props.attributes,
       columnsNumber = _props$attributes.columnsNumber,
       test_block = _props$attributes.test_block,
-      descriptionSize = _props$attributes.descriptionSize;
+      descriptionSize = _props$attributes.descriptionSize,
+      paddingTop = _props$attributes.paddingTop,
+      paddingRight = _props$attributes.paddingRight,
+      paddingBottom = _props$attributes.paddingBottom,
+      paddingLeft = _props$attributes.paddingLeft,
+      paddingUnit = _props$attributes.paddingUnit;
   return /*#__PURE__*/React.createElement(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, /*#__PURE__*/React.createElement("h1", null, "Hello Testing Block"), /*#__PURE__*/React.createElement("div", {
     className: "container__items"
   }, test_block.map(function (test, index) {
@@ -6904,7 +6995,11 @@ var Save = function Save(props) {
       index_value: index
     }), /*#__PURE__*/React.createElement(_components_Position__WEBPACK_IMPORTED_MODULE_5__["default"], {
       style: {
-        fontSize: descriptionSize + "px"
+        fontSize: descriptionSize,
+        paddingTop: paddingTop + paddingUnit,
+        paddingBottom: paddingBottom + paddingUnit,
+        paddingLeft: paddingLeft + paddingUnit,
+        paddingRight: paddingRight + paddingUnit
       },
       attributes: props.attributes,
       setAttributes: "not_set",
@@ -6968,6 +7063,25 @@ var testblockAttributes = {
   descriptionSize: {
     type: "number",
     default: 16
+  },
+  paddingSize: {
+    type: "string"
+  },
+  paddingTop: {
+    type: "number"
+  },
+  paddingRight: {
+    type: "number"
+  },
+  paddingBottom: {
+    type: "number"
+  },
+  paddingLeft: {
+    type: "number"
+  },
+  paddingUnit: {
+    type: "string",
+    default: "px"
   }
 };
 var testblockSupports = {
