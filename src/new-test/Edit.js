@@ -59,6 +59,7 @@ import BoxShadow from "../components/BoxShadow";
 import Padding from "../components/Padding";
 import Description from "../components/Description";
 import Position from "../components/Position";
+import ResponsivePreview from "../components/ResponsivePreview";
 
 const Edit = (props) => {
   const [values, setValues] = useState({
@@ -111,6 +112,7 @@ const Edit = (props) => {
 
   return [
     <InspectorControls key="inspector_control_section">
+      <ResponsivePreview />
       <h3>Testing Block Settings</h3>
       <RangeControl
         label={__("Number of Testimonials", "ultimate-addons-for-gutenberg")}
